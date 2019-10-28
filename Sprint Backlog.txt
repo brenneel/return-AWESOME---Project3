@@ -1,0 +1,15 @@
+Basic Interface 
+-Desc: create the input/output fields with 2 drop down menus to choose the units
+--Effort: Low
+
+GUI Styling
+-Desc: Adding better styling for the UI(ie. dark theme)
+--Effort: Low
+
+Submit button for calculating the conversions
+
+Pressure Conversions
+
+Energy Conversions (all from pic from Anna's book)
+
+Dropdowns for constants and units (ex: R)
