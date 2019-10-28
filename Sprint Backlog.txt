@@ -4,7 +4,7 @@ Rare(Easy) to Well-Done(Difficult)
 
 Basic Interface 
 -Desc: create the input/output fields with 2 drop down menus to choose the units
---Effort: Rare
+--Effort: Medium
 
 GUI Styling
 -Desc: Adding better styling for the UI(ie. dark theme)
