@@ -18,8 +18,10 @@ Pressure Conversions
 -Desc: Implement PV=nRT equations, given 4 variables how to calculate the 5th
 --Effort: Medium-Well
 
-Energy Conversions (all from pic from Anna's book)
--Desc:
---Effort: 
+Energy Conversions 
+-Desc: Energy conversions between Btu, J, kW, kWh, etc.
+--Effort: Medium
 
 Dropdowns for constants and units (ex: R)
+-Desc: Add a dropdown for selecting the correct constant value
+--Effort: Medium-Rare
