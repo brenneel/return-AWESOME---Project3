@@ -1,15 +1,25 @@
+Sprint Legend: How do you like your steak?
+Rare(Easy) to Well-Done(Difficult)
+
+
 Basic Interface 
 -Desc: create the input/output fields with 2 drop down menus to choose the units
---Effort: Low
+--Effort: Rare
 
 GUI Styling
 -Desc: Adding better styling for the UI(ie. dark theme)
---Effort: Low
+--Effort: Medium-Rare
 
-Submit button for calculating the conversions
+Submit button 
+-Desc: use a submit button to call the calculation functions
+--Effort: Rare
 
 Pressure Conversions
+-Desc: Implement PV=nRT equations, given 4 variables how to calculate the 5th
+--Effort: Medium-Well
 
 Energy Conversions (all from pic from Anna's book)
+-Desc:
+--Effort: 
 
 Dropdowns for constants and units (ex: R)
