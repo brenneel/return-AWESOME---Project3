@@ -14,7 +14,7 @@ a:hover {
 }
 
 #content {
-    max-width: 70%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -31,7 +31,7 @@ fieldset {
 }
 
 .inner-content {
-    width: 80%;
+/*    width: 80%;*/
     vertical-align: middle;
     margin: auto;
 	font-size: 14pt;
@@ -59,8 +59,7 @@ input[type="number"] {
 
 textarea, input, select {
     font-family: "Segoe UI Light", sans-serif;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 7px 4px;
     padding: 10px;
 	font-size: 12pt;
 }
@@ -71,12 +70,11 @@ textarea, input, select {
 }
 
 .button {
-    padding: 8px 10px 8px;
+    padding: 12px 10px;
     margin: 0px 5px;
-    border-radius: 3px;
     display: inline-block;
     font-weight: bold;
-    background: #e6e6e6;
+	min-width: 25%;
 }
 
 .alert {
@@ -107,4 +105,22 @@ td, th {
 
 .helptext {
 	font-size: 10pt;
+}
+
+.numfield {
+	min-width: 10%;
+}
+
+#category {
+	min-width: 20%;
+}
+
+.hidden {
+	display: none;
+}
+
+.equals {
+	display:inline;
+	padding-left: 10px;
+	padding-right: 10px;
 }
