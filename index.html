@@ -9,60 +9,54 @@
 		<div id="content">
 			<h1 class="centered">Team return(AWESOME) -- Project 3: Unit Converter</h1>
 			<div class="expandable">
-				<fieldset class="inner-content">
-					<div class="subtitle">Unit Converter</div>
-					<form id="units">
-						<p class="centered">
-							<label for="category">Unit Category</label><select id="category" name="category" form="units">
-								<option value="energy">Energy</option>
-								<option value="pressure">Pressure</option>
-							</select>
-						</p>
-						<div class="centered">
-							<input type="number" id="unitA-input" name="unitA-input" value="1" class="numfield"><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units">
-								<option value="joule">Joules (J)</option>
-							</select>
-							<div class="equals">=</div>
-							<input type="number" id="unitB-input" name="unitB-input" class="numfield"><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
-								<option value="kcal">Kilocalorie (Kcal)</option>
-							</select>
-							<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button"></p>
-						</div>
-					</form>
-				</fieldset>
+				<div class="subtitle">Unit Converter</div>
+				<form id="units">
+					<p class="centered">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units">
+							<option value="energy">Energy</option>
+							<option value="pressure">Pressure</option>
+						</select>
+					</p>
+					<div class="centered">
+						<input type="number" id="unitA-input" name="unitA-input" value="1" class="numfield"><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units">
+							<option value="joule">Joules (J)</option>
+						</select>
+						<div class="equals">=</div>
+						<input type="number" id="unitB-input" name="unitB-input" class="numfield"><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
+							<option value="kcal">Kilocalorie (Kcal)</option>
+						</select>
+						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button"></p>
+					</div>
+				</form>
 			</div>
 			<div class="expandable">
-				<fieldset class="inner-content">
-					<div class="subtitle">Constants</div>
-					<form id="constants">
-						<div class="centered">
-							<label for="constant-select">Constant: </label>
-							<select id="constant-select" name="constant-select" form="constants">
-								<option value="R">Universal Gas Constant, R</option>
-							</select>
-							<div class="equals">=</div>
-							<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield">
-							<select id="constant-unit">
-								<option value="J-mol-K">J / (mol * K)</option>
-							</select>
-						</div>
-					</form>
-				</fieldset>
+				<div class="subtitle">Constants</div>
+				<form id="constants">
+					<div class="centered">
+						<label for="constant-select">Constant: </label>
+						<select id="constant-select" name="constant-select" form="constants">
+							<option value="R">Universal Gas Constant, R</option>
+						</select>
+						<div class="equals">=</div>
+						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield">
+						<select id="constant-unit">
+							<option value="J-mol-K">J / (mol * K)</option>
+						</select>
+					</div>
+				</form>
 			</div>
 			<div class="expandable">
-				<fieldset class="inner-content">
-					<div class="subtitle">Formula Calculator</div>
-					<form id="formulas">
-						<div class="centered">
-							<label for="formula-select">Choose a formula: </label>
-							<select id="formula-select" name="formula-select" form="formulas" required>
-								<option value="PVNRT">PV = nRT</option>
-							</select>
-						</div>
-						<div id="formula-inputs"><!-- input fields for the chosen formula will be generated here --></div>
-						<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
-					</form>
-				</fieldset>
+				<div class="subtitle">Formula Calculator</div>
+				<form id="formulas">
+					<div class="centered">
+						<label for="formula-select">Choose a formula: </label>
+						<select id="formula-select" name="formula-select" form="formulas" required>
+							<option value="PVNRT">PV = nRT</option>
+						</select>
+					</div>
+					<div id="formula-inputs"><!-- input fields for the chosen formula will be generated here --></div>
+					<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
+				</form>
 			</div>
 		</div>
 	</body>
