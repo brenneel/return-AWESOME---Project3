@@ -95,7 +95,19 @@ class unitConversion {
      }
 
      
-
+     /**
+      * Converts joules to kWh (kilowatt hour)
+      * @param {double} joules
+      * @return kWh equivalent
+      */
+     jouleTokWh (joules)
+     {
+         kWh = 0.000;
+         joule = Number(joules);
+         btu = this.jouleToBtu(joule);
+         kWh = .00029300 * btu;
+         return kWh;
+     }
 
 }
 
