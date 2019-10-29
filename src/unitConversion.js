@@ -6,7 +6,7 @@ class unitConversion {
     }
 
     //Energy calcs 
-    //ref from Anna's textbook and unitconverters.net/energy-converter.html
+    //ref from Anna's textbook
 
     
     /***************************************************************************
