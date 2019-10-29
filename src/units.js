@@ -109,5 +109,21 @@ class Units {
          return kWh;
      }
 
+     /**
+      * Converts joules to kWs (kilowatt sec)
+      * @param {double} joules
+      * @return kWs equivalent
+      */
+     jouleTokWs(joules)
+     {
+         let kWs = 0.000;
+         let joule = Number(joules);
+         let btu = this.jouleToBtu(joule);
+         kWs = 1.055 * btu;
+         return kWs;
+     }
+
+     //***************************************************************************
+
 }
 
