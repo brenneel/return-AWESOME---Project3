@@ -21,8 +21,8 @@ class Units {
       */
     jouleToErg(joules)
     {
-        ergs = 0.000;
-        joule = Number(joules);
+        let ergs = 0.000;
+        let joule = Number(joules);
         ergs = 10**7 * joule;
         return ergs;
     }
@@ -34,8 +34,8 @@ class Units {
      */
     jouleToBtu(joules)
     {
-        btu = 0.000;
-        joule = Number(joules);
+        let btu = 0.000;
+        let joule = Number(joules);
         btu = 0.00094800 * joule; //according to anna's textbook it only has 3sf, but more accurately is 947867
         return btu;
     }
@@ -47,8 +47,8 @@ class Units {
       */
      jouleToCal(joules)
      {
-         cal = 0.000;
-         joule = Number(joules);
+         let cal = 0.000;
+         let joule = Number(joules);
          cal = 0.239 * joule;
          return cal;
      }
@@ -60,8 +60,8 @@ class Units {
       */
     jouleToEV(joules)
     {
-        eV = 0.000;
-        joule = Number(joules);
+        let eV = 0.000;
+        let joule = Number(joules);
         eV = 10**18 * 6.24 * joule; //check this, we might hit the limit 
         return eV;
     }
@@ -73,9 +73,9 @@ class Units {
       */
      jouleToFootPoundForce(joules)
      {
-         ftlbf = 0.000;
-         joule = Number(joules);
-         btu = this.jouleToBtu(joule);
+         let ftlbf = 0.000;
+         let joule = Number(joules);
+         let btu = this.jouleToBtu(joule);
          ftlbf = 777.97 * btu;
          return ftlbf;
      }
@@ -87,9 +87,9 @@ class Units {
       */
      jouleToHorsepowerHour(joules)
      {
-         hph = 0.000;
-         joule = Number(joules);
-         btu = this.jouleToBtu(joule);
+         let hph = 0.000;
+         let joule = Number(joules);
+         let btu = this.jouleToBtu(joule);
          hph = 0.00039300 * btu;
          return hph;
      }
@@ -102,9 +102,9 @@ class Units {
       */
      jouleTokWh(joules)
      {
-         kWh = 0.000;
-         joule = Number(joules);
-         btu = this.jouleToBtu(joule);
+         let kWh = 0.000;
+         let joule = Number(joules);
+         let btu = this.jouleToBtu(joule);
          kWh = .00029300 * btu;
          return kWh;
      }
