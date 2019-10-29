@@ -80,7 +80,19 @@ class unitConversion {
          return ftlbf;
      }
 
-     
+     /**
+      * Converts joules to hp * h which is horsepower-hour
+      * @param {double} joules
+      * @return horsepower-hour equivalent
+      */
+     jouleToHorsepowerHour (joules)
+     {
+         hph = 0.000;
+         joule = Number(joules);
+         btu = this.jouleToBtu(joule);
+         hph = 0.00039300 * btu;
+         return hph;
+     }
 
      
 
