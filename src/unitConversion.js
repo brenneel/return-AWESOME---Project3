@@ -58,7 +58,7 @@ class unitConversion {
       * @param {double} joules
       * @return eV equivalent
       */
-    jouleToErg (joules)
+    jouleToEV (joules)
     {
         eV = 0.000;
         joule = Number(joules);
@@ -67,18 +67,22 @@ class unitConversion {
     }
 
     /**
-      * Converts joules to ergs. 1 joule is 10^7 ergs
+      * Converts joules to ft * lbf which is foot-pound force 
       * @param {double} joules
-      * @return ergs equivalent
+      * @return foot-pound force equivalent
       */
-     jouleToErg (joules)
+     jouleToFootPoundForce (joules)
      {
-         ergs = 0.000;
+         ftlbf = 0.000;
          joule = Number(joules);
-         ergs = 10**7 * joule;
-         return ergs;
+         btu = this.jouleToBtu(joule);
+         ftlbf = 777.97 * btu;
+         return ftlbf;
      }
 
+     
+
+     
 
 
 }
