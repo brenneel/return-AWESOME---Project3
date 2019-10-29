@@ -6,7 +6,7 @@ class Units {
     }
 
     //Energy calcs 
-    //ref from Anna's textbook
+    //ref from Anna's textbook and unitconverters.net/energy-converter.html
 
     
     /***************************************************************************
@@ -28,6 +28,18 @@ class Units {
     }
 
     /**
+     * Converts erg to joules
+     * @param {double} erg 
+     * @return Btu equivalent
+     */
+    ergToJ(btu)
+    {
+        let btu = Number(btu);
+        let joule = 10**-7 * btu;
+        return joule;
+    }
+
+    /**
      * Converts joules to btu (British thermal unit)
      * @param {double} joules 
      * @return Btu equivalent
@@ -36,8 +48,20 @@ class Units {
     {
         let btu = 0.000;
         let joule = Number(joules);
-        btu = 0.00094800 * joule; //according to anna's textbook it only has 3sf, but more accurately is 947867
+        btu = 0.000947867 * joule; //according to anna's textbook it only has 3sf, but more accurately is 947867
         return btu;
+    }
+
+    /**
+     * Converts btu (British thermal unit) to joules
+     * @param {double} btu 
+     * @return Btu equivalent
+     */
+    btuToJ(btu)
+    {
+        let btu = Number(btu);
+        let joule = 1055.0559 * btu;
+        return joule;
     }
 
     /**
