@@ -19,7 +19,7 @@ class Units {
       * @param {double} joules
       * @return ergs equivalent
       */
-    jouleToErg (joules)
+    jouleToErg(joules)
     {
         ergs = 0.000;
         joule = Number(joules);
@@ -45,7 +45,7 @@ class Units {
       * @param {double} joules
       * @return cal equivalent
       */
-     jouleToCal (joules)
+     jouleToCal(joules)
      {
          cal = 0.000;
          joule = Number(joules);
@@ -58,7 +58,7 @@ class Units {
       * @param {double} joules
       * @return eV equivalent
       */
-    jouleToEV (joules)
+    jouleToEV(joules)
     {
         eV = 0.000;
         joule = Number(joules);
@@ -71,7 +71,7 @@ class Units {
       * @param {double} joules
       * @return foot-pound force equivalent
       */
-     jouleToFootPoundForce (joules)
+     jouleToFootPoundForce(joules)
      {
          ftlbf = 0.000;
          joule = Number(joules);
@@ -85,7 +85,7 @@ class Units {
       * @param {double} joules
       * @return horsepower-hour equivalent
       */
-     jouleToHorsepowerHour (joules)
+     jouleToHorsepowerHour(joules)
      {
          hph = 0.000;
          joule = Number(joules);
@@ -100,7 +100,7 @@ class Units {
       * @param {double} joules
       * @return kWh equivalent
       */
-     jouleTokWh (joules)
+     jouleTokWh(joules)
      {
          kWh = 0.000;
          joule = Number(joules);
