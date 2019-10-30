@@ -159,7 +159,7 @@ class Units {
     /**
      * converts atmospheres to kilopascal(kPa)
      * one atmo = 101.325 according to unitconverters.net, Anna's book = 101.3
-     * @param {double} atmo
+     * @param {double} atmos
      * @return kPa
      */
      atmoTokPa(atmos)
@@ -172,7 +172,7 @@ class Units {
 
      /**
       * converts kilopascals to atmospheres
-      * @param {double} kPa
+      * @param {double} kPas
       * @return atmospheres equiv.
       */
      kPaToAtmo(kPas){
@@ -182,7 +182,29 @@ class Units {
         return(atmo);
      }
 
-     
+     /**
+      * converts atmospheres to bar
+      * 1 atmo = 1.01325 according to unitconverter.net
+      * @param {double} atmos
+      * @return bar equiv.
+      */
+    atmoToBar(atmos){
+        let bar = 0.000;
+        let atmo = Number(atmos);
+        bar = atmo * 1.01325;
+        return(bar);
+    }
 
+    /**
+     * converts bar to atmospheres
+     * @param {double} bars
+     * @return atmo equiv.
+     */
+    barToAtmo(bars){
+        let atmo = 0.000;
+        let bar = Number(bars);
+        atmo = bar / 1.01325;
+        return(atmo);
+    }
 }
 
