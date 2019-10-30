@@ -149,5 +149,40 @@ class Units {
 
      //***************************************************************************
 
+
+        //Pressure calcs 
+    //ref from Anna's textbook and unitconverters.net/pressure-converter.html
+
+    
+    /***************************************************************************
+
+    /**
+     * converts atmospheres to kilopascal(kPa)
+     * one atmo = 101.325 according to unitconverters.net, Anna's book = 101.3
+     * @param {double} atmo
+     * @return kPa
+     */
+     atmoTokPa(atmos)
+     {
+        let kPa = 0.000;
+        let atmo = Number(atmos);
+        kPa = atmo * 101.325;
+        return(kPa);
+     }
+
+     /**
+      * converts kilopascals to atmospheres
+      * @param {double} kPa
+      * @return atmospheres equiv.
+      */
+     kPaToAtmo(kPas){
+        let atmo = 0.000;
+        let kPa = Number(kPas);
+        atmo = kPa / 101.325;
+        return(atmo);
+     }
+
+     
+
 }
 
