@@ -206,5 +206,30 @@ class Units {
         atmo = bar / 1.01325;
         return(atmo);
     }
+
+    /**
+     * converts atmo to pound-force per inch^2 (lbf/in^2)
+     * @param {double} atmos
+     * @return lbf/in^2 equiv.
+     */
+    atmoToPoundPerSquaredInch(atmos){
+        let lbf = 0.000;
+        let atmo = Number(atmos);
+        lbf = atmo * 14.695948775;
+        return(lbf);
+    }
+
+    /**
+     * converts pound-force per inch^2 to atmo
+     * @param {double} lbfs
+     * @return atmo equiv
+     */
+    poundPerSquaredInchToAtmo(lbfs){
+        let atmo = 0.000;
+        let lbf = Number(lbfs);
+        atmo = lbf / 14.695948775;
+        return(atmo);
+    }
+    
 }
 
