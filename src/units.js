@@ -304,7 +304,53 @@ class Units {
         atmo = mercMM / 760.0021;
         return(atmo);
     }
-    
 
+    /**
+     * converts atmos to kgf/cm^2 (kilogram-force/sqare cm)
+     * @param {double} atmos
+     * @return kgf equiv.
+     */
+    atmoToKgf(atmos){
+        let kgf = 0.000;
+        let atmo = Number(atmos);
+        kgf = atmo * 1.033227;
+        return(kgf);
+    }
+
+    /**
+     * converts kgf/cm^2 to atmos
+     * @param {double} kgfs
+     * @return atmos equiv.
+     */
+    kgfToAtmo(kgfs){
+        let atmo = 0.000;
+        let kgf = Number(kgfs);
+        atmo = kgf / 1.033227;
+        return(atmo);
+    }
+
+    /**
+     * converts atmo to meterWater
+     * @param {double} atmos
+     * @return meterWater equiv.
+     */
+    atmoToMeterWater(atmos){
+        let meterWater = 0.000;
+        let atmo = Number(atmos);
+        meterWater = atmo * 10.332559;
+        return(meterWater);
+    }
+    
+    /**
+     * converts meterWater to atmo
+     * @param {double} meterWaters
+     * @return atmo equiv.
+     */
+    meterWaterToAtmo(meterWaters){
+        let atmo = 0.000;
+        let meterWater = Number(meterWaters);
+        atmo = meterWater / 10.332559;
+        return(atmo);
+    }
 }
 
