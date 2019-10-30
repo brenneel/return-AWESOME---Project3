@@ -256,5 +256,55 @@ class Units {
         atmo = footWater / 33.899524252;
         return(atmo);
     }
+
+    /**
+     * converts atmos to inches of mercury
+     * @param {double} atmos
+     * @return mercInch equiv.
+     */
+    atmoToMercInch(atmos){
+        let mercInch = 0.000;
+        let atmo = Number(atmos);
+        mercInch = atmos * 29.92133;
+        return(mercInch); 
+    }
+
+    /**
+     * converts merc inch to atmos
+     * @param {double} mercInches
+     * @return atmos equiv.
+     */
+    MercInchToAtmo(mercInches){
+        let atmo = 0.000;
+        let mercInch = Number(mercInches);
+        atmo = mercInche / 29.92133;
+        return(atmo);
+    }
+
+    /**
+     * converts atmos to mm mercury
+     * @param {double} atmos
+     * @return mercMM equiv
+     */
+    atmoToMercMM(atmos){
+        let mercMM = 0.000;
+        let atmo = Number(atmos);
+        mercMM = atmo * 760.0021;
+        return(mercMM);
+    }
+
+    /**
+     * converts mmMercury to atmos
+     * @param {double} mercMMs
+     * @return atmos equiv.
+     */
+    mercMMToAtmo(mercMMs){
+        let atmo = 0.000;
+        let mercMM = Number(mercMMs);
+        atmo = mercMM / 760.0021;
+        return(atmo);
+    }
+    
+
 }
 
