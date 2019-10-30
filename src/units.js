@@ -5,6 +5,7 @@ class Units {
 
     }
 
+
     //Energy calcs 
     //ref from Anna's textbook and unitconverters.net/energy-converter.html
 
@@ -230,6 +231,30 @@ class Units {
         atmo = lbf / 14.695948775;
         return(atmo);
     }
-    
+
+    /**
+     * converts atmos to feet of water (ft)
+     * foot water = 33.899524252 - unitconverters.net
+     * @param {double} atmos
+     * @return ft equiv.
+     */
+    atmoToFootWater(atmos){
+        let footWater = 0.000;
+        let atmo = Number(atmos);
+        footWater = atmo * 33.899524252;
+        return(footWater);
+    }
+
+    /**
+     * converts footwater to atmospheres
+     * @param {double} footWaters
+     * @return atmo equiv.
+     */
+    footWaterToAtmo(footWaters){
+        let atmo = 0.000;
+        let footWater = Number(footWaters);
+        atmo = footWater / 33.899524252;
+        return(atmo);
+    }
 }
 
