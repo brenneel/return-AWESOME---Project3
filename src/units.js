@@ -105,7 +105,7 @@ class Units {
 
     /**
      * Converts eV to joules
-     * @param {double} cal 
+     * @param {double} eV 
      * @return joule equivalent
      */
     eVToJ(eV)
@@ -130,6 +130,18 @@ class Units {
      }
 
      /**
+     * Converts foot pound force to joules
+     * @param {double} fpf 
+     * @return joule equivalent
+     */
+    ftlbfToJ(fpf)
+    {
+        let ftlbf  = Number(fpf);
+        let joules = ftlbf  * .0012854;
+        return joules;
+    }
+
+     /**
       * Converts joules to hp * h which is horsepower-hour
       * @param {double} joules
       * @return horsepower-hour equivalent
@@ -143,6 +155,18 @@ class Units {
          return hph;
      }
 
+
+     /**
+     * Converts horse power hour to joules
+     * @param {double} hph 
+     * @return joule equivalent
+     */
+    hphToJ(hph)
+    {
+        let horsepower  = Number(hph);
+        let joules = horsepower  * 2684519.5378;
+        return joules;
+    }
      
      /**
       * Converts joules to kWh (kilowatt hour)
