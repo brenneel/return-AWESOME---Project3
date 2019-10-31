@@ -2,7 +2,7 @@
 body {
     font-family: "Segoe UI Light", sans-serif;
     color: white;
-    background-color: #363636;
+    background-color: #2b2b2b;
 }
 
 a {
@@ -32,7 +32,7 @@ p {
 .expandable {
 	display: block;
     border-width: 2px;
-    border-style: groove;
+    border-style: ridge;
     border-color: threedface;
     border-image: initial;
 	padding: 10px;
@@ -61,11 +61,17 @@ textarea, input, select {
     margin: 7px 4px;
     padding: 10px;
 	font-size: 12pt;
+	border-style: none;
+	background-color: #4d4d4d;
+	color: white;
+	border: thin solid white;
 }
 
+/*
 input[type="number"] {
 	
 }
+*/
 
 .button {
     padding: 12px 10px;
@@ -107,6 +113,8 @@ td, th {
 
 .numfield {
 	min-width: 10%;
+	background-color: #4d4d4d;
+	color: white;
 }
 
 #category {
@@ -122,4 +130,3 @@ td, th {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-
