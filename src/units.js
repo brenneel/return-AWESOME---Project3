@@ -31,7 +31,7 @@ class Units {
     /**
      * Converts erg to joules
      * @param {double} erg 
-     * @return Btu equivalent
+     * @return joule equivalent
      */
     ergToJ(btu)
     {
@@ -56,7 +56,7 @@ class Units {
     /**
      * Converts btu (British thermal unit) to joules
      * @param {double} btu 
-     * @return Btu equivalent
+     * @return joule equivalent
      */
     btuToJ(btu)
     {
@@ -79,6 +79,18 @@ class Units {
      }
 
      /**
+     * Converts calories to joules
+     * @param {double} cal 
+     * @return joule equivalent
+     */
+    calToJ(cal)
+    {
+        let cals = Number(cal);
+        let joules = cals * 4.1841;
+        return joules;
+    }
+
+     /**
       * Converts joules to eV (electron volts). 1 joule is 6.24* 10^8 eV
       * @param {double} joules
       * @return eV equivalent
@@ -89,6 +101,18 @@ class Units {
         let joule = Number(joules);
         eV = 10**18 * 6.24 * joule; //check this, we might hit the limit 
         return eV;
+    }
+
+    /**
+     * Converts eV to joules
+     * @param {double} eV 
+     * @return joule equivalent
+     */
+    eVToJ(eV)
+    {
+        let ev = Number(eV);
+        let joules = ev * 1.60256 * 10**-19;
+        return joules;
     }
 
     /**
@@ -106,6 +130,18 @@ class Units {
      }
 
      /**
+     * Converts foot pound force to joules
+     * @param {double} fpf 
+     * @return joule equivalent
+     */
+    ftlbfToJ(fpf)
+    {
+        let ftlbf  = Number(fpf);
+        let joules = ftlbf  * .0012854;
+        return joules;
+    }
+
+     /**
       * Converts joules to hp * h which is horsepower-hour
       * @param {double} joules
       * @return horsepower-hour equivalent
@@ -119,6 +155,18 @@ class Units {
          return hph;
      }
 
+
+     /**
+     * Converts horse power hour to joules
+     * @param {double} hph 
+     * @return joule equivalent
+     */
+    hphToJ(hph)
+    {
+        let horsepower  = Number(hph);
+        let joules = horsepower  * 2684519.5378;
+        return joules;
+    }
      
      /**
       * Converts joules to kWh (kilowatt hour)
@@ -135,6 +183,18 @@ class Units {
      }
 
      /**
+     * Converts kilowatt hour to joules
+     * @param {double} kwh 
+     * @return joule equivalent
+     */
+    kwhToJ(kwh)
+    {
+        let kWh  = Number(kwh);
+        let joules = kWh  * 3600000;
+        return joules;
+    }
+
+     /**
       * Converts joules to kWs (kilowatt sec)
       * @param {double} joules
       * @return kWs equivalent
@@ -147,6 +207,20 @@ class Units {
          kWs = 1.055 * btu;
          return kWs;
      }
+
+     /**
+     * Converts kilowatt seconds to joules
+     * @param {double} kws
+     * @return joule equivalent
+     */
+    kwsToJ(kws)
+    {
+        let kWs  = Number(kws);
+        let joules = kWs  * 1000;
+        return joules;
+    }
+
+
 
      //***************************************************************************
 
