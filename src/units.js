@@ -183,6 +183,18 @@ class Units {
      }
 
      /**
+     * Converts kilowatt hour to joules
+     * @param {double} kwh 
+     * @return joule equivalent
+     */
+    kwhToJ(kwh)
+    {
+        let kWh  = Number(kwh);
+        let joules = kWh  * 3600000;
+        return joules;
+    }
+
+     /**
       * Converts joules to kWs (kilowatt sec)
       * @param {double} joules
       * @return kWs equivalent
@@ -195,6 +207,20 @@ class Units {
          kWs = 1.055 * btu;
          return kWs;
      }
+
+     /**
+     * Converts kilowatt seconds to joules
+     * @param {double} kws
+     * @return joule equivalent
+     */
+    kwsToJ(kws)
+    {
+        let kWs  = Number(kws);
+        let joules = kWs  * 1000;
+        return joules;
+    }
+
+
 
      //***************************************************************************
 
