@@ -8,6 +8,14 @@ class Config {
 	ENERGY_UNITS = {
 		"joule": "Joules (J)",
 		"kcal": "kiloCalories (KCal or Cal)",
+		"btu": "btu (British thermal unit)",
+		"erg": "erg",
+		"eV": "eV (electron volts)",
+		"cal": "calories (cal)",
+		"ftlbf": "ft lbf (footpound force)",
+		"hph": "hp h (horsepower hour)",
+		"kWh": "kWh (kilowatt hour)",
+		"kWs": "kWs (kilowatt second)"
 	};
 
 	PRESSURE_UNITS = {
