@@ -1,4 +1,8 @@
 class formulasAbs{
+    constructor(){
+        
+    }
+
     multiplySolve(numer, denom){
         let numerTotal = 1;
         let denomTotal = 1;
