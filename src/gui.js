@@ -1,10 +1,16 @@
 /* gui.js */
 
 class GUI {
-	/**
+	/** Initializes the dynamically-generated dropdown menus.
 	 *
 	 */
-	
+	initialize() {
+		let menuA = document.getElementById("unitA-select");
+		CONFIG.ENERGY_UNITS.forEach(function(item) {
+			menuA.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
+		this.populateNextDropdown("unitA-select", "unitB-select");
+	}
 	
 	/** Based on the selection of one dropdown menu, populate the options of another dropdown menu.
 	 * @param {string} menuAId - the elementID of the first menu
