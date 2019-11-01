@@ -257,6 +257,30 @@ class Units {
         return(atmo);
      }
 
+    /**
+     * converts atmo to pa
+     * @param {double} atmos
+     * @return pa equiv 
+     */
+     atmoToPa(atmos){
+         let pa = 0.000;
+         let atmo = Number(atmos);
+         pa = atmo * 101325;
+         return(pa);
+     }
+
+     /**
+      * convert pa to atmo
+      * @param {double} pas
+      * @return atmo equiv 
+      */
+     paToAtmo(pas){
+        let atmo = 0.000;
+        let pa = Number(pas);
+        atmo = pa / 101325;
+        return(atmo);
+    }
+
      /**
       * converts atmospheres to bar
       * 1 atmo = 1.01325 according to unitconverter.net
