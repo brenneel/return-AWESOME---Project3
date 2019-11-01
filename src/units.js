@@ -35,8 +35,8 @@ class Units {
      */
     ergToJ(btu)
     {
-        let btu = Number(btu);
-        let joule = 10**-7 * btu;
+        let btus = Number(btu);
+        let joule = 10**-7 * btus;
         return joule;
     }
 
@@ -60,8 +60,8 @@ class Units {
      */
     btuToJ(btu)
     {
-        let btu = Number(btu);
-        let joule = 1055.0559 * btu;
+        let btus = Number(btu);
+        let joule = 1055.0559 * btus;
         return joule;
     }
 
