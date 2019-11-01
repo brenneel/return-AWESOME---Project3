@@ -504,7 +504,7 @@ class Units {
      * @param {double} atmos
      * @return inchWater equiv
      */
-    atmoToPsi(atmos){
+    atmoToInchWater(atmos){
         let inchWater = 0.00;
         let atmo = Number(atmos);
         inchWater = atmo / 14.695948775;
@@ -516,7 +516,7 @@ class Units {
      * @param {double} inchWaters
      * @return atmo equiv
      */
-    psiToAtmo(inchWaters){
+    inchWaterToAtmo(inchWaters){
         let atmo = 0.00;
         let inchWater = Number(inchWaters);
         atmo = inchWater * 14.695948775;
