@@ -43,6 +43,7 @@
 						<select id="constant-unit">
 							<option value="J-mol-K">J / (mol * K)</option>
 						</select>
+						<label for="constant-unit" class="hidden">Constant's Unit</label>
 					</div>
 				</form>
 			</div>
@@ -55,7 +56,10 @@
 							<option value="PVNRT">PV = nRT</option>
 						</select>
 					</div>
-					<div id="formula-inputs"><!-- input fields for the chosen formula will be generated here --></div>
+					<div id="formula-inputs" class="centered"><!-- input fields for the chosen formula will be generated here -->
+						<div>IDEAL GAS LAW: PV = nRT (use SI units only.)</div>
+						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label><input type="number" id="const-R" name="const-R" class="numfield" value="8.314" readonly><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
+					</div>
 					<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
 				</form>
 			</div>

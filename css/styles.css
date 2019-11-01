@@ -112,7 +112,7 @@ td, th {
 }
 
 .numfield {
-	min-width: 10%;
+	width: 10%;
 	background-color: #4d4d4d;
 	color: white;
 }
