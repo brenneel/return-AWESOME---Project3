@@ -426,5 +426,55 @@ class Units {
         atmo = meterWater / 10.332559;
         return(atmo);
     }
+
+    /**
+     * converts atmo to Torr
+     * @param {double} atmos
+     * @return torr equiv
+     */
+    atmoToTorr(atmos){
+        let torr= 0.00;
+        let atmo = Number(atmos);
+        torr = atmo * 760;
+        return(torr);
+    }
+
+    /**
+     * converts Torr to atmos
+     * @param {double} torss
+     * @return atmo equiv
+     */
+    torrToAtmo(torrs){
+        let atmo = 0.00;
+        let torr = Number(torrs);
+        atmo = torr / 760;
+        return(atmo);
+    }
+
+    /**
+     * converts atmo to psi
+     * @param {double} atmos
+     * @return psi equiv
+     */
+    atmoToPsi(atmos){
+        let psi = 0.00;
+        let atmo = Number(atmos);
+        psi = atmo / 14.695948775;
+        return(psi);
+    }
+
+    /**
+     * converts psi to atmo
+     * @param {double} psis
+     * @return atmo equiv
+     */
+    psiToAtmo(psis){
+        let atmo = 0.00;
+        let psi = Number(psis);
+        atmo = psi * 14.695948775;
+        return(atmo);
+    }
+
+    
 }
 
