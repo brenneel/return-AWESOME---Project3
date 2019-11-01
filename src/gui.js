@@ -30,4 +30,28 @@ class GUI {
 		});
 	}
 
+	/** Returns a two-digit number  (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array; similar for the second digit.  Example: joule to cal conversion will be represented by 02.
+	 * @pre - assumes that there are no indexes greater than 9.
+	 * @param {string} category - the category of units, ie. "energy".
+	 * @param {string} unitA - the unit to be converted from.
+	 * @param {string} unitB - the unit to be converted to.
+	 * @return {string} - a two-digit number (in string form) representing the  units being converted from and to.
+	 */
+	genConversionID(category, unitA, unitB) {
+		let ID = "";
+		switch(category) {
+			case "energy":
+				ID += String(CONFIG.getIndexOf(category, unitA));
+				ID += String(CONFIG.getIndexOf(category, unitB));
+				break;
+			case "pressure":
+				ID += String(CONFIG.getIndexOf(category, unitA));
+				ID += String(CONFIG.getIndexOf(category, unitB));
+				break;
+			default:
+				console.log("conversionID: category doesn't match anything");
+				break;
+		}
+		return(ID);
+	}
 }
