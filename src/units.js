@@ -257,6 +257,30 @@ class Units {
         return(atmo);
      }
 
+    /**
+     * converts atmo to pa
+     * @param {double} atmos
+     * @return pa equiv 
+     */
+     atmoToPa(atmos){
+         let pa = 0.000;
+         let atmo = Number(atmos);
+         pa = atmo * 101325;
+         return(pa);
+     }
+
+     /**
+      * convert pa to atmo
+      * @param {double} pas
+      * @return atmo equiv 
+      */
+     paToAtmo(pas){
+        let atmo = 0.000;
+        let pa = Number(pas);
+        atmo = pa / 101325;
+        return(atmo);
+    }
+
      /**
       * converts atmospheres to bar
       * 1 atmo = 1.01325 according to unitconverter.net
@@ -424,6 +448,102 @@ class Units {
         let atmo = 0.000;
         let meterWater = Number(meterWaters);
         atmo = meterWater / 10.332559;
+        return(atmo);
+    }
+
+    /**
+     * converts atmo to Torr
+     * @param {double} atmos
+     * @return torr equiv
+     */
+    atmoToTorr(atmos){
+        let torr= 0.00;
+        let atmo = Number(atmos);
+        torr = atmo * 760;
+        return(torr);
+    }
+
+    /**
+     * converts Torr to atmos
+     * @param {double} torss
+     * @return atmo equiv
+     */
+    torrToAtmo(torrs){
+        let atmo = 0.00;
+        let torr = Number(torrs);
+        atmo = torr / 760;
+        return(atmo);
+    }
+
+    /**
+     * converts atmo to psi
+     * @param {double} atmos
+     * @return psi equiv
+     */
+    atmoToPsi(atmos){
+        let psi = 0.00;
+        let atmo = Number(atmos);
+        psi = atmo / 14.695948775;
+        return(psi);
+    }
+
+    /**
+     * converts psi to atmo
+     * @param {double} psis
+     * @return atmo equiv
+     */
+    psiToAtmo(psis){
+        let atmo = 0.00;
+        let psi = Number(psis);
+        atmo = psi * 14.695948775;
+        return(atmo);
+    }
+
+     /**
+     * converts atmo to inchWater
+     * @param {double} atmos
+     * @return inchWater equiv
+     */
+    atmoToInchWater(atmos){
+        let inchWater = 0.00;
+        let atmo = Number(atmos);
+        inchWater = atmo / 14.695948775;
+        return(inchWater);
+    }
+
+    /**
+     * converts inchWater to atmo
+     * @param {double} inchWaters
+     * @return atmo equiv
+     */
+    inchWaterToAtmo(inchWaters){
+        let atmo = 0.00;
+        let inchWater = Number(inchWaters);
+        atmo = inchWater * 14.695948775;
+        return(atmo);
+    }
+
+    /**
+     * converst atmo to dyne/cm^2 
+     * @param {double} atmos
+     * @return dyne equiv
+     */
+    atmoToDynePerCM(atmos){
+        let dyne = 0.00;
+        let atmo = Number(atmos);
+        dyne = atmo * 1013250;
+        return(dyne);
+    }
+
+    /**
+     * converts dyne/cm^2 to atmo
+     * @param {double} dynes
+     * @return atmo equiv
+     */
+    dynePerCMToAtmo(dynes){
+        let atmo = 0.00;
+        dyne = Number(dynes);
+        atmo = dyne / 1013250;
         return(atmo);
     }
 }
