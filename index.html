@@ -22,11 +22,9 @@
 					</p>
 					<div class="centered">
 						<input type="number" id="unitA-input" name="unitA-input" value="1" class="numfield"><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units">
-							<option value="joule">Joules (J)</option>
 						</select>
 						<div class="equals">=</div>
 						<input type="number" id="unitB-input" name="unitB-input" class="numfield"><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
-							<option value="kcal">Kilocalorie (Kcal)</option>
 						</select>
 						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button"></p>
 					</div>
@@ -63,4 +61,12 @@
 			</div>
 		</div>
 	</body>
+	<footer>
+		<script>
+			let CONFIG = new Config();
+			let UNITS = new Units();
+			let gui = new GUI();
+			gui.initialize();
+		</script>
+	</footer>
 </html>
