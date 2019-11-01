@@ -1,6 +1,21 @@
-/* gui.js */
-
+/** Class that contains all GUI methods: dynamically loads parts of the interface, handles user input validation, and makes calls to conversion functionality.
+ * @prop {Element} m_catMenu - Element object representing the Category dropdown menu.
+ * @prop {Element} m_unitAMenu - Element object representing the Unit A (unit to be converted from) dropdown menu.
+ * @prop {Element} m_unitBMenu - Element object representing the Unit B (unit to convert to) dropdown menu.
+ * @prop {Element} m_constMenu - Element object representing the Constants dropdown menu.
+ * @prop {Element} m_constUnitMenu - Element object representing the Constants' Unit dropdown menu.
+ * @prop {Element} m_formulaMenu - Element object representing the Formulas dropdown menu.
+ */
 class GUI {
+	constructor() {
+		this.m_catMenu = document.getElementById("category");
+		this.m_unitAMenu = document.getElementById("unitA-select");
+		this.m_unitBMenu = document.getElementById("unitB-select");
+		this.m_constMenu = document.getElementById("constant-select");
+		this.m_constUnitMenu = document.getElementById("constant-unit");
+		this.m_formulaMenu = document.getElementById("formula-select");
+	}
+	
 	/** Initializes the dynamically-generated dropdown menus.
 	 *
 	 */
