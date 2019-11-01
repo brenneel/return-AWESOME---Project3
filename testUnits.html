@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <title>Tests for unit conversions</title>
+        <script src="src/units.js"></script>
+    </head> 
+
+    <body>
+        <h2>Testing suite</h2>
+
+        <script>
+            let unit = new Units();
+            console.log("Testing erg to Joule");
+            for (let i = -1000; i< 1000; i= i+125.56)
+            {
+                //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                let expected = i/10000000;
+                //console.log("Expected value = " + expected + " TEST ");
+                let calc = unit.ergToJ(i);
+                let flag = false;
+                if (calc !== expected)
+                {
+                    //console.log(" PASSED\n");
+                    flag = true;
+                }
+                if (flag)
+                {
+                    console.log("erg = " + i + " joule = " + calc+ "\n");
+                    console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                    console.log(calc-expected + "\n");
+                }
+            }
+
+            console.log("Testing Joule to erg");
+            for (i = -1000; i< 1000; i=i+125.56)
+            {
+                //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                let expected = i*10000000;
+                //console.log("Expected value = " + expected + " TEST ");
+                let calc = unit.jouleToErg(i);
+                flag = false;
+                if (calc !== expected)
+                {
+                    //console.log(" PASSED\n");
+                    flag = true;
+                    
+                }
+                if (flag)
+                {
+                    console.log("joule = " + i + " erg = " + calc + "\n");
+                    console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                    console.log(calc-expected + "\n");
+                }
+                else
+                {
+                    console.log("expected = " + expected + " calc = " + calc + "\n");
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
