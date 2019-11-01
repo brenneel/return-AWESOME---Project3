@@ -18,9 +18,20 @@ class Config {
 	];
 
 	PRESSURE_UNITS = [
-		["atm", "Atmospheres (atm)"],
+		["atm", "atmospheres (atm)"],
 		["kPa", "kilopascals (kPa)"],
-		["Pa", "pascals (Pa)"]
+		["Pa", "pascals (Pa)"],
+		["bar", "bar (bar)"],
+		["lbf", "pound-force/square inch (lbf/in^2)"],
+		["ftAq", "foot water (ftAq)"],
+		["inHg", "inch mercury (inHg)"],
+		["mmHg", "milimeter mercury (mmHg)"],
+		["kgF", "ton-force/square centimeter (kgf/cm^2)"],
+		["mAq", "meter water (mAq)"],
+		["torr", "Torr (torr)"],
+		["psi", "psi (psi)"],
+		["inAq", "inch water (inAq)"],
+		["dyne", "dyne/square centimeter (dyne/cm^2)"]
 	];
 	
 	/** Gets the array index of the given unit.
