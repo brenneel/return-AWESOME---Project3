@@ -475,6 +475,52 @@ class Units {
         return(atmo);
     }
 
-    
+     /**
+     * converts atmo to inchWater
+     * @param {double} atmos
+     * @return inchWater equiv
+     */
+    atmoToPsi(atmos){
+        let inchWater = 0.00;
+        let atmo = Number(atmos);
+        inchWater = atmo / 14.695948775;
+        return(inchWater);
+    }
+
+    /**
+     * converts inchWater to atmo
+     * @param {double} inchWaters
+     * @return atmo equiv
+     */
+    psiToAtmo(inchWaters){
+        let atmo = 0.00;
+        let inchWater = Number(inchWaters);
+        atmo = inchWater * 14.695948775;
+        return(atmo);
+    }
+
+    /**
+     * converst atmo to dyne/cm^2 
+     * @param {double} atmos
+     * @return dyne equiv
+     */
+    atmoToDynePerCM(atmos){
+        let dyne = 0.00;
+        let atmo = Number(atmos);
+        dyne = atmo * 1013250;
+        return(dyne);
+    }
+
+    /**
+     * converts dyne/cm^2 to atmo
+     * @param {double} dynes
+     * @return atmo equiv
+     */
+    dynePerCMToAtmo(dynes){
+        let atmo = 0.00;
+        dyne = Number(dynes);
+        atmo = dyne / 1013250;
+        return(atmo);
+    }
 }
 
