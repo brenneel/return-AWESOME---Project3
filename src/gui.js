@@ -54,4 +54,34 @@ class GUI {
 		}
 		return(ID);
 	}
+	
+	/** Takes conversion unit and input values from the form, converts them into the correct formats, and calls the correct conversion method.
+	 * @pre - assumes that the generated conversionID can never be more than 2 digits and can only have the listed values.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a 2 digit number representing the units to convert from and to.
+	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 */
+	convertEnergy(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "01":
+				converted = UNITS.jouleToCal(value);
+				break;
+			case "02":
+				// TODO
+			default:
+				console.log("convertEnergy: no cases matched " + conversionID);
+		}
+		return(converted);
+	}
+	
+	/** Handles conversion calls: validates all inputs and calls the appropriate functions.
+	 * 
+	 */
+	convert(category, unitA, unitB, value) {
+		
+	}
+	
+	
+	
 }
