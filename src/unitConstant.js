@@ -91,5 +91,22 @@ class UnitConstant{
         K:                      1.4
     }
 
+    //molecular weights of common gases
+    MOLEC_GAS_WEIGHTS = {
+        HYDROGEN:               2.0,
+        HELIUM:                 4.0,
+        METHANE:                16.0,
+        CARBON_MONOXIDE:        28.0,
+        NITROGEN:               28.0,
+        AIR:                    29.0,
+        OXYGEN:                 32.0,
+        CARBON_DIOXIDE:         44.0,
+        PROPANE:                44.0
+    }
+
+    GRAVITY = {
+        FT_S2:                  32.17,
+        M_S2:                   9.81
+    }
 
 }
