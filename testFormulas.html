@@ -9,11 +9,24 @@
     <script>
         let fSol = new FormulasSol();
         let o = 0;
+        let sol = 0;
 
         o = {v:"2" ,p:"1", t:"4"};
-        console.log(o);
-        console.log(fSol.pvNRT(o));
+        sol = fSol.pvNRT(o);
+        printSol(o, sol);
 
+        o = {v:"2" ,p:"1", t:"4", n:"5"};
+        sol = fSol.pvNRT(o);
+        printSol(o, sol);
+
+        o = {v:"2" ,p:"1", g:"4"};
+        sol = fSol.pvNRT(o);
+        printSol(o, sol);
+
+        function printSol(o, sol){
+            console.log(o);
+            console.log(sol);
+        }
     </script>
 </body>
 </html>

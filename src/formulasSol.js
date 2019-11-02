@@ -1,12 +1,21 @@
+/**
+ * Computes all of the formulas that the user can choose from.
+ */
 class FormulasSol{
-    uConst;
-    fAbs;
+    uConst; /** Variable representing {@link UnitConstant} */
+    fAbs;   /** Variable representing {@link FormulasAbs} */
 
     constructor(){
         this.fAbs = new FormulasAbs();
         this.uConst = new UnitConstant();
     }
 
+    /**
+     * Does a pv = nRT calculation based on an object.
+     * @param {Object} obj: An object with only 3 of the following keys: p, v, n, or t.
+     * @return {Number}:   The computed value based on the variables in the object.
+     *         undefined:   Too many or too few object keys.
+     */
     pvNRT(obj){
         let r = this.uConst.UNIV_GAS_CONST.J_MOL_K;
         let tempArr = ['p', 'v', 'n', 't'];
@@ -45,8 +54,8 @@ class FormulasSol{
                 break;
             default:
                 console.log("Error in PVNRT: Bad var");
+                return undefined;
         }
-
         return this.fAbs.multiplySolve(numer, denom);
     }
 }
