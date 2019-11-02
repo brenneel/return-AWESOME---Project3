@@ -102,11 +102,38 @@ class GUI {
 	}
 	
 	/** Handles conversion calls: validates all inputs and calls the appropriate functions.
-	 * 
+	 * @param {string} category - the category of units, ie. "energy".
+	 * @param {string} unitA - the unit to convert from.
+	 * @param {string} unitB - the unit to convert to.
+	 * @param {number} value - the value to convert.
 	 */
 	convert(category, unitA, unitB, value) {
-		
+		if(unitA != unitB) {
+			let conversionID;
+			let newVal;
+			switch(category) {
+				case "energy":
+					conversionID = this.genConversionID(category, unitA, unitB);
+					newVal = this.convertEnergy(value, conversionID);
+					this.m_unitBOutput.value = newVal;
+					break;
+				case "pressure":
+					conversionID = this.genConversionID(category, unitA, unitB);
+					newVal = this.convertPressure(value, conversionID);
+					this.m_unitBOutput.value = newVal;
+				default:
+					console.log("GUI.convert: " + category + " does not match any case.");
+					break;
+			}
+		}
 	}
+	
+	
+	// ---------- EVENT HANDLERS ----- //
+	/**
+	 *
+	 */
+	
 	
 	
 	
