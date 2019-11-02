@@ -8,23 +8,34 @@
  */
 class GUI {
 	constructor() {
+		// dropdown menus
 		this.m_catMenu = document.getElementById("category");
 		this.m_unitAMenu = document.getElementById("unitA-select");
 		this.m_unitBMenu = document.getElementById("unitB-select");
 		this.m_constMenu = document.getElementById("constant-select");
 		this.m_constUnitMenu = document.getElementById("constant-unit");
 		this.m_formulaMenu = document.getElementById("formula-select");
+		
+		// input for unit converter
+		this.m_unitAInput = document.getElementById("unitA-input");
+		
+		// outputs for unit converter & constants
+		this.m_unitBOutput = document.getElementById("unitB-input");
+		this.m_constOutput = document.getElementById("constant-num");
 	}
 	
 	/** Initializes the dynamically-generated dropdown menus.
 	 *
 	 */
 	initialize() {
-		let menuA = document.getElementById("unitA-select");
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
-			menuA.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
-		this.populateNextDropdown("unitA-select", "unitB-select");
+//		this.populateNextDropdown("unitA-select", "unitB-select");
+		// remove this for testing/prototype
+		CONFIG.ENERGY_UNITS.forEach(function(item) {
+			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
 	}
 	
 	/** Based on the selection of one dropdown menu, populate the options of another dropdown menu.
@@ -70,32 +81,127 @@ class GUI {
 		return(ID);
 	}
 	
-	/** Takes conversion unit and input values from the form, converts them into the correct formats, and calls the correct conversion method.
-	 * @pre - assumes that the generated conversionID can never be more than 2 digits and can only have the listed values.
+	/** Converts energy units by calling the appropriate Units method.
 	 * @param {number} value - the value to convert.
-	 * @param {string} conversionID - a 2 digit number representing the units to convert from and to.
-	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
 	 */
 	convertEnergy(value, conversionID) {
 		let converted;
 		switch(conversionID) {
-			case "01":
+			case "01":	// joule to cal
 				converted = UNITS.jouleToCal(value);
 				break;
-			case "02":
-				// TODO
+			case "02":	// joule to btu
+				converted = UNITS.jouleToBtu(value);
+				break;
+			case "03":	// joule to erg
+				converted = UNITS.jouleToErg(value);
+				break;
+			case "04":	// joule to eV
+				converted = UNITS.jouleToEV(value);
+				break;
+			case "05":	// joule to ftlbf
+				converted = UNITS.jouleToFootPoundForce(value);
+				break;
+			case "06":	// joule to hph
+				converted = UNITS.jouleToHorsepowerHour(value);
+				break;
+			case "07":	// joule to kWh
+				converted = UNITS.jouleTokWh(value);
+				break;
+			case "08":	// joule to kWs
+				converted = UNITS.jouleTokWs(value);
+				break;
+			case "10":	// cal to joule
+				converted = UNITS.calToJ(value);
+				break;
+			case "20":	// btu to joule
+				converted = UNITS.btuToJ(value);
+				break;
+			case "30":	// erg to joule
+				converted = UNITS.ergToJ(value);
+				break;
+			case "40":	// Ev to joule
+				converted = UNITS.eVToJ(value);
+				break;
+			case "50":	// ftlbf to joule
+				converted = UNITS.ftlbfToJ(value);
+				break;
+			case "60":	// hph to joule
+				converted = UNITS.hphToJ(value);
+				break;
+			case "70":	// kWh to joule
+				converted = UNITS.kwhToJ(value);
+				break;
+			case "80":	// kWs to joule
+				converted = UNITS.kwsToJ(value);
+				break;
 			default:
 				console.log("convertEnergy: no cases matched " + conversionID);
 		}
 		return(converted);
 	}
 	
-	/** Handles conversion calls: validates all inputs and calls the appropriate functions.
-	 * 
+	/** Converts pressure units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertPressure(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "01":	// atm to kPa
+				converted = UNITS.atmoTokPa(value);
+				break;
+			case "02":	// atm to Pa; TODO: need Units method
+				break;
+			// TODO
+			
+			case "10":	// kPa to atm
+				converted = UNITS.kPaToAtmo(value);
+				break;
+			default:
+				console.log("GUI.convertPressure: no cases matched " + conversionID);
+		}
+		return(converted);
+	}
+	
+	/** Handles conversion calls: validates inputs and calls the conversion methods for the correct category.
+	 * @param {string} category - the category of units, ie. "energy".
+	 * @param {string} unitA - the unit to convert from.
+	 * @param {string} unitB - the unit to convert to.
+	 * @param {number} value - the value to convert.
+	 * @post - changes the value of the "unitB-input" element to the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
-		
+		if(unitA != unitB) {
+			let conversionID;
+			let newVal;
+			switch(category) {
+				case "energy":
+					conversionID = this.genConversionID(category, unitA, unitB);
+					newVal = this.convertEnergy(value, conversionID);
+					this.m_unitBOutput.value = newVal;
+					break;
+				case "pressure":
+					conversionID = this.genConversionID(category, unitA, unitB);
+					newVal = this.convertPressure(value, conversionID);
+					this.m_unitBOutput.value = newVal;
+					break;
+				default:
+					console.log("GUI.convert: " + category + " does not match any case.");
+					break;
+			}
+		}
 	}
+	
+	
+	// ---------- EVENT HANDLERS ----- //
+	/**
+	 *
+	 */
+	
 	
 	
 	
