@@ -33,15 +33,42 @@ class GUI {
 	 *
 	 */
 	initialize() {
+		this.populateEnergyMenus();
+//		this.populateNextDropdown("unitA-select", "unitB-select");
+		// remove this for testing/prototype
+		
+	}
+	
+	/** Populates both unit dropdown menus with energy units. Used when initializing the page, and when changing unit categories.
+	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with energy units.
+	 */
+	populateEnergyMenus() {
+		this.m_unitAMenu.innerHTML = "";
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
 			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
-//		this.populateNextDropdown("unitA-select", "unitB-select");
-		// remove this for testing/prototype
+		
+		this.m_unitBMenu.innerHTML = "";
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
 			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
+	
+	/** Populates both unit dropdown menus with pressure units. Used when changing unit categories.
+	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with pressure units.
+	 */
+	populatePressureMenus() {
+		this.m_unitAMenu.innerHTML = "";
+		CONFIG.PRESSURE_UNITS.forEach(function(item) {
+			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
+		
+		this.m_unitBMenu.innerHTML = "";
+		CONFIG.PRESSURE_UNITS.forEach(function(item) {
+			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
+	}
+	
 	
 	/** Based on the selection of one dropdown menu, populate the options of another dropdown menu.
 	 * @param {string} menuAId - the elementID of the first menu
