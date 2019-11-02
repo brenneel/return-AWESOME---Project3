@@ -15,7 +15,7 @@
 				<div class="subtitle">Unit Converter</div>
 				<form id="units">
 					<p class="centered">
-						<label for="category">Unit Category</label><select id="category" name="category" form="units">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="gui.categoryChange();">
 							<option value="energy">Energy</option>
 							<option value="pressure">Pressure</option>
 						</select>

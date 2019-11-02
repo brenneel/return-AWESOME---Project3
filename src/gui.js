@@ -320,6 +320,23 @@ class GUI {
 		}
 	}
 	
+	/** Repopulates the unit dropdown menus when the unit category is changed.
+	 * @post - changes the options generated in the "unitA-select" and "unitB-select" dropdown menus.
+	 */
+	categoryChange() {
+		let category = this.m_catMenu.value;
+		switch(category) {
+			case "energy":
+				this.populateEnergyMenus();
+				break;
+			case "pressure":
+				this.populatePressureMenus();
+				break;
+			default:
+				console.log(category + "does not match any case.");
+				break;
+		}
+	}
 	
 	
 }
