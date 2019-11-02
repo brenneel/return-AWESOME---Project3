@@ -24,6 +24,11 @@ class GUI {
 		this.m_constOutput = document.getElementById("constant-num");
 	}
 	
+	/* -------------------------------
+	 * DYNAMIC GUI GENERATION METHODS
+	 * -------------------------------
+	 */
+	
 	/** Initializes the dynamically-generated dropdown menus.
 	 *
 	 */
@@ -56,6 +61,11 @@ class GUI {
 		});
 	}
 
+	/* -------------------------------
+	 * INTERNAL HELPER/CALCULATION METHODS
+	 * -------------------------------
+	 */
+	
 	/** Returns a two-digit number  (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array; similar for the second digit.  Example: joule to cal conversion will be represented by 02.
 	 * @pre - assumes that there are no indexes greater than 9.
 	 * @param {string} category - the category of units, ie. "energy".
@@ -236,7 +246,8 @@ class GUI {
 		return(converted);
 	}
 	
-	/** Handles conversion calls: validates inputs and calls the conversion methods for the correct category.
+	/** Determines the correct conversion category and calls the appropriate method.
+	 * @pre - unitA and unitB are not equal and value is not empty.
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to convert from.
 	 * @param {string} unitB - the unit to convert to.
@@ -263,8 +274,11 @@ class GUI {
 	}
 	
 	
+	/* -------------------------------
+	 * EVENT HANDLING METHODS
+	 * -------------------------------
+	 */
 	
-	// ---------- EVENT HANDLERS --------- //
 	/** Handles unit conversion when user clicks the Convert button: gets values from the unit conversion inputs; if inputs are valid, calls the convert() method; outputs the converted value to the GUI.
 	 * @post - changes the value of the "unitB-input" element to the converted value.
 	 */
