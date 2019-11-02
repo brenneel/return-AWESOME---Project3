@@ -142,8 +142,27 @@ class GUI {
 		}
 		return(converted);
 	}
+	
+	/** Converts pressure units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertPressure(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "01":	// atm to kPa
+				converted = UNITS.atmoTokPa(value);
+				break;
+			case "02":	// atm to Pa; TODO: need Units method
+				break;
+			// TODO
+			
+			case "10":	// kPa to atm
+				converted = UNITS.kPaToAtmo(value);
+				break;
 			default:
-				console.log("convertEnergy: no cases matched " + conversionID);
+				console.log("GUI.convertPressure: no cases matched " + conversionID);
 		}
 		return(converted);
 	}
