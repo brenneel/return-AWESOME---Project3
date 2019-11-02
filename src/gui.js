@@ -154,13 +154,82 @@ class GUI {
 			case "01":	// atm to kPa
 				converted = UNITS.atmoTokPa(value);
 				break;
-			case "02":	// atm to Pa; TODO: need Units method
+            case "02":	// atm to Pa; TODO: need Units method
+                converted = UNITS.atmoToPa(value);
 				break;
-			// TODO
-			
+            case "03": //atm to bar
+                converted = UNITS.atmoToBar(value);
+                break;
+            case "04": //atm to lbf
+                converted = UNITS.atmoToPoundPerSquaredInch(value);
+                break;
+            case "05": //atm to foot water (ftAq)
+                converted = UNITS.atmoToFootWater(value);
+                break;
+            case "06": //atm to merc inch
+                converted = UNITS.atmoToMercInch(value);
+                break;
+            case "07": //atm to merc mm
+                converted = UNITS.atmoToMercMM(value);
+                break;
+            case "08": //atm to kgf/cm^2
+                converted = UNITS.atmoToKgf(value);
+                break;
+            case "09": //atm to meter water
+                converted = UNITS.atmoToMeterWater(value);
+                break;
+            case "010": //atm to torr
+                converted = UNITS.atmoToTorr(value);
+                break;
+            case "011": //atm to psi
+                converted = UNITS.atmoToPsi(value);
+                break;
+            case "012": //atm to inch water
+                converted = UNITS.atmoToInchWater(value);
+                break;
+            case "013": //atm to dyne
+                converted = UNITS.atmoToDynePerCM(value);
+                break;
 			case "10":	// kPa to atm
 				converted = UNITS.kPaToAtmo(value);
-				break;
+                break;
+            case "20": //Pa to atm
+                converted = UNITS.paToAtmo(value);
+                break;
+            case "30": //bar to atm
+                converted = UNITS.barToAtmo(value);
+                break;
+            case "40": // lbf to atmo
+                converted = UNITS.poundPerSquaredInchToAtmo(value);
+                break;
+            case "50": //foot water to atm
+                converted = UNITS.footWaterToAtmo(value);
+                break;
+            case "60": //merc inch to atm
+                converted = UNITS.MercInchToAtmo(value);
+                break;
+            case "70": //merc MM to atm
+                converted = UNITS.mercMMToAtmo(value);
+                break;
+            case "80": //kgf to atm
+                converted = UNITS.kgfToAtmo(value);
+                break;
+            case "90": //meter water to atm
+                converted = UNITS.meterWaterToAtmo(value);
+                break;
+            case "100": // torr to atm 
+                converted = UNITS.torrToAtmo(value);
+                break;
+            case "110": // psi to atm
+                converted = UNITS.psiToAtmo(value);
+                break;
+            case "120": // inch water to atm
+                converted = UNITS.inchWaterToAtmo(value);
+                break;
+            case "130": // dyne to atm
+                converted = UNITS.dynePerCMToAtmo(value);
+                break;
+
 			default:
 				console.log("GUI.convertPressure: no cases matched " + conversionID);
 		}
