@@ -8,12 +8,20 @@
  */
 class GUI {
 	constructor() {
+		// dropdown menus
 		this.m_catMenu = document.getElementById("category");
 		this.m_unitAMenu = document.getElementById("unitA-select");
 		this.m_unitBMenu = document.getElementById("unitB-select");
 		this.m_constMenu = document.getElementById("constant-select");
 		this.m_constUnitMenu = document.getElementById("constant-unit");
 		this.m_formulaMenu = document.getElementById("formula-select");
+		
+		// input for unit converter
+		this.m_unitAInput = document.getElementById("unitA-input");
+		
+		// outputs for unit converter & constants
+		this.m_unitBOutput = document.getElementById("unitB-input");
+		this.m_constOutput = document.getElementById("constant-num");
 	}
 	
 	/** Initializes the dynamically-generated dropdown menus.
