@@ -20,11 +20,14 @@ class GUI {
 	 *
 	 */
 	initialize() {
-		let menuA = document.getElementById("unitA-select");
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
-			menuA.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
-		this.populateNextDropdown("unitA-select", "unitB-select");
+//		this.populateNextDropdown("unitA-select", "unitB-select");
+		// remove this for testing/prototype
+		CONFIG.ENERGY_UNITS.forEach(function(item) {
+			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
 	}
 	
 	/** Based on the selection of one dropdown menu, populate the options of another dropdown menu.
