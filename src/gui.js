@@ -241,7 +241,7 @@ class GUI {
 	 * @param {string} unitA - the unit to convert from.
 	 * @param {string} unitB - the unit to convert to.
 	 * @param {number} value - the value to convert.
-	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 * @return {number} the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
 		if(unitA != unitB) {
@@ -251,17 +251,16 @@ class GUI {
 				case "energy":
 					conversionID = this.genConversionID(category, unitA, unitB);
 					newVal = this.convertEnergy(value, conversionID);
-					this.m_unitBOutput.value = newVal;
 					break;
 				case "pressure":
 					conversionID = this.genConversionID(category, unitA, unitB);
 					newVal = this.convertPressure(value, conversionID);
-					this.m_unitBOutput.value = newVal;
 					break;
 				default:
 					console.log("GUI.convert: " + category + " does not match any case.");
 					break;
 			}
+			return(newVal);
 		}
 	}
 	
