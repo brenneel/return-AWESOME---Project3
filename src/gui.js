@@ -244,25 +244,24 @@ class GUI {
 	 * @return {number} the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
-		if(unitA != unitB) {
-			let conversionID;
-			let newVal;
-			switch(category) {
-				case "energy":
-					conversionID = this.genConversionID(category, unitA, unitB);
-					newVal = this.convertEnergy(value, conversionID);
-					break;
-				case "pressure":
-					conversionID = this.genConversionID(category, unitA, unitB);
-					newVal = this.convertPressure(value, conversionID);
-					break;
-				default:
-					console.log("GUI.convert: " + category + " does not match any case.");
-					break;
-			}
-			return(newVal);
+		let conversionID;
+		let newVal;
+		switch(category) {
+			case "energy":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertEnergy(value, conversionID);
+				break;
+			case "pressure":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertPressure(value, conversionID);
+				break;
+			default:
+				console.log("GUI.convert: " + category + " does not match any case.");
+				break;
 		}
+		return(newVal);
 	}
+	
 	
 	
 	// ---------- EVENT HANDLERS --------- //
@@ -274,7 +273,7 @@ class GUI {
 		let unitA = this.m_unitAMenu.value;
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
-		if((unitA != unitB) && (value !== undefined)) {
+		if((unitA != unitB) && (value != "")) {
 			let newVal = this.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
