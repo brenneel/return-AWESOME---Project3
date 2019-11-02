@@ -84,7 +84,7 @@ class GUI {
 	/** Converts energy units by calling the appropriate Units method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
-	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 * @return {number} the converted value.
 	 */
 	convertEnergy(value, conversionID) {
 		let converted;
@@ -167,11 +167,12 @@ class GUI {
 		return(converted);
 	}
 	
-	/** Handles conversion calls: validates all inputs and calls the appropriate functions.
+	/** Handles conversion calls: validates inputs and calls the conversion methods for the correct category.
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to convert from.
 	 * @param {string} unitB - the unit to convert to.
 	 * @param {number} value - the value to convert.
+	 * @post - changes the value of the "unitB-input" element to the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
 		if(unitA != unitB) {
