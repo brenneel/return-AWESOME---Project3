@@ -24,6 +24,11 @@ class GUI {
 		this.m_constOutput = document.getElementById("constant-num");
 	}
 	
+	/* -------------------------------
+	 * DYNAMIC GUI GENERATION METHODS
+	 * -------------------------------
+	 */
+	
 	/** Initializes the dynamically-generated dropdown menus.
 	 *
 	 */
@@ -56,6 +61,11 @@ class GUI {
 		});
 	}
 
+	/* -------------------------------
+	 * INTERNAL HELPER/CALCULATION METHODS
+	 * -------------------------------
+	 */
+	
 	/** Returns a two-digit number  (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array; similar for the second digit.  Example: joule to cal conversion will be represented by 02.
 	 * @pre - assumes that there are no indexes greater than 9.
 	 * @param {string} category - the category of units, ie. "energy".
@@ -236,41 +246,52 @@ class GUI {
 		return(converted);
 	}
 	
-	/** Handles conversion calls: validates inputs and calls the conversion methods for the correct category.
+	/** Determines the correct conversion category and calls the appropriate method.
+	 * @pre - unitA and unitB are not equal and value is not empty.
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to convert from.
 	 * @param {string} unitB - the unit to convert to.
 	 * @param {number} value - the value to convert.
-	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 * @return {number} the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
-		if(unitA != unitB) {
-			let conversionID;
-			let newVal;
-			switch(category) {
-				case "energy":
-					conversionID = this.genConversionID(category, unitA, unitB);
-					newVal = this.convertEnergy(value, conversionID);
-					this.m_unitBOutput.value = newVal;
-					break;
-				case "pressure":
-					conversionID = this.genConversionID(category, unitA, unitB);
-					newVal = this.convertPressure(value, conversionID);
-					this.m_unitBOutput.value = newVal;
-					break;
-				default:
-					console.log("GUI.convert: " + category + " does not match any case.");
-					break;
-			}
+		let conversionID;
+		let newVal;
+		switch(category) {
+			case "energy":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertEnergy(value, conversionID);
+				break;
+			case "pressure":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertPressure(value, conversionID);
+				break;
+			default:
+				console.log("GUI.convert: " + category + " does not match any case.");
+				break;
 		}
+		return(newVal);
 	}
 	
 	
-	// ---------- EVENT HANDLERS ----- //
-	/**
-	 *
+	/* -------------------------------
+	 * EVENT HANDLING METHODS
+	 * -------------------------------
 	 */
 	
+	/** Handles unit conversion when user clicks the Convert button: gets values from the unit conversion inputs; if inputs are valid, calls the convert() method; outputs the converted value to the GUI.
+	 * @post - changes the value of the "unitB-input" element to the converted value.
+	 */
+	convertHandler() {
+		let category = this.m_catMenu.value;
+		let unitA = this.m_unitAMenu.value;
+		let unitB = this.m_unitBMenu.value;
+		let value = this.m_unitAInput.value;
+		if((unitA != unitB) && (value != "")) {
+			let newVal = this.convert(category, unitA, unitB, value);
+			this.m_unitBOutput.value = newVal;
+		}
+	}
 	
 	
 	
