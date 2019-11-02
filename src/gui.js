@@ -266,11 +266,20 @@ class GUI {
 	}
 	
 	
-	// ---------- EVENT HANDLERS ----- //
-	/**
-	 *
+	// ---------- EVENT HANDLERS --------- //
+	/** Handles unit conversion when user clicks the Convert button: gets values from the unit conversion inputs; if inputs are valid, calls the convert() method; outputs the converted value to the GUI.
+	 * @post - changes the value of the "unitB-input" element to the converted value.
 	 */
-	
+	convertHandler() {
+		let category = this.m_catMenu.value;
+		let unitA = this.m_unitAMenu.value;
+		let unitB = this.m_unitBMenu.value;
+		let value = this.m_unitAInput.value;
+		if((unitA != unitB) && (value !== undefined)) {
+			let newVal = this.convert(category, unitA, unitB, value);
+			this.m_unitBOutput.value = newVal;
+		}
+	}
 	
 	
 	
