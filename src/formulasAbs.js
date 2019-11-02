@@ -1,4 +1,4 @@
-class formulasAbs{
+class FormulasAbs{
     constructor(){
         
     }

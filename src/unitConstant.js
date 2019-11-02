@@ -1,4 +1,4 @@
-class unitConstants{
+class UnitConstant{
     constructor(){
 
     }
