@@ -1,10 +1,21 @@
 /** Class containing data that GUI uses to dynamically generate the dropdown menus.
- * @prop {Object} ENERGY_UNITS - an object containing elementID/label pairs for each energy unit.
- * @prop {Object} PRESSURE_UNITS - an object containing elementID/label pairs for each pressure unit
+ * @prop {Array} CATEGORIES - an array containing elementIDs and labels for each unit category option.
+ * @prop {Array} ENERGY_UNITS - an array containing elementIDs and labels for each energy unit option.
+ * @prop {Array} PRESSURE_UNITS - an array containing elementIDs and labels for each pressure unit option.
  */
 class Config {
 	constructor() {}
 	
+	/* -------------------------------
+	 * UNIT CONVERSION
+	 * -------------------------------
+	 */
+	
+	CATEGORIES = [
+		["energy", "Energy"],
+		["pressure", "Pressure"]
+	];
+
 	ENERGY_UNITS = [
 		["joule", "Joules (J)"],
 		["cal", "calories (cal)"],
@@ -34,6 +45,12 @@ class Config {
 		["dyne", "dyne/square centimeter (dyne/cm^2)"]
 	];
 	
+
+	/* -------------------------------
+	 * HELPER METHODS
+	 * -------------------------------
+	 */
+
 	/** Gets the array index of the given unit.
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unit - the chosen unit.
