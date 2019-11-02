@@ -188,6 +188,7 @@ class GUI {
 					conversionID = this.genConversionID(category, unitA, unitB);
 					newVal = this.convertPressure(value, conversionID);
 					this.m_unitBOutput.value = newVal;
+					break;
 				default:
 					console.log("GUI.convert: " + category + " does not match any case.");
 					break;
