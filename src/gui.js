@@ -81,20 +81,67 @@ class GUI {
 		return(ID);
 	}
 	
-	/** Takes conversion unit and input values from the form, converts them into the correct formats, and calls the correct conversion method.
-	 * @pre - assumes that the generated conversionID can never be more than 2 digits and can only have the listed values.
+	/** Converts energy units by calling the appropriate Units method.
 	 * @param {number} value - the value to convert.
-	 * @param {string} conversionID - a 2 digit number representing the units to convert from and to.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
 	 * @post - changes the value of the "unitB-input" element to the converted value.
 	 */
 	convertEnergy(value, conversionID) {
 		let converted;
 		switch(conversionID) {
-			case "01":
+			case "01":	// joule to cal
 				converted = UNITS.jouleToCal(value);
 				break;
-			case "02":
-				// TODO
+			case "02":	// joule to btu
+				converted = UNITS.jouleToBtu(value);
+				break;
+			case "03":	// joule to erg
+				converted = UNITS.jouleToErg(value);
+				break;
+			case "04":	// joule to eV
+				converted = UNITS.jouleToEV(value);
+				break;
+			case "05":	// joule to ftlbf
+				converted = UNITS.jouleToFootPoundForce(value);
+				break;
+			case "06":	// joule to hph
+				converted = UNITS.jouleToHorsepowerHour(value);
+				break;
+			case "07":	// joule to kWh
+				converted = UNITS.jouleTokWh(value);
+				break;
+			case "08":	// joule to kWs
+				converted = UNITS.jouleTokWs(value);
+				break;
+			case "10":	// cal to joule
+				converted = UNITS.calToJ(value);
+				break;
+			case "20":	// btu to joule
+				converted = UNITS.btuToJ(value);
+				break;
+			case "30":	// erg to joule
+				converted = UNITS.ergToJ(value);
+				break;
+			case "40":	// Ev to joule
+				converted = UNITS.eVToJ(value);
+				break;
+			case "50":	// ftlbf to joule
+				converted = UNITS.ftlbfToJ(value);
+				break;
+			case "60":	// hph to joule
+				converted = UNITS.hphToJ(value);
+				break;
+			case "70":	// kWh to joule
+				converted = UNITS.kwhToJ(value);
+				break;
+			case "80":	// kWs to joule
+				converted = UNITS.kwsToJ(value);
+				break;
+			default:
+				console.log("convertEnergy: no cases matched " + conversionID);
+		}
+		return(converted);
+	}
 			default:
 				console.log("convertEnergy: no cases matched " + conversionID);
 		}
