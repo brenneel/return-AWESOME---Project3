@@ -11,6 +11,7 @@ class formulasSol{
         let variable = this.fAbs.findVar(obj, tempArr);
         let numer = new Array();
         let denom = new Array();
+        
         switch(variable){
             case 'p':
                 numer.push(obj.t);
@@ -40,7 +41,6 @@ class formulasSol{
                 console.log("Error in PVNRT: Bad var");
         }
 
-        // console.log(this.fAbs.multiplySolve(numer, denom));
         return this.fAbs.multiplySolve(numer, denom);
     }
 }
