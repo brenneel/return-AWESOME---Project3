@@ -434,11 +434,11 @@ class GUI {
 					let calculated = this.calcPVNRT(empty);
 					if(calculated !== undefined) {
 						formulaFields[empty].value = calculated;
+						this.hideHelptext("formula-helptext");
 					}
 				}
 				else {
-//					this.showAlert("alert-1-var");
-					console.log("alert");
+					this.showHelptext("formula-helptext");
 				}
 				break;
 			default:
