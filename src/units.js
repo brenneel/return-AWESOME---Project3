@@ -61,7 +61,7 @@ class Units {
     btuToJ(btu)
     {
         let btus = Number(btu);
-        let joule = 1055.0559 * btus;
+        let joule = 1055.05585262 * btus;
         return joule;
     }
 
