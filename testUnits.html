@@ -246,31 +246,32 @@
      */
     function testAllPressure(){
        
-        testingAtmoTokPa();
-        testingkPaToAtmo();
-        testingAtmoToPa();
-        testingPaToAtmo();
-        testingAtmoToBar();
-        testingBarToAtmo();
-        testingAtmoToPoundPerSquaredInch();
-        testingPoundPerSquaredInchToAtmo();
+        testingAtmoTokPa(0);
+        testingkPaToAtmo(1);
+        testingAtmoToPa(2);
+        testingPaToAtmo(3);
+        testingAtmoToBar(4);
+        testingBarToAtmo(5);
+        testingAtmoToPoundPerSquaredInch(6);
+        testingPoundPerSquaredInchToAtmo(7);
 
     }
     
     /**
      * checks unit conversions with expected values for atmo to kPa
+     * @param {num} j
      */
-    function testingAtmoTokPa(){
+    function testingAtmoTokPa(j){
         let passed = true;
         expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.atmoTokPa(testValues[i]);
             
             
-            if(Math.abs((calc-expectedValues[0][i])/(expectedValues[0][i]*100) >1)) {
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)) {
                 passed = false;
-                console.log("Expected value = " + expectedValues[0][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[0][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -279,18 +280,19 @@
     }
     /**
      * checks unit conversions with expected values for kPa to atmo
+     * @param {num} j
      */
-     function testingkPaToAtmo(){
+     function testingkPaToAtmo(j){
         let passed = true;
         expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.kPaToAtmo(testValues[i]);
 
            
-            if(Math.abs((calc-expectedValues[1][i])/(expectedValues[1][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[1][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[1][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -300,18 +302,19 @@
 
     /**
      * atmo to Pa checking with expected values
+     * @param {num} j
      */
-     function testingAtmoToPa(){
+     function testingAtmoToPa(j){
         let passed = true;
         expectedValues.push([0.0001250351,103769309.18,100074041550]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.atmoToPa(testValues[i]);
             
             
-            if(Math.abs((calc-expectedValues[2][i])/(expectedValues[2][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[2][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[2][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -320,17 +323,18 @@
     }
     /**
      * atmo to Pa checking with expected values
+     * @param {num} j
      */
-     function testingPaToAtmo(){
+     function testingPaToAtmo(j){
         let passed = true;
         expectedValues.push([0.00000000000001217863311,0.0101073127,9.7473871207]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.paToAtmo(testValues[i]);
 
-            if(Math.abs((calc-expectedValues[0][i])/(expectedValues[0][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[3][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[3][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -340,17 +344,18 @@
 
     /**
      * atmo to bar checking with expected values
+     * @param {num} j
      */
-     function testingAtmoToBar(){
+     function testingAtmoToBar(j){
         let passed = true;
         expectedValues.push([0.0000000012503505,1037.6930918,1000740.4155]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.atmoToBar(testValues[i]);
 
-            if(Math.abs((calc-expectedValues[4][i])/(expectedValues[4][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[4][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[4][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -359,17 +364,18 @@
     }
     /**
      * bar to atmo checking with expected values
+     * @param {num} j
      */
-     function testingBarToAtmo(){
+     function testingBarToAtmo(j){
         let passed = true;
         expectedValues.push([0.000000001217863311,1010.7312667,974738.71207]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.barToAtmo(testValues[i]);
 
-            if(Math.abs((calc-expectedValues[5][i])/(expectedValues[5][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[5][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[5][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -378,17 +384,18 @@
     }
     /**
      * atmo to poundPerSquareInch checking with expected values
+     * @param {num} j
      */
-     function testingAtmoToPoundPerSquaredInch(){
+     function testingAtmoToPoundPerSquaredInch(j){
         let passed = true;
         expectedValues.push([0.00000001813480078,15050.465849,14514512.592]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.atmoToPoundPerSquaredInch(testValues[i]);
 
-            if(Math.abs((calc-expectedValues[6][i])/(expectedValues[6][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[6][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[6][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
@@ -397,17 +404,18 @@
     }
     /**
      * poundpersquaredinch to atmo checking with expected values
+     * @param {num} j
      */
-     function testingPoundPerSquaredInchToAtmo(){
+     function testingPoundPerSquaredInchToAtmo(j){
         let passed = true;
         expectedValues.push([0.00000000008396871946,69.687467726,67205.86844]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.poundPerSquaredInchToAtmo(testValues[i]);
 
-            if(Math.abs((calc-expectedValues[7][i])/(expectedValues[7][i]*100) >1)){
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
                 passed = false;
-                console.log("Expected value = " + expectedValues[7][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[7][i] + "\n");
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
             }
         }
         if(passed){
