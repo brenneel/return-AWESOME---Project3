@@ -36,7 +36,7 @@ class GUI {
 		this.populateEnergyMenus();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
-		
+		this.populateConstants();
 	}
 	
 	/** Populates both unit dropdown menus with energy units. Used when initializing the page, and when changing unit categories.
@@ -85,6 +85,16 @@ class GUI {
 			if(item[0] != optionA) {
 				menuB.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 			}
+		});
+	}
+	
+	/** Populates the Constants dropdown menu with all available constants.
+	 * @post - populates the "constants
+	 */
+	populateConstants() {
+		this.m_constMenu.innerHTML = "";
+		CONFIG.CONSTANTS.forEach(function(item) {
+			gui.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 
