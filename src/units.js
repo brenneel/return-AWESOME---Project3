@@ -483,7 +483,7 @@ class Units {
     atmoToPsi(atmos){
         let psi = 0.00;
         let atmo = Number(atmos);
-        psi = atmo / 14.695948775;
+        psi = atmo * 14.695948775;
         return(psi);
     }
 
@@ -495,7 +495,7 @@ class Units {
     psiToAtmo(psis){
         let atmo = 0.00;
         let psi = Number(psis);
-        atmo = psi * 14.695948775;
+        atmo = psi / 14.695948775;
         return(atmo);
     }
 
