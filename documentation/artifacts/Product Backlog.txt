@@ -40,3 +40,23 @@ Engineering/Scientific Notation
 Output Improvements
 -Desc: GUI: clear or change unitB output when changing unitB
 --Effort: Medium-Rare
+
+"Convert on Enter"
+-Desc: GUI: call convert/calculate/etc. using "enter" key depending on which input has focus
+--Effort: Medium 
+
+Drop down placement
+-Desc: GUI: put unit inputs above dropdowns
+--Effort: Rare
+
+Bad input notifications
+-Desc: GUI: notify user when formula inputs are bad
+--Effort: Rare
+
+Constants subject categories
+-Desc: GUI: add category dropdown for constants?
+--Effort: Medium-Rare
+
+Favorites
+-Desc: Favorites using cookies
+--Effort: Medium-Well
