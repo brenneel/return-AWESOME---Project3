@@ -8,7 +8,7 @@
 
     <body>
         <h2>Testing suite</h2>
-        <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAllEnergy(-10000, 10000, 782.83);">
+        <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAllEnergy(-1, 1, .0083230);">
         <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure(0.000000001234, 1024.123456, 987654);">
         <input type = "button" id = "reset" value = "Clear Console" onclick = "console.clear();">
         <script>
@@ -24,16 +24,23 @@
                     //console.log("Expected value = " + expected + " TEST ");
                     let calc = unit.ergToJ(i);
                     let flag = false;
+                    let percent = 0;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("erg = " + i + " joule = " + calc+ "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -50,15 +57,21 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                         
                     }
                     if (flag)
                     {
                         console.log("joule = " + i + " erg = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -75,15 +88,21 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                         
                     }
                     if (flag)
                     {
                         console.log("joule = " + i + " btu = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -100,15 +119,20 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("btu = " + i + " joule = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -125,15 +149,20 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("joule = " + i + " cal = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -150,15 +179,20 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("cal = " + i + " joule = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -175,15 +209,20 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("cal = " + i + " joule = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             };
@@ -194,21 +233,26 @@
                 for (i = min; i< max; i= i+increment)
                 {
                     //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
-                    expected = i *(6.241509* (10**18));
+                    expected = i *(1.60218* (10**-19));
                     //console.log("Expected value = " + expected + " TEST ");
                     let calc = unit.eVToJ(i);
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
-                        console.log("cal = " + i + " joule = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("ev = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             }
@@ -225,15 +269,20 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
-                        
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
                     if (flag)
                     {
                         console.log("j = " + i + " ftlbf = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             }
@@ -250,19 +299,193 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        //console.log(" PASSED\n");
-                        flag = true;
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                         
                     }
                     if (flag)
                     {
                         console.log("ftlbf = " + i + " joule = " + calc + "\n");
-                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                        console.log(calc-expected + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
                     }
                 }
             }
 
+            function testingJouleToHorsepowerHour(min, max, increment)
+            {
+                console.log("Testing j to hph")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *.000000372506 ;
+                    let calc = unit.jouleToHorsepowerHour(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("j = " + i + " hph = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+            function testinghphToJ(min, max, increment)
+            {
+                console.log("Testing hph to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *2684519.53769 ;
+                    let calc = unit.hphToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("hph = " + i + " j = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+            function testingJtoKwh(min, max, increment)
+            {
+                console.log("Testing J to Kwh")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *((2.777778)*10**-7) ;
+                    let calc = unit.jouleTokWh(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("j = " + i + " kwh = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+            function testingKwhtoJ(min, max, increment)
+            {
+                console.log("Testing kwh to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *((3.6)* (10**6));
+                    let calc = unit.kwhToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("kwh = " + i + " j = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+
+            function testingJtoKws(min, max, increment)
+            {
+                console.log("Testing J to Kws")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *.001 ;
+                    let calc = unit.jouleTokWs(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("j = " + i + " kws = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+            function testingKwstoJ(min, max, increment)
+            {
+                console.log("Testing kws to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *1000;
+                    let calc = unit.kwsToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("kws = " + i + " j = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
 
             
             function testAllEnergy(min, max, increment)
@@ -278,10 +501,12 @@
                 testingEVtoJ(min, max, increment);
                 testingJouletoFtlbf(min, max, increment);
                 testingFtlbfToJ(min, max, increment);
-
-            
-
-
+                testingJouleToHorsepowerHour(min, max, increment);
+                testinghphToJ(min, max, increment);
+                testingJtoKwh(min, max, increment);
+                testingKwhtoJ(min, max, increment);
+                testingJtoKws(min, max, increment);
+                testingKwstoJ(min, max, increment);
 
 
             }
