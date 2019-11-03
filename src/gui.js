@@ -321,6 +321,15 @@ class GUI {
 		return(newVal);
 	}
 	
+	/** Gets the value of the given constant in the given unit.
+	 * @pre - constant and constUnit are valid
+	 * @param {string} constant - the constant.
+	 * @param {string} constUnit - the unit of the constant.
+	 * @return {number} the constant value.
+	 */
+	getConst(constant, constUnit) {
+		return(CONSTS[constant][constUnit]);
+	}
 	
 	/* -------------------------------
 	 * EVENT HANDLING METHODS
