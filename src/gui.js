@@ -38,6 +38,8 @@ class GUI {
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
 		this.populateConstants();
+		this.constChange();
+		this.constHandler();
 	}
 	
 	/** Populates the Categories unit dropdown menu with categories. Used when initializing the page.
