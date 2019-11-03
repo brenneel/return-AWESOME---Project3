@@ -9,7 +9,7 @@
     <body>
         <h2>Testing suite</h2>
         <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAll(-10000, 10000, 782.83);">
-        <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure(0.000000001234, 1024.123456, 987654);">
+        <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure();">
         <input type = "button" id = "reset" value = "Clear Console" onclick = "console.clear();">
         <script>
 
@@ -237,15 +237,96 @@
         </script>
 
 <script>
+    let testValues = [0.000000001234, 1024.123456, 987654];
     
-
-    function testAllPressure(small, mid, large){
-
-
+    /**
+     * calls all testing functions for pressure
+     */
+    function testAllPressure(){
+        testingAtmoTokPa();
+        testingkPaToAtmo();
+        testingAtmoToPa();
+        testingPaToAtmo();
 
     }
+    
+    /**
+     * checks unit conversions with expected values for atmo to kPa
+     */
+    function testingAtmoTokPa(){
+        let passed = true;
+        for(let i = 0; i<testValues.length; i++){
+            let calc1 = unit.atmoTokPa(testValues[i]);
+            let expected = testValues[i]*101.325;
+            
+            if(calc1 !== expected){
+                passed = false;
+                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expected + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to kPa: PASSED");
+        }
+    }
+    /**
+     * checks unit conversions with expected values for kPa to atmo
+     */
+     function testingkPaToAtmo(){
+        let passed = true;
+        for(let i = 0; i<testValues.length; i++){
+            let calc1 = unit.kPaToAtmo(testValues[i]);
+            let expected = testValues[i]/101.325;
+            
+            if(calc1 !== expected){
+                passed = false;
+                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expected + "\n");
+            }
+        }
+        if(passed){
+            console.log("kPa to atmo: PASSED");
+        }
+    }
 
-
+    /**
+     * atmo to Pa checking with expected values
+     */
+     function testingAtmoToPa(){
+        let passed = true;
+        for(let i = 0; i<testValues.length; i++){
+            let calc1 = unit.atmoToPa(testValues[i]);
+            let expected = testValues[i]*101325;
+            
+            if(calc1 !== expected){
+                passed = false;
+                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expected + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to Pa: PASSED");
+        }
+    }
+    /**
+     * atmo to Pa checking with expected values
+     */
+     function testingPaToAtmo(){
+        let passed = true;
+        for(let i = 0; i<testValues.length; i++){
+            let calc1 = unit.paToAtmo(testValues[i]);
+            let expected = testValues[i]/101325;
+            
+            if(calc1 !== expected){
+                passed = false;
+                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expected + "\n");
+            }
+        }
+        if(passed){
+            console.log("Pa to atmo: PASSED");
+        }
+    }
         </script>
     </body>
 
