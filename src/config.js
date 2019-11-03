@@ -44,7 +44,47 @@ class Config {
 		["inAq", "inch water (inAq)"],
 		["dyne", "dyne/square centimeter (dyne/cm^2)"]
 	];
-	
+
+	/* -------------------------------
+	 * CONSTANTS
+	 * -------------------------------
+	 */
+	CONSTANTS = [
+		["UNIV_GAS_CONST", "Universal Gas Constant, R"],
+		["RHO_OF_WATER", "Density of Water (ρ)"],
+//		["MU_OF_WATER", ""],
+//		["NU_OF_WATER", ""],
+//		["CAP_MU_OF_WATER", ""],
+//		["SIGMA_OF_WATER", ""],
+//		["RHO_OF_AIR", ""],
+//		["MU_OF_AIR", ""],
+//		["NU_OF_AIR", ""],
+//		["HEAT_CAPACITY_OF_AIR", ""],
+//		["M_OF_AIR", ""],
+//		["K_OF_AIR", ""]
+	];
+//°
+//⋅
+	UNIV_GAS_CONST = [
+		["BTU_LBMOL_R", "Btu/lbmol⋅°R"],
+		["CAL_MOL_K", "cal/mol⋅K"],
+		["KCAL_KGMOL_K", "kcal/kgmol⋅K"],
+		["J_MOL_K", "J/mol⋅K"],
+		["M3_PA_MOL_K", "m^3⋅Pa/mol⋅K"],
+		["L_ATM_MOL_K", "L⋅atm/mol⋅K"],
+		["L_BAR_MOL_K", "L⋅bar/mol⋅K"],
+		["LFB_IN2_FT3_LBMOL_R", "(lbf/in^2)ft^3/lbmol⋅°R"],
+		["ATM_FT3_LBMOL_R", "atm⋅ft^3/lbmol⋅°R"]
+	]
+
+	RHO_OF_WATER = [
+		["LBM_FT3", "lbm/ft^3"],
+		["KG_M3", "kg/m^3"],
+		["LBMOL_FT3", "lbmol/ft^3"],
+		["KGMOL_M3", "kgmol/m^3"],
+		["MOL_L", "mol/L"],
+		["G_CM3", "g/cm^3"]
+	]
 
 	/* -------------------------------
 	 * HELPER METHODS
