@@ -406,18 +406,18 @@ class GUI {
 			case "PVNRT":
 				let numEmpty = 0;
 				let empty = "";
-				let formulaVars = document.getElementById("form-pvnrt").elements;
-				for(let i = 0; i < formulaVars.length; i++) {
-					if(formulaVars[i].value == "") {
+				let formulaFields = this.m_formulaFields.elements;
+				for(let i = 0; i < formulaFields.length; i++) {
+					if(formulaFields[i].value == "") {
 						numEmpty++;
-						empty = formulaVars[i].id;
+						empty = formulaFields[i].id;
 					}
 				}
 
 				if(numEmpty == 1) {
 					let calculated = this.calcPVNRT(empty);
 					if(calculated !== undefined) {
-						formulaVars[empty].value = calculated;
+						formulaFields[empty].value = calculated;
 					}
 				}
 				else {
@@ -441,7 +441,7 @@ class GUI {
 	 * @return {number} - the value calculated by FormulaSol.pvNRT().
 	 */
 	calcPVNRT(unknown) {
-		let formulaFields = document.getElementById("form-pvnrt").elements;
+		let formulaFields = this.m_formulaFields.elements;
 		let knownVars = {};
 		
 		for(let i = 0; i < formulaFields.length; i++) {
