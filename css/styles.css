@@ -61,7 +61,6 @@ textarea, input, select {
     margin: 7px 4px;
     padding: 10px;
 	font-size: 12pt;
-	border-style: none;
 	background-color: #4d4d4d;
 	color: white;
 	border: thin solid white;
@@ -81,34 +80,11 @@ input[type="number"] {
 	min-width: 25%;
 }
 
-.alert {
+.helptext {
     color: #ff4242;
     font-family: "Segoe UI", sans-serif;
-    font-weight: bold;
     display: none;
-    padding: 0px 10px;
-}
-
-table, td, th {
-	border-collapse:collapse;
-	border:thin solid white;
-}
-
-table {
-	margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-}
-
-td, th {
-	text-align:center;
-	vertical-align:middle;
-	padding: 8px 30px;
-}
-
-.helptext {
-	font-size: 10pt;
+	font-style: italic;
 }
 
 .numfield {
@@ -129,4 +105,13 @@ td, th {
 	display:inline;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.formula-const {
+	display: inline-block;
+	width: 10%;
+	background-color: #4d4d4d;
+	margin: 7px 4px;
+    padding: 10px;
+	font-size: 12pt;
 }

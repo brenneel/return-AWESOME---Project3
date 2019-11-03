@@ -5,9 +5,11 @@
         <title>Team return(AWESOME) -- Project 3: Unit Converter</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="src/config.js"></script>
-		<script src="src/gui.js"></script>
 		<script src="src/units.js"></script>
 		<script src="src/unitConstant.js"></script>
+		<script src="src/formulasAbs.js"></script>
+		<script src="src/formulasSol.js"></script>
+		<script src="src/gui.js"></script>
 	</head>
 	<body>
 		<div id="content">
@@ -47,19 +49,21 @@
 			</div>
 			<div class="expandable">
 				<div class="subtitle">Formula Calculator</div>
-				<form id="formulas">
-					<div class="centered">
-						<label for="formula-select">Choose a formula: </label>
-						<select id="formula-select" name="formula-select" form="formulas" required>
-							<option value="PVNRT">PV = nRT</option>
-						</select>
-					</div>
-					<div id="formula-inputs" class="centered"><!-- input fields for the chosen formula will be generated here -->
-						<div>IDEAL GAS LAW: PV = nRT (use SI units only.)</div>
-						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label><input type="number" id="const-R" name="const-R" class="numfield" value="8.314" readonly><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
-					</div>
-					<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
-				</form>
+				<div class="centered">
+					<label for="formula-select">Choose a formula: </label>
+					<select id="formula-select" name="formula-select" form="formulas" required>
+						<option value="PVNRT">PV = nRT</option>
+					</select>
+				</div>
+				<div id="formula-box" class="centered"><!-- input fields for the chosen formula will be generated here -->
+					<div id="formula-text">IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.</div>
+					<form id="formula-fields">
+						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label>
+						<div id="const-R" name="const-R" class="formula-const">8.314</div><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
+					</form>
+				</div>
+				<p class="centered helptext" id="helptext-1-var">Leave exactly one (1) variable blank!</p>
+				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="gui.calculateHandler();"></p>
 			</div>
 		</div>
 	</body>
@@ -67,8 +71,9 @@
 		<script>
 			let CONFIG = new Config();
 			let UNITS = new Units();
-			let gui = new GUI();
 			let CONSTS = new UnitConstant();
+			let FORMULAS = new FormulasSol();
+			let gui = new GUI();
 			gui.initialize();
 		</script>
 	</footer>

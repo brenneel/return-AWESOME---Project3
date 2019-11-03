@@ -22,6 +22,7 @@ class GUI {
 		// outputs for unit converter & constants
 		this.m_unitBOutput = document.getElementById("unitB-input");
 		this.m_constOutput = document.getElementById("constant-num");
+		this.m_formulaFields = document.getElementById("formula-fields");
 	}
 	
 	/* -------------------------------
@@ -38,6 +39,8 @@ class GUI {
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
 		this.populateConstants();
+		this.constChange();
+		this.constHandler();
 	}
 	
 	/** Populates the Categories unit dropdown menu with categories. Used when initializing the page.
@@ -107,6 +110,22 @@ class GUI {
 		CONFIG.CONSTANTS.forEach(function(item) {
 			gui.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
+	}
+	
+	/** Shows the given helptext on the page.
+	 * @param {string} ID - the element ID of the helptext to show.
+	 * @post - changes the display of the given element to "block".
+	 */
+	showHelptext(ID) {
+		document.getElementById(ID).style.display = "block";
+	}
+	
+	/** Hides the given helptext on the page.
+	 * @param {string} ID - the element ID of the helptext to hide.
+	 * @post - changes the display of the given element to "none".
+	 */
+	hideHelptext(ID) {
+		document.getElementById(ID).style.display = "none";
 	}
 
 	/* -------------------------------
@@ -373,47 +392,10 @@ class GUI {
 	 */
 	constChange() {
 		let constant = this.m_constMenu.value;
-		switch(constant) {
-			case "UNIV_GAS_CONST":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.UNIV_GAS_CONST.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			case "RHO_OF_WATER":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.RHO_OF_WATER.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			case "MU_OF_WATER":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.MU_OF_WATER.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			case "NU_OF_WATER":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.NU_OF_WATER.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			case "CAP_MU_OF_WATER":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.CAP_MU_OF_WATER.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			case "SIGMA_OF_WATER":
-				this.m_constUnitMenu.innerHTML = "";
-				CONFIG.SIGMA_OF_WATER.forEach(function(item) {
-					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-				});
-				break;
-			default:
-				console.log("constChange: " + constant + " does not match any case.");
-				break;
-		}
+		this.m_constUnitMenu.innerHTML = "";
+		CONFIG[constant].forEach(function(item) {
+			gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
 	}
 	
 	/** Handles displaying the selected constant in the selected unit when user clicks the Const button: gets values from the constant and constant unit inputs; if inputs are valid, calls the getConst() method; outputs the constant value to the GUI.
@@ -429,5 +411,63 @@ class GUI {
 		else {
 			console.log("constHandler received an empty value");
 		}
+	}
+	
+	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct # of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. [Currently only handles PV = nRT]
+	 * @post changes the value of the appropriate input element
+	 */
+	calculateHandler() {
+		let formula = this.m_formulaMenu.value;
+		switch(formula) {
+			case "PVNRT":
+				let numEmpty = 0;
+				let empty = "";
+				let formulaFields = this.m_formulaFields.elements;
+				for(let i = 0; i < formulaFields.length; i++) {
+					if(formulaFields[i].value == "") {
+						numEmpty++;
+						empty = formulaFields[i].id;
+					}
+				}
+
+				if(numEmpty == 1) {
+					let calculated = this.calcPVNRT(empty);
+					if(calculated !== undefined) {
+						formulaFields[empty].value = calculated;
+						this.hideHelptext("formula-helptext");
+					}
+				}
+				else {
+					this.showHelptext("formula-helptext");
+				}
+				break;
+			default:
+				console.log("calculateHandler: " + formula + " did not match any case.");
+				break;
+		}
+	}
+	
+	/* -------------------------------
+	 * FORMULA CALCULATION HELPER METHODS
+	 * -------------------------------
+	 */
+	
+	/** Handle the calculation of the Ideal Gas Law formula (PV=nRT): get known values from form inputs, put them into a custom object, and pass that object to FormulaSol.pvNRT() to solve for the unknown variable.
+	 * @param {string} unknown - string representing which variable is unknown.
+	 * @return {number} - the value calculated by FormulaSol.pvNRT().
+	 */
+	calcPVNRT(unknown) {
+		let formulaFields = this.m_formulaFields.elements;
+		let knownVars = {};
+		
+		for(let i = 0; i < formulaFields.length; i++) {
+			if(formulaFields[i].id != unknown) {
+				let key = formulaFields[i].id.slice(-1);
+				key = key.toLowerCase();
+				knownVars[key] = Number(formulaFields[i].value);
+			}
+		}
+		return(FORMULAS.pvNRT(knownVars));
+		
 	}
 }
