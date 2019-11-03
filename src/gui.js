@@ -433,4 +433,28 @@ class GUI {
 				break;
 		}
 	}
+	
+	/* -------------------------------
+	 * FORMULA CALCULATION HELPER METHODS
+	 * -------------------------------
+	 */
+	
+	/** Handle the calculation of the Ideal Gas Law formula (PV=nRT): get known values from form inputs, put them into a custom object, and pass that object to FormulaSol.pvNRT() to solve for the unknown variable.
+	 * @param {string} unknown - string representing which variable is unknown.
+	 * @return {number} - the value calculated by FormulaSol.pvNRT().
+	 */
+	calcPVNRT(unknown) {
+		let formulaFields = document.getElementById("form-pvnrt").elements;
+		let knownVars = {};
+		
+		for(let i = 0; i < formulaFields.length; i++) {
+			if(formulaFields[i].id != unknown) {
+				let key = formulaFields[i].id.slice(-1);
+				key = key.toLowerCase();
+				knownVars[key] = Number(formulaFields[i].value);
+			}
+		}
+		return(FORMULAS.pvNRT(knownVars));
+		
+	}
 }
