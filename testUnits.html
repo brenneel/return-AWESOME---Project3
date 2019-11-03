@@ -538,6 +538,26 @@
         testingFootWaterToAtmo(9);
         testingAtmoToMercInch(10);
         testingMercInchToAtmo(11);
+        testingAtmoToFootWater(12);
+        testingFootWaterToAtmo(13);
+        testingAtmoToMercInch(14);
+        testingMercInchToAtmo(15);
+        testingAtmoToMercMM(16);
+        testingMercMMToAtmo(17);
+        testingAtmoToKgf(18);
+        testingKgfToAtmo(19);
+        testingAtmoToMeterWater(20);
+        testingMeterWaterToAtmo(21);
+        testingAtmoToTorr(22);
+        testingTorrToAtmo(23);
+        testingAtmoToPsi(24);
+        testingPsiToAtmo(25);
+        testingAtmoToInchWater(26);
+        testingInchWaterToAtmo(27);
+        testingAtmoToDynePerCM(28);
+        testingDynePerCMToAtmo(29);
+
+
 
     }
     
@@ -869,7 +889,209 @@
             console.log("kgf/cm^2 to atmo: PASSED");
         }
     }
+
+    /**
+     * atmo to meter water checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToMeterWater(j){
+        let passed = true;
+        expectedValues.push([0.0000000127504,10581.81604,10204993.234]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToMeterWater(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to meter water: PASSED");
+        }
+    }
+     /**
+     * atmo to meter water checking with expected values
+     * @param {num} j
+     */
+     function testingMeterWaterToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.0000000001194283041,99.1161488,95586.582112]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.meterWaterToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("meter water to atmo: PASSED");
+        }
+    }
+     /**
+     * atmo to torr checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToTorr(j){
+        let passed = true;
+        expectedValues.push([0.000000937839999,778333.82656,750617040]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToTorr(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to torr: PASSED");
+        }
+    }
+     /**
+     * torr to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingTorrToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.00000000000162368,1.3475308632,1299.5447368]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.torrToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("torr to atmo: PASSED");
+        }
+    }
+    /**
+     * atmo to psi checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToPsi(j){
+        let passed = true;
+        expectedValues.push([0.00000001813480078,15050.465849,14514512.592]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToPsi(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to psi: PASSED");
+        }
+    }
+    /**
+     * psi to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingPsiToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.00000000008396871946,69.687467726,67205.86844]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.psiToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("psi to atmo: PASSED");
+        }
+    }
+
+    /**
+     * atmo to inch water checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToInchWater(j){
+        let passed = true;
+        expectedValues.push([0.0000005024656108,417007.14579,402157350.42]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToInchWater(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to inch water: PASSED");
+        }
+    }
+    /**
+     * inch water to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingInchWaterToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.000000000003030567599,2.515134006,2425.5690533]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.inchWaterToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("inch water to atmo: PASSED");
+        }
+    }
     
+    /**
+     * atmo to dyne checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToDynePerCM(j){
+        let passed = true;
+        expectedValues.push([0.0012503505,1037693091.8,1000740415500]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToDynePerCM(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to dyne: PASSED");
+        }
+    }
+     /**
+     * dyne to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingDynePerCMToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.00000000000000121786,0.0010107313,0.9747387121]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.dynePerCMToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("dyne to atmo: PASSED");
+        }
+    }
 
 
         </script>

@@ -483,7 +483,7 @@ class Units {
     atmoToPsi(atmos){
         let psi = 0.00;
         let atmo = Number(atmos);
-        psi = atmo / 14.695948775;
+        psi = atmo * 14.695948775;
         return(psi);
     }
 
@@ -495,31 +495,31 @@ class Units {
     psiToAtmo(psis){
         let atmo = 0.00;
         let psi = Number(psis);
-        atmo = psi * 14.695948775;
+        atmo = psi / 14.695948775;
         return(atmo);
     }
 
      /**
-     * converts atmo to inchWater
+     * converts atmo to inchWater at 60*F
      * @param {double} atmos
      * @return inchWater equiv
      */
     atmoToInchWater(atmos){
         let inchWater = 0.00;
         let atmo = Number(atmos);
-        inchWater = atmo / 14.695948775;
+        inchWater = atmo * 407.18444963;
         return(inchWater);
     }
 
     /**
-     * converts inchWater to atmo
+     * converts inchWater to atmo at 60*F
      * @param {double} inchWaters
      * @return atmo equiv
      */
     inchWaterToAtmo(inchWaters){
         let atmo = 0.00;
         let inchWater = Number(inchWaters);
-        atmo = inchWater * 14.695948775;
+        atmo = inchWater / 407.18444963;
         return(atmo);
     }
 
@@ -542,7 +542,7 @@ class Units {
      */
     dynePerCMToAtmo(dynes){
         let atmo = 0.00;
-        dyne = Number(dynes);
+        let dyne = Number(dynes);
         atmo = dyne / 1013250;
         return(atmo);
     }
