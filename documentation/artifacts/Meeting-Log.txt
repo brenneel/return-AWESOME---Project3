@@ -1,0 +1,15 @@
+10/28/2019. In Lecture
+--Attendees: Kyle Kappes-Sum, Connie Li, Malena Schoeni, Ethan Brenner
+--First scrum to brainstorm topics
+
+10/28/2019. Spahr Library
+--Attendees: Kyle Kappes-Sum, Connie Li, Malena Schoeni, Ethan Brenner
+--planned out file strucure, UI, and UML docs
+
+11/1/2019. In Lecture
+--Attendees: Kyle Kappes-Sum, Connie Li, Malena Schoeni, Ethan Brenner
+--discussed future additions and planned project 3 work time
+
+11/2/2019. Spahr Library
+--Attendees Connie Li, Kyle-Kappes Sum, Ethan Brenner
+--Improved UI, added formula's section, and worked on documentation
