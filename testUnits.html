@@ -10,6 +10,8 @@
         <h2>Testing suite</h2>
 
         <script>
+
+            let unit = new Units();
             function testingErgtoJ(min, max, increment)
             {
                 console.log("Testing erg to Joule");
@@ -211,7 +213,7 @@
             
             function testAll(min, max, increment)
             {
-                let unit = new Units();
+               // let unit = new Units();
                 
                 testingErgtoJ(min, max, increment);
                 testingJtoErg(min, max, increment);
