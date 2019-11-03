@@ -8,8 +8,12 @@
 
     <body>
         <h2>Testing suite</h2>
-
+        <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAll(-10000, 10000, 782.83);">
+        <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure(0.000000001234, 1024.123456, 987654);">
+        <input type = "button" id = "reset" value = "Clear Console" onclick = "console.clear();">
         <script>
+
+            let unit = new Units();
             function testingErgtoJ(min, max, increment)
             {
                 console.log("Testing erg to Joule");
@@ -211,7 +215,7 @@
             
             function testAll(min, max, increment)
             {
-                let unit = new Units();
+               // let unit = new Units();
                 
                 testingErgtoJ(min, max, increment);
                 testingJtoErg(min, max, increment);
@@ -227,8 +231,19 @@
 
             }
 
-            testAll(-10000, 10000, 782.83);
+            //testAll(-10000, 10000, 782.83);
             
+
+        </script>
+
+<script>
+    
+
+    function testAllPressure(small, mid, large){
+
+
+
+    }
 
 
         </script>
