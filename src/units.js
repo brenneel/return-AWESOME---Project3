@@ -372,7 +372,7 @@ class Units {
      * @param {double} mercInches
      * @return atmos equiv.
      */
-    MercInchToAtmo(mercInches){
+    mercInchToAtmo(mercInches){
         let atmo = 0.000;
         let mercInch = Number(mercInches);
         atmo = mercInche / 29.92133;
