@@ -500,26 +500,26 @@ class Units {
     }
 
      /**
-     * converts atmo to inchWater
+     * converts atmo to inchWater at 60*F
      * @param {double} atmos
      * @return inchWater equiv
      */
     atmoToInchWater(atmos){
         let inchWater = 0.00;
         let atmo = Number(atmos);
-        inchWater = atmo / 14.695948775;
+        inchWater = atmo * 407.18444963;
         return(inchWater);
     }
 
     /**
-     * converts inchWater to atmo
+     * converts inchWater to atmo at 60*F
      * @param {double} inchWaters
      * @return atmo equiv
      */
     inchWaterToAtmo(inchWaters){
         let atmo = 0.00;
         let inchWater = Number(inchWaters);
-        atmo = inchWater * 14.695948775;
+        atmo = inchWater / 407.18444963;
         return(atmo);
     }
 
