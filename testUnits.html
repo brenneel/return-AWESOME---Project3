@@ -8,8 +8,8 @@
 
     <body>
         <h2>Testing suite</h2>
-        <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAll(-10000, 10000, 782.83);">
-        <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure();">
+        <input type = "button" id = "energy" value = "Energy Testing" onclick  ="testAllEnergy(-10000, 10000, 782.83);">
+        <input type = "button" id = "pressure" value = "Pressure Testing" onclick = "testAllPressure(0.000000001234, 1024.123456, 987654);">
         <input type = "button" id = "reset" value = "Clear Console" onclick = "console.clear();">
         <script>
 
@@ -196,7 +196,7 @@
                     //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
                     expected = i *(6.241509* (10**18));
                     //console.log("Expected value = " + expected + " TEST ");
-                    let calc = unit.eVtoJ(i);
+                    let calc = unit.eVToJ(i);
                     flag = false;
                     if (calc !== expected)
                     {
@@ -212,8 +212,60 @@
                     }
                 }
             }
+
+            function testingJouletoFtlbf(min, max, increment)
+            {
+                console.log("Testing J to ftlbF")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *0.737562;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToFootPoundForce(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("j = " + i + " ftlbf = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            }
+
+            function testingFtlbfToJ(min, max, increment)
+            {
+                console.log("Testing ftlbF to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *1.35582;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.ftlbfToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("ftlbf = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            }
+
+
             
-            function testAll(min, max, increment)
+            function testAllEnergy(min, max, increment)
             {
                // let unit = new Units();
                 
@@ -223,6 +275,9 @@
                 testingBtutoJ(min, max, increment);
                 testingJtoCal(min, max, increment);
                 testingJtoEV(min, max, increment);
+                testingEVtoJ(min, max, increment);
+                testingJouletoFtlbf(min, max, increment);
+                testingFtlbfToJ(min, max, increment);
 
             
 

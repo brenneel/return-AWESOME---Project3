@@ -137,7 +137,7 @@ class Units {
     ftlbfToJ(fpf)
     {
         let ftlbf  = Number(fpf);
-        let joules = ftlbf  * .0012854;
+        let joules = ftlbf  * 1.355818;
         return joules;
     }
 
