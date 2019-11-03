@@ -15,9 +15,7 @@
 				<div class="subtitle">Unit Converter</div>
 				<form id="units">
 					<p class="centered">
-						<label for="category">Unit Category</label><select id="category" name="category" form="units">
-							<option value="energy">Energy</option>
-							<option value="pressure">Pressure</option>
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="gui.categoryChange();">
 						</select>
 					</p>
 					<div class="centered">
@@ -36,12 +34,10 @@
 					<div class="centered">
 						<label for="constant-select">Constant: </label>
 						<select id="constant-select" name="constant-select" form="constants">
-							<option value="R">Universal Gas Constant, R</option>
 						</select>
 						<div class="equals">=</div>
 						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield" readonly>
 						<select id="constant-unit">
-							<option value="J-mol-K">J / (mol * K)</option>
 						</select>
 						<label for="constant-unit" class="hidden">Constant's Unit</label>
 					</div>
