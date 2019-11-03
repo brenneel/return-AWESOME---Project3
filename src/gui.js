@@ -321,6 +321,15 @@ class GUI {
 		return(newVal);
 	}
 	
+	/** Gets the value of the given constant in the given unit.
+	 * @pre - constant and constUnit are valid
+	 * @param {string} constant - the constant.
+	 * @param {string} constUnit - the unit of the constant.
+	 * @return {number} the constant value.
+	 */
+	getConst(constant, constUnit) {
+		return(CONSTS[constant][constUnit]);
+	}
 	
 	/* -------------------------------
 	 * EVENT HANDLING METHODS
@@ -359,5 +368,66 @@ class GUI {
 		}
 	}
 	
+	/** Repopulates the constant units dropdown menu when the Constant is changed.
+	 * @post - changes the options generated in the "constant-unit" dropdown menu
+	 */
+	constChange() {
+		let constant = this.m_constMenu.value;
+		switch(constant) {
+			case "UNIV_GAS_CONST":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.UNIV_GAS_CONST.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			case "RHO_OF_WATER":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.RHO_OF_WATER.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			case "MU_OF_WATER":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.MU_OF_WATER.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			case "NU_OF_WATER":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.NU_OF_WATER.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			case "CAP_MU_OF_WATER":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.CAP_MU_OF_WATER.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			case "SIGMA_OF_WATER":
+				this.m_constUnitMenu.innerHTML = "";
+				CONFIG.SIGMA_OF_WATER.forEach(function(item) {
+					gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+				});
+				break;
+			default:
+				console.log("constChange: " + constant + " does not match any case.");
+				break;
+		}
+	}
 	
+	/** Handles displaying the selected constant in the selected unit when user clicks the Const button: gets values from the constant and constant unit inputs; if inputs are valid, calls the getConst() method; outputs the constant value to the GUI.
+	 * @post - changes the value of the "constant-num" element to display the constant value.
+	 */
+	constHandler() {
+		let constant = this.m_constMenu.value;
+		let constUnit = this.m_constUnitMenu.value;
+		if(constant != "" && constUnit != "") {
+			let value = this.getConst(constant, constUnit);
+			this.m_constOutput.value = value;
+		}
+		else {
+			console.log("constHandler received an empty value");
+		}
+	}
 }
