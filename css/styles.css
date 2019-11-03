@@ -61,7 +61,6 @@ textarea, input, select {
     margin: 7px 4px;
     padding: 10px;
 	font-size: 12pt;
-	border-style: none;
 	background-color: #4d4d4d;
 	color: white;
 	border: thin solid white;
@@ -128,4 +127,13 @@ td, th {
 	display:inline;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.formula-const {
+	display: inline-block;
+	width: 10%;
+	background-color: #4d4d4d;
+	margin: 7px 4px;
+    padding: 10px;
+	font-size: 12pt;
 }

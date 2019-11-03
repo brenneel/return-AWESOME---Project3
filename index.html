@@ -47,20 +47,22 @@
 			</div>
 			<div class="expandable">
 				<div class="subtitle">Formula Calculator</div>
-				<form id="formulas">
-					<div class="centered">
-						<label for="formula-select">Choose a formula: </label>
-						<select id="formula-select" name="formula-select" form="formulas" required>
-							<option value="PVNRT">PV = nRT</option>
-						</select>
-					</div>
-					<div id="formula-inputs" class="centered"><!-- input fields for the chosen formula will be generated here -->
-						<div>IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.</div>
-						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label><input type="number" id="const-R" name="const-R" class="numfield" value="8.314" readonly><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
-					</div>
-					<p class="centered alert" id="alert-1-var">Leave exactly one (1) variable blank!</p>
-					<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
-				</form>
+				<div class="centered">
+					<label for="formula-select">Choose a formula: </label>
+					<select id="formula-select" name="formula-select" form="formulas" required>
+						<option value="PVNRT">PV = nRT</option>
+					</select>
+				</div>
+				<div id="formula-inputs" class="centered"><!-- input fields for the chosen formula will be generated here -->
+					<div>IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.</div>
+					<form id="form-pvnrt">
+						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label>
+<!--						<input type="number" id="const-R" name="const-R" class="numfield" value="8.314" readonly>-->
+						<div id="const-R" name="const-R" class="formula-const">8.314</div><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
+					</form>
+				</div>
+				<p class="centered alert" id="alert-1-var">Leave exactly one (1) variable blank!</p>
+				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button"></p>
 			</div>
 		</div>
 	</body>
