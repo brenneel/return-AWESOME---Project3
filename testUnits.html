@@ -10,53 +10,226 @@
         <h2>Testing suite</h2>
 
         <script>
-            let unit = new Units();
-            console.log("Testing erg to Joule");
-            for (let i = -1000; i< 1000; i= i+125.56)
+            function testingErgtoJ(min, max, increment)
             {
-                //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
-                let expected = i/10000000;
-                //console.log("Expected value = " + expected + " TEST ");
-                let calc = unit.ergToJ(i);
-                let flag = false;
-                if (calc !== expected)
+                console.log("Testing erg to Joule");
+                for (let i = min; i< max; i= i+increment)
                 {
-                    //console.log(" PASSED\n");
-                    flag = true;
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    let expected = i/10000000;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.ergToJ(i);
+                    let flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                    }
+                    if (flag)
+                    {
+                        console.log("erg = " + i + " joule = " + calc+ "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
                 }
-                if (flag)
+            };
+
+            function testingJtoErg(min, max, increment)
+            {
+                console.log("Testing Joule to erg");
+                for (i = min; i< max; i= i+increment)
                 {
-                    console.log("erg = " + i + " joule = " + calc+ "\n");
-                    console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                    console.log(calc-expected + "\n");
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    let expected = i*10000000;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToErg(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("joule = " + i + " erg = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
                 }
+            };
+
+            function testingJtoBtu(min, max, increment)
+            {
+                console.log("Testing joule to btu")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *0.000947817;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToBtu(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("joule = " + i + " btu = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            };
+
+            function testingBtutoJ(min, max, increment)
+            {
+                console.log("Testing btu to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *1055.05585262;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.btuToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("btu = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            };
+
+            function testingJtoCal(min, max, increment)
+            {
+                console.log("Testing joule to Cal")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *0.239006;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToCal(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("joule = " + i + " cal = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            };
+
+            function testingCaltoJ(min, max, increment)
+            {
+                console.log("Testing cal to joule")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *4.184;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.calToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            };
+
+            function testingJtoEV(min, max, increment)
+            {
+                console.log("Testing joule to eV")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *(6.241509* (10**18));
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToEV(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            };
+
+            function testingEVtoJ(min, max, increment)
+            {
+                console.log("Testing EV to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *(6.241509* (10**18));
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.eVtoJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            }
+            
+            function testAll(min, max, increment)
+            {
+                let unit = new Units();
+                
+                testingErgtoJ(min, max, increment);
+                testingJtoErg(min, max, increment);
+                testingJtoBtu(min, max, increment);
+                testingBtutoJ(min, max, increment);
+                testingJtoCal(min, max, increment);
+                testingJtoEV(min, max, increment);
+
+            
+
+
+
+
             }
 
-            console.log("Testing Joule to erg");
-            for (i = -1000; i< 1000; i=i+125.56)
-            {
-                //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
-                let expected = i*10000000;
-                //console.log("Expected value = " + expected + " TEST ");
-                let calc = unit.jouleToErg(i);
-                flag = false;
-                if (calc !== expected)
-                {
-                    //console.log(" PASSED\n");
-                    flag = true;
-                    
-                }
-                if (flag)
-                {
-                    console.log("joule = " + i + " erg = " + calc + "\n");
-                    console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                    console.log(calc-expected + "\n");
-                }
-                else
-                {
-                    console.log("expected = " + expected + " calc = " + calc + "\n");
-                }
-            }
+            testAll(-10000, 10000, 782.83);
+            
+
 
         </script>
     </body>
