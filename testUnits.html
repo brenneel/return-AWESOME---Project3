@@ -238,11 +238,13 @@
 
 <script>
     let testValues = [0.000000001234, 1024.123456, 987654];
-    
+    let expectedValues = [];
+    //expected values are taken from unitconverters.net/pressure-converter.html
     /**
      * calls all testing functions for pressure
      */
     function testAllPressure(){
+       
         testingAtmoTokPa();
         testingkPaToAtmo();
         testingAtmoToPa();
@@ -255,14 +257,14 @@
      */
     function testingAtmoTokPa(){
         let passed = true;
+        expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<testValues.length; i++){
-            let calc1 = unit.atmoTokPa(testValues[i]);
-            let expected = testValues[i]*101.325;
+            let calc = unit.atmoTokPa(testValues[i]);
             
-            if(calc1 !== expected){
+            if(calc !== expectedValues[0][i]){
                 passed = false;
-                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expected + "\n");
+                console.log("Expected value = " + expectedValues[0][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[0][i] + "\n");
             }
         }
         if(passed){
@@ -274,14 +276,14 @@
      */
      function testingkPaToAtmo(){
         let passed = true;
+        expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
         for(let i = 0; i<testValues.length; i++){
-            let calc1 = unit.kPaToAtmo(testValues[i]);
-            let expected = testValues[i]/101.325;
+            let calc = unit.kPaToAtmo(testValues[i]);
             
-            if(calc1 !== expected){
+            if(calc !== expectedValues[1][i]){
                 passed = false;
-                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expected + "\n");
+                console.log("Expected value = " + expectedValues[1][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[1][i] + "\n");
             }
         }
         if(passed){
@@ -294,14 +296,14 @@
      */
      function testingAtmoToPa(){
         let passed = true;
+        expectedValues.push([0.0001250351,103769309.18,100074041550])
         for(let i = 0; i<testValues.length; i++){
-            let calc1 = unit.atmoToPa(testValues[i]);
-            let expected = testValues[i]*101325;
+            let calc = unit.atmoToPa(testValues[i]);
             
-            if(calc1 !== expected){
+            if(calc !== expectedValues[2][i]){
                 passed = false;
-                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expected + "\n");
+                console.log("Expected value = " + expectedValues[2][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[2][i] + "\n");
             }
         }
         if(passed){
@@ -313,14 +315,14 @@
      */
      function testingPaToAtmo(){
         let passed = true;
+        expectedValues.push([0.00000000000001217863311,0.0101073127,9.7473871207])
         for(let i = 0; i<testValues.length; i++){
-            let calc1 = unit.paToAtmo(testValues[i]);
-            let expected = testValues[i]/101325;
+            let calc = unit.paToAtmo(testValues[i]);
             
-            if(calc1 !== expected){
+            if(calc !== expected){
                 passed = false;
-                console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expected + "\n");
+                console.log("Expected value = " + expectedValues[3][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[3][i] + "\n");
             }
         }
         if(passed){
