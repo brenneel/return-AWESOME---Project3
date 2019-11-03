@@ -254,6 +254,10 @@
         testingBarToAtmo(5);
         testingAtmoToPoundPerSquaredInch(6);
         testingPoundPerSquaredInchToAtmo(7);
+        testingAtmoToFootWater(8);
+        testingFootWaterToAtmo(9);
+        testingAtmoToMercInch(10);
+        testingMercInchToAtmo(11);
 
     }
     
@@ -423,6 +427,168 @@
         }
     }
 
+    /**
+     * atmo to foot water checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToFootWater(j){
+        let passed = true;
+        expectedValues.push([0.00000004187213423,34750.595482,33513112.535]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToFootWater(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to foot water: PASSED");
+        }
+    }
+    
+    /**
+     * foot water to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingFootWaterToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.00000000003636681119,30.181608072,29106.828639]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.footWaterToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("foot water to atmo: PASSED");
+        }
+    }
+
+    /**
+     * atmo to merc inch checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToMercInch(j){
+        let passed = true;
+        expectedValues.push([0.00000003692292359,30643.137858,29551923.16]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToMercInch(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to merc inch: PASSED");
+        }
+    }
+    /**
+     * merc inch to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingMercInchToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.00000000004124147959,34.22720147,33008.356798]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.mercInchToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("merc inch to atmo: PASSED");
+        }
+    }
+    /**
+     * atmo to merc mm checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToMercMM(j){
+        let passed = true;
+        expectedValues.push([0.0000009378425916,778335.9774,750619114.25]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToMercMM(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to merc mm: PASSED");
+        }
+    }
+      /**
+     * merc mm to atmo checking with expected values
+     * @param {num} j
+     */
+     function testingMercMMToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.000000000001623679,1.3475271394,1299.5411457]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.mercMMToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("merc mm to atmo: PASSED");
+        }
+    }
+      /**
+     * atmo to kgf checking with expected values
+     * @param {num} j
+     */
+     function testingAtmoToKgf(j){
+        let passed = true;
+        expectedValues.push([0.000000001275002676,1058.1524698,1020471.2267]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToKgf(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to kgf/cm^2: PASSED");
+        }
+    }
+    /**
+     * atmo to kgf checking with expected values
+     * @param {num} j
+     */
+     function testingKgfToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.000000001194315924,991.18877767,955892.13907]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.kgfToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("kgf/cm^2 to atmo: PASSED");
+        }
+    }
     
 
 
