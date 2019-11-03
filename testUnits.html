@@ -250,6 +250,10 @@
         testingkPaToAtmo();
         testingAtmoToPa();
         testingPaToAtmo();
+        testingAtmoToBar();
+        testingBarToAtmo();
+        testingAtmoToPoundPerSquaredInch();
+        testingPoundPerSquaredInchToAtmo();
 
     }
     
@@ -299,7 +303,7 @@
      */
      function testingAtmoToPa(){
         let passed = true;
-        expectedValues.push([0.0001250351,103769309.18,100074041550])
+        expectedValues.push([0.0001250351,103769309.18,100074041550]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.atmoToPa(testValues[i]);
             
@@ -319,7 +323,7 @@
      */
      function testingPaToAtmo(){
         let passed = true;
-        expectedValues.push([0.00000000000001217863311,0.0101073127,9.7473871207])
+        expectedValues.push([0.00000000000001217863311,0.0101073127,9.7473871207]);
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.paToAtmo(testValues[i]);
 
@@ -333,6 +337,85 @@
             console.log("Pa to atmo: PASSED");
         }
     }
+
+    /**
+     * atmo to bar checking with expected values
+     */
+     function testingAtmoToBar(){
+        let passed = true;
+        expectedValues.push([0.0000000012503505,1037.6930918,1000740.4155]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToBar(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[4][i])/(expectedValues[4][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[4][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[4][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to bar: PASSED");
+        }
+    }
+    /**
+     * bar to atmo checking with expected values
+     */
+     function testingBarToAtmo(){
+        let passed = true;
+        expectedValues.push([0.000000001217863311,1010.7312667,974738.71207]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.barToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[5][i])/(expectedValues[5][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[5][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[5][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("bar to atmo: PASSED");
+        }
+    }
+    /**
+     * atmo to poundPerSquareInch checking with expected values
+     */
+     function testingAtmoToPoundPerSquaredInch(){
+        let passed = true;
+        expectedValues.push([0.00000001813480078,15050.465849,14514512.592]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.atmoToPoundPerSquaredInch(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[6][i])/(expectedValues[6][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[6][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[6][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to pound/squared inch: PASSED");
+        }
+    }
+    /**
+     * poundpersquaredinch to atmo checking with expected values
+     */
+     function testingPoundPerSquaredInchToAtmo(){
+        let passed = true;
+        expectedValues.push([0.00000000008396871946,69.687467726,67205.86844]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.poundPerSquaredInchToAtmo(testValues[i]);
+
+            if(Math.abs((calc-expectedValues[7][i])/(expectedValues[7][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[7][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[7][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("atmo to pound/squared inch: PASSED");
+        }
+    }
+
+    
 
 
         </script>
