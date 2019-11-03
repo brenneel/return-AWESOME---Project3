@@ -1,112 +1,163 @@
+/**
+ * All of the constants organized by constant. Each constant is given in different units.
+ * Values taken from Anna's textbook
+ */
 class UnitConstant{
     constructor(){
 
     }
 
-    UNIV_GAS_CONST={
-        BTU_LBMOL_R:            1.987,
-        CAL_MOL_K:              1.987,
-        KCAL_KGMOL_K:           1.987,
-        J_MOL_K:                8.314,
+    /**
+     * The universal gas constant
+     */
+    UNIV_GAS_CONST = {
+        BTU_LBMOL_R:            1.987,          /** (Btu)/(lbmol*R) */
+        CAL_MOL_K:              1.987,          /** (Cal)/(mol*K) */
+        KCAL_KGMOL_K:           1.987,          /** (kcal)/(kgmol*K) */
+        J_MOL_K:                8.314,          /** (J)/(mol*K) */
 
-        M3_PA_MOL_K:            8.314,
-        L_ATM_MOL_K:            0.08206,
-        L_BAR_MOL_K:            0.08314,
+        M3_PA_MOL_K:            8.314,          /** (m^3*Pa)/(mol*K) */
+        L_ATM_MOL_K:            0.08206,        /** (L*atm)/(mol*K) */
+        L_BAR_MOL_K:            0.08314,        /** (L*bar)/(mol*K) */
 
-        LFB_IN2_FT3_LBMOL_R:    10.73,
-        ATM_FT3_LBMOL_R:        0.7302,
+        LFB_IN2_FT3_LBMOL_R:    10.73,          /** ((lbf)/(in^2)*ft^3)/(lbmol*R) */
+        ATM_FT3_LBMOL_R:        0.7302,         /** (atm*ft^3)/(lbmol*R) */
     }
 
-    //these constants are assumed when water is 1 atm and 20*C
-    //values taken from Anna's textbook
+    /**
+     * Rho of Water
+     * Assumed when water is 1 atm and 20*C
+     */
     RHO_OF_WATER = {
-        LBM_FT3:                62.3,
-        KG_M3:                  998.2,
-        LBMOL_FT3:              3.46,
-        KGMOL_M3:               55.5,
-        MOL_L:                  55.5
+        LBM_FT3:                62.3,           /** (lbm)/(ft^3) */
+        KG_M3:                  998.2,          /** (kg)/(m^3) */
+        LBMOL_FT3:              3.46,           /** (lbmol)/(ft^3) */
+        KGMOL_M3:               55.5,           /** (kgmol)/(m^3) */
+        MOL_L:                  55.5,           /** (mol)/(L) */
+        G_CM3:                  1,              /** (g)/(cm^3) */
     }
 
+    /**
+     * Mu of Water
+     * Assumed when water is 1 atm and 20*C
+     */
     MU_OF_WATER = {
-        CP:                     1.002,
-        PAS:                    0.001002,
-        LBM_FTS:                0.000673,
-        LBFS_FT2:               0.0000209
+        CP:                     1.002,          /** (cp) */
+        PAS:                    0.001002,       /** (Pa*s) */
+        LBM_FTS:                0.000673,       /** (lbm)/(ft*s) */
+        LBFS_FT2:               0.0000209       /** (lbf*s)/(ft^2) */
     }
 
+    /**
+     * Nu of Water
+     * Assumed when water is 1 atm and 20*C
+     */
     NU_OF_WATER = {
         //can also = mu/rho
-        M2_S:                   0.000001004,
-        CST:                    1.004,
-        FT2_S:                  0.00001077
+        M2_S:                   0.000001004,    /** (m^2)/(s) */
+        CST:                    1.004,          /** (cSt) */
+        FT2_S:                  0.00001077      /** (ft^2)/(s) */
     }
 
+    /**
+     * MU of Water
+     * Assumed when water is 1 atm and 20*C
+     */
     CAP_MU_OF_WATER = {
-        G_MOL:                  18,
-        LBM_LBMOL:              18
+        G_MOL:                  18,             /** (g)/(mol) */   
+        LBM_LBMOL:              18              /** (lbm)/(lbmol) */
     }
 
+    /**
+     * Sigma of Water
+     * Assumed when water is 1 atm and 20*C
+     */
     SIGMA_OF_WATER = {
-        LBF_IN:                 0.000415,
-        DYNE_CM:                72.74,
-        N_M:                    0.07274
+        LBF_IN:                 0.000415,       /** (lbf)/(in) */
+        DYNE_CM:                72.74,          /** (dyne)/(cm) */
+        N_M:                    0.07274         /** (N)/(m) */
     }
 
-    //these constants are assumed when air is at 1 atm and 20*C
-    //values taken from Anna's textbook
+    /**
+     * Rho of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     RHO_OF_AIR = {
-        LBM_FT3:                0.075,
-        KG_M3:                  1.20,
-        LBMOL_FT3:              0.00259,
-        MOL_M3:                 41.6
+        LBM_FT3:                0.075,          /** (lmb)/(ft^3) */
+        KG_M3:                  1.20,           /** (kg)/(m^3) */
+        LBMOL_FT3:              0.00259,        /** (lbmol)/(ft^3) */
+        MOL_M3:                 41.6            /** (mol)/(m^3) */
     }
     
+    /**
+     * Mu of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     MU_OF_AIR = {
-        CP:                     0.018,
-        PAS:                    0.000018
+        CP:                     0.018,          /** (cP) */
+        PAS:                    0.000018        /** (Pa*s) */
     }
 
+    /**
+     * Nu of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     NU_OF_AIR = {
         //can also = mu/rho
-        M2_S:                   0.00001488,
-        CST:                    14.88,
-        FT2_S:                  0.0001613
+        M2_S:                   0.00001488,     /** (m^2)/(s) */
+        CST:                    14.88,          /** (cSt) */
+        FT2_S:                  0.0001613       /** (ft^2)/(s) */
     }
 
-    //Cp of air
+    /**
+     * Heat Capacity of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     HEAT_CAPACITY_OF_AIR = {
-        R:                      3.5,
-        BTU_LBMOLR:             6.95,
-        CAL_MOLK:               6.95,
-        J_MOLK:                 29.1
+        R:                      3.5,        /** (R) */
+        BTU_LBMOLR:             6.95,       /** (Btu)/(lbmol*R) */
+        CAL_MOLK:               6.95,       /** (cal)/(mol*K) */
+        J_MOLK:                 29.1        /** (J)/(mol*K) */
     }
 
-    //M is molar mass
+    /**
+     * Molar Mass of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     M_OF_AIR = {
-        G_MOL:                  29,
-        LBM_LBMOL:              29
+        G_MOL:                  29,             /** (g)/(mol) */
+        LBM_LBMOL:              29              /** (lbm)/(lbmol) */
     }
 
+    /**
+     * K of Air
+     * Assumed when water is 1 atm and 20*C
+     */
     K_OF_AIR = {
-        K:                      1.4
+        K:                      1.4             /** (unitless) */
     }
 
-    //molecular weights of common gases
+    /**
+     * Molecular Weights of Common Gases
+     */
     MOLEC_GAS_WEIGHTS = {
-        HYDROGEN:               2.0,
-        HELIUM:                 4.0,
-        METHANE:                16.0,
-        CARBON_MONOXIDE:        28.0,
-        NITROGEN:               28.0,
-        AIR:                    29.0,
-        OXYGEN:                 32.0,
-        CARBON_DIOXIDE:         44.0,
-        PROPANE:                44.0
+        HYDROGEN:               2.0,            /** Hydrogen */
+        HELIUM:                 4.0,            /** Helium */
+        METHANE:                16.0,           /** Methane */
+        CARBON_MONOXIDE:        28.0,           /** Carbon Monoxide */
+        NITROGEN:               28.0,           /** Nitrogen */
+        AIR:                    29.0,           /** Air */
+        OXYGEN:                 32.0,           /** Oxygen */
+        CARBON_DIOXIDE:         44.0,           /** Carbon Dioxide */
+        PROPANE:                44.0            /** Propane */
     }
 
+    /**
+     * Gravity
+     */
     GRAVITY = {
-        FT_S2:                  32.17,
-        M_S2:                   9.81
+        FT_S2:                  32.17,          /** (ft)/(s^2) */
+        M_S2:                   9.81            /** (m)/(s^2) */
     }
 
 }
