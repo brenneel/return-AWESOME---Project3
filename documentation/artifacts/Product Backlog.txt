@@ -1,3 +1,42 @@
 Product Backlog Legend: How do you like your steak?
 Rare(Easy) to Well-Done(Difficult)
 
+Unit Conversion Organization
+-Desc: put each category of unit conversion funcs in a separate class/file
+--Effort: Rare
+
+Drop down calculation
+-Desc: calculate conversion when new unit selected from drop down menu
+--Effort: Medium-Rare
+
+Theme Elements
+-Desc: Continue to improve the dark Theme
+--Effort: Medium-Rare
+
+Additional Conversions
+-Desc: basic length/volume/weight and other conversions
+-Effort: Medium-Rare
+
+Input Niceties
+-Desc: understands 6'7" and other forms of input
+--Effort: Medium
+
+Copy Button
+-Desc: for unit and/or constants converter, add "copy to clipboard" button
+--Effort: Medium-Rare
+
+2-Way Conversions
+-Desc: 2-way unit conversion, or button that swaps left and right side units
+--Effort: Medium
+
+Formula: Individual Unit Selection
+-Desc: for formulas, allow selection of units for each input
+--Effort: Well-Done
+
+Engineering/Scientific Notation
+-Desc: HANDLE SCIENTIFIC NOTATION / ENGINEERING NOTATION: entering & displaying
+--Effort: Well-Done
+
+Output Improvements
+-Desc: GUI: clear or change unitB output when changing unitB
+--Effort: Medium-Rare
