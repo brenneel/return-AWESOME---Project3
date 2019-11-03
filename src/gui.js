@@ -22,10 +22,7 @@ class GUI {
 		// outputs for unit converter & constants
 		this.m_unitBOutput = document.getElementById("unitB-input");
 		this.m_constOutput = document.getElementById("constant-num");
-		this.m_var_P = document.getElementById("var-P");
-		this.m_var_V = document.getElementById("var-V");
-		this.m_var_n = document.getElementById("var-n");
-		this.m_var_T = document.getElementById("var-T");
+		this.m_formulaFields = document.getElementById("formula-fields");
 	}
 	
 	/* -------------------------------
