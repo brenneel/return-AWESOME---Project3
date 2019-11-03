@@ -399,4 +399,38 @@ class GUI {
 			console.log("constHandler received an empty value");
 		}
 	}
+	
+	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct # of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. [Currently only handles PV = nRT]
+	 * @post changes the value of the appropriate input element
+	 */
+	calculateHandler() {
+		let formula = this.m_formulaMenu.value;
+		switch(formula) {
+			case "PVNRT":
+				let numEmpty = 0;
+				let empty = "";
+				let formulaVars = document.getElementById("form-pvnrt").elements;
+				for(let i = 0; i < formulaVars.length; i++) {
+					if(formulaVars[i].value == "") {
+						numEmpty++;
+						empty = formulaVars[i].id;
+					}
+				}
+
+				if(numEmpty == 1) {
+					let calculated = this.calcPVNRT(empty);
+					if(calculated !== undefined) {
+						formulaVars[empty].value = calculated;
+					}
+				}
+				else {
+//					this.showAlert("alert-1-var");
+					console.log("alert");
+				}
+				break;
+			default:
+				console.log("calculateHandler: " + formula + " did not match any case.");
+				break;
+		}
+	}
 }
