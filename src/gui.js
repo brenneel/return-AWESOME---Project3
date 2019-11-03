@@ -111,6 +111,22 @@ class GUI {
 			gui.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
+	
+	/** Shows the given helptext on the page.
+	 * @param {string} ID - the element ID of the helptext to show.
+	 * @post - changes the display of the given element to "block".
+	 */
+	showHelptext(ID) {
+		document.getElementById(ID).style.display = "block";
+	}
+	
+	/** Hides the given helptext on the page.
+	 * @param {string} ID - the element ID of the helptext to hide.
+	 * @post - changes the display of the given element to "none".
+	 */
+	hideHelptext(ID) {
+		document.getElementById(ID).style.display = "none";
+	}
 
 	/* -------------------------------
 	 * INTERNAL HELPER/CALCULATION METHODS
