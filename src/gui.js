@@ -33,10 +33,21 @@ class GUI {
 	 *
 	 */
 	initialize() {
+		this.populateCategories();
 		this.populateEnergyMenus();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
 		this.populateConstants();
+	}
+	
+	/** Populates the Categories unit dropdown menu with categories. Used when initializing the page.
+	 * @post - populates the "categories" dropdown menu with categories.
+	 */
+	populateCategories() {
+		this.m_catMenu.innerHTML = "";
+		CONFIG.CATEGORIES.forEach(function(item) {
+			gui.m_catMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
 	}
 	
 	/** Populates both unit dropdown menus with energy units. Used when initializing the page, and when changing unit categories.
