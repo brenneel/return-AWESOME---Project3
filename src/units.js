@@ -542,7 +542,7 @@ class Units {
      */
     dynePerCMToAtmo(dynes){
         let atmo = 0.00;
-        dyne = Number(dynes);
+        let dyne = Number(dynes);
         atmo = dyne / 1013250;
         return(atmo);
     }
