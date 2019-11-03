@@ -84,9 +84,8 @@ input[type="number"] {
 .alert {
     color: #ff4242;
     font-family: "Segoe UI", sans-serif;
-    font-weight: bold;
     display: none;
-    padding: 0px 10px;
+	font-style: italic;
 }
 
 table, td, th {
