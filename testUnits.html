@@ -10,10 +10,8 @@
         <h2>Testing suite</h2>
 
         <script>
-            function testAll(min, max, increment)
+            function testingErgtoJ(min, max, increment)
             {
-                let unit = new Units();
-                
                 console.log("Testing erg to Joule");
                 for (let i = min; i< max; i= i+increment)
                 {
@@ -34,7 +32,10 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
 
+            function testingJtoErg(min, max, increment)
+            {
                 console.log("Testing Joule to erg");
                 for (i = min; i< max; i= i+increment)
                 {
@@ -56,7 +57,10 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
 
+            function testingJtoBtu(min, max, increment)
+            {
                 console.log("Testing joule to btu")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -78,7 +82,10 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
 
+            function testingBtutoJ(min, max, increment)
+            {
                 console.log("Testing btu to J")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -100,7 +107,10 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
 
+            function testingJtoCal(min, max, increment)
+            {
                 console.log("Testing joule to Cal")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -122,6 +132,19 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
+            
+            function testAll(min, max, increment)
+            {
+                let unit = new Units();
+                
+                testingErgtoJ(min, max, increment);
+                testingJtoErg(min, max, increment);
+                testingJtoBtu(min, max, increment);
+                testingBtutoJ(min, max, increment);
+                testingJtoCal(min, max, increment);
+
+                
                 console.log("Testing cal to joule")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -166,7 +189,7 @@
                     }
                 }
 
-                
+
             }
 
             testAll(-10000, 10000, 782.83);
