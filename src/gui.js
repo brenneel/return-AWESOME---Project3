@@ -416,4 +416,18 @@ class GUI {
 		}
 	}
 	
+	/** Handles displaying the selected constant in the selected unit when user clicks the Const button: gets values from the constant and constant unit inputs; if inputs are valid, calls the getConst() method; outputs the constant value to the GUI.
+	 * @post - changes the value of the "constant-num" element to display the constant value.
+	 */
+	constHandler() {
+		let constant = this.m_constMenu.value;
+		let constUnit = this.m_constUnitMenu.value;
+		if(constant != "" && constUnit != "") {
+			let value = this.getConst(constant, constUnit);
+			this.m_constOutput.value = value;
+		}
+		else {
+			console.log("constHandler received an empty value");
+		}
+	}
 }
