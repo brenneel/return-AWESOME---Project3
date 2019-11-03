@@ -27,7 +27,7 @@
                     let percent = 0;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -57,7 +57,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -88,7 +88,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -119,7 +119,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -149,7 +149,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -179,7 +179,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -209,7 +209,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -233,13 +233,13 @@
                 for (i = min; i< max; i= i+increment)
                 {
                     //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
-                    expected = i *(6.241509* (10**18));
+                    expected = i *(1.60218* (10**-19));
                     //console.log("Expected value = " + expected + " TEST ");
                     let calc = unit.eVToJ(i);
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -250,7 +250,7 @@
                     }
                     if (flag)
                     {
-                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("ev = " + i + " joule = " + calc + "\n");
                         console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
                         console.log((calc-expected)/expected*100 + "\n");
                     }
@@ -269,7 +269,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -299,7 +299,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -328,7 +328,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
@@ -356,7 +356,7 @@
                     flag = false;
                     if (calc !== expected)
                     {
-                        if (Math.abs((calc-expected)/expected*100) <= 1)
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
                         {
                             flag = false
                         }
