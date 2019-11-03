@@ -80,33 +80,11 @@ input[type="number"] {
 	min-width: 25%;
 }
 
-.alert {
+.helptext {
     color: #ff4242;
     font-family: "Segoe UI", sans-serif;
     display: none;
 	font-style: italic;
-}
-
-table, td, th {
-	border-collapse:collapse;
-	border:thin solid white;
-}
-
-table {
-	margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-}
-
-td, th {
-	text-align:center;
-	vertical-align:middle;
-	padding: 8px 30px;
-}
-
-.helptext {
-	font-size: 10pt;
 }
 
 .numfield {
