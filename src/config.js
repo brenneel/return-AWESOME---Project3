@@ -52,10 +52,10 @@ class Config {
 	CONSTANTS = [
 		["UNIV_GAS_CONST", "Universal Gas Constant, R"],
 		["RHO_OF_WATER", "Density of Water (ρ)"],
-//		["MU_OF_WATER", ""],
-//		["NU_OF_WATER", ""],
-//		["CAP_MU_OF_WATER", ""],
-//		["SIGMA_OF_WATER", ""],
+		["MU_OF_WATER", "μ of Water"],
+		["NU_OF_WATER", "ν of Water"],
+		["CAP_MU_OF_WATER", "Μ of Water"],
+		["SIGMA_OF_WATER", "σ of Water"],
 //		["RHO_OF_AIR", ""],
 //		["MU_OF_AIR", ""],
 //		["NU_OF_AIR", ""],
@@ -75,7 +75,7 @@ class Config {
 		["L_BAR_MOL_K", "L⋅bar/mol⋅K"],
 		["LFB_IN2_FT3_LBMOL_R", "(lbf/in^2)ft^3/lbmol⋅°R"],
 		["ATM_FT3_LBMOL_R", "atm⋅ft^3/lbmol⋅°R"]
-	]
+	];
 
 	RHO_OF_WATER = [
 		["LBM_FT3", "lbm/ft^3"],
@@ -84,7 +84,31 @@ class Config {
 		["KGMOL_M3", "kgmol/m^3"],
 		["MOL_L", "mol/L"],
 		["G_CM3", "g/cm^3"]
-	]
+	];
+
+	MU_OF_WATER = [
+		["CP", "cp"],
+		["PAS", "Pa⋅s"],
+		["LBM_FTS", "lbm/ft⋅s"],
+		["LBFS_FT2", "lbf⋅s/ft^2"]
+	];
+
+	NU_OF_WATER = [
+		["M2_S", "m^2/s"],
+		["CST", "cSt"],
+		["FT2_S", "ft^2/s"]
+	];
+
+	CAP_MU_OF_WATER = [
+		["G_MOL", "g/mol"],
+		["LBM_LBMOL", "lbm/lbmol"]
+	];
+
+	SIGMA_OF_WATER = [
+		["LBF_IN", "lbf/in"],
+		["DYNE_CM", "dyne/cm"],
+		["N_M", "N/m"]
+	];
 
 	/* -------------------------------
 	 * HELPER METHODS
