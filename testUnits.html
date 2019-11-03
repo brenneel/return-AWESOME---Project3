@@ -319,7 +319,7 @@
         for(let i = 0; i<testValues.length; i++){
             let calc = unit.paToAtmo(testValues[i]);
             
-            if(calc !== expected){
+            if(calc !== expectedValues[3][i]){
                 passed = false;
                 console.log("Expected value = " + expectedValues[3][i] + " TEST FAILED difference between expected value and computation was ");
                 console.log(calc-expectedValues[3][i] + "\n");
