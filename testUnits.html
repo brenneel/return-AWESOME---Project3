@@ -122,6 +122,51 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+                console.log("Testing cal to joule")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *4.184;
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.calToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+
+                console.log("Testing joule to eV")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *(6.241509* (10**18));
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.jouleToEV(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+
+                
             }
 
             testAll(-10000, 10000, 782.83);

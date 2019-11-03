@@ -99,7 +99,7 @@ class Units {
     {
         let eV = 0.000;
         let joule = Number(joules);
-        eV = 10**18 * 6.24 * joule; //check this, we might hit the limit 
+        eV = 10**18 * 6.241509 * joule; //check this, we might hit the limit 
         return eV;
     }
 
