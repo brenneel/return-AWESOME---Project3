@@ -133,18 +133,9 @@
                     }
                 }
             };
-            
-            function testAll(min, max, increment)
-            {
-                let unit = new Units();
-                
-                testingErgtoJ(min, max, increment);
-                testingJtoErg(min, max, increment);
-                testingJtoBtu(min, max, increment);
-                testingBtutoJ(min, max, increment);
-                testingJtoCal(min, max, increment);
 
-                
+            function testingCaltoJ(min, max, increment)
+            {
                 console.log("Testing cal to joule")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -166,7 +157,10 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
 
+            function testingJtoEV(min, max, increment)
+            {
                 console.log("Testing joule to eV")
                 for (i = min; i< max; i= i+increment)
                 {
@@ -188,6 +182,47 @@
                         console.log(calc-expected + "\n");
                     }
                 }
+            };
+
+            function testingEVtoJ(min, max, increment)
+            {
+                console.log("Testing EV to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    //console.log("erg = " + i + " joule = " + unit.ergToJ(i) + "\n");
+                    expected = i *(6.241509* (10**18));
+                    //console.log("Expected value = " + expected + " TEST ");
+                    let calc = unit.eVtoJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        //console.log(" PASSED\n");
+                        flag = true;
+                        
+                    }
+                    if (flag)
+                    {
+                        console.log("cal = " + i + " joule = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                    }
+                }
+            }
+            
+            function testAll(min, max, increment)
+            {
+                let unit = new Units();
+                
+                testingErgtoJ(min, max, increment);
+                testingJtoErg(min, max, increment);
+                testingJtoBtu(min, max, increment);
+                testingBtutoJ(min, max, increment);
+                testingJtoCal(min, max, increment);
+                testingJtoEV(min, max, increment);
+
+            
+
+
 
 
             }
