@@ -431,6 +431,62 @@
             }
 
 
+            function testingJtoKws(min, max, increment)
+            {
+                console.log("Testing J to Kws")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *.001 ;
+                    let calc = unit.jouleTokWs(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("j = " + i + " kws = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
+            function testingKwstoJ(min, max, increment)
+            {
+                console.log("Testing kws to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *1000;
+                    let calc = unit.kwsToJ(i);
+                    flag = false;
+                    if (calc !== expected)
+                    {
+                        if (Math.abs((calc-expected)/expected*100) <= 0.1)
+                        {
+                            flag = false
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                    {
+                        console.log("kws = " + i + " j = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED percent error between expected value and computation was ");
+                        console.log((calc-expected)/expected*100 + "\n");
+                    }
+                }
+            }
+
             
             function testAllEnergy(min, max, increment)
             {
@@ -449,6 +505,8 @@
                 testinghphToJ(min, max, increment);
                 testingJtoKwh(min, max, increment);
                 testingKwhtoJ(min, max, increment);
+                testingJtoKws(min, max, increment);
+                testingKwstoJ(min, max, increment);
 
 
             }
