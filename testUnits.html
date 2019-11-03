@@ -263,6 +263,40 @@
                 }
             }
 
+            function testingJouleToHorsepowerHour(min, max, increment)
+            {
+                console.log("Testing j to hph")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *.000000372506 ;
+                    let calc = unit.jouleToHorsepowerHour(i);
+                    if (calc !== expected)
+                    {
+                        console.log("j = " + i + " hph = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                        
+                    }
+                }
+            }
+
+            function testinghphToJ(min, max, increment)
+            {
+                console.log("Testing hph to J")
+                for (i = min; i< max; i= i+increment)
+                {
+                    expected = i *2684519.53769 ;
+                    let calc = unit.hphToJ(i);
+                    if (calc !== expected)
+                    {
+                        console.log("hph = " + i + " j = " + calc + "\n");
+                        console.log("Expected value = " + expected + " TEST FAILED difference between expected value and computation was ");
+                        console.log(calc-expected + "\n");
+                        
+                    }
+                }
+            }
+
 
             
             function testAllEnergy(min, max, increment)
@@ -278,6 +312,8 @@
                 testingEVtoJ(min, max, increment);
                 testingJouletoFtlbf(min, max, increment);
                 testingFtlbfToJ(min, max, increment);
+                testingJouleToHorsepowerHour(min, max, increment);
+                testinghphToJ(min, max, increment);
 
             
 
