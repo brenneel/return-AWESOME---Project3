@@ -8,8 +8,8 @@
 
 11/1/2019. In Lecture
 --Attendees: Kyle Kappes-Sum, Connie Li, Malena Schoeni, Ethan Brenner
---discussed future additions and planned project 3 work time
+--discussed future additions and planned work time for remaining tasks
 
 11/2/2019. Spahr Library
 --Attendees Connie Li, Kyle-Kappes Sum, Ethan Brenner
---Improved UI, added formula's section, and worked on documentation
+--Improved UI, implemented constant selector interface and formula calculation interface, and worked on documentation; planned task division for remaining testing & tasks.
