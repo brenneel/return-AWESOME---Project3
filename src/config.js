@@ -2,6 +2,15 @@
  * @prop {Array} CATEGORIES - an array containing elementIDs and labels for each unit category option.
  * @prop {Array} ENERGY_UNITS - an array containing elementIDs and labels for each energy unit option.
  * @prop {Array} PRESSURE_UNITS - an array containing elementIDs and labels for each pressure unit option.
+ * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each constant option.
+ * @prop {Array} UNIV_GAS_CONST - an array containing elementIDs and labels for each unit option for the Universal Gas Constant, R.
+ * @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of Water (ρ).
+ * @prop {Array} MU_OF_WATER - an array containing elementIDs and labels for each unit option for the μ of Water.
+ * @prop {Array} NU_OF_WATER - an array containing elementIDs and labels for each unit option for the ν (nu) of Water.
+ * @prop {Array} CAP_MU_OF_WATER - an array containing elementIDs and labels for each unit option for the Μ (Mu) of Water.
+ * @prop {Array} SIGMA_OF_WATER - an array containing elementIDs and labels for each unit option for the σ of Water.
+ * @prop {Array} FORMULAS - an array containing elementIDs and labels for each unit option for the 
+ * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each formula option
  */
 class Config {
 	constructor() {}
