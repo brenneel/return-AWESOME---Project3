@@ -1,3 +1,6 @@
+/**
+ * Class that contains all conversion methods from nonstandard to standard units, and vice versa
+ */
 class Units {
 
     constructor() 
