@@ -551,7 +551,7 @@ class GUI {
 		return(converted);
 	}
 	
-	/** Determines the correct conversion category and calls the appropriate method.
+	/** Determines the correct conversion Category (ie, Energy) and calls the appropriate method.
 	 * @pre - unitA and unitB are not equal and value is not empty.
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to convert from.
@@ -607,7 +607,7 @@ class GUI {
 		}
 	}
 	
-	/** Repopulates the unit dropdown menus when the unit category is changed.
+	/** Repopulates the unit dropdown menus when the unit Category is changed.
 	 * @post - changes the options generated in the "unitA-select" and "unitB-select" dropdown menus.
 	 */
 	categoryChange() {
@@ -625,7 +625,7 @@ class GUI {
 		}
 	}
 	
-	/** Repopulates the constant units dropdown menu when the Constant is changed.
+	/** Repopulates the Constant Units dropdown menu when the Constant is changed.
 	 * @post - changes the options generated in the "constant-unit" dropdown menu
 	 */
 	constChange() {
@@ -636,7 +636,7 @@ class GUI {
 		});
 	}
 	
-	/** Handles displaying the selected constant in the selected unit when user clicks the Const button: gets values from the constant and constant unit inputs; if inputs are valid, calls the getConst() method; outputs the constant value to the GUI.
+	/** Handles displaying the selected constant in the selected unit when user clicks the Const button: gets values from the constant and constant unit inputs; if inputs are valid, calls the getConst() method and outputs the constant value to the GUI.
 	 * @post - changes the value of the "constant-num" element to display the constant value.
 	 */
 	constHandler() {
@@ -651,7 +651,7 @@ class GUI {
 		}
 	}
 	
-	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct # of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. [Currently only handles PV = nRT]
+	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct number of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. *[Currently only handles PV = nRT]*
 	 * @post changes the value of the appropriate input element
 	 */
 	calculateHandler() {
@@ -690,9 +690,9 @@ class GUI {
 	 * -------------------------------
 	 */
 	
-	/** Handle the calculation of the Ideal Gas Law formula (PV=nRT): get known values from form inputs, put them into a custom object, and pass that object to FormulaSol.pvNRT() to solve for the unknown variable.
+	/** Handles the calculation of the Ideal Gas Law formula (PV=nRT): gets known values from form inputs, puts them into a custom object, and passes that object to {@link FormulasSol}.pvNRT() to solve for the unknown variable.
 	 * @param {string} unknown - string representing which variable is unknown.
-	 * @return {number} - the value calculated by FormulaSol.pvNRT().
+	 * @return {number} - the value calculated by {@link FormulasSol}.pvNRT().
 	 */
 	calcPVNRT(unknown) {
 		let formulaFields = this.m_formulaFields.elements;
@@ -706,6 +706,5 @@ class GUI {
 			}
 		}
 		return(FORMULAS.pvNRT(knownVars));
-		
 	}
 }
