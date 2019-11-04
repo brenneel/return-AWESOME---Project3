@@ -1,10 +1,14 @@
-/** Class that contains all GUI methods: dynamically loads parts of the interface, handles user input validation, and makes calls to conversion functionality.
+/** Class that contains all GUI methods: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates inputs, and makes calls to conversion, constants, and formula functionality.
  * @prop {Element} m_catMenu - Element object representing the Category dropdown menu.
  * @prop {Element} m_unitAMenu - Element object representing the Unit A (unit to be converted from) dropdown menu.
  * @prop {Element} m_unitBMenu - Element object representing the Unit B (unit to convert to) dropdown menu.
  * @prop {Element} m_constMenu - Element object representing the Constants dropdown menu.
  * @prop {Element} m_constUnitMenu - Element object representing the Constants' Unit dropdown menu.
  * @prop {Element} m_formulaMenu - Element object representing the Formulas dropdown menu.
+ * @prop {Element} m_unitAInput - Element object representing the Unit A number input.
+ * @prop {Element} m_unitBOutput - Element object representing the Unit B number input.
+ * @prop {Element} m_constOutput - Element object representing the Constant Value number input.
+ * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which contains the number inputs for all formula variables.
  */
 class GUI {
 	constructor() {
@@ -30,7 +34,7 @@ class GUI {
 	 * -------------------------------
 	 */
 	
-	/** Initializes the dynamically-generated dropdown menus.
+	/** Initializes the dynamically-generated dropdown menus and the output Constant Value.
 	 *
 	 */
 	initialize() {
@@ -43,7 +47,7 @@ class GUI {
 		this.constHandler();
 	}
 	
-	/** Populates the Categories unit dropdown menu with categories. Used when initializing the page.
+	/** Populates the Unit Categories dropdown menu with categories. Used when initializing the page.
 	 * @post - populates the "categories" dropdown menu with categories.
 	 */
 	populateCategories() {
@@ -53,7 +57,7 @@ class GUI {
 		});
 	}
 	
-	/** Populates both unit dropdown menus with energy units. Used when initializing the page, and when changing unit categories.
+	/** Populates both Unit dropdown menus with energy units. Used when initializing the page, and when changing the Unit Category to Energy.
 	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with energy units.
 	 */
 	populateEnergyMenus() {
@@ -68,7 +72,7 @@ class GUI {
 		});
 	}
 	
-	/** Populates both unit dropdown menus with pressure units. Used when changing unit categories.
+	/** Populates both Unit dropdown menus with pressure units. Used when changing the Unit Category to Pressure.
 	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with pressure units.
 	 */
 	populatePressureMenus() {
@@ -84,7 +88,7 @@ class GUI {
 	}
 	
 	
-	/** Based on the selection of one dropdown menu, populate the options of another dropdown menu.
+	/** *[Currently unused and needs refactoring.]* Based on the selection of one dropdown menu, populate the options of another dropdown menu.
 	 * @param {string} menuAId - the elementID of the first menu
 	 * @param {string} menuBId - the elementID of the second menu
 	 */
@@ -103,7 +107,7 @@ class GUI {
 	}
 	
 	/** Populates the Constants dropdown menu with all available constants.
-	 * @post - populates the "constants
+	 * @post - populates the "constant-select" dropdown menu with all constants.
 	 */
 	populateConstants() {
 		this.m_constMenu.innerHTML = "";
@@ -133,8 +137,7 @@ class GUI {
 	 * -------------------------------
 	 */
 	
-	/** Returns a two-digit number  (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array; similar for the second digit.  Example: joule to cal conversion will be represented by 02.
-	 * @pre - assumes that there are no indexes greater than 9.
+	/** Generates a conversion ID, a two-digit number (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array (ie. {@link Config}.ENERGY_UNITS); similar for the second digit.  Example: joule to cal conversion will be represented by "02".
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to be converted from.
 	 * @param {string} unitB - the unit to be converted to.
