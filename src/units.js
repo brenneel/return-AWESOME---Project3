@@ -13,15 +13,15 @@ class Units {
     //ref from Anna's textbook and unitconverters.net/energy-converter.html
 
     
-    /***************************************************************************
+    /*
      * Joule conversions
      * Joules = 1 N/m = 1 W * s
      */
 
      /**
       * Converts joules to ergs. 1 joule is 10^7 ergs
-      * @param {double} joules
-      * @return ergs equivalent
+      * @param {Number} joules
+      * @return {Number}ergs equivalent
       */
     jouleToErg(joules)
     {
@@ -33,8 +33,8 @@ class Units {
 
     /**
      * Converts erg to joules
-     * @param {double} erg 
-     * @return joule equivalent
+     * @param {Number} erg 
+     * @return {Number}joule equivalent
      */
     ergToJ(btu)
     {
@@ -45,8 +45,8 @@ class Units {
 
     /**
      * Converts joules to btu (British thermal unit)
-     * @param {double} joules 
-     * @return Btu equivalent
+     * @param {Number} joules 
+     * @return {Number}Btu equivalent
      */
     jouleToBtu(joules)
     {
@@ -58,8 +58,8 @@ class Units {
 
     /**
      * Converts btu (British thermal unit) to joules
-     * @param {double} btu 
-     * @return joule equivalent
+     * @param {Number} btu 
+     * @return {Number}joule equivalent
      */
     btuToJ(btu)
     {
@@ -70,8 +70,8 @@ class Units {
 
     /**
       * Converts joules to cal. 1 joule is .239 cals
-      * @param {double} joules
-      * @return cal equivalent
+      * @param {Number} joules
+      * @return {Number}cal equivalent
       */
      jouleToCal(joules)
      {
@@ -83,8 +83,8 @@ class Units {
 
      /**
      * Converts calories to joules
-     * @param {double} cal 
-     * @return joule equivalent
+     * @param {Number} cal 
+     * @return {Number}joule equivalent
      */
     calToJ(cal)
     {
@@ -95,8 +95,8 @@ class Units {
 
      /**
       * Converts joules to eV (electron volts). 1 joule is 6.24* 10^8 eV
-      * @param {double} joules
-      * @return eV equivalent
+      * @param {Number} joules
+      * @return {Number}eV equivalent
       */
     jouleToEV(joules)
     {
@@ -108,8 +108,8 @@ class Units {
 
     /**
      * Converts eV to joules
-     * @param {double} eV 
-     * @return joule equivalent
+     * @param {Number} eV 
+     * @return {Number}joule equivalent
      */
     eVToJ(eV)
     {
@@ -120,8 +120,8 @@ class Units {
 
     /**
       * Converts joules to ft * lbf which is foot-pound force 
-      * @param {double} joules
-      * @return foot-pound force equivalent
+      * @param {Number} joules
+      * @return {Number}foot-pound force equivalent
       */
      jouleToFootPoundForce(joules)
      {
@@ -134,8 +134,8 @@ class Units {
 
      /**
      * Converts foot pound force to joules
-     * @param {double} fpf 
-     * @return joule equivalent
+     * @param {Number} fpf 
+     * @return {Number}joule equivalent
      */
     ftlbfToJ(fpf)
     {
@@ -146,8 +146,8 @@ class Units {
 
      /**
       * Converts joules to hp * h which is horsepower-hour
-      * @param {double} joules
-      * @return horsepower-hour equivalent
+      * @param {Number} joules
+      * @return {Number}horsepower-hour equivalent
       */
      jouleToHorsepowerHour(joules)
      {
@@ -161,8 +161,8 @@ class Units {
 
      /**
      * Converts horse power hour to joules
-     * @param {double} hph 
-     * @return joule equivalent
+     * @param {Number} hph 
+     * @return {Number}joule equivalent
      */
     hphToJ(hph)
     {
@@ -173,8 +173,8 @@ class Units {
      
      /**
       * Converts joules to kWh (kilowatt hour)
-      * @param {double} joules
-      * @return kWh equivalent
+      * @param {Number} joules
+      * @return {Number}kWh equivalent
       */
      jouleTokWh(joules)
      {
@@ -187,8 +187,8 @@ class Units {
 
      /**
      * Converts kilowatt hour to joules
-     * @param {double} kwh 
-     * @return joule equivalent
+     * @param {Number} kwh 
+     * @return {Number}joule equivalent
      */
     kwhToJ(kwh)
     {
@@ -199,8 +199,8 @@ class Units {
 
      /**
       * Converts joules to kWs (kilowatt sec)
-      * @param {double} joules
-      * @return kWs equivalent
+      * @param {Number} joules
+      * @return {Number}kWs equivalent
       */
      jouleTokWs(joules)
      {
@@ -213,8 +213,8 @@ class Units {
 
      /**
      * Converts kilowatt seconds to joules
-     * @param {double} kws
-     * @return joule equivalent
+     * @param {Number} kws
+     * @return {Number}joule equivalent
      */
     kwsToJ(kws)
     {
@@ -225,20 +225,16 @@ class Units {
 
 
 
-     //***************************************************************************
-
-
-        //Pressure calcs 
-    //ref from Anna's textbook and unitconverters.net/pressure-converter.html
-
-    
-    /***************************************************************************
+     /*
+      * Pressure calcs 
+      * ref from Anna's textbook and unitconverters.net/pressure-converter.html
+      */
 
     /**
      * converts atmospheres to kilopascal(kPa)
      * one atmo = 101.325 according to unitconverters.net, Anna's book = 101.3
-     * @param {double} atmos
-     * @return kPa
+     * @param {Number} atmos
+     * @return {Number}kPa
      */
      atmoTokPa(atmos)
      {
@@ -250,8 +246,8 @@ class Units {
 
      /**
       * converts kilopascals to atmospheres
-      * @param {double} kPas
-      * @return atmospheres equiv.
+      * @param {Number} kPas
+      * @return {Number}atmospheres equiv.
       */
      kPaToAtmo(kPas){
         let atmo = 0.000;
@@ -262,8 +258,8 @@ class Units {
 
     /**
      * converts atmo to pa
-     * @param {double} atmos
-     * @return pa equiv 
+     * @param {Number} atmos
+     * @return {Number}pa equiv 
      */
      atmoToPa(atmos){
          let pa = 0.000;
@@ -274,8 +270,8 @@ class Units {
 
      /**
       * convert pa to atmo
-      * @param {double} pas
-      * @return atmo equiv 
+      * @param {Number} pas
+      * @return {Number}atmo equiv 
       */
      paToAtmo(pas){
         let atmo = 0.000;
@@ -287,8 +283,8 @@ class Units {
      /**
       * converts atmospheres to bar
       * 1 atmo = 1.01325 according to unitconverter.net
-      * @param {double} atmos
-      * @return bar equiv.
+      * @param {Number} atmos
+      * @return {Number}bar equiv.
       */
     atmoToBar(atmos){
         let bar = 0.000;
@@ -299,8 +295,8 @@ class Units {
 
     /**
      * converts bar to atmospheres
-     * @param {double} bars
-     * @return atmo equiv.
+     * @param {Number} bars
+     * @return {Number}atmo equiv.
      */
     barToAtmo(bars){
         let atmo = 0.000;
@@ -311,8 +307,8 @@ class Units {
 
     /**
      * converts atmo to pound-force per inch^2 (lbf/in^2)
-     * @param {double} atmos
-     * @return lbf/in^2 equiv.
+     * @param {Number} atmos
+     * @return {Number}lbf/in^2 equiv.
      */
     atmoToPoundPerSquaredInch(atmos){
         let lbf = 0.000;
@@ -323,8 +319,8 @@ class Units {
 
     /**
      * converts pound-force per inch^2 to atmo
-     * @param {double} lbfs
-     * @return atmo equiv
+     * @param {Number} lbfs
+     * @return {Number}atmo equiv
      */
     poundPerSquaredInchToAtmo(lbfs){
         let atmo = 0.000;
@@ -336,8 +332,8 @@ class Units {
     /**
      * converts atmos to feet of water (ft)
      * foot water = 33.899524252 - unitconverters.net
-     * @param {double} atmos
-     * @return ft equiv.
+     * @param {Number} atmos
+     * @return {Number}ft equiv.
      */
     atmoToFootWater(atmos){
         let footWater = 0.000;
@@ -348,8 +344,8 @@ class Units {
 
     /**
      * converts footwater to atmospheres
-     * @param {double} footWaters
-     * @return atmo equiv.
+     * @param {Number} footWaters
+     * @return {Number}atmo equiv.
      */
     footWaterToAtmo(footWaters){
         let atmo = 0.000;
@@ -360,8 +356,8 @@ class Units {
 
     /**
      * converts atmos to inches of mercury
-     * @param {double} atmos
-     * @return mercInch equiv.
+     * @param {Number} atmos
+     * @return {Number}mercInch equiv.
      */
     atmoToMercInch(atmos){
         let mercInch = 0.000;
@@ -372,8 +368,8 @@ class Units {
 
     /**
      * converts merc inch to atmos
-     * @param {double} mercInches
-     * @return atmos equiv.
+     * @param {Number} mercInches
+     * @return {Number}atmos equiv.
      */
     mercInchToAtmo(mercInches){
         let atmo = 0.000;
@@ -384,8 +380,8 @@ class Units {
 
     /**
      * converts atmos to mm mercury
-     * @param {double} atmos
-     * @return mercMM equiv
+     * @param {Number} atmos
+     * @return {Number}mercMM equiv
      */
     atmoToMercMM(atmos){
         let mercMM = 0.000;
@@ -396,8 +392,8 @@ class Units {
 
     /**
      * converts mmMercury to atmos
-     * @param {double} mercMMs
-     * @return atmos equiv.
+     * @param {Number} mercMMs
+     * @return {Number}atmos equiv.
      */
     mercMMToAtmo(mercMMs){
         let atmo = 0.000;
@@ -408,8 +404,8 @@ class Units {
 
     /**
      * converts atmos to kgf/cm^2 (kilogram-force/sqare cm)
-     * @param {double} atmos
-     * @return kgf equiv.
+     * @param {Number} atmos
+     * @return {Number}kgf equiv.
      */
     atmoToKgf(atmos){
         let kgf = 0.000;
@@ -420,8 +416,8 @@ class Units {
 
     /**
      * converts kgf/cm^2 to atmos
-     * @param {double} kgfs
-     * @return atmos equiv.
+     * @param {Number} kgfs
+     * @return {Number}atmos equiv.
      */
     kgfToAtmo(kgfs){
         let atmo = 0.000;
@@ -432,8 +428,8 @@ class Units {
 
     /**
      * converts atmo to meterWater
-     * @param {double} atmos
-     * @return meterWater equiv.
+     * @param {Number} atmos
+     * @return {Number}meterWater equiv.
      */
     atmoToMeterWater(atmos){
         let meterWater = 0.000;
@@ -444,8 +440,8 @@ class Units {
     
     /**
      * converts meterWater to atmo
-     * @param {double} meterWaters
-     * @return atmo equiv.
+     * @param {Number} meterWaters
+     * @return {Number}atmo equiv.
      */
     meterWaterToAtmo(meterWaters){
         let atmo = 0.000;
@@ -456,8 +452,8 @@ class Units {
 
     /**
      * converts atmo to Torr
-     * @param {double} atmos
-     * @return torr equiv
+     * @param {Number} atmos
+     * @return {Number}torr equiv
      */
     atmoToTorr(atmos){
         let torr= 0.00;
@@ -468,8 +464,8 @@ class Units {
 
     /**
      * converts Torr to atmos
-     * @param {double} torss
-     * @return atmo equiv
+     * @param {Number} torss
+     * @return {Number}atmo equiv
      */
     torrToAtmo(torrs){
         let atmo = 0.00;
@@ -480,8 +476,8 @@ class Units {
 
     /**
      * converts atmo to psi
-     * @param {double} atmos
-     * @return psi equiv
+     * @param {Number} atmos
+     * @return {Number}psi equiv
      */
     atmoToPsi(atmos){
         let psi = 0.00;
@@ -492,8 +488,8 @@ class Units {
 
     /**
      * converts psi to atmo
-     * @param {double} psis
-     * @return atmo equiv
+     * @param {Number} psis
+     * @return {Number}atmo equiv
      */
     psiToAtmo(psis){
         let atmo = 0.00;
@@ -504,8 +500,8 @@ class Units {
 
      /**
      * converts atmo to inchWater at 60*F
-     * @param {double} atmos
-     * @return inchWater equiv
+     * @param {Number} atmos
+     * @return {Number}inchWater equiv
      */
     atmoToInchWater(atmos){
         let inchWater = 0.00;
@@ -516,8 +512,8 @@ class Units {
 
     /**
      * converts inchWater to atmo at 60*F
-     * @param {double} inchWaters
-     * @return atmo equiv
+     * @param {Number} inchWaters
+     * @return {Number}atmo equiv
      */
     inchWaterToAtmo(inchWaters){
         let atmo = 0.00;
@@ -528,8 +524,8 @@ class Units {
 
     /**
      * converst atmo to dyne/cm^2 
-     * @param {double} atmos
-     * @return dyne equiv
+     * @param {Number} atmos
+     * @return {Number}dyne equiv
      */
     atmoToDynePerCM(atmos){
         let dyne = 0.00;
@@ -540,8 +536,8 @@ class Units {
 
     /**
      * converts dyne/cm^2 to atmo
-     * @param {double} dynes
-     * @return atmo equiv
+     * @param {Number} dynes
+     * @return {Number}atmo equiv
      */
     dynePerCMToAtmo(dynes){
         let atmo = 0.00;
