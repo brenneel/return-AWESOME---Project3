@@ -38,6 +38,10 @@ Constants subject categories
 -Desc: add category dropdown for constants
 --Effort: Medium-Rare
 
+Overhaul Conversion ID
+-Desc: read in conversion ID in a better way (ie overhaul switch case ID checking)
+--Effort: Medium
+
 
 \\-- CONVERSION, CONSTANTS, & FORMULA TASKS --//
 Unit Conversion Organization
@@ -58,3 +62,12 @@ Additional Basic Conversions
 
 Additional Constants
 -Desc: additional constants used by ChemE, physics, etc.
+--Effort: Medium-Rare
+
+Determine Necessary formulas
+-Desc: find additional formulas to include in the Formulas section of the converter
+--Effort: Medium-Rare
+
+Simplify Formulas by hand
+-Desc: work through the additional formulas by hand to create abstractions
+--Effort: Medium-Well
