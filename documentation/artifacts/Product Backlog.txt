@@ -1,21 +1,14 @@
-Product Backlog Legend: How do you like your steak?
+Product Backlog Effort Legend: How do you like your steak?
 Rare(Easy) to Well-Done(Difficult)
 
-Unit Conversion Organization
--Desc: put each category of unit conversion funcs in a separate class/file
---Effort: Rare
-
-Drop down calculation
--Desc: calculate conversion when new unit selected from drop down menu
---Effort: Medium-Rare
+\\-- GUI IMPROVEMENT TASKS --// 
+Dropdown menu change event
+-Desc: calculate conversion automatically when new unit is selected, or the unit value is changed; update constant when the constant/unit are changed.  Remove the submit buttons for both.
+--Effort: Medium
 
 Theme Elements
 -Desc: Continue to improve the dark Theme
---Effort: Medium-Rare
-
-Additional Conversions
--Desc: basic length/volume/weight and other conversions
--Effort: Medium-Rare
+--Effort: Rare
 
 Input Niceties
 -Desc: understands 6'7" and other forms of input
@@ -29,34 +22,39 @@ Copy Button
 -Desc: 2-way unit conversion, or button that swaps left and right side units
 --Effort: Medium
 
-Formula: Individual Unit Selection
--Desc: for formulas, allow selection of units for each input
---Effort: Well-Done
-
-Engineering/Scientific Notation
--Desc: HANDLE SCIENTIFIC NOTATION / ENGINEERING NOTATION: entering & displaying
---Effort: Well-Done
-
-Output Improvements
--Desc: GUI: clear or change unitB output when changing unitB
---Effort: Medium-Rare
-
-"Convert on Enter"
--Desc: GUI: call convert/calculate/etc. using "enter" key depending on which input has focus
+Calculate Formula on Enter
+-Desc: use "enter" key to submit values for formula calculation when any formula inputs have focus.
 --Effort: Medium 
 
 Drop down placement
--Desc: GUI: put unit inputs above dropdowns
+-Desc: put unit inputs above dropdowns
 --Effort: Rare
-
-Bad input notifications
--Desc: GUI: notify user when formula inputs are bad
---Effort: Rare
-
-Constants subject categories
--Desc: GUI: add category dropdown for constants?
---Effort: Medium-Rare
 
 Favorites
--Desc: Favorites using cookies
---Effort: Medium-Well
+-Desc: Allow saving favorite conversions, constants, or formulas using cookies; and allow those favorites to be easily accessed on page load
+--Effort: Well-Done
+
+Constants subject categories
+-Desc: add category dropdown for constants
+--Effort: Medium-Rare
+
+
+\\-- CONVERSION, CONSTANTS, & FORMULA TASKS --//
+Unit Conversion Organization
+-Desc: put each category of unit conversion funcs in a separate class/file
+--Effort: Rare
+
+Engineering/Scientific Notation (CONVERSION, FORMULAS, GUI)
+-Desc: handle scientific/engineering notation: entering as input & displaying as output
+--Effort: Well-Done
+
+Additional Chemistry/Physics Conversions
+-Desc: additional conversions specific to ChemE, physics, etc.
+-Effort: Medium
+
+Additional Basic Conversions
+-Desc: basic length/volume/weight and other conversions
+-Effort: Medium-Rare
+
+Additional Constants
+-Desc: additional constants used by ChemE, physics, etc.
