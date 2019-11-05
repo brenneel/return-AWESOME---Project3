@@ -1,9 +1,13 @@
 /** Class containing helper methods that validate input values, determines which conversion/calculation methods to call, and packages input values into appropriate formats for use.
- *
+ * @prop {Object} UNITS - an object, initially empty, which will be populated with objects belonging to each of the Unit classes (ie. "energy", "pressure").
+ * @prop {UnitConstant} CONSTANTS - a {@link UnitConstant} object.
+ * @prop {FormulasSol} FORMULAS - a {@link FormulasSol} object.
  */
 class Helper {
 	constructor() {
-	
+		this.UNITS = {};
+		this.CONSTANTS = new UnitConstant();
+		this.FORMULAS = new FormulasSol();
 	}
 	
 	/* -------------------------------

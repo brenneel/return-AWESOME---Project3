@@ -1,6 +1,5 @@
 /** Class that handles all GUI functionality: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates input formats, and passes input values to and gets output values from Helper.
- * @prop {Helper} HELPER - a {@link Helper} ojbect.
- * @prop {Config} CONFIG - a {@link Config} object.
+ * @prop {Helper} HELPER - a {@link Helper} object.
  * @prop {Element} m_catMenu - Element object representing the Category dropdown menu.
  * @prop {Element} m_unitAMenu - Element object representing the Unit A (unit to be converted from) dropdown menu.
  * @prop {Element} m_unitBMenu - Element object representing the Unit B (unit to convert to) dropdown menu.
@@ -16,7 +15,6 @@ class Gui {
 	constructor() {
 		// Member objects
 		this.HELPER = new Helper();
-		this.CONFIG = new Config();
 		// dropdown menus
 		this.m_catMenu = document.getElementById("category");
 		this.m_unitAMenu = document.getElementById("unitA-select");
