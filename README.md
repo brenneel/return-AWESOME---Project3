@@ -7,3 +7,5 @@ https://app.agantty.com/sharing/876730fd78c63ac1875387728a2b4ad6
 To launch the app, open the index.html in Chrome and begin converting!
 
 To view documentation, open documentation/docs/index.html.
+
+Special thanks to: Anna Wilson for consulting on the formulas needed by Chemical Engineering students.
