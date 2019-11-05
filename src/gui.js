@@ -12,7 +12,7 @@
  * @prop {Element} m_constOutput - Element object representing the Constant Value number input.
  * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which contains the number inputs for all formula variables.
  */
-class GUI {
+class Gui {
 	constructor() {
 		// Member objects
 		this.HELPER = new Helper();
@@ -58,7 +58,7 @@ class GUI {
 	populateCategories() {
 		this.m_catMenu.innerHTML = "";
 		CONFIG.CATEGORIES.forEach(function(item) {
-			gui.m_catMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_catMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
@@ -68,12 +68,12 @@ class GUI {
 	populateEnergyMenus() {
 		this.m_unitAMenu.innerHTML = "";
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
-			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 		
 		this.m_unitBMenu.innerHTML = "";
 		CONFIG.ENERGY_UNITS.forEach(function(item) {
-			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
@@ -83,12 +83,12 @@ class GUI {
 	populatePressureMenus() {
 		this.m_unitAMenu.innerHTML = "";
 		CONFIG.PRESSURE_UNITS.forEach(function(item) {
-			gui.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 		
 		this.m_unitBMenu.innerHTML = "";
 		CONFIG.PRESSURE_UNITS.forEach(function(item) {
-			gui.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
@@ -117,7 +117,7 @@ class GUI {
 	populateConstants() {
 		this.m_constMenu.innerHTML = "";
 		CONFIG.CONSTANTS.forEach(function(item) {
-			gui.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
@@ -183,7 +183,7 @@ class GUI {
 		let constant = this.m_constMenu.value;
 		this.m_constUnitMenu.innerHTML = "";
 		CONFIG[constant].forEach(function(item) {
-			gui.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+			GUI.m_constUnitMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
