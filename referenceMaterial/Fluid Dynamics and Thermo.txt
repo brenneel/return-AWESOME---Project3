@@ -1,0 +1,18 @@
+Fluid Dynamics:
+
+The pdf includes what we talked about in the meeting:
+-Anna's handwritten rough guide through the process, steps to follow in the bottom right of the page
+-The Equations needed
+-Book pages for where the equations are listed and several other constants used in the problems
+
+
+
+Thermo:
+Scanned problem from Anna's hmwk (using Peng Robinson)
+-The peng robinson portion begins at the bottom of the first page, where she sets known constants on the bottom left side
+-The following page are the steps she took to perform the math by hand (key notes are the fv and fl at the bottom left, these are the values she is looking for)
+-Once fv and fl are found, use a check to see if they are equal, if not then iterate through again using a different temp
+-The third page has additional calculations that can be done after finding the fv and fl
+
+-Anna requested, if this is implemented,to add in an additional function that just performs one iteration and spits out the fv and fl 
+(ie. enter a temp at the beginning, run through the math once and spit out the answer without iterating through)
