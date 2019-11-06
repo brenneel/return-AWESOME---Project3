@@ -10,6 +10,14 @@ class Helper {
 		this.FORMULAS = new FormulasSol();
 	}
 	
+	/**
+	 *
+	 */
+	initialize() {
+		this.UNITS["ENERGY"] = new EnergyUnits();
+		this.UNITS["PRESSURE"] = new PressureUnits();
+	}
+	
 	/* -------------------------------
 	 * UNIT CONVERSION & CONSTANTS METHODS
 	 * -------------------------------
