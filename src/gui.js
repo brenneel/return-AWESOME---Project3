@@ -152,7 +152,7 @@ class Gui {
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
 		if((unitA != unitB) && (value != "")) {
-			let newVal = HELPER.convert(category, unitA, unitB, value);
+			let newVal = this.HELPER.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
 	}
@@ -193,7 +193,7 @@ class Gui {
 		let constant = this.m_constMenu.value;
 		let constUnit = this.m_constUnitMenu.value;
 		if(constant != "" && constUnit != "") {
-			let value = HELPER.getConst(constant, constUnit);
+			let value = this.HELPER.getConst(constant, constUnit);
 			this.m_constOutput.value = value;
 		}
 		else {
@@ -219,7 +219,7 @@ class Gui {
 				}
 
 				if(numEmpty == 1) {
-					let calculated = HELPER.calcPVNRT(empty);
+					let calculated = this.HELPER.calcPVNRT(empty);
 					if(calculated !== undefined) {
 						formulaFields[empty].value = calculated;
 						this.hideHelptext("formula-helptext");
