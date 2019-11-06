@@ -33,7 +33,6 @@ p {
 	display: block;
     border-width: 2px;
     border-style: ridge;
-    border-color: threedface;
     border-image: initial;
 	padding: 10px;
 	margin-top: 15px;

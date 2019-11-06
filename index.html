@@ -5,10 +5,12 @@
         <title>Team return(AWESOME) -- Project 3: Unit Converter</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="src/config.js"></script>
-		<script src="src/units.js"></script>
+		<script src="src/energyUnits.js"></script>
+		<script src="src/pressureUnits.js"></script>
 		<script src="src/unitConstant.js"></script>
 		<script src="src/formulasAbs.js"></script>
 		<script src="src/formulasSol.js"></script>
+		<script src="src/helper.js"></script>
 		<script src="src/gui.js"></script>
 	</head>
 	<body>
@@ -18,7 +20,7 @@
 				<div class="subtitle">Unit Converter</div>
 				<form id="units">
 					<p class="centered">
-						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="gui.categoryChange();">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.categoryChange();">
 						</select>
 					</p>
 					<div class="centered">
@@ -27,7 +29,7 @@
 						<div class="equals">=</div>
 						<input type="number" id="unitB-input" name="unitB-input" class="numfield" readonly><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
 						</select>
-						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="gui.convertHandler();"></p>
+						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="GUI.convertHandler();"></p>
 					</div>
 				</form>
 			</div>
@@ -36,14 +38,14 @@
 				<form id="constants">
 					<div class="centered">
 						<label for="constant-select">Constant: </label>
-						<select id="constant-select" name="constant-select" form="constants" onchange="gui.constChange();">
+						<select id="constant-select" name="constant-select" form="constants" onchange="GUI.constChange();">
 						</select>
 						<div class="equals">=</div>
 						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield" readonly>
 						<select id="constant-unit">
 						</select>
 						<label for="constant-unit" class="hidden">Constant's Unit</label>
-						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="gui.constHandler();"></p>
+						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="GUI.constHandler();"></p>
 					</div>
 				</form>
 			</div>
@@ -63,18 +65,15 @@
 					</form>
 				</div>
 				<p class="centered helptext" id="formula-helptext">Leave exactly one (1) variable blank!</p>
-				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="gui.calculateHandler();"></p>
+				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
 			</div>
 		</div>
 	</body>
 	<footer>
 		<script>
 			let CONFIG = new Config();
-			let UNITS = new Units();
-			let CONSTS = new UnitConstant();
-			let FORMULAS = new FormulasSol();
-			let gui = new GUI();
-			gui.initialize();
+			let GUI = new Gui();
+			GUI.initialize();
 		</script>
 	</footer>
 </html>
