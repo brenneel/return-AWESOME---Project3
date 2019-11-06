@@ -6,7 +6,7 @@
 class Helper {
 	constructor() {
 		this.UNITS = {};
-		this.CONSTANTS = new UnitConstant();
+		this.CONSTS = new UnitConstant();
 		this.FORMULAS = new FormulasSol();
 	}
 	
@@ -57,53 +57,53 @@ class Helper {
 		switch(conversionID) {
             /* joule to other units */
 			case "01":	// joule to cal
-				converted = UNITS.jouleToCal(value);
+				converted = UNITS.ENERGY.jouleToCal(value);
 				break;
 			case "02":	// joule to btu
-				converted = UNITS.jouleToBtu(value);
+				converted = UNITS.ENERGY.jouleToBtu(value);
 				break;
 			case "03":	// joule to erg
-				converted = UNITS.jouleToErg(value);
+				converted = UNITS.ENERGY.jouleToErg(value);
 				break;
 			case "04":	// joule to eV
-				converted = UNITS.jouleToEV(value);
+				converted = UNITS.ENERGY.jouleToEV(value);
 				break;
 			case "05":	// joule to ftlbf
-				converted = UNITS.jouleToFootPoundForce(value);
+				converted = UNITS.ENERGY.jouleToFootPoundForce(value);
 				break;
 			case "06":	// joule to hph
-				converted = UNITS.jouleToHorsepowerHour(value);
+				converted = UNITS.ENERGY.jouleToHorsepowerHour(value);
 				break;
 			case "07":	// joule to kWh
-				converted = UNITS.jouleTokWh(value);
+				converted = UNITS.ENERGY.jouleTokWh(value);
 				break;
 			case "08":	// joule to kWs
-				converted = UNITS.jouleTokWs(value);
+				converted = UNITS.ENERGY.jouleTokWs(value);
 				break;
             /* other units to joule */
 			case "10":	// cal to joule
-				converted = UNITS.calToJ(value);
+				converted = UNITS.ENERGY.calToJ(value);
 				break;
 			case "20":	// btu to joule
-				converted = UNITS.btuToJ(value);
+				converted = UNITS.ENERGY.btuToJ(value);
 				break;
 			case "30":	// erg to joule
-				converted = UNITS.ergToJ(value);
+				converted = UNITS.ENERGY.ergToJ(value);
 				break;
 			case "40":	// Ev to joule
-				converted = UNITS.eVToJ(value);
+				converted = UNITS.ENERGY.eVToJ(value);
 				break;
 			case "50":	// ftlbf to joule
-				converted = UNITS.ftlbfToJ(value);
+				converted = UNITS.ENERGY.ftlbfToJ(value);
 				break;
 			case "60":	// hph to joule
-				converted = UNITS.hphToJ(value);
+				converted = UNITS.ENERGY.hphToJ(value);
 				break;
 			case "70":	// kWh to joule
-				converted = UNITS.kwhToJ(value);
+				converted = UNITS.ENERGY.kwhToJ(value);
 				break;
 			case "80":	// kWs to joule
-				converted = UNITS.kwsToJ(value);
+				converted = UNITS.ENERGY.kwsToJ(value);
 				break;
 			/* cal to other units */
 			case "12":  // cal to btu
@@ -353,82 +353,82 @@ class Helper {
 		let converted;
 		switch(conversionID) {
 			case "01":	// atm to kPa
-				converted = UNITS.atmoTokPa(value);
+				converted = UNITS.PRESSURE.atmoTokPa(value);
 				break;
             case "02":	// atm to Pa; TODO: need Units method
-                converted = UNITS.atmoToPa(value);
+                converted = UNITS.PRESSURE.atmoToPa(value);
 				break;
             case "03": //atm to bar
-                converted = UNITS.atmoToBar(value);
+                converted = UNITS.PRESSURE.atmoToBar(value);
                 break;
             case "04": //atm to lbf
-                converted = UNITS.atmoToPoundPerSquaredInch(value);
+                converted = UNITS.PRESSURE.atmoToPoundPerSquaredInch(value);
                 break;
             case "05": //atm to foot water (ftAq)
-                converted = UNITS.atmoToFootWater(value);
+                converted = UNITS.PRESSURE.atmoToFootWater(value);
                 break;
             case "06": //atm to merc inch
-                converted = UNITS.atmoToMercInch(value);
+                converted = UNITS.PRESSURE.atmoToMercInch(value);
                 break;
             case "07": //atm to merc mm
-                converted = UNITS.atmoToMercMM(value);
+                converted = UNITS.PRESSURE.atmoToMercMM(value);
                 break;
             case "08": //atm to kgf/cm^2
-                converted = UNITS.atmoToKgf(value);
+                converted = UNITS.PRESSURE.atmoToKgf(value);
                 break;
             case "09": //atm to meter water
-                converted = UNITS.atmoToMeterWater(value);
+                converted = UNITS.PRESSURE.atmoToMeterWater(value);
                 break;
             case "010": //atm to torr
-                converted = UNITS.atmoToTorr(value);
+                converted = UNITS.PRESSURE.atmoToTorr(value);
                 break;
             case "011": //atm to psi
-                converted = UNITS.atmoToPsi(value);
+                converted = UNITS.PRESSURE.atmoToPsi(value);
                 break;
             case "012": //atm to inch water
-                converted = UNITS.atmoToInchWater(value);
+                converted = UNITS.PRESSURE.atmoToInchWater(value);
                 break;
             case "013": //atm to dyne
-                converted = UNITS.atmoToDynePerCM(value);
+                converted = UNITS.PRESSURE.atmoToDynePerCM(value);
                 break;
 			case "10":	// kPa to atm
-				converted = UNITS.kPaToAtmo(value);
+				converted = UNITS.PRESSURE.kPaToAtmo(value);
                 break;
             case "20": //Pa to atm
-                converted = UNITS.paToAtmo(value);
+                converted = UNITS.PRESSURE.paToAtmo(value);
                 break;
             case "30": //bar to atm
-                converted = UNITS.barToAtmo(value);
+                converted = UNITS.PRESSURE.barToAtmo(value);
                 break;
             case "40": // lbf to atmo
-                converted = UNITS.poundPerSquaredInchToAtmo(value);
+                converted = UNITS.PRESSURE.poundPerSquaredInchToAtmo(value);
                 break;
             case "50": //foot water to atm
-                converted = UNITS.footWaterToAtmo(value);
+                converted = UNITS.PRESSURE.footWaterToAtmo(value);
                 break;
             case "60": //merc inch to atm
-                converted = UNITS.MercInchToAtmo(value);
+                converted = UNITS.PRESSURE.MercInchToAtmo(value);
                 break;
             case "70": //merc MM to atm
-                converted = UNITS.mercMMToAtmo(value);
+                converted = UNITS.PRESSURE.mercMMToAtmo(value);
                 break;
             case "80": //kgf to atm
-                converted = UNITS.kgfToAtmo(value);
+                converted = UNITS.PRESSURE.kgfToAtmo(value);
                 break;
             case "90": //meter water to atm
-                converted = UNITS.meterWaterToAtmo(value);
+                converted = UNITS.PRESSURE.meterWaterToAtmo(value);
                 break;
             case "100": // torr to atm 
-                converted = UNITS.torrToAtmo(value);
+                converted = UNITS.PRESSURE.torrToAtmo(value);
                 break;
             case "110": // psi to atm
-                converted = UNITS.psiToAtmo(value);
+                converted = UNITS.PRESSURE.psiToAtmo(value);
                 break;
             case "120": // inch water to atm
-                converted = UNITS.inchWaterToAtmo(value);
+                converted = UNITS.PRESSURE.inchWaterToAtmo(value);
                 break;
             case "130": // dyne to atm
-                converted = UNITS.dynePerCMToAtmo(value);
+                converted = UNITS.PRESSURE.dynePerCMToAtmo(value);
                 break;
 
 			default:
