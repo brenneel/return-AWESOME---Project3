@@ -10,7 +10,7 @@
 		<script src="src/unitConstant.js"></script>
 		<script src="src/formulasAbs.js"></script>
 		<script src="src/formulasSol.js"></script>
-		<script src="src/helper.js"></script>
+		<script src="src/calculator.js"></script>
 		<script src="src/gui.js"></script>
 	</head>
 	<body>
@@ -60,8 +60,8 @@
 				<div id="formula-box" class="centered"><!-- input fields for the chosen formula will be generated here -->
 					<div id="formula-text">IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.</div>
 					<form id="formula-fields">
-						<label for="var-P">P: </label><input type="number" id="var-P" name="var-P" class="numfield"><label for="var-V">V:</label><input type="number" id="var-V" name="var-V" class="numfield"><div class="equals">=</div><label for="var-n">n: </label><input type="number" id="var-n" name="var-n" class="numfield"><label for="var-R">R (J/mol⋅K): </label>
-						<div id="const-R" name="const-R" class="formula-const">8.314</div><label for="var-T">T:</label><input type="number" id="var-T" name="var-T" class="numfield">
+						<label for="p">P: </label><input type="number" id="p" name="p" class="numfield"><label for="v">V:</label><input type="number" id="v" name="v" class="numfield"><div class="equals">=</div><label for="n">n: </label><input type="number" id="n" name="n" class="numfield"><label for="const-R">R (J/mol⋅K): </label>
+						<div id="const-R" name="const-R" class="formula-const">8.314</div><label for="t">T:</label><input type="number" id="t" name="t" class="numfield">
 					</form>
 				</div>
 				<p class="centered helptext" id="formula-helptext">Leave exactly one (1) variable blank!</p>

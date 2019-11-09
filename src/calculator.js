@@ -1,9 +1,9 @@
-/** Class containing helper methods that validate input values, determines which conversion/calculation methods to call, and packages input values into appropriate formats for use.
+/** Class that converts units, gets constants, and calculates formulas: validates input values, packages input values into appropriate formats for use, and determines which conversion/calculation methods to call.
  * @prop {Object} UNITS - an object, initially empty, which will be populated with objects belonging to each of the Unit classes (ie. "energy", "pressure").
- * @prop {UnitConstant} CONSTANTS - a {@link UnitConstant} object.
+ * @prop {UnitConstant} CONSTS - a {@link UnitConstant} object.
  * @prop {FormulasSol} FORMULAS - a {@link FormulasSol} object.
  */
-class Helper {
+class Calculator {
 	constructor() {
 		this.UNITS = {};
 		this.CONSTS = new UnitConstant();
@@ -479,22 +479,26 @@ class Helper {
 	 * -------------------------------
 	 */
 	
-	/** Handles the calculation of the Ideal Gas Law formula (PV=nRT): gets known values from form inputs, puts them into a custom object, and passes that object to {@link FormulasSol}.pvNRT() to solve for the unknown variable.
-	 * @param {string} unknown - string representing which variable is unknown.
+	/** Handles the calculation of the Ideal Gas Law formula (PV=nRT): removes the empty/unknown variable from the given inputs object, and passes that object to {@link FormulasSol}.pvNRT() to solve for the unknown variable.  Assumes that there is exactly 1 unknown variable.
+	 * @param {Object} inputs - an Object containing all input values from the formula input form, including one empty value.
 	 * @return {number} - the value calculated by {@link FormulasSol}.pvNRT().
 	 */
-	calcPVNRT(unknown) {
-		let formulaFields = this.m_formulaFields.elements;
-		let knownVars = {};
-		
-		for(let i = 0; i < formulaFields.length; i++) {
-			if(formulaFields[i].id != unknown) {
-				let key = formulaFields[i].id.slice(-1);
-				key = key.toLowerCase();
-				knownVars[key] = Number(formulaFields[i].value);
-			}
-		}
-		return(FORMULAS.pvNRT(knownVars));
+	calcPVNRT(inputs) {
+		inputs = this.removeEmpty(inputs);
+		return(this.FORMULAS.pvNRT(inputs));
 	}
 	
+	/** Removes empty keys from the given Object.
+	 * @param {Object} obj - an object containing "empty" keys with the value "".
+	 * @return {Object} the object with all empty keys removed.
+	 */
+	removeEmpty(obj) {
+		let keys = Object.keys(obj);
+		for(let i = 0; i < keys.length; i++) {
+			if(obj[keys[i]] == "") {
+				delete obj[keys[i]];
+			}
+		}
+		return(obj);
+	}
 }

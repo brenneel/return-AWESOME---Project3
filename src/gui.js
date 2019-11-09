@@ -1,5 +1,5 @@
-/** Class that handles all GUI functionality: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates input formats, and passes input values to and gets output values from Helper.
- * @prop {Helper} HELPER - a {@link Helper} object.
+/** Class that handles all GUI functionality: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates input formats, and passes input values to and gets output values from Calculator.
+ * @prop {Calculator} CALCULATOR - a {@link Calculator} object.
  * @prop {Element} m_catMenu - Element object representing the Category dropdown menu.
  * @prop {Element} m_unitAMenu - Element object representing the Unit A (unit to be converted from) dropdown menu.
  * @prop {Element} m_unitBMenu - Element object representing the Unit B (unit to convert to) dropdown menu.
@@ -14,7 +14,7 @@
 class Gui {
 	constructor() {
 		// Member objects
-		this.HELPER = new Helper();
+		this.CALCULATOR = new Calculator();
 		// dropdown menus
 		this.m_catMenu = document.getElementById("category");
 		this.m_unitAMenu = document.getElementById("unitA-select");
@@ -41,7 +41,7 @@ class Gui {
 	 *
 	 */
 	initialize() {
-		this.HELPER.initialize();
+		this.CALCULATOR.initialize();
 		this.populateCategories();
 		this.populateEnergyMenus();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
@@ -152,7 +152,7 @@ class Gui {
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
 		if((unitA != unitB) && (value != "")) {
-			let newVal = this.HELPER.convert(category, unitA, unitB, value);
+			let newVal = this.CALCULATOR.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
 	}
@@ -193,7 +193,7 @@ class Gui {
 		let constant = this.m_constMenu.value;
 		let constUnit = this.m_constUnitMenu.value;
 		if(constant != "" && constUnit != "") {
-			let value = this.HELPER.getConst(constant, constUnit);
+			let value = this.CALCULATOR.getConst(constant, constUnit);
 			this.m_constOutput.value = value;
 		}
 		else {
@@ -206,22 +206,15 @@ class Gui {
 	 */
 	calculateHandler() {
 		let formula = this.m_formulaMenu.value;
+		let formulaFields = this.m_formulaFields.elements;
 		switch(formula) {
 			case "PVNRT":
-				let numEmpty = 0;
-				let empty = "";
-				let formulaFields = this.m_formulaFields.elements;
-				for(let i = 0; i < formulaFields.length; i++) {
-					if(formulaFields[i].value == "") {
-						numEmpty++;
-						empty = formulaFields[i].id;
-					}
-				}
-
-				if(numEmpty == 1) {
-					let calculated = this.HELPER.calcPVNRT(empty);
+				if(this.valOneEmpty()) {
+					let emptyInput = this.findEmptyInput();
+					let inputs = this.packageInputs();
+					let calculated = this.CALCULATOR.calcPVNRT(inputs);
 					if(calculated !== undefined) {
-						formulaFields[empty].value = calculated;
+						formulaFields[emptyInput].value = calculated;
 						this.hideHelptext("formula-helptext");
 					}
 				}
@@ -233,5 +226,50 @@ class Gui {
 				console.log("calculateHandler: " + formula + " did not match any case.");
 				break;
 		}
+	}
+	
+	/** Method that checks whether the formula fields have only one input empty.
+	 * @return {Boolean} - true if formula inputs are validated, else false.
+	 */
+	valOneEmpty() {
+		let numEmpty = 0;
+		let formulaFields = this.m_formulaFields.elements;
+		for(let i = 0; i < formulaFields.length; i++) {
+			if(formulaFields[i].value == "") {
+				numEmpty++;
+			}
+		}
+		return(numEmpty == 1);
+	}
+	
+	/** Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.
+	 * @return {string} - the element ID of the empty input.
+	 */
+	findEmptyInput() {
+		let empty = "";
+		let formulaFields = this.m_formulaFields.elements;
+		let i = 0;
+		while(i < formulaFields.length && empty == "") {
+			if(formulaFields[i].value == "") {
+				empty = formulaFields[i].id;
+			}
+			i++;
+		}
+		if(empty == "") {
+			console.log("Gui.findEmptyInput(): empty == \"\"");
+		}
+		return(empty);
+	}
+	
+	/** Method that packages all formula input values into an object. 
+	 * @return {Object} - an object containing all input values for the current formula.
+	 */
+	packageInputs() {
+		let formulaFields = this.m_formulaFields.elements;
+		let obj = new Object();
+		for(let i = 0; i < formulaFields.length; i++) {
+			obj[formulaFields[i].id] = formulaFields[i].value;
+		}
+		return(obj);
 	}
 }
