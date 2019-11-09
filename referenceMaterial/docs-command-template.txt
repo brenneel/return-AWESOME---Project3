@@ -1,0 +1,8 @@
+/*
+	If you have documentation.js installed, go to the repo's root directory and enter the command below.  You can alter the project name or version as necessary.  
+	
+	Additionally, using the -w flag will make the documentation generator run in the background and "watch input files and rebuild documentation when they change".
+*/
+
+
+documentation build src/** -f html -o documentation/docs --project-name "Project 4: Unit Converter" --project-version "Version 2.0"

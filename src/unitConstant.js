@@ -1,6 +1,12 @@
 /**
  * All of the constants organized by constant. Each constant is given in different units.
  * Values taken from Anna's textbook
+ * @prop {Object} UNIV_GAS_CONST - possible units of the Universal Gas Constant (R), and values for those units.
+ * @prop {Object} RHO_OF_WATER - possible units of the density (ρ) of water at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} MU_OF_WATER - possible units of the viscosity (μ) of water at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} NU_OF_WATER - possible units of the dynamic viscosity (ν) of water at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} M_OF_WATER - possible units of the molar mass (M) of water at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} SIGMA_OF_WATER - possible units of the σ of water at 1 atm and 20 degrees C, and values for those units.
  */
 class UnitConstant{
     constructor(){
@@ -53,10 +59,10 @@ class UnitConstant{
     }
 
     
-    //MU of Water
+    //Molar mass of Water
     //Assumed when water is 1 atm and 20*C
      
-    CAP_MU_OF_WATER = {
+    M_OF_WATER = {
         G_MOL:                  18,             // (g)/(mol)    
         LBM_LBMOL:              18              // (lbm)/(lbmol) 
     }

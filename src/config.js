@@ -61,9 +61,9 @@ class Config {
 	CONSTANTS = [
 		["UNIV_GAS_CONST", "Universal Gas Constant, R"],
 		["RHO_OF_WATER", "Density of Water (ρ)"],
-		["MU_OF_WATER", "μ of Water"],
-		["NU_OF_WATER", "ν of Water"],
-		["CAP_MU_OF_WATER", "Μ of Water"],
+		["MU_OF_WATER", "Viscosity of Water (μ)"],
+		["NU_OF_WATER", "Dynamic Viscosity of Water (ν)"],
+		["CAP_MU_OF_WATER", "Μolar Mass of Water (M)"],
 		["SIGMA_OF_WATER", "σ of Water"],
 //		["RHO_OF_AIR", ""],
 //		["MU_OF_AIR", ""],
