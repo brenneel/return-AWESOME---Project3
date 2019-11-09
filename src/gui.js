@@ -1,5 +1,5 @@
-/** Class that handles all GUI functionality: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates input formats, and passes input values to and gets output values from Helper.
- * @prop {Helper} HELPER - a {@link Helper} object.
+/** Class that handles all GUI functionality: dynamically loads dropdown menus and calculated outputs, handles user interaction, validates input formats, and passes input values to and gets output values from Calculator.
+ * @prop {Calculator} CALCULATOR - a {@link Calculator} object.
  * @prop {Element} m_catMenu - Element object representing the Category dropdown menu.
  * @prop {Element} m_unitAMenu - Element object representing the Unit A (unit to be converted from) dropdown menu.
  * @prop {Element} m_unitBMenu - Element object representing the Unit B (unit to convert to) dropdown menu.
@@ -14,7 +14,7 @@
 class Gui {
 	constructor() {
 		// Member objects
-		this.HELPER = new Helper();
+		this.CALCULATOR = new Calculator();
 		// dropdown menus
 		this.m_catMenu = document.getElementById("category");
 		this.m_unitAMenu = document.getElementById("unitA-select");
@@ -41,7 +41,7 @@ class Gui {
 	 *
 	 */
 	initialize() {
-		this.HELPER.initialize();
+		this.CALCULATOR.initialize();
 		this.populateCategories();
 		this.populateEnergyMenus();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
@@ -152,7 +152,7 @@ class Gui {
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
 		if((unitA != unitB) && (value != "")) {
-			let newVal = this.HELPER.convert(category, unitA, unitB, value);
+			let newVal = this.CALCULATOR.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
 	}
@@ -193,7 +193,7 @@ class Gui {
 		let constant = this.m_constMenu.value;
 		let constUnit = this.m_constUnitMenu.value;
 		if(constant != "" && constUnit != "") {
-			let value = this.HELPER.getConst(constant, constUnit);
+			let value = this.CALCULATOR.getConst(constant, constUnit);
 			this.m_constOutput.value = value;
 		}
 		else {
@@ -212,7 +212,7 @@ class Gui {
 				if(this.valOneEmpty()) {
 					let emptyInput = this.findEmptyInput();
 					let package = this.packageInputs();
-					let calculated = this.HELPER.calcPVNRT(package);
+					let calculated = this.CALCULATOR.calcPVNRT(package);
 					if(calculated !== undefined) {
 						formulaFields[emptyInput].value = calculated;
 						this.hideHelptext("formula-helptext");
