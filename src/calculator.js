@@ -485,7 +485,7 @@ class Calculator {
 	 */
 	calcPVNRT(inputs) {
 		inputs = this.removeEmpty(inputs);
-		return(FORMULAS.pvNRT(knownVars));
+		return(this.FORMULAS.pvNRT(inputs));
 	}
 	
 	/** Removes empty keys from the given Object.

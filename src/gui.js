@@ -211,8 +211,8 @@ class Gui {
 			case "PVNRT":
 				if(this.valOneEmpty()) {
 					let emptyInput = this.findEmptyInput();
-					let package = this.packageInputs();
-					let calculated = this.CALCULATOR.calcPVNRT(package);
+					let inputs = this.packageInputs();
+					let calculated = this.CALCULATOR.calcPVNRT(inputs);
 					if(calculated !== undefined) {
 						formulaFields[emptyInput].value = calculated;
 						this.hideHelptext("formula-helptext");
