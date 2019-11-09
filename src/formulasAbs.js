@@ -53,4 +53,35 @@ class FormulasAbs{
         }
         return numerTotal/denomTotal;
     }
+
+    massFunc(arr, func){
+        console.log("Inner Arr" + arr);
+        if(arr.length < 1 || arr == undefined){
+            return undefined;
+        }else if(arr.length == 1){
+            return arr[0];
+        }
+        let temp = arr[arr.length - 1];
+        arr.pop();
+        return func(temp, arr);
+    }
+
+    // massMulti(arr){
+    //     if(arr.length < 1){
+    //         return undefined;
+    //     }else if(arr.length == 1){
+    //         return arr[0];
+    //     }
+    //     let temp = arr[arr.length - 1];
+    //     arr.pop();
+    //     return temp * this.massMulti(arr);
+    // }
+
+    massAdd(arr){
+        return this.massFunc(arr, (temp, farr)=>{return temp + this.massFunc(farr, this.massAdd(farr))})
+    }
+
+    // massSub(){
+
+    // }
 }
