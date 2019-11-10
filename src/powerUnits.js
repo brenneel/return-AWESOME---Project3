@@ -13,7 +13,7 @@ class PowerUnits {
      * @param {Number} w watts
      * @return {Number} horsepower  equivalent
      */
-    WToHp(w)
+    wToHp(w)
     {
         let watt = Number(w);
         let hp = .001341022* watt;
@@ -40,6 +40,16 @@ class PowerUnits {
     wToJoulePerS(w)
     {
         return this.WToHp(w);
+    }
+
+    /**
+     * Converts W to j/s
+     * @param {Number} joulesec joules per sec 
+     * @return {Number} watt equivalent
+     */
+    joulePerStoWatt(joulesec)
+    {
+        return this.hpToW(joulesec);
     }
 
     /**
@@ -75,7 +85,7 @@ class PowerUnits {
     btuPerStoW(w)
     {
         let watt = Number(w);
-        let calPerS = .238846* watt;
+        let calPerS = 1055.0558* watt;
         return calPerS;
     }
 
