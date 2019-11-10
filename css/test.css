@@ -2,6 +2,7 @@ table{
     border-color: black;
     border-width: 3;
     border-style: dashed;
+    margin: auto;
 }
 
 th{
@@ -11,6 +12,7 @@ th{
     border-right-width: 0;
     border-bottom-width: 1;
     border-style: solid;
+    text-align: center;
 }
 
 td{
@@ -20,4 +22,5 @@ td{
     border-right-width: 1;
     border-bottom-width: 0;
     border-style: solid;
+    text-align: left;
 }

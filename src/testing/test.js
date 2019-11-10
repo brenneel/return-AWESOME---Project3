@@ -3,6 +3,7 @@ class Test{
     fail;
     unkno;
     className;
+    
     constructor(){
         this.pass = "SUCCESS";
         this.fail = "FAILURE";
@@ -12,7 +13,7 @@ class Test{
     addTest(name){
         let temp = document.getElementById("testTable").innerHTML;
         temp +="<tr><td>" + this.className + "</td><td>" + name + "</td>";
-        temp += "<td id='" + this.className + ":" + name + "></td>";
+        temp += "<td id='" + this.className + ":" + name + "'></td></tr>";
         document.getElementById("testTable").innerHTML = temp;
     }
 
@@ -20,7 +21,7 @@ class Test{
         document.getElementById(this.className + ":" + name).innerHTML = result;
     }
 
-    log(funcName, content){
+    conLog(funcName, content){
         console.log("[" + this.className + "] " + funcName + ": " + content);
     }
 }

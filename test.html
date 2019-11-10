@@ -3,7 +3,7 @@
     <title>Unit Converter - Test Suite</title>
     <link rel="stylesheet" type="text/css" href="css/test.css">
     <script src="src/testing/testing.js"></script>
-    <script scr="src/testing/test.js"></script>
+    <script src="src/testing/test.js"></script>
 
     <script src="src/calculator.js"></script>
     <script src="src/config.js"></script>
@@ -14,9 +14,11 @@
     <script src="src/powerUnits.js"></script>
     <script src="src/pressureUnits.js"></script>
     <script src="src/unitConstant.js"></script>
+
+    <script src="src/testing/testFormulasAbs.js"></script>
 </head>
 <body>
-    <h1>Testing Program: <span name="testState"></span></h1>
+    <h1>Testing Program: <span id="testState"></span></h1>
     <table id="testTable">
         <tr>
             <th>Current File</th>
@@ -24,5 +26,9 @@
             <th>Result</th>
         </tr>
     </table>
+    <script>
+        let testing = new Testing();
+        testing.run();
+    </script>
 </body>
 </html>
