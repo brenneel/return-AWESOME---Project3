@@ -140,8 +140,8 @@ class PowerUnits {
     }
 
     /**
-     * Converts foot pound force per sec (ft lbF / sec)to watt
-     * @param {Number} ftlbF foot pound force per sec(ft lbF / sec)
+     * Converts foot pound force per sec (ft lbF / sec) to watt
+     * @param {Number} ftlbF foot pound force per sec (ft lbF / sec)
      * @return {Number} watt equivalent
      */
     ftlbFsecToW(ftlbF)
@@ -151,6 +151,29 @@ class PowerUnits {
         return watt;
     }
     
+    /**
+     * Converts W to ft * lbF/min (foot pound force per min)
+     * @param {Number} w watts
+     * @return {Number} ft * lbF / min equivalent
+     */
+    wtoFtlbFmin(w)
+    {
+        let watt = Number(w);
+        let ftlbF = 44.253729 * watt;
+        return ftlbF;
+    }
+
+    /**
+     * Converts foot pound force per min (ft lbF / min) to watt
+     * @param {Number} ftlbF foot pound force per min (ft lbF / min)
+     * @return {Number} watt equivalent
+     */
+    ftlbFminToW(ftlbF)
+    {
+        let footpoundF = Number(ftlbF);
+        let watt = .02259697* footpoundF;
+        return watt;
+    }
 
 
 }
