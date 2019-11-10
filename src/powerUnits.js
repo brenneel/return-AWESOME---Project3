@@ -101,5 +101,31 @@ class PowerUnits {
     }
 
 
+    /**
+     * Converts kilowatt to watt
+     * @param {Number} kw kilowatts
+     * @return {Number} watt equivalent
+     */
+    kWtoW(kw)
+    {
+        let kiloWatt = Number(kw);
+        let watt = 1000* kiloWatt;
+        return watt;
+    }
+
+
+    /**
+     * Converts W to kW
+     * @param {Number} w watts
+     * @return {Number} kilowatt equivalent
+     */
+    wtokW(w)
+    {
+        let watt = Number(w);
+        let kilowatt = watt/1000;
+        return kilowatt;
+    }
+
+
 }
     
