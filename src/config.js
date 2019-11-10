@@ -54,6 +54,18 @@ class Config {
 		["dyne", "dyne/square centimeter (dyne/cm^2)"]
 	];
 
+	POWER_UNITS = [
+		["w" , "watt (w)"],
+		["hp" , "horsepower"],
+		["btusec" , "British thermal unit (Btu) per sec"],
+		["btuhr" , "British thermal unit (Btu) per hour"],
+		["kW", "kilowatts (kW)"],
+		["ftlbfs", "footpound force per second (ft * lbf/s)"],
+		["ftlbfmin", "footpound force per minute (ft * lbf/min)"],
+		["calsec", "calories per second (cal/s)"],
+		["js", "joules per second (J/s)"],
+	];
+
 	/* -------------------------------
 	 * CONSTANTS
 	 * -------------------------------
