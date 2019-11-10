@@ -54,6 +54,14 @@ class FormulasAbs{
         return numerTotal/denomTotal;
     }
 
+    /**
+     * Recursively iterates through an array, while calling a function. This means tat each iteration will 
+     * use two spaces on the call stack. Additionally, due to js variables the array will be destroyed so 
+     * use protectArray on the array being passed in.
+     * @param {Array} arr: The array that is being iterated now.
+     * @param {Function} func: The function that is being acted upon.
+     * @return {Number}
+     */
     massFunc(arr, func){
         if(arr.length < 1 || arr == undefined){
             return undefined;
@@ -65,31 +73,67 @@ class FormulasAbs{
         return func(arr, temp);
     }
 
+    /**
+     * [Private] Recursively multiplies all values of an array together.
+     * @param {Array} arr: The array to multiple together.
+     * @param {Number} temp(Optional): Used by the function in recursion.
+     * @return {Number}
+     */
     massMulti(arr, temp = 1){
         return temp * FormulasAbs.prototype.massFunc(arr, FormulasAbs.prototype.massMulti);
     }
 
+    /**
+     * [Private] Recursively adds all values of an array together.
+     * @param {Array} arr: The array to add together.
+     * @param {Number} temp(Optional): Used by the function in recursion.
+     */
     massAdd(arr, temp = 0){
         return temp + FormulasAbs.prototype.massFunc(arr, FormulasAbs.prototype.massAdd);
     }
 
+    /**
+     * Protects an array by creating a new array.
+     * @param {Array} arr 
+     * @return {Array}
+     */
     protectArr(arr){
         let temp = arr.slice();
         return temp;
     }
 
+    /**
+     * Adds all of the numbers in an array.
+     * @param {Array} arr: Array of numbers to be combined.
+     * @return {Number}
+     */
     sum(arr){
         return this.massAdd(this.protectArr(arr));
     }
 
+    /**
+     * Subtracts all of the numbers in an array.
+     * @param {Array} arr: Array of numbers to be combined.
+     * @return {Number}
+     */
     difference(arr){
         return -this.massAdd(this.protectArr(arr));
     }
 
+    /**
+     * Multiples all of the numbers in an array.
+     * @param {Array} arr: Array of numbers to be combined.
+     * @return {Number}
+     */
     product(arr){
         return this.massMulti(this.protectArr(arr));
     }
 
+    /**
+     * Divides all of the numbers in an array.
+     * @param {Array} arr: Array of numbers to be combined.
+     * @return {Number}
+     */
     quotient(arr){
         return 1 / this.massMulti(this.protectArr(arr));
     }
