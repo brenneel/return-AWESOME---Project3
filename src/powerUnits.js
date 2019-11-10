@@ -43,7 +43,7 @@ class PowerUnits {
     }
 
     /**
-     * Converts W to j/s
+     * Converts j/s to watt
      * @param {Number} joulesec joules per sec 
      * @return {Number} watt equivalent
      */
@@ -64,6 +64,17 @@ class PowerUnits {
         return calPerS;
     }
 
+    /**
+     * Converts cal/sec to watt
+     * @param {Number} calsec calories per s
+     * @return {Number} watt equivalent
+     */
+    calPerStoW(calsec)
+    {
+        let cal_sec = Number(calsec);
+        let watt = 1055.0558* cal_sec;
+        return watt;
+    }
 
     /**
      * Converts W to btu/s
@@ -78,15 +89,15 @@ class PowerUnits {
     }
 
     /**
-     * Converts W to j/s
+     * Converts btu/sec to Watt
      * @param {Number} w watts
      * @return {Number} cal per sec equivalent
      */
-    btuPerStoW(w)
+    btuPerStoW(btus)
     {
-        let watt = Number(w);
-        let calPerS = 1055.0558* watt;
-        return calPerS;
+        let btuPerS = Number(btus);
+        let watt = 1055.0558* btuPerS;
+        return watt;
     }
 
 
