@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Unit Converter - Test Suite</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <script src="src/testing/testing.js"></script>
+    <script src="src/testing/test.js"></script>
+
+    <script src="src/calculator.js"></script>
+    <script src="src/config.js"></script>
+    <script src="src/energyUnits.js"></script>
+    <script src="src/formulasAbs.js"></script>
+    <script src="src/formulasSol.js"></script>
+    <script src="src/gui.js"></script>
+    <script src="src/powerUnits.js"></script>
+    <script src="src/pressureUnits.js"></script>
+    <script src="src/unitConstant.js"></script>
+
+    <script src="src/testing/testFormulasAbs.js"></script>
+</head>
+<body>
+    <h1>Testing Program: <span id="testState"></span></h1>
+    <table id="testTable">
+        <tr>
+            <th>Current File</th>
+            <th>Current Test</th>
+            <th>Result</th>
+        </tr>
+    </table>
+    <script>
+        let testing = new Testing();
+        testing.run();
+    </script>
+</body>
+</html>

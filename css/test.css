@@ -1,0 +1,26 @@
+table{
+    border-color: black;
+    border-width: 3;
+    border-style: dashed;
+    margin: auto;
+}
+
+th{
+    border-color: black;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1;
+    border-style: solid;
+    text-align: center;
+}
+
+td{
+    border-color: black;
+    border-top-width: 0;
+    border-left-width: 1;
+    border-right-width: 1;
+    border-bottom-width: 0;
+    border-style: solid;
+    text-align: left;
+}
