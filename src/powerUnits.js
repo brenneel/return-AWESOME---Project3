@@ -37,9 +37,34 @@ class PowerUnits {
      * @param {Number} w watts
      * @return {Number} joules per sec equivalent
      */
-    WToJoulePerS(w)
+    wToJoulePerS(w)
     {
         return this.WToHp(w);
+    }
+
+    /**
+     * Converts W to cal/s
+     * @param {Number} w watts
+     * @return {Number} cal per sec equivalent
+     */
+    wToCalPerS(w)
+    {
+        let watt = Number(w);
+        let calPerS = .238846* watt;
+        return calPerS;
+    }
+
+
+    /**
+     * Converts W to btu/s
+     * @param {Number} w watts
+     * @return {Number} btu per sec equivalent
+     */
+    wToBtuPerS(w)
+    {
+        let watt = Number(w);
+        let btuPerS = .0009478171* watt;
+        return btuPerS;
     }
 
     /**
@@ -47,7 +72,7 @@ class PowerUnits {
      * @param {Number} w watts
      * @return {Number} cal per sec equivalent
      */
-    WToCalPerS(w)
+    btuPerStoW(w)
     {
         let watt = Number(w);
         let calPerS = .238846* watt;
