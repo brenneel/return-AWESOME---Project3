@@ -90,8 +90,8 @@ class PowerUnits {
 
     /**
      * Converts btu/sec to Watt
-     * @param {Number} w watts
-     * @return {Number} cal per sec equivalent
+     * @param {Number} btus Btu/sec (britiish thermal unit per sec)
+     * @return {Number} watt equivalent
      */
     btuPerStoW(btus)
     {
@@ -173,6 +173,28 @@ class PowerUnits {
         let footpoundF = Number(ftlbF);
         let watt = .02259697* footpoundF;
         return watt;
+    }
+
+    /**
+     * Converts W to btu/hr
+     * @param {Number} w watts
+     * @return {Number} btu per hr equivalent
+     */
+    wToBtuPerHr(w)
+    {
+        let btuPerS = this.wToBtuPerS(w);
+        return btuPerS*60;
+    }
+
+    /**
+     * Converts btu/hr to Watt
+     * @param {Number} btuHr btu/hr (British thermal units per hour)
+     * @return {Number} watt equivalent
+     */
+    btuPerHrtoW(btuHr)
+    {
+        let watt = this.btuPerStoW(btuHr);
+        return watt/60;
     }
 
 
