@@ -2,6 +2,7 @@
  * @prop {Array} CATEGORIES - an array containing elementIDs and labels for each unit category option.
  * @prop {Array} ENERGY_UNITS - an array containing elementIDs and labels for each energy unit option.
  * @prop {Array} PRESSURE_UNITS - an array containing elementIDs and labels for each pressure unit option.
+ * @prop {Array} POWER_UNITS - an array containing elementIDs and labels for each power unit option.
  * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each constant option.
  * @prop {Array} UNIV_GAS_CONST - an array containing elementIDs and labels for each unit option for the Universal Gas Constant, R.
  * @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of Water (ρ).
