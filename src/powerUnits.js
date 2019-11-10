@@ -128,11 +128,11 @@ class PowerUnits {
 
 
     /**
-     * Converts W to ft * lb/F (foot pound force)
+     * Converts W to ft * lbF/sec (foot pound force per sec)
      * @param {Number} w watts
-     * @return {Number} ft * lb/F equivalent
+     * @return {Number} ft * lbF / sec equivalent
      */
-    wtoFtlbF(w)
+    wtoFtlbFsec(w)
     {
         let watt = Number(w);
         let ftlbF = .7374621* watt;
@@ -140,11 +140,11 @@ class PowerUnits {
     }
 
     /**
-     * Converts foot pound force (ft lb/F) to watt
-     * @param {Number} ftlbF foot pound force (ft lb/F)
+     * Converts foot pound force per sec (ft lbF / sec)to watt
+     * @param {Number} ftlbF foot pound force per sec(ft lbF / sec)
      * @return {Number} watt equivalent
      */
-    ftlbFtoW(ftlbF)
+    ftlbFsecToW(ftlbF)
     {
         let footpoundF = Number(ftlbF);
         let watt = 1.355818* footpoundF;
