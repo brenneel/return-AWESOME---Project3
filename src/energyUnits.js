@@ -4,8 +4,7 @@
 class EnergyUnits {
 	constructor() {}
 	
-    //ref from Anna's textbook and unitconverters.net/energy-converter.html
-
+    //ref from Anna's textbook 
     /*
      * Joule conversions
      * Joules = 1 N/m = 1 W * s
