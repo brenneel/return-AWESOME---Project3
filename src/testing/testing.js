@@ -1,3 +1,6 @@
+/**
+ * Primary testing class for running all tests
+ */
 class Testing{
     isCompleted;
 
@@ -9,6 +12,7 @@ class Testing{
 
         this.fAbsTest = new TestFormulasAbs();
     }
+    
     
     run(){
         this.updateState();
