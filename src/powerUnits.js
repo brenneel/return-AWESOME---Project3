@@ -31,5 +31,29 @@ class PowerUnits {
         let watt = horsePower * 745.6999
         return watt;
     }
+
+    /**
+     * Converts W to j/s
+     * @param {Number} w watts
+     * @return {Number} joules per sec equivalent
+     */
+    WToJoulePerS(w)
+    {
+        return this.WToHp(w);
+    }
+
+    /**
+     * Converts W to j/s
+     * @param {Number} w watts
+     * @return {Number} cal per sec equivalent
+     */
+    WToCalPerS(w)
+    {
+        let watt = Number(w);
+        let calPerS = .238846* watt;
+        return calPerS;
+    }
+
+
 }
     
