@@ -7,26 +7,44 @@
 <body>
     <h2>Test Formulas</h2>
     <script>
-        let fSol = new FormulasSol();
-        let o = 0;
-        let sol = 0;
-
-        o = {v:"2" ,p:"1", t:"4"};
-        sol = fSol.pvNRT(o);
-        printSol(o, sol);
-
-        o = {v:"2" ,p:"1", t:"4", n:"5"};
-        sol = fSol.pvNRT(o);
-        printSol(o, sol);
-
-        o = {v:"2" ,p:"1", g:"4"};
-        sol = fSol.pvNRT(o);
-        printSol(o, sol);
-
-        function printSol(o, sol){
-            console.log(o);
-            console.log(sol);
+        // let fSol = new FormulasSol();
+        let fAbs = new FormulasAbs();
+        let arr = new Array();
+        arr.push(2);
+        arr.push(3);
+        arr.push(4);
+        function f(a, b){
+            return b + fAbs.massFunc(a, f);
         }
+        function g(a){
+            let temp = a.slice();
+            return f(temp, 0);
+        }
+        console.log(arr);
+        console.log(g(arr));
+        console.log(fAbs.sum(arr));
+        console.log(fAbs.difference(arr));
+        console.log(fAbs.product(arr));
+        console.log(fAbs.quotient(arr))
+        // let o = 0;
+        // let sol = 0;
+
+        // o = {v:"2" ,p:"1", t:"4"};
+        // sol = fSol.pvNRT(o);
+        // printSol(o, sol);
+
+        // o = {v:"2" ,p:"1", t:"4", n:"5"};
+        // sol = fSol.pvNRT(o);
+        // printSol(o, sol);
+
+        // o = {v:"2" ,p:"1", g:"4"};
+        // sol = fSol.pvNRT(o);
+        // printSol(o, sol);
+
+        // function printSol(o, sol){
+        //     console.log(o);
+        //     console.log(sol);
+        // }
     </script>
 </body>
 </html>

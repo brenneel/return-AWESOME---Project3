@@ -55,7 +55,6 @@ class FormulasAbs{
     }
 
     massFunc(arr, func){
-        console.log("Inner Arr" + arr);
         if(arr.length < 1 || arr == undefined){
             return undefined;
         }else if(arr.length == 1){
@@ -63,25 +62,35 @@ class FormulasAbs{
         }
         let temp = arr[arr.length - 1];
         arr.pop();
-        return func(temp, arr);
+        return func(arr, temp);
     }
 
-    // massMulti(arr){
-    //     if(arr.length < 1){
-    //         return undefined;
-    //     }else if(arr.length == 1){
-    //         return arr[0];
-    //     }
-    //     let temp = arr[arr.length - 1];
-    //     arr.pop();
-    //     return temp * this.massMulti(arr);
-    // }
-
-    massAdd(arr){
-        return this.massFunc(arr, (temp, farr)=>{return temp + this.massFunc(farr, this.massAdd(farr))})
+    massMulti(arr, temp = 1){
+        return temp * FormulasAbs.prototype.massFunc(arr, FormulasAbs.prototype.massMulti);
     }
 
-    // massSub(){
+    massAdd(arr, temp = 0){
+        return temp + FormulasAbs.prototype.massFunc(arr, FormulasAbs.prototype.massAdd);
+    }
 
-    // }
+    protectArr(arr){
+        let temp = arr.slice();
+        return temp;
+    }
+
+    sum(arr){
+        return this.massAdd(this.protectArr(arr));
+    }
+
+    difference(arr){
+        return -this.massAdd(this.protectArr(arr));
+    }
+
+    product(arr){
+        return this.massMulti(this.protectArr(arr));
+    }
+
+    quotient(arr){
+        return 1 / this.massMulti(this.protectArr(arr));
+    }
 }
