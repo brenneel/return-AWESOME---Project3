@@ -127,5 +127,31 @@ class PowerUnits {
     }
 
 
+    /**
+     * Converts W to ft * lb/F (foot pound force)
+     * @param {Number} w watts
+     * @return {Number} ft * lb/F equivalent
+     */
+    wtoFtlbF(w)
+    {
+        let watt = Number(w);
+        let ftlbF = .7374621* watt;
+        return ftlbF;
+    }
+
+    /**
+     * Converts foot pound force (ft lb/F) to watt
+     * @param {Number} ftlbF foot pound force (ft lb/F)
+     * @return {Number} watt equivalent
+     */
+    ftlbFtoW(ftlbF)
+    {
+        let footpoundF = Number(ftlbF);
+        let watt = 1.355818* footpoundF;
+        return watt;
+    }
+    
+
+
 }
     
