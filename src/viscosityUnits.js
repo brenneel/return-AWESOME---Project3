@@ -9,27 +9,27 @@ class ViscosityUnits {
 
 
     /**
-     * Converts W to hp
-     * @param {Number} w watts
-     * @return {Number} horsepower  equivalent
+     * Converts cP to P
+     * @param {Number} cp centipoise
+     * @return {Number} Poise equivalent
      */
-    wToHp(w)
+    cPToP(cp)
     {
-        let watt = Number(w);
-        let hp = .001341022* watt;
-        return hp;
+        let cP = Number(cp);
+        let poise = cP/100;
+        return poise;
     }
 
     /**
-     * Converts hp to W
-     * @param {Number} hp horsepower
-     * @return {Number} watt equivalent
+     * Converts Poise to cp
+     * @param {Number} p poise
+     * @return {Number} cP equivalent
      */
-    hpToW(hp)
+    pToCP(p)
     {
-        let horsePower = Number(hp);
-        let watt = horsePower * 745.6999
-        return watt;
+        let poise = Number(p);
+        let cP = poise * 100;
+        return cP;
     }
 
 
