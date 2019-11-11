@@ -77,12 +77,12 @@ class Config {
 		["NU_OF_WATER", "Dynamic Viscosity of Water (ν)"],
 		["CAP_MU_OF_WATER", "Μolar Mass of Water (M)"],
 		["SIGMA_OF_WATER", "σ of Water"],
-//		["RHO_OF_AIR", ""],
-//		["MU_OF_AIR", ""],
-//		["NU_OF_AIR", ""],
-//		["HEAT_CAPACITY_OF_AIR", ""],
-//		["M_OF_AIR", ""],
-//		["K_OF_AIR", ""]
+		["RHO_OF_AIR", "Density of Air (ρ)"],
+		["MU_OF_AIR", "Viscosity of Air (μ)"],
+		["NU_OF_AIR", "Dynamic Viscosity of Air (ν)"],
+		["HEAT_CAPACITY_OF_AIR", "Heat Capacity of Air ()"],
+		["M_OF_AIR", "Molar Mass of Air"],
+		["K_OF_AIR", "K of Air"],
 		["SPECIF_GRAV", "Specific Gravity"],
 		["VISCOSITY", "Viscocity of Liquids"]
 	];
