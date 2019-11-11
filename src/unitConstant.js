@@ -149,4 +149,22 @@ class UnitConstant{
         M_S2:                   9.81            // (m)/(s^2) 
     }
 
+    //specific Gravity 
+    SPECIF_GRAV = {
+        MERCURY =                   13.6,            //unit unknown
+        GASOLINE =                  0.72,            //unit unknown
+        SEA_WATER =                 1.03,             //unit unknown
+        WATER =                     1.00
+    }
+
+    //viscosity in cP
+    VISCOSITY = {
+        MERCURY =                   1.55,           //cP
+        GASOLINE =                  0.6,            //cP
+        SEA_WATER =                 1.0             //cP
+    }
+
+    //specific 
+
+
 }
