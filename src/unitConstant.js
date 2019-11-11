@@ -81,7 +81,7 @@ class UnitConstant{
     //Assumed when water is 1 atm and 20*C
    
     RHO_OF_AIR = {
-        LBM_FT3:                0.075,          // (lmb)/(ft^3) 
+        LBM_FT3:                0.075,          // (lbm)/(ft^3) 
         KG_M3:                  1.20,           // (kg)/(m^3) 
         LBMOL_FT3:              0.00259,        // (lbmol)/(ft^3) 
         MOL_M3:                 41.6            // (mol)/(m^3) 

@@ -133,6 +133,40 @@ class Config {
 		["N_M", "N/m"]
 	];
 
+	RHO_OF_AIR = [
+		["LBM_FT3", "lbm/(ft^3)"],
+		["KG_M3", "kg/m^3"],
+		["LBMOL_FT3", "lbmol/ft^3"],
+		["MOL_M3", "mol/m^3"]
+	];
+
+	MU_OF_AIR = [
+		["CP", "cP"],
+		["PAS", "Pa*s"]
+	];
+
+	NU_OF_AIR = [
+		["M2_S", "m^2/s"],
+		["CST", "cSt"],
+		["FT2_S", "ft^2/s"]
+	];
+
+	HEAT_CAPACITY_OF_AIR = [
+		["R", "R"],
+		["BTU_LBMOLR", "Btu/lbmol*R"],
+		["CAL_MOLK", "cal/mol*K"],
+		["J_MOLK", "J/mol*K"]
+	];
+
+	M_OF_AIR = [
+		["G_MOL", "g/mol"],
+		["LBM_LBMOL", "lbm/lbmol"]
+	];
+
+	K_OF_AIR = [
+		["K", "N/A"]
+	];
+
 	SPECIF_GRAV = [
 		["MERCURY", "Mercury"],
 		["GASOLINE", "Gasoline"],
