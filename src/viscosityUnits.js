@@ -13,7 +13,7 @@ class ViscosityUnits {
      * @param {Number} cp centipoise
      * @return {Number} Poise equivalent
      */
-    cPToP(cp)
+    cPtoP(cp)
     {
         let cP = Number(cp);
         let poise = cP/100;
@@ -31,6 +31,27 @@ class ViscosityUnits {
         let cP = poise * 100;
         return cP;
     }
+
+    /**
+     * Converts cP to g/cm s 
+     * @param {Number} cp centipoise
+     * @return {Number} Poise equivalent
+     */
+    cPtoGramCentiSec(cp)
+    {
+        return this.cPtoP(cp);
+    }
+
+    /**
+     * Converts g/cm s to cp
+     * @param {Number} gcms g/cm * s
+     * @return {Number} cP equivalent
+     */
+    gramCentiSecToCP(gcms)
+    {
+        return this.pToCP(gcms);
+    }
+
 
 
 
