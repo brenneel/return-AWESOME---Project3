@@ -83,8 +83,8 @@ class Config {
 //		["HEAT_CAPACITY_OF_AIR", ""],
 //		["M_OF_AIR", ""],
 //		["K_OF_AIR", ""]
-//		["SPECIF_GRAV", "Specific Gravity"],
-//		["VISCOSITY", "Viscocity of Liquids"]
+		["SPECIF_GRAV", "Specific Gravity"],
+		["VISCOSITY", "Viscocity of Liquids"]
 	];
 //°
 //⋅
@@ -131,6 +131,19 @@ class Config {
 		["LBF_IN", "lbf/in"],
 		["DYNE_CM", "dyne/cm"],
 		["N_M", "N/m"]
+	];
+
+	SPECIF_GRAV = [
+		["MERCURY", "Mercury"],
+		["GASOLINE", "Gasoline"],
+		["SEA_WATER", "Sea Water"],
+		["WATER", "Water"],
+	];
+
+	VISCOSITY = [
+		["MERCURY", "Mercury"],
+		["GASOLINE", "Gasoline"],
+		["SEA_WATER", "Sea Water"]
 	];
 
 	/* -------------------------------
