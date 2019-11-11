@@ -52,7 +52,29 @@ class ViscosityUnits {
         return this.pToCP(gcms);
     }
 
+    /**
+     * Converts cP to N * s/m^2
+     * @param {Number} cp centipoise
+     * @return {Number} Newton sec per sq meter equivalent
+     */
+    cPtoN(cp)
+    {
+        let cP = Number(cp);
+        let newtons = cP/1000;
+        return newtons;
+    }
 
+    /**
+     * Converts Newton sec per sq meter to cp
+     * @param {Number} n N * s/m^2
+     * @return {Number} cP equivalent
+     */
+    NtoCP(n)
+    {
+        let newtons = Number(n);
+        let cP = newtons * 1000;
+        return cP;
+    }
 
 
 }
