@@ -53,6 +53,26 @@ class ViscosityUnits {
     }
 
     /**
+     * Converts cP to dyne s/cm^2 
+     * @param {Number} cp centipoise
+     * @return {Number} dyne s/cm^2  equivalent
+     */
+    cPtoDyne(cp)
+    {
+        return this.cPtoP(cp);
+    }
+
+    /**
+     * Converts dyne s/cm^2  to cp
+     * @param {Number} dscm dyne s/cm^2 
+     * @return {Number} cP equivalent
+     */
+    dyneToCP(dscm)
+    {
+        return this.pToCP(dscm);
+    }
+
+    /**
      * Converts cP to N * s/m^2
      * @param {Number} cp centipoise
      * @return {Number} Newton sec per sq meter equivalent
