@@ -81,7 +81,7 @@ class UnitConstant{
     //Assumed when water is 1 atm and 20*C
    
     RHO_OF_AIR = {
-        LBM_FT3:                0.075,          // (lmb)/(ft^3) 
+        LBM_FT3:                0.075,          // (lbm)/(ft^3) 
         KG_M3:                  1.20,           // (kg)/(m^3) 
         LBMOL_FT3:              0.00259,        // (lbmol)/(ft^3) 
         MOL_M3:                 41.6            // (mol)/(m^3) 
@@ -148,5 +148,22 @@ class UnitConstant{
         FT_S2:                  32.17,          // (ft)/(s^2) 
         M_S2:                   9.81            // (m)/(s^2) 
     }
+
+    //specific Gravity 
+    SPECIF_GRAV = {
+        MERCURY:                   13.6,            //unit unknown
+        GASOLINE:                  0.72,            //unit unknown
+        SEA_WATER:                 1.03,             //unit unknown
+        WATER:                     1.00
+    }
+
+    //viscosity in cP
+    VISCOSITY = {
+        MERCURY:                   1.55,           //cP
+        GASOLINE:                  0.6,            //cP
+        SEA_WATER:                 1.0             //cP
+    }
+
+
 
 }

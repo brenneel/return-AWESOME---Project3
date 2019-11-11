@@ -77,12 +77,14 @@ class Config {
 		["NU_OF_WATER", "Dynamic Viscosity of Water (ν)"],
 		["CAP_MU_OF_WATER", "Μolar Mass of Water (M)"],
 		["SIGMA_OF_WATER", "σ of Water"],
-//		["RHO_OF_AIR", ""],
-//		["MU_OF_AIR", ""],
-//		["NU_OF_AIR", ""],
-//		["HEAT_CAPACITY_OF_AIR", ""],
-//		["M_OF_AIR", ""],
-//		["K_OF_AIR", ""]
+		["RHO_OF_AIR", "Density of Air (ρ)"],
+		["MU_OF_AIR", "Viscosity of Air (μ)"],
+		["NU_OF_AIR", "Dynamic Viscosity of Air (ν)"],
+		["HEAT_CAPACITY_OF_AIR", "Heat Capacity of Air ()"],
+		["M_OF_AIR", "Molar Mass of Air"],
+		["K_OF_AIR", "K of Air"],
+		["SPECIF_GRAV", "Specific Gravity"],
+		["VISCOSITY", "Viscocity of Liquids"]
 	];
 //°
 //⋅
@@ -129,6 +131,53 @@ class Config {
 		["LBF_IN", "lbf/in"],
 		["DYNE_CM", "dyne/cm"],
 		["N_M", "N/m"]
+	];
+
+	RHO_OF_AIR = [
+		["LBM_FT3", "lbm/(ft^3)"],
+		["KG_M3", "kg/m^3"],
+		["LBMOL_FT3", "lbmol/ft^3"],
+		["MOL_M3", "mol/m^3"]
+	];
+
+	MU_OF_AIR = [
+		["CP", "cP"],
+		["PAS", "Pa*s"]
+	];
+
+	NU_OF_AIR = [
+		["M2_S", "m^2/s"],
+		["CST", "cSt"],
+		["FT2_S", "ft^2/s"]
+	];
+
+	HEAT_CAPACITY_OF_AIR = [
+		["R", "R"],
+		["BTU_LBMOLR", "Btu/lbmol*R"],
+		["CAL_MOLK", "cal/mol*K"],
+		["J_MOLK", "J/mol*K"]
+	];
+
+	M_OF_AIR = [
+		["G_MOL", "g/mol"],
+		["LBM_LBMOL", "lbm/lbmol"]
+	];
+
+	K_OF_AIR = [
+		["K", "N/A"]
+	];
+
+	SPECIF_GRAV = [
+		["MERCURY", "Mercury"],
+		["GASOLINE", "Gasoline"],
+		["SEA_WATER", "Sea Water"],
+		["WATER", "Water"],
+	];
+
+	VISCOSITY = [
+		["MERCURY", "Mercury"],
+		["GASOLINE", "Gasoline"],
+		["SEA_WATER", "Sea Water"]
 	];
 
 	/* -------------------------------
