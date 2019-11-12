@@ -198,8 +198,17 @@ class Config {
 	 * -------------------------------
 	 */
 	FORMULAS = [
-		["PVNRT", "Ideal Gas Law, PV = nRT"]
+		["PVNRT", "Ideal Gas Law, PV = nRT"],
 	]
+	];
+
+	FORMULA_TEXT = {
+		PVNRT: "IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.",
+	};
+
+	FORMULA_FIELDS = {
+		PVNRT: "<label for=\"p\">P: </label><input type=\"number\" id=\"p\" name=\"p\" class=\"numfield\"><label for=\"v\">V:</label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">=</div><label for=\"n\">n: </label><input type=\"number\" id=\"n\" name=\"n\" class=\"numfield\"><label for=\"const-R\">R (J/mol⋅K): </label><div id=\"const-R\" name=\"const-R\" class=\"formula-const\">8.314</div><label for=\"t\">T:</label><input type=\"number\" id=\"t\" name=\"t\" class=\"numfield\">",
+	};
 	
 	/* -------------------------------
 	 * HELPER METHODS
