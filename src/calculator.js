@@ -16,6 +16,7 @@ class Calculator {
 	initialize() {
 		this.UNITS["ENERGY"] = new EnergyUnits();
 		this.UNITS["PRESSURE"] = new PressureUnits();
+		this.UNITS["POWER"] = new PowerUnits();
 	}
 	
 	/* -------------------------------
@@ -194,6 +195,72 @@ class Calculator {
 				let convIDs = conversionID.split(':');
 				converted = this.convertPressure(value, convIDs[0] + ":0");
 				converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				break;
+		}
+		return(converted);
+	}
+	
+	/** Converts power units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertPower(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "0:1":	// watt to hp
+				converted = this.UNITS.POWER.wToHp(value);
+				break;
+			case "0:2":	// watt to btu/sec
+				converted = this.UNITS.POWER.wToBtuPerS(value);
+				break;
+			case "0:3":	// watt to btu/hr
+				converted = this.UNITS.POWER.wToBtuPerHr(value);
+				break;
+			case "0:4":	// watt to kW
+				converted = this.UNITS.POWER.wtokW(value);
+				break;
+			case "0:5":	// watt to ft*lbf/s
+				converted = this.UNITS.POWER.wtoFtlbFsec(value);
+				break;
+			case "0:6":	// watt to ft*lbf/min
+				converted = this.UNITS.POWER.wtoFtlbFmin(value);
+				break;
+			case "0:7":	// watt to cal/s
+				converted = this.UNITS.POWER.wToCalPerS(value);
+				break;
+			case "0:8":	// watt to J/s
+				converted = this.UNITS.POWER.wToJoulePerS(value);
+				break;
+			case "1:0":	// hp to watt
+				converted = this.UNITS.POWER.hpToW(value);
+				break;
+			case "2:0":	// btu/sec to watt
+				converted = this.UNITS.POWER.btuPerStoW(value);
+				break;
+			case "3:0":	// btu/hr to watt
+				converted = this.UNITS.POWER.btuPerHrtoW(value);
+				break;
+			case "4:0":	// kW to watt
+				converted = this.UNITS.POWER.kWtoW(value);
+				break;
+			case "5:0":	// ft*lbf/s to watt
+				converted = this.UNITS.POWER.ftlbFsecToW(value);
+				break;
+			case "6:0":	// ft*lbf/min to watt
+				converted = this.UNITS.POWER.ftlbFminToW(value);
+				break;
+			case "7:0":	// cal/s to watt
+				converted = this.UNITS.POWER.calPerStoW(value);
+				break;
+			case "8:0":	// J/s to watt
+				converted = this.UNITS.POWER.joulePerStoWatt(value);
+				break;
+			default:
+				let convIDs = conversionID.split(':');
+				converted = this.convertPower(value, convIDs[0] + ":0");
+				converted = this.convertPower(converted, "0:" + convIDs[1]);
+				break;
 		}
 		return(converted);
 	}
@@ -217,6 +284,10 @@ class Calculator {
 			case "PRESSURE_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
+				break;
+			case "POWER_UNITS":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertPower(value, conversionID);
 				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");
