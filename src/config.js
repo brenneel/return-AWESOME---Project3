@@ -21,8 +21,9 @@ class Config {
 	 */
 	
 	CATEGORIES = [
-		["energy", "Energy"],
-		["pressure", "Pressure"]
+		["ENERGY_UNITS", "Energy"],
+		["PRESSURE_UNITS", "Pressure"],
+		["POWER_UNITS", "Power"]
 	];
 
 	ENERGY_UNITS = [
@@ -199,41 +200,25 @@ class Config {
 	 * @return {number} the index of the unit.
 	 */
 	getIndexOf(category, unit) {
+		if(this[category] == undefined) {
+			console.log("getIndexOf: " + category + " doesn't exist");
+			return(-1);
+		}
 		let found = false;
 		let index;
 		let i = 0;
-		
-		switch(category) {
-			case "energy":
-				i = 0;
-				while(!found && i < this.ENERGY_UNITS.length) {
-					if(this.ENERGY_UNITS[i][0] == unit) {
-						index = i;
-						found = true;
-					}
-					i++;
-				}
-				if(!found) {
-					console.log(category + ',' + unit + " not found");
-				}
-				break;
-			case "pressure":
-				i = 0;
-				while(!found && i < this.PRESSURE_UNITS.length) {
-					if(this.PRESSURE_UNITS[i][0] == unit) {
-						index = i;
-						found = true;
-					}
-					i++;
-				}
-				if(!found) {
-					console.log(category + ',' + unit + " not found");
-				}
-				break;
-			default:
-				console.log("Category: " + category + " does not match a case.");
-				break;
+		while(!found && i < this[category].length) {
+			if(this[category][i][0] == unit) {
+				index = i;
+				found = true;
+			}
+			i++;
 		}
+		if(!found) {
+			console.log(category + ',' + unit + " not found");
+			return(-2);
+		}
+
 		return(index);
 	}
 }

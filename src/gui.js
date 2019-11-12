@@ -43,7 +43,7 @@ class Gui {
 	initialize() {
 		this.CALCULATOR.initialize();
 		this.populateCategories();
-		this.populateEnergyMenus();
+		this.populateUnitMenus();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
 		this.populateConstants();
@@ -61,36 +61,21 @@ class Gui {
 		});
 	}
 	
-	/** Populates both Unit dropdown menus with energy units. Used when initializing the page, and when changing the Unit Category to Energy.
-	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with energy units.
+	/** Populates both Unit dropdown menus with units from the selected category.  Used when initializing the page, and when changing the Unit Category (as an onclick method).
+	 * @post changes the options generated in the "unitA-select" and "unitB-select" dropdown menus.
 	 */
-	populateEnergyMenus() {
+	populateUnitMenus() {
+		let category = this.m_catMenu.value;
 		this.m_unitAMenu.innerHTML = "";
-		CONFIG.ENERGY_UNITS.forEach(function(item) {
+		CONFIG[category].forEach(function(item) {
 			GUI.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 		
 		this.m_unitBMenu.innerHTML = "";
-		CONFIG.ENERGY_UNITS.forEach(function(item) {
+		CONFIG[category].forEach(function(item) {
 			GUI.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
-	
-	/** Populates both Unit dropdown menus with pressure units. Used when changing the Unit Category to Pressure.
-	 * @post - populates the "unitA-select" and "unitB-select" dropdown menus with pressure units.
-	 */
-	populatePressureMenus() {
-		this.m_unitAMenu.innerHTML = "";
-		CONFIG.PRESSURE_UNITS.forEach(function(item) {
-			GUI.m_unitAMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-		});
-		
-		this.m_unitBMenu.innerHTML = "";
-		CONFIG.PRESSURE_UNITS.forEach(function(item) {
-			GUI.m_unitBMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
-		});
-	}
-	
 	
 	/** *[Currently unused and needs refactoring.]* Based on the selection of one dropdown menu, populate the options of another dropdown menu.
 	 * @param {string} menuAId - the elementID of the first menu
@@ -135,8 +120,6 @@ class Gui {
 	hideHelptext(ID) {
 		document.getElementById(ID).style.display = "none";
 	}
-
-	
 	
 	/* -------------------------------
 	 * EVENT HANDLING METHODS
@@ -154,24 +137,6 @@ class Gui {
 		if((unitA != unitB) && (value != "")) {
 			let newVal = this.CALCULATOR.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
-		}
-	}
-	
-	/** Repopulates the unit dropdown menus when the unit Category is changed.
-	 * @post - changes the options generated in the "unitA-select" and "unitB-select" dropdown menus.
-	 */
-	categoryChange() {
-		let category = this.m_catMenu.value;
-		switch(category) {
-			case "energy":
-				this.populateEnergyMenus();
-				break;
-			case "pressure":
-				this.populatePressureMenus();
-				break;
-			default:
-				console.log(category + "does not match any case.");
-				break;
 		}
 	}
 	

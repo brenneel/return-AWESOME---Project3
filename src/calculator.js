@@ -31,19 +31,8 @@ class Calculator {
 	 */
 	genConversionID(category, unitA, unitB) {
 		let ID = "";
-		switch(category) {
-			case "energy":
-				ID += String(CONFIG.getIndexOf(category, unitA));
-				ID += String(CONFIG.getIndexOf(category, unitB));
-				break;
-			case "pressure":
-				ID += String(CONFIG.getIndexOf(category, unitA));
-				ID += String(CONFIG.getIndexOf(category, unitB));
-				break;
-			default:
-				console.log("conversionID: category doesn't match anything");
-				break;
-		}
+		ID += String(CONFIG.getIndexOf(category, unitA));
+		ID += String(CONFIG.getIndexOf(category, unitB));
 		return(ID);
 	}
 	
@@ -449,11 +438,11 @@ class Calculator {
 		let conversionID;
 		let newVal;
 		switch(category) {
-			case "energy":
+			case "ENERGY_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertEnergy(value, conversionID);
 				break;
-			case "pressure":
+			case "PRESSURE_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
 				break;
