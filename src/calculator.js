@@ -16,6 +16,7 @@ class Calculator {
 	initialize() {
 		this.UNITS["ENERGY"] = new EnergyUnits();
 		this.UNITS["PRESSURE"] = new PressureUnits();
+		//this.UNITS["POWER"] = new PowerUnits();
 	}
 	
 	/* -------------------------------
