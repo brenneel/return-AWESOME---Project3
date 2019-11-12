@@ -16,7 +16,7 @@ class Calculator {
 	initialize() {
 		this.UNITS["ENERGY"] = new EnergyUnits();
 		this.UNITS["PRESSURE"] = new PressureUnits();
-		//this.UNITS["POWER"] = new PowerUnits();
+		this.UNITS["POWER"] = new PowerUnits();
 	}
 	
 	/* -------------------------------
@@ -33,6 +33,7 @@ class Calculator {
 	genConversionID(category, unitA, unitB) {
 		let ID = "";
 		ID += String(CONFIG.getIndexOf(category, unitA));
+		ID += ":";
 		ID += String(CONFIG.getIndexOf(category, unitB));
 		return(ID);
 	}
@@ -46,289 +47,59 @@ class Calculator {
 		let converted;
 		switch(conversionID) {
             /* joule to other units */
-			case "01":	// joule to cal
+			case "0:1":	// joule to cal
 				converted = this.UNITS.ENERGY.jouleToCal(value);
 				break;
-			case "02":	// joule to btu
+			case "0:2":	// joule to btu
 				converted = this.UNITS.ENERGY.jouleToBtu(value);
 				break;
-			case "03":	// joule to erg
+			case "0:3":	// joule to erg
 				converted = this.UNITS.ENERGY.jouleToErg(value);
 				break;
-			case "04":	// joule to eV
+			case "0:4":	// joule to eV
 				converted = this.UNITS.ENERGY.jouleToEV(value);
 				break;
-			case "05":	// joule to ftlbf
+			case "0:5":	// joule to ftlbf
 				converted = this.UNITS.ENERGY.jouleToFootPoundForce(value);
 				break;
-			case "06":	// joule to hph
+			case "0:6":	// joule to hph
 				converted = this.UNITS.ENERGY.jouleToHorsepowerHour(value);
 				break;
-			case "07":	// joule to kWh
+			case "0:7":	// joule to kWh
 				converted = this.UNITS.ENERGY.jouleTokWh(value);
 				break;
-			case "08":	// joule to kWs
+			case "0:8":	// joule to kWs
 				converted = this.UNITS.ENERGY.jouleTokWs(value);
 				break;
             /* other units to joule */
-			case "10":	// cal to joule
+			case "1:0":	// cal to joule
 				converted = this.UNITS.ENERGY.calToJ(value);
 				break;
-			case "20":	// btu to joule
+			case "2:0":	// btu to joule
 				converted = this.UNITS.ENERGY.btuToJ(value);
 				break;
-			case "30":	// erg to joule
+			case "3:0":	// erg to joule
 				converted = this.UNITS.ENERGY.ergToJ(value);
 				break;
-			case "40":	// Ev to joule
+			case "4:0":	// Ev to joule
 				converted = this.UNITS.ENERGY.eVToJ(value);
 				break;
-			case "50":	// ftlbf to joule
+			case "5:0":	// ftlbf to joule
 				converted = this.UNITS.ENERGY.ftlbfToJ(value);
 				break;
-			case "60":	// hph to joule
+			case "6:0":	// hph to joule
 				converted = this.UNITS.ENERGY.hphToJ(value);
 				break;
-			case "70":	// kWh to joule
+			case "7:0":	// kWh to joule
 				converted = this.UNITS.ENERGY.kwhToJ(value);
 				break;
-			case "80":	// kWs to joule
+			case "8:0":	// kWs to joule
 				converted = this.UNITS.ENERGY.kwsToJ(value);
 				break;
-			/* cal to other units */
-			case "12":  // cal to btu
-				converted = this.convertEnergy(value, "10");    // cal to joule
-				converted = this.convertEnergy(converted, "02");    // joule to btu
-				break;
-			case "13":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "14":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "15":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "16":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "17":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "18":  // cal to erg
-				converted = this.convertEnergy(value, "10");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* btu to other units */
-			case "21":  // btu to cal
-				converted = this.convertEnergy(value, "20");    // btu to joule
-				converted = this.convertEnergy(converted, "01");    // joule to cal
-				break;
-			case "23":  // btu to erg
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "24":   // btu to eV
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "25":  // btu to ftlbf
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "26":  // btu to hph
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "27":  // btu to kWh
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "28":  // btu to kWs
-				converted = this.convertEnergy(value, "20");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* erg to other units */
-			case "31":  // erg to cal
-				converted = this.convertEnergy(value, "30");    // erg to joule
-				converted = this.convertEnergy(converted, "01");    // joule to cal
-				break;
-			case "32":  // erg to btu
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "34":  // erg to eV
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "35":  // erg to ftlbf
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "36":  // erg to hph
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "37":  // erg to kWh
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "38":  // erg to kWs
-				converted = this.convertEnergy(value, "30");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* eV to other units */
-			case "41":  // eV to cal
-				converted = this.convertEnergy(value,"40"); // eV to joule
-				converted = this.convertEnergy(converted, "01");    // joule to cal
-				break;
-			case "42":  // eV to btu
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "43":  // eV to erg
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "45":  // eV to ftlbf
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "46":  // eV to hph
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "47":  // eV to kWh
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "48":  // eV to kWs
-				converted = this.convertEnergy(value,"40");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* ftlbf to other units */
-			case "51":  // ftlbf to cal
-				converted = this.convertEnergy(value, "50");    // ftlbf to joule
-				converted = this.convertEnergy(converted, "01");    // joule to cal
-				break;
-			case "52":  // ftlbf to btu
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "53":  // ftlbf to erg
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "54":  // ftlbf to eV
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "56":  // ftlbf to hph
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "57":  // ftlbf to kWh
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "58":  // ftlbf to kWs
-				converted = this.convertEnergy(value, "50");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* hph to other units */
-			case "61":  // hph to cal
-				converted = this.convertEnergy(value, "60");	// hph to joule
-				converted = this.convertEnergy(converted, "01");	// joule to cal
-				break;
-			case "62":  // hph to btu
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "63":  // hph to erg
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "64":  // hph to eV
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "65":  // hph to ftlbf
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "67":  // hph to kWh
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "07");
-				break;
-			case "68":  // hph to kWs
-				converted = this.convertEnergy(value, "60");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* kWh to other units */
-			case "71":	// kWh to cal
-				converted = this.convertEnergy(value, "70");	// kWh to joule
-				converted = this.convertEnergy(converted, "01");	// joule to cal
-				break;
-			case "72":	// kWh to btu
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "73":	// kWh to erg
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "74":	// kWh to eV
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "75":	// kWh to ftlbf
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "76":	// kWh to hph
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "78":	// kWh to kWs
-				converted = this.convertEnergy(value, "70");
-				converted = this.convertEnergy(converted, "08");
-				break;
-			/* kWs to other units */
-			case "81":	// kWs to cal
-				converted = this.convertEnergy(value, "80");	// kWs to joule
-				converted = this.convertEnergy(converted, "01");	// joule to cal
-				break;
-			case "82":	// kWs to btu
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "02");
-				break;
-			case "83":	// kWs to erg
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "03");
-				break;
-			case "84":	// kWs to eV
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "04");
-				break;
-			case "85":	// kWs to ftlbf
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "05");
-				break;
-			case "86":	// kWs to hph
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "06");
-				break;
-			case "87":	// kWs to kWh
-				converted = this.convertEnergy(value, "80");
-				converted = this.convertEnergy(converted, "07");
-				break;
 			default:
-				console.log("convertEnergy: no cases matched " + conversionID);
+				let convIDs = conversionID.split(':');
+				converted = this.convertEnergy(value, convIDs[0] + ":0");
+				converted = this.convertEnergy(converted, "0:" + convIDs[1]);
 				break;
 		}
 		return(converted);
@@ -342,87 +113,154 @@ class Calculator {
 	convertPressure(value, conversionID) {
 		let converted;
 		switch(conversionID) {
-			case "01":	// atm to kPa
+			case "0:1":	// atm to kPa
 				converted = this.UNITS.PRESSURE.atmoTokPa(value);
 				break;
-            case "02":	// atm to Pa; TODO: need Units method
+            case "0:2":	// atm to Pa
                 converted = this.UNITS.PRESSURE.atmoToPa(value);
 				break;
-            case "03": //atm to bar
+            case "0:3": //atm to bar
                 converted = this.UNITS.PRESSURE.atmoToBar(value);
                 break;
-            case "04": //atm to lbf
+            case "0:4": //atm to lbf
                 converted = this.UNITS.PRESSURE.atmoToPoundPerSquaredInch(value);
                 break;
-            case "05": //atm to foot water (ftAq)
+            case "0:5": //atm to foot water (ftAq)
                 converted = this.UNITS.PRESSURE.atmoToFootWater(value);
                 break;
-            case "06": //atm to merc inch
+            case "0:6": //atm to merc inch
                 converted = this.UNITS.PRESSURE.atmoToMercInch(value);
                 break;
-            case "07": //atm to merc mm
+            case "0:7": //atm to merc mm
                 converted = this.UNITS.PRESSURE.atmoToMercMM(value);
                 break;
-            case "08": //atm to kgf/cm^2
+            case "0:8": //atm to kgf/cm^2
                 converted = this.UNITS.PRESSURE.atmoToKgf(value);
                 break;
-            case "09": //atm to meter water
+            case "0:9": //atm to meter water
                 converted = this.UNITS.PRESSURE.atmoToMeterWater(value);
                 break;
-            case "010": //atm to torr
+            case "0:10": //atm to torr
                 converted = this.UNITS.PRESSURE.atmoToTorr(value);
                 break;
-            case "011": //atm to psi
+            case "0:11": //atm to psi
                 converted = this.UNITS.PRESSURE.atmoToPsi(value);
                 break;
-            case "012": //atm to inch water
+            case "0:12": //atm to inch water
                 converted = this.UNITS.PRESSURE.atmoToInchWater(value);
                 break;
-            case "013": //atm to dyne
+            case "0:13": //atm to dyne
                 converted = this.UNITS.PRESSURE.atmoToDynePerCM(value);
                 break;
-			case "10":	// kPa to atm
+			case "1:0":	// kPa to atm
 				converted = this.UNITS.PRESSURE.kPaToAtmo(value);
                 break;
-            case "20": //Pa to atm
+            case "2:0": // Pa to atm
                 converted = this.UNITS.PRESSURE.paToAtmo(value);
                 break;
-            case "30": //bar to atm
+            case "3:0": // bar to atm
                 converted = this.UNITS.PRESSURE.barToAtmo(value);
                 break;
-            case "40": // lbf to atmo
+            case "4:0": // lbf to atmo
                 converted = this.UNITS.PRESSURE.poundPerSquaredInchToAtmo(value);
                 break;
-            case "50": //foot water to atm
+            case "5:0": // foot water to atm
                 converted = this.UNITS.PRESSURE.footWaterToAtmo(value);
                 break;
-            case "60": //merc inch to atm
-                converted = this.UNITS.PRESSURE.MercInchToAtmo(value);
+            case "6:0": // merc inch to atm
+                converted = this.UNITS.PRESSURE.mercInchToAtmo(value);
                 break;
-            case "70": //merc MM to atm
+            case "7:0": // merc MM to atm
                 converted = this.UNITS.PRESSURE.mercMMToAtmo(value);
                 break;
-            case "80": //kgf to atm
+            case "8:0": // kgf to atm
                 converted = this.UNITS.PRESSURE.kgfToAtmo(value);
                 break;
-            case "90": //meter water to atm
+            case "9:0": // meter water to atm
                 converted = this.UNITS.PRESSURE.meterWaterToAtmo(value);
                 break;
-            case "100": // torr to atm 
+            case "10:0": // torr to atm 
                 converted = this.UNITS.PRESSURE.torrToAtmo(value);
                 break;
-            case "110": // psi to atm
+            case "11:0": // psi to atm
                 converted = this.UNITS.PRESSURE.psiToAtmo(value);
                 break;
-            case "120": // inch water to atm
+            case "12:0": // inch water to atm
                 converted = this.UNITS.PRESSURE.inchWaterToAtmo(value);
                 break;
-            case "130": // dyne to atm
+            case "13:0": // dyne to atm
                 converted = this.UNITS.PRESSURE.dynePerCMToAtmo(value);
                 break;
-
 			default:
-				console.log("GUI.convertPressure: no cases matched " + conversionID);
+				let convIDs = conversionID.split(':');
+				converted = this.convertPressure(value, convIDs[0] + ":0");
+				converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				break;
+		}
+		return(converted);
+	}
+	
+	/** Converts power units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertPower(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "0:1":	// watt to hp
+				converted = this.UNITS.POWER.wToHp(value);
+				break;
+			case "0:2":	// watt to btu/sec
+				converted = this.UNITS.POWER.wToBtuPerS(value);
+				break;
+			case "0:3":	// watt to btu/hr
+				converted = this.UNITS.POWER.wToBtuPerHr(value);
+				break;
+			case "0:4":	// watt to kW
+				converted = this.UNITS.POWER.wtokW(value);
+				break;
+			case "0:5":	// watt to ft*lbf/s
+				converted = this.UNITS.POWER.wtoFtlbFsec(value);
+				break;
+			case "0:6":	// watt to ft*lbf/min
+				converted = this.UNITS.POWER.wtoFtlbFmin(value);
+				break;
+			case "0:7":	// watt to cal/s
+				converted = this.UNITS.POWER.wToCalPerS(value);
+				break;
+			case "0:8":	// watt to J/s
+				converted = this.UNITS.POWER.wToJoulePerS(value);
+				break;
+			case "1:0":	// hp to watt
+				converted = this.UNITS.POWER.hpToW(value);
+				break;
+			case "2:0":	// btu/sec to watt
+				converted = this.UNITS.POWER.btuPerStoW(value);
+				break;
+			case "3:0":	// btu/hr to watt
+				converted = this.UNITS.POWER.btuPerHrtoW(value);
+				break;
+			case "4:0":	// kW to watt
+				converted = this.UNITS.POWER.kWtoW(value);
+				break;
+			case "5:0":	// ft*lbf/s to watt
+				converted = this.UNITS.POWER.ftlbFsecToW(value);
+				break;
+			case "6:0":	// ft*lbf/min to watt
+				converted = this.UNITS.POWER.ftlbFminToW(value);
+				break;
+			case "7:0":	// cal/s to watt
+				converted = this.UNITS.POWER.calPerStoW(value);
+				break;
+			case "8:0":	// J/s to watt
+				converted = this.UNITS.POWER.joulePerStoWatt(value);
+				break;
+			default:
+				let convIDs = conversionID.split(':');
+				converted = this.convertPower(value, convIDs[0] + ":0");
+				converted = this.convertPower(converted, "0:" + convIDs[1]);
+				break;
 		}
 		return(converted);
 	}
@@ -446,6 +284,10 @@ class Calculator {
 			case "PRESSURE_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
+				break;
+			case "POWER_UNITS":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertPower(value, conversionID);
 				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");
