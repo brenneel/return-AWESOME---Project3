@@ -199,15 +199,17 @@ class Config {
 	 */
 	FORMULAS = [
 		["PVNRT", "Ideal Gas Law, PV = nRT"],
-	]
+		["REYNOLDS", "Reynolds' Number"],
 	];
 
 	FORMULA_TEXT = {
 		PVNRT: "IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.",
+		REYNOLDS: "Reynolds' Number.<br>Enter D, v, ρ, and μ, OR enter D, v, and γ.  Click <b><em>Calculate!</em></b> to calculate Reynolds' Number.",
 	};
 
 	FORMULA_FIELDS = {
 		PVNRT: "<label for=\"p\">P: </label><input type=\"number\" id=\"p\" name=\"p\" class=\"numfield\"><label for=\"v\">V:</label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">=</div><label for=\"n\">n: </label><input type=\"number\" id=\"n\" name=\"n\" class=\"numfield\"><label for=\"const-R\">R (J/mol⋅K): </label><div id=\"const-R\" name=\"const-R\" class=\"formula-const\">8.314</div><label for=\"t\">T:</label><input type=\"number\" id=\"t\" name=\"t\" class=\"numfield\">",
+		REYNOLDS: "<div id=\"answer\" name=\"answer\" class=\"output\">Re</div><div class =\"equals\">=</div><label for\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\"><label for\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><label for\"rho\">ρ: </label><input type=\"number\" id=\"rho\" name=\"rho\" class=\"numfield\"><div class=\"equals\">/</div><label for\"mu\">μ: </label><input type=\"number\" id=\"mu\" name=\"mu\" class=\"numfield\"><div class =\"equals\">=</div><label for\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\"><label for\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">/</div><label for\"gamma\">γ: </label><input type=\"number\" id=\"gamma\" name=\"gamma\" class=\"numfield\">"
 	};
 	
 	/* -------------------------------
