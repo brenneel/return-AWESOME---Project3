@@ -112,82 +112,82 @@ class Calculator {
 	convertPressure(value, conversionID) {
 		let converted;
 		switch(conversionID) {
-			case "01":	// atm to kPa
+			case "0:1":	// atm to kPa
 				converted = this.UNITS.PRESSURE.atmoTokPa(value);
 				break;
-            case "02":	// atm to Pa; TODO: need Units method
+            case "0:2":	// atm to Pa
                 converted = this.UNITS.PRESSURE.atmoToPa(value);
 				break;
-            case "03": //atm to bar
+            case "0:3": //atm to bar
                 converted = this.UNITS.PRESSURE.atmoToBar(value);
                 break;
-            case "04": //atm to lbf
+            case "0:4": //atm to lbf
                 converted = this.UNITS.PRESSURE.atmoToPoundPerSquaredInch(value);
                 break;
-            case "05": //atm to foot water (ftAq)
+            case "0:5": //atm to foot water (ftAq)
                 converted = this.UNITS.PRESSURE.atmoToFootWater(value);
                 break;
-            case "06": //atm to merc inch
+            case "0:6": //atm to merc inch
                 converted = this.UNITS.PRESSURE.atmoToMercInch(value);
                 break;
-            case "07": //atm to merc mm
+            case "0:7": //atm to merc mm
                 converted = this.UNITS.PRESSURE.atmoToMercMM(value);
                 break;
-            case "08": //atm to kgf/cm^2
+            case "0:8": //atm to kgf/cm^2
                 converted = this.UNITS.PRESSURE.atmoToKgf(value);
                 break;
-            case "09": //atm to meter water
+            case "0:9": //atm to meter water
                 converted = this.UNITS.PRESSURE.atmoToMeterWater(value);
                 break;
-            case "010": //atm to torr
+            case "0:10": //atm to torr
                 converted = this.UNITS.PRESSURE.atmoToTorr(value);
                 break;
-            case "011": //atm to psi
+            case "0:11": //atm to psi
                 converted = this.UNITS.PRESSURE.atmoToPsi(value);
                 break;
-            case "012": //atm to inch water
+            case "0:12": //atm to inch water
                 converted = this.UNITS.PRESSURE.atmoToInchWater(value);
                 break;
-            case "013": //atm to dyne
+            case "0:13": //atm to dyne
                 converted = this.UNITS.PRESSURE.atmoToDynePerCM(value);
                 break;
-			case "10":	// kPa to atm
+			case "1:0":	// kPa to atm
 				converted = this.UNITS.PRESSURE.kPaToAtmo(value);
                 break;
-            case "20": //Pa to atm
+            case "2:0": // Pa to atm
                 converted = this.UNITS.PRESSURE.paToAtmo(value);
                 break;
-            case "30": //bar to atm
+            case "3:0": // bar to atm
                 converted = this.UNITS.PRESSURE.barToAtmo(value);
                 break;
-            case "40": // lbf to atmo
+            case "4:0": // lbf to atmo
                 converted = this.UNITS.PRESSURE.poundPerSquaredInchToAtmo(value);
                 break;
-            case "50": //foot water to atm
+            case "5:0": // foot water to atm
                 converted = this.UNITS.PRESSURE.footWaterToAtmo(value);
                 break;
-            case "60": //merc inch to atm
-                converted = this.UNITS.PRESSURE.MercInchToAtmo(value);
+            case "6:0": // merc inch to atm
+                converted = this.UNITS.PRESSURE.mercInchToAtmo(value);
                 break;
-            case "70": //merc MM to atm
+            case "7:0": // merc MM to atm
                 converted = this.UNITS.PRESSURE.mercMMToAtmo(value);
                 break;
-            case "80": //kgf to atm
+            case "8:0": // kgf to atm
                 converted = this.UNITS.PRESSURE.kgfToAtmo(value);
                 break;
-            case "90": //meter water to atm
+            case "9:0": // meter water to atm
                 converted = this.UNITS.PRESSURE.meterWaterToAtmo(value);
                 break;
-            case "100": // torr to atm 
+            case "10:0": // torr to atm 
                 converted = this.UNITS.PRESSURE.torrToAtmo(value);
                 break;
-            case "110": // psi to atm
+            case "11:0": // psi to atm
                 converted = this.UNITS.PRESSURE.psiToAtmo(value);
                 break;
-            case "120": // inch water to atm
+            case "12:0": // inch water to atm
                 converted = this.UNITS.PRESSURE.inchWaterToAtmo(value);
                 break;
-            case "130": // dyne to atm
+            case "13:0": // dyne to atm
                 converted = this.UNITS.PRESSURE.dynePerCMToAtmo(value);
                 break;
 
