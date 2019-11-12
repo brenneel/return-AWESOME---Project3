@@ -46,53 +46,53 @@ class Calculator {
 		let converted;
 		switch(conversionID) {
             /* joule to other units */
-			case "01":	// joule to cal
+			case "0:1":	// joule to cal
 				converted = this.UNITS.ENERGY.jouleToCal(value);
 				break;
-			case "02":	// joule to btu
+			case "0:2":	// joule to btu
 				converted = this.UNITS.ENERGY.jouleToBtu(value);
 				break;
-			case "03":	// joule to erg
+			case "0:3":	// joule to erg
 				converted = this.UNITS.ENERGY.jouleToErg(value);
 				break;
-			case "04":	// joule to eV
+			case "0:4":	// joule to eV
 				converted = this.UNITS.ENERGY.jouleToEV(value);
 				break;
-			case "05":	// joule to ftlbf
+			case "0:5":	// joule to ftlbf
 				converted = this.UNITS.ENERGY.jouleToFootPoundForce(value);
 				break;
-			case "06":	// joule to hph
+			case "0:6":	// joule to hph
 				converted = this.UNITS.ENERGY.jouleToHorsepowerHour(value);
 				break;
-			case "07":	// joule to kWh
+			case "0:7":	// joule to kWh
 				converted = this.UNITS.ENERGY.jouleTokWh(value);
 				break;
-			case "08":	// joule to kWs
+			case "0:8":	// joule to kWs
 				converted = this.UNITS.ENERGY.jouleTokWs(value);
 				break;
             /* other units to joule */
-			case "10":	// cal to joule
+			case "1:0":	// cal to joule
 				converted = this.UNITS.ENERGY.calToJ(value);
 				break;
-			case "20":	// btu to joule
+			case "2:0":	// btu to joule
 				converted = this.UNITS.ENERGY.btuToJ(value);
 				break;
-			case "30":	// erg to joule
+			case "3:0":	// erg to joule
 				converted = this.UNITS.ENERGY.ergToJ(value);
 				break;
-			case "40":	// Ev to joule
+			case "4:0":	// Ev to joule
 				converted = this.UNITS.ENERGY.eVToJ(value);
 				break;
-			case "50":	// ftlbf to joule
+			case "5:0":	// ftlbf to joule
 				converted = this.UNITS.ENERGY.ftlbfToJ(value);
 				break;
-			case "60":	// hph to joule
+			case "6:0":	// hph to joule
 				converted = this.UNITS.ENERGY.hphToJ(value);
 				break;
-			case "70":	// kWh to joule
+			case "7:0":	// kWh to joule
 				converted = this.UNITS.ENERGY.kwhToJ(value);
 				break;
-			case "80":	// kWs to joule
+			case "8:0":	// kWs to joule
 				converted = this.UNITS.ENERGY.kwsToJ(value);
 				break;
 			/* cal to other units */
