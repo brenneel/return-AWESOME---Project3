@@ -65,7 +65,18 @@ class Config {
 		["ftlbfs", "footpound force per second (ft * lbf/s)"],
 		["ftlbfmin", "footpound force per minute (ft * lbf/min)"],
 		["calsec", "calories per second (cal/s)"],
-		["js", "joules per second (J/s)"],
+		["js", "joules per second (J/s)"]
+	];
+
+	VISCOSITY_UNITS = [
+		["cP" , "centipoise (cP)"],
+		["p" , "poise"],
+		["gcms" , "gram per centimeter-sec (g / cm*s)"],
+		["kgms" , "kilogram per meter-sec (kg / m*s)"],
+		["nsm", "Newtons seconds per sq meter (N*s / m^2)"],
+		["PaS", "Pascal seconds (Pa * s)"],
+		["lbmfts", "pound mass per foot-second (lbm / ft*s)"],
+		["lbfsft", "pound-force second per square foot (lbf*s / ft^2)"]
 	];
 
 	/* -------------------------------
