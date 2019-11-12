@@ -96,6 +96,93 @@ class ViscosityUnits {
         return cP;
     }
 
+    /**
+     * Converts cP to pascal sec
+     * @param {Number} cp centipoise
+     * @return {Number} Pa * s  equivalent
+     */
+    cPtoPaS(cp)
+    {
+        return this.cPtoN(cp);
+    }
+
+    /**
+     * Converts pascal sec  to cp
+     * @param {Number} pas Pa * s 
+     * @return {Number} cP equivalent
+     */
+    paSToCP(pas)
+    {
+        return this.NtoCP(pas);
+    }
+
+    /**
+     * Converts cP to kilogram/meter-sec
+     * @param {Number} cp centipoise
+     * @return {Number} kg / m *s  equivalent
+     */
+    cPtoKgMs(cp)
+    {
+        return this.cPtoN(cp);
+    }
+
+    /**
+     * Converts kg / m s  to cp
+     * @param {Number} kgms kilogram per meter-sec
+     * @return {Number} cP equivalent
+     */
+    kgMsToCP(kgms)
+    {
+        return this.NtoCP(kgms);
+    }
+
+    /**
+     * Converts cP to lbm/ ft*s
+     * @param {Number} cp centipoise
+     * @return {Number} lbm/ ft*s equivalent
+     */
+    cPtolbmFtS(cp)
+    {
+        let cP = Number(cp);
+        let lbmFtS = cP * 6.71968/ 10000;
+        return lbmFtS;
+    }
+
+    /**
+     * Converts Poise to cp
+     * @param {Number} lbmFtS lbm / ft * s  (pound per foot-sec)
+     * @return {Number} cP equivalent
+     */
+    lbmFtStoCP(lbmFtS)
+    {
+        let pound = Number(lbmFtS);
+        let cP = pound * 1488.1639;
+        return cP;
+    }
+
+    /**
+     * Converts cP to lbf* s/ft^2
+     * @param {Number} cp centipoise
+     * @return {Number} lbfsfts (pound-force second per square foot) equivalent
+     */
+    cPtolbfSft(cp)
+    {
+        let cP = Number(cp);
+        let lbfsft = cP * 2.08854/ 100000;
+        return lbfsft;
+    }
+
+    /**
+     * Converts lbf* s/ft^2 to cp
+     * @param {Number} lbfsft lbf* s/ft^2 (pound-force second per square foot)
+     * @return {Number} cP equivalent
+     */
+    lbfSftToCP(lbfsft)
+    {
+        let pound = Number(lbfsft);
+        let cP = pound * 1488.1639;
+        return cP;
+    }
 
 }
     
