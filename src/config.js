@@ -21,8 +21,9 @@ class Config {
 	 */
 	
 	CATEGORIES = [
-		["energy", "Energy"],
-		["pressure", "Pressure"]
+		["ENERGY_UNITS", "Energy"],
+		["PRESSURE_UNITS", "Pressure"],
+		["POWER_UNITS", "Power"]
 	];
 
 	ENERGY_UNITS = [
