@@ -44,4 +44,18 @@ class Test{
     conLog(funcName, content){
         console.log("[" + this.className + "]" + funcName + ": " + content);
     }
+
+    createTest(func, name){
+        let result = 0;
+
+        this.addTest(name);
+        if(func == this.pass){
+            result = this.pass;
+        }else if(func == this.fail){
+            result = this.fail;
+        }else{
+            result = this.unkno;
+        }
+        this.updateTest(name, result);
+    }
 }
