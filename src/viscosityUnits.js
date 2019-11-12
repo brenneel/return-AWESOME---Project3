@@ -136,6 +136,30 @@ class ViscosityUnits {
         return this.NtoCP(kgms);
     }
 
+    /**
+     * Converts cP to lbm/ ft*s
+     * @param {Number} cp centipoise
+     * @return {Number} lbm/ ft*s equivalent
+     */
+    cPtoP(cp)
+    {
+        let cP = Number(cp);
+        let lbmFtS = cP * 6.71968/ 10000;
+        return lbmFtS;
+    }
+
+    /**
+     * Converts Poise to cp
+     * @param {Number} lbmFtS lbm / ft * s  (pound per foot-sec)
+     * @return {Number} cP equivalent
+     */
+    lbmFtStoCP(lbmFtS)
+    {
+        let pound = Number(lbmFtS);
+        let cP = pound * 1488.1639;
+        return cP;
+    }
+
 
 }
     
