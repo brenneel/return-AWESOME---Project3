@@ -39,7 +39,7 @@ class PowerUnits {
      */
     wToJoulePerS(w)
     {
-        return this.WToHp(w);
+        return this.wToHp(w);
     }
 
     /**
