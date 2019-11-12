@@ -190,9 +190,10 @@ class Calculator {
             case "13:0": // dyne to atm
                 converted = this.UNITS.PRESSURE.dynePerCMToAtmo(value);
                 break;
-
 			default:
-				console.log("GUI.convertPressure: no cases matched " + conversionID);
+				let convIDs = conversionID.split(':');
+				converted = this.convertPressure(value, convIDs[0] + ":0");
+				converted = this.convertPressure(converted, "0:" + convIDs[1]);
 		}
 		return(converted);
 	}
