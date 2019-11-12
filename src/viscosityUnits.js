@@ -96,6 +96,46 @@ class ViscosityUnits {
         return cP;
     }
 
+    /**
+     * Converts cP to pascal sec
+     * @param {Number} cp centipoise
+     * @return {Number} Pa * s  equivalent
+     */
+    cPtoPaS(cp)
+    {
+        return this.cPtoN(cp);
+    }
+
+    /**
+     * Converts pascal sec  to cp
+     * @param {Number} pas Pa * s 
+     * @return {Number} cP equivalent
+     */
+    paSToCP(pas)
+    {
+        return this.NtoCP(pas);
+    }
+
+    /**
+     * Converts cP to kilogram/meter-sec
+     * @param {Number} cp centipoise
+     * @return {Number} kg / m *s  equivalent
+     */
+    cPtoKgMs(cp)
+    {
+        return this.cPtoN(cp);
+    }
+
+    /**
+     * Converts kg / m s  to cp
+     * @param {Number} kgms kilogram per meter-sec
+     * @return {Number} cP equivalent
+     */
+    kgMsToCP(kgms)
+    {
+        return this.NtoCP(kgms);
+    }
+
 
 }
     
