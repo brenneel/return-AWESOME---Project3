@@ -141,7 +141,7 @@ class ViscosityUnits {
      * @param {Number} cp centipoise
      * @return {Number} lbm/ ft*s equivalent
      */
-    cPtoP(cp)
+    cPtolbmFtS(cp)
     {
         let cP = Number(cp);
         let lbmFtS = cP * 6.71968/ 10000;
@@ -160,6 +160,29 @@ class ViscosityUnits {
         return cP;
     }
 
+    /**
+     * Converts cP to lbf* s/ft^2
+     * @param {Number} cp centipoise
+     * @return {Number} lbfsfts (pound-force second per square foot) equivalent
+     */
+    cPtolbfSft(cp)
+    {
+        let cP = Number(cp);
+        let lbfsft = cP * 2.08854/ 100000;
+        return lbfsft;
+    }
+
+    /**
+     * Converts lbf* s/ft^2 to cp
+     * @param {Number} lbfsft lbf* s/ft^2 (pound-force second per square foot)
+     * @return {Number} cP equivalent
+     */
+    lbfSftToCP(lbfsft)
+    {
+        let pound = Number(lbfsft);
+        let cP = pound * 1488.1639;
+        return cP;
+    }
 
 }
     
