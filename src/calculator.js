@@ -32,6 +32,7 @@ class Calculator {
 	genConversionID(category, unitA, unitB) {
 		let ID = "";
 		ID += String(CONFIG.getIndexOf(category, unitA));
+		ID += ":";
 		ID += String(CONFIG.getIndexOf(category, unitB));
 		return(ID);
 	}
