@@ -49,6 +49,7 @@ class Gui {
 		this.populateConstants();
 		this.constChange();
 		this.constHandler();
+		this.populateFormulas();
 	}
 	
 	/** Populates the Unit Categories dropdown menu with categories. Used when initializing the page.
@@ -102,6 +103,16 @@ class Gui {
 		this.m_constMenu.innerHTML = "";
 		CONFIG.CONSTANTS.forEach(function(item) {
 			GUI.m_constMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
+		});
+	}
+	
+	/** Populates the Formulas dropdown menu with all available formulas.
+	 * @post - populates the "formula-select" dropdown menu with all formulas.
+	 */
+	populateFormulas() {
+		this.m_formulaMenu.innerHTML = "";
+		CONFIG.FORMULAS.forEach(function(item) {
+			GUI.m_formulaMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
 	}
 	
