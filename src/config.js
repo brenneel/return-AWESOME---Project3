@@ -8,7 +8,7 @@
  * @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of Water (ρ).
  * @prop {Array} MU_OF_WATER - an array containing elementIDs and labels for each unit option for the μ of Water.
  * @prop {Array} NU_OF_WATER - an array containing elementIDs and labels for each unit option for the ν (nu) of Water.
- * @prop {Array} CAP_MU_OF_WATER - an array containing elementIDs and labels for each unit option for the Μ (Mu) of Water.
+ * @prop {Array} M_OF_WATER - an array containing elementIDs and labels for each unit option for the Μolar Mass (M) of Water.
  * @prop {Array} SIGMA_OF_WATER - an array containing elementIDs and labels for each unit option for the σ of Water.
  * @prop {Array} FORMULAS - an array containing elementIDs and labels for each unit option for the 
  * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each formula option
@@ -88,7 +88,7 @@ class Config {
 		["RHO_OF_WATER", "Density of Water (ρ)"],
 		["MU_OF_WATER", "Viscosity of Water (μ)"],
 		["NU_OF_WATER", "Dynamic Viscosity of Water (ν)"],
-		["CAP_MU_OF_WATER", "Μolar Mass of Water (M)"],
+		["M_OF_WATER", "Μolar Mass of Water (M)"],
 		["SIGMA_OF_WATER", "σ of Water"],
 		["RHO_OF_AIR", "Density of Air (ρ)"],
 		["MU_OF_AIR", "Viscosity of Air (μ)"],
@@ -135,7 +135,7 @@ class Config {
 		["FT2_S", "ft^2/s"]
 	];
 
-	CAP_MU_OF_WATER = [
+	M_OF_WATER = [
 		["G_MOL", "g/mol"],
 		["LBM_LBMOL", "lbm/lbmol"]
 	];
