@@ -442,7 +442,7 @@ class Calculator {
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertEnergy(value, conversionID);
 				break;
-			case "pressure":
+			case "PRESSURE_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
 				break;
