@@ -299,10 +299,36 @@ class Calculator {
 				converted = this.UNITS.VISCOSITY.cPtolbfSft(value);
 				break;
 			case "1:0": // Poise to cP
-				converted = this.UNITS.VISCOSITY. pToCP(value);
+				converted = this.UNITS.VISCOSITY.pToCP(value);
 				break;
-			case
-
+			case "2:0": // g/cm s to cP
+				converted = this.UNITS.VISCOSITY.gramCentiSecToCP(value);
+				break;
+			case "3:0": // dyne s/cm^2 to cP
+				converted = this.UNITS.VISCOSITY.dyneToCP(value);
+				break;
+			case "4:0": // newton sec per sq meter to cp
+				converted = this.UNITS.VISCOSITY.NtoCP(value);
+				break;
+			case "5:0": // pascal sec to cp
+				converted = this.UNITS.VISCOSITY.paSToCP(value);
+				break;
+			case "6:0": // kg/ ms to cP
+				converted = this.UNITS.ViscosityUnits.kgMsToCP(value);
+				break;
+			case "7:0": // poise to cp
+				converted = this.UNITS.VISCOSITY.lbmFtStoCP(value);
+				break;
+			case "8:0": // lbf* s/ft^2 to cp
+				converted = this.UNITS.VISCOSITY.lbfSftToCP(value);
+				break;
+			default:
+			let convIDs = conversionID.split(':');
+			converted = this.convertViscosity(value, convIDs[0] + ":0");
+			converted = this.convertViscosity(converted, "0:" + convIDs[1]);
+			break;
+		}
+		return(converted);
 	}
 	
 	/** Determines the correct conversion Category (ie, Energy) and calls the appropriate method.
