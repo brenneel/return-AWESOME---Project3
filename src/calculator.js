@@ -289,6 +289,10 @@ class Calculator {
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPower(value, conversionID);
 				break;
+			case "VISCOSITY_UNITS":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertViscosity(value, conversionID);
+				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");
 				break;
