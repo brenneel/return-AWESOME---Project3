@@ -18,8 +18,9 @@ class TestPressureUnits extends Test{
         //this.testNameHere("param", param)
         this.addTest("AtmoTokPa");
         this.updateTest("AtmoTokPa",this.testingAtmoTokPa(0));
+        this.addTest("kPaToAtmo");
+        this.updateTest("kPaToAtmo", this.testingkPaToAtmo(1));
         /*
-        testingkPaToAtmo(1);
         testingAtmoToPa(2);
         testingPaToAtmo(3);
         testingAtmoToBar(4);
@@ -80,18 +81,19 @@ class TestPressureUnits extends Test{
      */
     testingkPaToAtmo(j){
         let passed = true;
-        expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
-        for(let i = 0; i<testValues.length; i++){
-            let calc = unit.kPaToAtmo(testValues[i]);
-            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+        this.expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.kPaToAtmo(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
                 passed = false;
-                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
-                console.log(calc-expectedValues[j][i] + "\n");
+                this.conLog("testingkPaToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingkPaToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
             }
         }
-        if(passed){
-            console.log("kPa to atmo: PASSED");
-        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
     }
 
 }
