@@ -4,8 +4,11 @@ class TestPressureUnits extends Test{
     }
 
     run(){
+        console.log("Pressure tests start");
         //functions to run here
         //this.testNameHere("param", param)
+
+        console.log("Pressure tests end");
     }
 
 }
