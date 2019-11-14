@@ -17,6 +17,7 @@ class Calculator {
 		this.UNITS["ENERGY"] = new EnergyUnits();
 		this.UNITS["PRESSURE"] = new PressureUnits();
 		this.UNITS["POWER"] = new PowerUnits();
+		this.UNITS["VISCOSITY"] = new ViscosityUnits();
 	}
 	
 	/* -------------------------------
@@ -263,6 +264,45 @@ class Calculator {
 				break;
 		}
 		return(converted);
+	}
+
+	/** Converts viscosity units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertViscosity(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "0:1":	// cP to P
+				converted = this.UNITS.VISCOSITY.cPtoP(value);
+				break;
+			case "0:2": // cP to g/cm s
+				converted = this.UNITS.VISCOSITY.cPtoGramCentiSec(value);
+				break;
+			case "0:3": // cP to dyne s/cm^2
+				converted = this.UNITS.VISCOSITY.cPtoDyne(value);
+				break;
+			case "0:4": // cP to N * s/m^2
+				converted = this.UNITS.VISCOSITY.cPtoN(value);
+				break;
+			case "0:5": // cP to pascal sec
+				converted = this.UNITS.VISCOSITY.cPtoPaS(value);
+				break;
+			case "0:6": // cP to kilogram/meter-sec
+				converted = this.UNITS.VISCOSITY.cPtoKgMs(value);
+				break;
+			case "0:7": // cP to lbm/ft*s
+				converted = this.UNITS.VISCOSITY.cPtolbmFtS(value);
+				break;
+			case "0:8": // cP to lbf* s/ft^2
+				converted = this.UNITS.VISCOSITY.cPtolbfSft(value);
+				break;
+			case "1:0": // Poise to cP
+				converted = this.UNITS.VISCOSITY. pToCP(value);
+				break;
+			case
+
 	}
 	
 	/** Determines the correct conversion Category (ie, Energy) and calls the appropriate method.
