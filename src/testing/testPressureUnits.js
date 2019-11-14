@@ -1,6 +1,15 @@
 class TestPressureUnits extends Test{
+    testValues;
+    expectedValues;
+    tolerance;
+    unit;
     constructor(){
         super("PressureUnits");
+        this.testValues = [0.000000001234, 1024.123456, 987654];
+        this.expectedValues = [];
+        this.tolerance = 0.0000001;
+        this.unit = new PressureUnits();
+        //expected values are taken from unitconverters.net/pressure-converter.html
     }
 
     run(){
@@ -8,8 +17,8 @@ class TestPressureUnits extends Test{
         //functions to run here
         //this.testNameHere("param", param)
         this.addTest("AtmoTokPa");
-        testingAtmoTokPa(0);
-        
+        this.updateTest("AtmoTokPa",this.testingAtmoTokPa(0));
+        /*
         testingkPaToAtmo(1);
         testingAtmoToPa(2);
         testingPaToAtmo(3);
@@ -39,7 +48,50 @@ class TestPressureUnits extends Test{
         testingInchWaterToAtmo(27);
         testingAtmoToDynePerCM(28);
         testingDynePerCMToAtmo(29);
+        */
         console.log("Pressure tests end");
+    }
+
+    /*Begin function testing*/
+   
+    /**
+     * checks unit conversions with expected values for atmo to kPa
+     * @param {num} j
+     */
+    testingAtmoTokPa(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.atmoTokPa(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("testingAtmoTokPa", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingAtmoTokPa", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * checks unit conversions with expected values for kPa to atmo
+     * @param {num} j
+     */
+    testingkPaToAtmo(j){
+        let passed = true;
+        expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
+        for(let i = 0; i<testValues.length; i++){
+            let calc = unit.kPaToAtmo(testValues[i]);
+            if(Math.abs((calc-expectedValues[j][i])/(expectedValues[j][i]*100) >1)){
+                passed = false;
+                console.log("Expected value = " + expectedValues[j][i] + " TEST FAILED difference between expected value and computation was ");
+                console.log(calc-expectedValues[j][i] + "\n");
+            }
+        }
+        if(passed){
+            console.log("kPa to atmo: PASSED");
+        }
     }
 
 }
