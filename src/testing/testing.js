@@ -6,17 +6,20 @@ class Testing{
 
     fAbsTest;
     fSolTest;
+    fPressTest;
 
     constructor(){
         this.isCompleted = false;
 
         this.fAbsTest = new TestFormulasAbs();
+        this.fPressTest = new TestPressureUnits();
     }
     
     
     run(){
         this.updateState();
         this.fAbsTest.run();
+        this.fPressTest.run();
         this.isCompleted = true;
         this.updateState();
     }
