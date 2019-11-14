@@ -17,6 +17,7 @@ class Calculator {
 		this.UNITS["ENERGY"] = new EnergyUnits();
 		this.UNITS["PRESSURE"] = new PressureUnits();
 		this.UNITS["POWER"] = new PowerUnits();
+		this.UNITS["VISCOSITY"] = new ViscosityUnits();
 	}
 	
 	/* -------------------------------
@@ -264,6 +265,71 @@ class Calculator {
 		}
 		return(converted);
 	}
+
+	/** Converts viscosity units by calling the appropriate Units method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertViscosity(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "0:1":	// cP to P
+				converted = this.UNITS.VISCOSITY.cPtoP(value);
+				break;
+			case "0:2": // cP to g/cm s
+				converted = this.UNITS.VISCOSITY.cPtoGramCentiSec(value);
+				break;
+			case "0:3": // cP to dyne s/cm^2
+				converted = this.UNITS.VISCOSITY.cPtoDyne(value);
+				break;
+			case "0:4": // cP to N * s/m^2
+				converted = this.UNITS.VISCOSITY.cPtoN(value);
+				break;
+			case "0:5": // cP to pascal sec
+				converted = this.UNITS.VISCOSITY.cPtoPaS(value);
+				break;
+			case "0:6": // cP to kilogram/meter-sec
+				converted = this.UNITS.VISCOSITY.cPtoKgMs(value);
+				break;
+			case "0:7": // cP to lbm/ft*s
+				converted = this.UNITS.VISCOSITY.cPtolbmFtS(value);
+				break;
+			case "0:8": // cP to lbf* s/ft^2
+				converted = this.UNITS.VISCOSITY.cPtolbfSft(value);
+				break;
+			case "1:0": // Poise to cP
+				converted = this.UNITS.VISCOSITY.pToCP(value);
+				break;
+			case "2:0": // g/cm s to cP
+				converted = this.UNITS.VISCOSITY.gramCentiSecToCP(value);
+				break;
+			case "3:0": // dyne s/cm^2 to cP
+				converted = this.UNITS.VISCOSITY.dyneToCP(value);
+				break;
+			case "4:0": // newton sec per sq meter to cp
+				converted = this.UNITS.VISCOSITY.NtoCP(value);
+				break;
+			case "5:0": // pascal sec to cp
+				converted = this.UNITS.VISCOSITY.paSToCP(value);
+				break;
+			case "6:0": // kg/ ms to cP
+				converted = this.UNITS.ViscosityUnits.kgMsToCP(value);
+				break;
+			case "7:0": // poise to cp
+				converted = this.UNITS.VISCOSITY.lbmFtStoCP(value);
+				break;
+			case "8:0": // lbf* s/ft^2 to cp
+				converted = this.UNITS.VISCOSITY.lbfSftToCP(value);
+				break;
+			default:
+			let convIDs = conversionID.split(':');
+			converted = this.convertViscosity(value, convIDs[0] + ":0");
+			converted = this.convertViscosity(converted, "0:" + convIDs[1]);
+			break;
+		}
+		return(converted);
+	}
 	
 	/** Determines the correct conversion Category (ie, Energy) and calls the appropriate method.
 	 * @pre - unitA and unitB are not equal and value is not empty.
@@ -288,6 +354,10 @@ class Calculator {
 			case "POWER_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPower(value, conversionID);
+				break;
+			case "VISCOSITY_UNITS":
+				conversionID = this.genConversionID(category, unitA, unitB);
+				newVal = this.convertViscosity(value, conversionID);
 				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");
