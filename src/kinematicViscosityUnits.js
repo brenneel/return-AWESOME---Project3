@@ -80,6 +80,29 @@ class KinematicViscosityUnits {
     }
 
 
+        /**
+     * Converts cST to ft^2 / s
+     * @param {Number} cst centistoke
+     * @return {Number} ft^2 / s equivalent
+     */
+    cSTtoFts(cst)
+    {
+        let cST = Number(cst);
+        let ms = cST * 1.076391* (10**-5));
+        return ms;
+    }
+
+    /**
+     * Converts ft^2 / s to cST
+     * @param {Number} ms ft^2 / s
+     * @return {Number} cST equivalent
+     */
+    ftsTocST(fts)
+    {
+        let ftsec = Number(fts);
+        let cST = ftsec * 92903.03;
+        return cST;
+    }
 
 
 }
