@@ -32,5 +32,54 @@ class KinematicViscosityUnits {
         return cST;
     }
 
+    /**
+     * Converts cST to cm^2 / s
+     * @param {Number} cst centistoke
+     * @return {Number} cm^2 /s  equivalent
+     */
+    cSTtoCms(cst)
+    {
+        let cST = Number(cst);
+        let cms = cST/100;
+        return cms;
+    }
+
+    /**
+     * Converts cm^2 / s to cST
+     * @param {Number} cms cm^2 / s
+     * @return {Number} cST equivalent
+     */
+    cmsTocST(cms)
+    {
+        return this.sTocST(cms);
+    }
+
+
+    /**
+     * Converts cST to m^2 / s
+     * @param {Number} cst centistoke
+     * @return {Number} m^2 / s equivalent
+     */
+    cSTtoMs(cst)
+    {
+        let cST = Number(cst);
+        let ms = cST/1000000;
+        return ms;
+    }
+
+    /**
+     * Converts m^2 / s to cST
+     * @param {Number} ms m^2 / s
+     * @return {Number} cST equivalent
+     */
+    msTocST(ms)
+    {
+        let metersec = Number(ms);
+        let cST = metersec * 1000000;
+        return cST;
+    }
+
+
+
 
 }
