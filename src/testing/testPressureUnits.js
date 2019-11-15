@@ -26,6 +26,14 @@ class TestPressureUnits extends Test{
         this.addTest("PoundPerSquaredInchToAtmo");
         this.addTest("AtmoToFootWater");
         this.addTest("FootWaterToAtmo");
+        this.addTest("AtmoToMercInch");
+        this.addTest("MercInchToAtmo");
+        this.addTest("AtmoToMercMM");
+        this.addTest("MercMMToAtmo");
+        this.addTest("AtmoToKgf");
+        this.addTest("KgfToAtmo");
+        this.addTest("AtmoToMeterWater");
+        this.addTest("MeterWaterToAtmo");
 
         this.updateTest("AtmoTokPa",this.testingAtmoTokPa(0));
         this.updateTest("kPaToAtmo", this.testingkPaToAtmo(1));
@@ -37,20 +45,17 @@ class TestPressureUnits extends Test{
         this.updateTest("PoundPerSquaredInchToAtmo", this.testingPoundPerSquaredInchToAtmo(7));
         this.updateTest("AtmoToFootWater", this.testingAtmoToFootWater(8));
         this.updateTest("FootWaterToAtmo", this.testingFootWaterToAtmo(9));
-       
+        this.updateTest("AtmoToMercInch", this.testingAtmoToMercInch(10));
+        this.updateTest("MercInchToAtmo", this.testingMercInchToAtmo(11));
+        this.updateTest("AtmoToMercMM", this.testingAtmoToMercMM(12));
+        this.updateTest("MercMMToAtmo", this.testingMercMMToAtmo(13));
+        this.updateTest("AtmoToKgf", this.testingAtmoToKgf(14));
+        this.updateTest("KgfToAtmo", this.testingKgfToAtmo(15));
+        this.updateTest("AtmoToMeterWater", this.testingAtmoToMeterWater(16));
+        this.updateTest("MeterWaterToAtmo", this.testingMeterWaterToAtmo(17));
+      
+      
         /*
-        testingAtmoToMercInch(10);
-        testingMercInchToAtmo(11);
-        testingAtmoToFootWater(12);
-        testingFootWaterToAtmo(13);
-        testingAtmoToMercInch(14);
-        testingMercInchToAtmo(15);
-        testingAtmoToMercMM(16);
-        testingMercMMToAtmo(17);
-        testingAtmoToKgf(18);
-        testingKgfToAtmo(19);
-        testingAtmoToMeterWater(20);
-        testingMeterWaterToAtmo(21);
         testingAtmoToTorr(22);
         testingTorrToAtmo(23);
         testingAtmoToPsi(24);
@@ -278,7 +283,175 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+/**
+     * atmo to merc inch checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingAtmoToMercInch(j){
+        let passed = true;
+        this.expectedValues.push([0.00000003692292359,30643.137858,29551923.16]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.atmoToMercInch(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("atmoToMercInch", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("atmoToMercInch", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * merc inch to atmo checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingMercInchToAtmo(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000004124147959,34.22720147,33008.356798]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.mercInchToAtmo(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("mercInchToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("mercInchToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * atmo to merc mm checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingAtmoToMercMM(j){
+        let passed = true;
+        this.expectedValues.push([0.0000009378425916,778335.9774,750619114.25]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.atmoToMercMM(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("atmoToMercMM", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("atmoToMercMM", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+      /**
+     * merc mm to atmo checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingMercMMToAtmo(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001623679,1.3475271394,1299.5411457]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.mercMMToAtmo(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("mercMMToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("mercMMToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+      /**
+     * atmo to kgf checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingAtmoToKgf(j){
+        let passed = true;
+        this.expectedValues.push([0.000000001275002676,1058.1524698,1020471.2267]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.atmoToKgf(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("atmoToKgf", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("atmoToKgf", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * atmo to kgf checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingKgfToAtmo(j){
+        let passed = true;
+        this.expectedValues.push([0.000000001194315924,991.18877767,955892.13907]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.kgfToAtmo(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("kgfToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("kgfToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
 
+    /**
+     * atmo to meter water checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingAtmoToMeterWater(j){
+        let passed = true;
+        this.expectedValues.push([0.0000000127504,10581.81604,10204993.234]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.atmoToMeterWater(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("atmoToMeterWater", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("atmoToMeterWater", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * atmo to meter water checking with expected values
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingMeterWaterToAtmo(j){
+        let passed = true;
+        this.expectedValues.push([0.0000000001194283041,99.1161488,95586.582112]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.meterWaterToAtmo(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val >1 || val < -1)) {
+                passed = false;
+                this.conLog("meterWaterToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("meterWaterToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+     }
 
 //this is the end of the file brace
 }
