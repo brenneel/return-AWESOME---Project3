@@ -79,6 +79,14 @@ class Config {
 		["lbfsft", "pound-force second per square foot (lbf*s / ft^2)"]
 	];
 
+	KINEMATIC_VISCOSITY_UNITS = [
+		["cST" , "centistoke (cST)"],
+		["S" , "Stoke"],
+		["cms" , "square centimeters per sec (cm^2 / s)"],
+		["ms" , "squre meters per sec (m^2 / s)"],
+		["fts", "squre feet per sec (ft^2 / s)"],
+	];
+
 	/* -------------------------------
 	 * CONSTANTS
 	 * -------------------------------

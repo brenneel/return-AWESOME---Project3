@@ -88,7 +88,7 @@ class KinematicViscosityUnits {
     cSTtoFts(cst)
     {
         let cST = Number(cst);
-        let ms = cST * 1.076391* (10**-5));
+        let ms = cST * 1.076391* (10**-5);
         return ms;
     }
 
