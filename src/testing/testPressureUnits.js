@@ -14,8 +14,6 @@ class TestPressureUnits extends Test{
 
     run(){
         console.log("Pressure tests start");
-        //functions to run here
-        //this.testNameHere("param", param)
         this.addTest("AtmoTokPa");
         this.addTest("kPaToAtmo");
         this.addTest("AtmoToPa");
@@ -104,13 +102,14 @@ class TestPressureUnits extends Test{
      */
     testingkPaToAtmo(j){
         let passed = true;
-        this.expectedValues.push([0.000000001233999999,10.107312667,9747.3871207]);
+        this.expectedValues.push([0.000000000012178633,10.107312667,9747.3871207]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.unit.kPaToAtmo(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val >1 || val < -1)) {
                 passed = false;
                 this.conLog("testingkPaToAtmo", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingkPaToAtmo", "Calculated value = " + calc);
                 this.conLog("testingkPaToAtmo", "Expected calculated delta:" + (calc-this.expectedValues[j][i]));
             }
         }
