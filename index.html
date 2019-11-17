@@ -56,17 +56,13 @@
 				<div class="centered">
 					<label for="formula-select">Choose a formula: </label>
 					<select id="formula-select" name="formula-select" form="formulas" required>
-						<option value="PVNRT">PV = nRT</option>
 					</select>
 				</div>
-				<div id="formula-box" class="centered"><!-- input fields for the chosen formula will be generated here -->
-					<div id="formula-text">IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.</div>
-					<form id="formula-fields">
-						<label for="p">P: </label><input type="number" id="p" name="p" class="numfield"><label for="v">V:</label><input type="number" id="v" name="v" class="numfield"><div class="equals">=</div><label for="n">n: </label><input type="number" id="n" name="n" class="numfield"><label for="const-R">R (J/mol⋅K): </label>
-						<div id="const-R" name="const-R" class="formula-const">8.314</div><label for="t">T:</label><input type="number" id="t" name="t" class="numfield">
-					</form>
+				<div id="formula-box" class="centered">
+					<div id="formula-text"></div>
+					<form id="formula-fields"></form>
+					<div class="centered helptext" id="formula-helptext"></div>
 				</div>
-				<p class="centered helptext" id="formula-helptext">Leave exactly one (1) variable blank!</p>
 				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
 			</div>
 		</div>

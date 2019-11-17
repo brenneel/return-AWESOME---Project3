@@ -9,7 +9,7 @@
  * @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of Water (ρ).
  * @prop {Array} MU_OF_WATER - an array containing elementIDs and labels for each unit option for the μ of Water.
  * @prop {Array} NU_OF_WATER - an array containing elementIDs and labels for each unit option for the ν (nu) of Water.
- * @prop {Array} CAP_MU_OF_WATER - an array containing elementIDs and labels for each unit option for the Μ (Mu) of Water.
+ * @prop {Array} M_OF_WATER - an array containing elementIDs and labels for each unit option for the Μolar Mass (M) of Water.
  * @prop {Array} SIGMA_OF_WATER - an array containing elementIDs and labels for each unit option for the σ of Water.
  * @prop {Array} FORMULAS - an array containing elementIDs and labels for each unit option for the 
  * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each formula option
@@ -98,7 +98,7 @@ class Config {
 		["RHO_OF_WATER", "Density of Water (ρ)"],
 		["MU_OF_WATER", "Viscosity of Water (μ)"],
 		["NU_OF_WATER", "Dynamic Viscosity of Water (ν)"],
-		["CAP_MU_OF_WATER", "Μolar Mass of Water (M)"],
+		["M_OF_WATER", "Μolar Mass of Water (M)"],
 		["SIGMA_OF_WATER", "σ of Water"],
 		["RHO_OF_AIR", "Density of Air (ρ)"],
 		["MU_OF_AIR", "Viscosity of Air (μ)"],
@@ -145,7 +145,7 @@ class Config {
 		["FT2_S", "ft^2/s"]
 	];
 
-	CAP_MU_OF_WATER = [
+	M_OF_WATER = [
 		["G_MOL", "g/mol"],
 		["LBM_LBMOL", "lbm/lbmol"]
 	];
@@ -208,8 +208,25 @@ class Config {
 	 * -------------------------------
 	 */
 	FORMULAS = [
-		["PVNRT", "Ideal Gas Law, PV = nRT"]
-	]
+		["PVNRT", "Ideal Gas Law, PV = nRT"],
+		["REYNOLDS", "Reynolds' Number"],
+	];
+
+	FORMULA_TEXT = {
+		PVNRT: "IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.",
+		REYNOLDS: "Reynolds' Number.<br>Enter D, v, ρ, and μ, OR enter D, v, and γ.  Click <b><em>Calculate!</em></b> to calculate Reynolds' Number.",
+	};
+
+	FORMULA_FIELDS = {
+		PVNRT: "<label for=\"p\">P: </label><input type=\"number\" id=\"p\" name=\"p\" class=\"numfield\"><label for=\"v\">V:</label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">=</div><label for=\"n\">n: </label><input type=\"number\" id=\"n\" name=\"n\" class=\"numfield\"><label for=\"const-R\">R (J/mol⋅K): </label><div id=\"const-R\" name=\"const-R\" class=\"formula-const\">8.314</div><label for=\"t\">T:</label><input type=\"number\" id=\"t\" name=\"t\" class=\"numfield\">",
+		REYNOLDS: "<div id=\"answer\" name=\"answer\" class=\"output\">Re</div><div class =\"equals\">=</div><label for\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\"><label for\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><label for\"rho\">ρ: </label><input type=\"number\" id=\"rho\" name=\"rho\" class=\"numfield\"><div class=\"equals\">/</div><label for\"mu\">μ: </label><input type=\"number\" id=\"mu\" name=\"mu\" class=\"numfield\"><div class =\"equals\">=</div><label for\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\"><label for\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">/</div><label for\"gamma\">γ: </label><input type=\"number\" id=\"gamma\" name=\"gamma\" class=\"numfield\">"
+	};
+
+	FORMULA_HELPTEXT = {
+		ONE_BLANK: "Leave exactly one (1) variable blank!",
+		ZERO_BLANK: "Don't leave any variables blank!",
+		
+	};
 	
 	/* -------------------------------
 	 * HELPER METHODS
