@@ -7,7 +7,7 @@ class TestPressureUnits extends Test{
         super("PressureUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
-        this.tolerance = 0.0001;
+        this.tolerance = 0.001; //this is in percent
         this.unit = new PressureUnits();
         //expected values are taken from unitconverters.net/pressure-converter.html
     }
@@ -88,7 +88,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("testingAtmoTokPa", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("testingAtmoTokPa", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("testingAtmoTokPa", "% error:" + val);
             }
         }
         if(passed)
@@ -110,7 +110,7 @@ class TestPressureUnits extends Test{
                 passed = false;
                 this.conLog("testingkPaToAtmo", "Expected value = " + this.expectedValues[j][i]);
                 this.conLog("testingkPaToAtmo", "Calculated value = " + calc);
-                this.conLog("testingkPaToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("testingkPaToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -133,7 +133,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("testingAtmoToPa", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("testingAtmoToPa", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("testingAtmoToPa", "% error:" + val);
             }
         }
         if(passed)
@@ -154,7 +154,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("testingPaToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("testingPaToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("testingPaToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -175,7 +175,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToBar", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToBar", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToBar", "% error:" + val);
             }
         }
         if(passed)
@@ -196,7 +196,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("barToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("barToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("barToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -217,7 +217,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToPoundPerSquaredInch", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToPoundPerSquaredInch", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToPoundPerSquaredInch", "% error:" + val);
             }
         }
         if(passed)
@@ -238,7 +238,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("poundPerSquaredInchToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("poundPerSquaredInchToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("poundPerSquaredInchToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -259,7 +259,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToFootWater", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToFootWater", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToFootWater", "% error:" + val);
             }
         }
         if(passed)
@@ -281,7 +281,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("footWaterToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("footWaterToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("footWaterToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -302,7 +302,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToMercInch", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToMercInch", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToMercInch", "% error:" + val);
             }
         }
         if(passed)
@@ -323,7 +323,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("mercInchToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("mercInchToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("mercInchToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -344,7 +344,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToMercMM", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToMercMM", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToMercMM", "% error:" + val);
             }
         }
         if(passed)
@@ -365,7 +365,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("mercMMToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("mercMMToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("mercMMToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -386,7 +386,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToKgf", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToKgf", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToKgf", "% error:" + val);
             }
         }
         if(passed)
@@ -407,7 +407,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("kgfToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("kgfToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("kgfToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -429,7 +429,8 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToMeterWater", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToMeterWater", "delta:" + (calc-this.expectedValues[j][i]));
+               console.log("calculated value: " + calc);
+                this.conLog("atmoToMeterWater", "% error:" + val);
             }
         }
         if(passed)
@@ -450,7 +451,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("meterWaterToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("meterWaterToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("meterWaterToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -471,7 +472,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToTorr", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToTorr", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToTorr", "% error:" + val);
             }
         }
         if(passed)
@@ -492,7 +493,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("torrToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("torrToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("torrToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -513,7 +514,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToPsi", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToPsi", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToPsi", "% error:" + val);
             }
         }
         if(passed)
@@ -534,7 +535,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("psiToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("psiToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("psiToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -555,7 +556,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToInchWater", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToInchWater", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToInchWater", "% error:" + val);
             }
         }
         if(passed)
@@ -576,7 +577,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("inchWaterToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("inchWaterToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("inchWaterToAtmo", "% error:" + val);
             }
         }
         if(passed)
@@ -598,7 +599,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("atmoToDynePerCM", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("atmoToDynePerCM", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("atmoToDynePerCM", "% error:" + val);
             }
         }
         if(passed)
@@ -619,7 +620,7 @@ class TestPressureUnits extends Test{
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
                 this.conLog("dynePerCMToAtmo", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("dynePerCMToAtmo", "delta:" + (calc-this.expectedValues[j][i]));
+                this.conLog("dynePerCMToAtmo", "% error:" + val);
             }
         }
         if(passed)

@@ -213,7 +213,7 @@ class PressureUnits {
     atmoToMeterWater(atmos){
         let meterWater = 0.000;
         let atmo = Number(atmos);
-        meterWater = atmo * 10.332559;
+        meterWater = atmo * 10.332559008;
         return(meterWater);
     }
     
@@ -225,7 +225,7 @@ class PressureUnits {
     meterWaterToAtmo(meterWaters){
         let atmo = 0.000;
         let meterWater = Number(meterWaters);
-        atmo = meterWater / 10.332559;
+        atmo = meterWater / 10.332559008;
         return(atmo);
     }
 
