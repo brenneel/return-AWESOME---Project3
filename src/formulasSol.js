@@ -58,4 +58,23 @@ class FormulasSol{
         }
         return this.fAbs.multiplySolve(numer, denom);
     }
+
+    /**
+     * A function that determines Reynold's Number. The other form might come later.
+     * @param {Object} obj: An object containing rho, mu, D, and V.
+     */
+    reynoldsNumber(obj){
+        let numer = new Array();
+        let denom = new Array();
+        if(this.fAbs.objectSize(obj) == 3){
+            denom.push(obj.gamma);
+        }else{
+            numer.push(obj.rho);
+            denom.push(obj.mu);            
+        }
+        numer.push(obj.D);
+        numer.push(obj.v);
+
+        return this.fAbs.multiplySolve(numer, denom);
+    }
 }
