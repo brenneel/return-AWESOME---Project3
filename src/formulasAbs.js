@@ -42,16 +42,12 @@ class FormulasAbs{
         let numerTotal = 1;
         let denomTotal = 1;
         if(numer.length > 0){
-            for(let i = 0; i < numer.length; i++){
-                numerTotal = numerTotal * numer[i];
-            }
+            numerTotal = this.product(numer);
         }
         if(denom.length > 0){
-            for(let i = 0; i < denom.length; i++){
-                denomTotal = denomTotal * denom[i];
-            }
+            denomTotal = this.quotient(denom);
         }
-        return numerTotal/denomTotal;
+        return numerTotal*denomTotal;
     }
 
     /**
