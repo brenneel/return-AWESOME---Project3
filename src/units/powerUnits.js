@@ -72,7 +72,7 @@ class PowerUnits {
     calPerStoW(calsec)
     {
         let cal_sec = Number(calsec);
-        let watt = 1055.0558* cal_sec;
+        let watt = 4.1868* cal_sec;
         return watt;
     }
 
@@ -84,7 +84,7 @@ class PowerUnits {
     wToBtuPerS(w)
     {
         let watt = Number(w);
-        let btuPerS = .00009478171* watt;
+        let btuPerS = .0009478171* watt;
         return btuPerS;
     }
 
@@ -96,7 +96,7 @@ class PowerUnits {
     btuPerStoW(btus)
     {
         let btuPerS = Number(btus);
-        let watt = 1055.0558* btuPerS;
+        let watt = 1055.0558526* btuPerS;
         return watt;
     }
 
@@ -135,7 +135,7 @@ class PowerUnits {
     wtoFtlbFsec(w)
     {
         let watt = Number(w);
-        let ftlbF = .737462149* watt;
+        let ftlbF = .7374621493 * watt;
         return ftlbF;
     }
 
@@ -147,7 +147,7 @@ class PowerUnits {
     ftlbFsecToW(ftlbF)
     {
         let footpoundF = Number(ftlbF);
-        let watt = 1.355817948* footpoundF;
+        let watt = 1.3558179483* footpoundF;
         return watt;
     }
     
@@ -182,8 +182,9 @@ class PowerUnits {
      */
     wToBtuPerHr(w)
     {
-        let btuPerS = this.wToBtuPerS(w);
-        return btuPerS*60;
+        let watt = Number(w);
+        let btuPerS = 3.4121416331 * watt;
+        return btuPerS;
     }
 
     /**
@@ -193,8 +194,9 @@ class PowerUnits {
      */
     btuPerHrtoW(btuHr)
     {
-        let watt = this.btuPerStoW(btuHr);
-        return watt/60;
+       let btuhr = Number(btuHr);
+       let watt = btuhr * 0.2930710702
+        return watt;
     }
 
 
