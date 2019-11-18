@@ -7,12 +7,15 @@ class Testing{
     fAbsTest;
     fSolTest;
     fPressTest;
+    fPowTest;
 
     constructor(){
         this.isCompleted = false;
 
         this.fAbsTest = new TestFormulasAbs();
         this.fPressTest = new TestPressureUnits();
+        this.fPowTest = new TestPowerUnits();
+
     }
     
     
@@ -20,6 +23,7 @@ class Testing{
         this.updateState();
         this.fAbsTest.run();
         this.fPressTest.run();
+        this.fPowTest.run();
         this.isCompleted = true;
         this.updateState();
     }

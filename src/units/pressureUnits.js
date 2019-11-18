@@ -110,14 +110,14 @@ class PressureUnits {
 
     /**
      * converts atmos to feet of water (ft)
-     * foot water = 33.899524252 - unitconverters.net
+     * foot water = 33.932037469 - unitconverters.net
      * @param {Number} atmos
      * @return {Number}ft equiv.
      */
     atmoToFootWater(atmos){
         let footWater = 0.000;
         let atmo = Number(atmos);
-        footWater = atmo * 33.899524252;
+        footWater = atmo * 33.932037469;
         return(footWater);
     }
 
@@ -129,7 +129,7 @@ class PressureUnits {
     footWaterToAtmo(footWaters){
         let atmo = 0.000;
         let footWater = Number(footWaters);
-        atmo = footWater / 33.899524252;
+        atmo = footWater / 33.932037469;
         return(atmo);
     }
 
@@ -213,7 +213,7 @@ class PressureUnits {
     atmoToMeterWater(atmos){
         let meterWater = 0.000;
         let atmo = Number(atmos);
-        meterWater = atmo * 10.332559;
+        meterWater = atmo * 10.332559008;
         return(meterWater);
     }
     
@@ -225,7 +225,7 @@ class PressureUnits {
     meterWaterToAtmo(meterWaters){
         let atmo = 0.000;
         let meterWater = Number(meterWaters);
-        atmo = meterWater / 10.332559;
+        atmo = meterWater / 10.332559008;
         return(atmo);
     }
 
