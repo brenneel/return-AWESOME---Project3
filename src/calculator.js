@@ -314,7 +314,7 @@ class Calculator {
 				converted = this.UNITS.VISCOSITY.paSToCP(value);
 				break;
 			case "6:0": // kg/ ms to cP
-				converted = this.UNITS.ViscosityUnits.kgMsToCP(value);
+				converted = this.UNITS.VISCOSITY.kgMsToCP(value);
 				break;
 			case "7:0": // poise to cp
 				converted = this.UNITS.VISCOSITY.lbmFtStoCP(value);
