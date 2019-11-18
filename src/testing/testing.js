@@ -11,12 +11,14 @@ class Testing{
         this.isCompleted = false;
 
         this.fAbsTest = new TestFormulasAbs();
+        this.fSolTest = new TestFormulasSol();
     }
     
     
     run(){
         this.updateState();
         this.fAbsTest.run();
+        this.fSolTest.run();
         this.isCompleted = true;
         this.updateState();
     }

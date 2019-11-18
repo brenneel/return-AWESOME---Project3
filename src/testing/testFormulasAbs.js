@@ -1,7 +1,6 @@
 class TestFormulasAbs extends Test{
     constructor(){
         super("FormulasAbs");
-        // this.className = "FormulasAbs";
     }
 
     run(){
