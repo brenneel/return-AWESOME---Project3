@@ -64,7 +64,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wToHp(this.testValues[i]);
+            let calc = this.power.wToHp(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -85,7 +85,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.hpToW(this.testValues[i]);
+            let calc = this.power.hpToW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -106,7 +106,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wToJoulePerS(this.testValues[i]);
+            let calc = this.power.wToJoulePerS(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -127,7 +127,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.joulePerStoWatt(this.testValues[i]);
+            let calc = this.power.joulePerStoWatt(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -148,7 +148,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wToCalPerS(this.testValues[i]);
+            let calc = this.power.wToCalPerS(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -169,7 +169,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.calPerStoW(this.testValues[i]);
+            let calc = this.power.calPerStoW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -190,7 +190,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wToBtuPerS(this.testValues[i]);
+            let calc = this.power.wToBtuPerS(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -211,7 +211,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.btuPerStoW(this.testValues[i]);
+            let calc = this.power.btuPerStoW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -232,7 +232,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.kWtoW(this.testValues[i]);
+            let calc = this.power.kWtoW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -253,7 +253,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wtokW(this.testValues[i]);
+            let calc = this.power.wtokW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -274,7 +274,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wtoFtlbFsec(this.testValues[i]);
+            let calc = this.power.wtoFtlbFsec(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -294,7 +294,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.ftlbFsecToW(this.testValues[i]);
+            let calc = this.power.ftlbFsecToW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -314,7 +314,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wtoFtlbFmin(this.testValues[i]);
+            let calc = this.power.wtoFtlbFmin(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -334,7 +334,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.ftlbFminToW(this.testValues[i]);
+            let calc = this.power.ftlbFminToW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -354,7 +354,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.wToBtuPerHr(this.testValues[i]);
+            let calc = this.power.wToBtuPerHr(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -374,7 +374,7 @@ class TestPowerUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.unit.btuPerHrtoW(this.testValues[i]);
+            let calc = this.power.btuPerHrtoW(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
