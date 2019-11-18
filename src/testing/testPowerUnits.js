@@ -181,7 +181,210 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-
-
+    /**
+     * checks unit conversions with expected values for W to btu/s
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingWtoBtuPerS(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.wToBtuPerS(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingWtoBtuPerS", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingWtoBtuPerS", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * checks unit conversions with expected values for btu/sec to Watt
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingBtuPerStoW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.btuPerStoW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingBtuPerStoW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingBtuPerStoW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * checks unit conversions with expected values for kilowatt to watt
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingkWtoW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.kWtoW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingkWtoW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingkWtoW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for W to kW
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingWtokW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.wtokW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingWtokW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingWtokW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+        /**
+     * checks unit conversions with expected values for W to ft * lbF/sec (foot pound force per sec)
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingWtoFtlbFsec(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.wtoFtlbFsec(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingWtoFtlbFsec", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingWtoFtlbFsec", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+        /**
+     * checks unit conversions with expected values for foot pound force per sec (ft lbF / sec) to watt
+     * @return {Boolean} pass or fail
+     */
+    testingFtlbFsectoW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.ftlbFsecToW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingFtlbFsectoW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingFtlbFsectoW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * checks unit conversions with expected values for W to ft * lbF/min (foot pound force per min)
+     * @return {Boolean} pass or fail
+     */
+    testingWtoFtlbFmin(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.wtoFtlbFmin(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingWtoFtlbFmin", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingWtoFtlbFmin", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for foot pound force per min (ft lbF / min) to watt
+     * @return {Boolean} pass or fail
+     */
+    testingFtlbFmintoW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.ftlbFminToW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingFtlbFmintoW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingFtlbFmintoW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+      /**
+     * checks unit conversions with expected values for W to btu/hr
+     * @return {Boolean} pass or fail
+     */
+    testingWtoBtuPerHr(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.wToBtuPerHr(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingWtoBtuPerHr", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingWtoBtuPerHr", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+      /**
+     * checks unit conversions with expected values for btu/hr to Watt
+     * @return {Boolean} pass or fail
+     */
+    testingBtuPerHrtoW(j){
+        let passed = true;
+        this.expectedValues.push([0.00000012503505,103769.30918,100074041.55]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.unit.btuPerHrtoW(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingBtuPerHrtoW", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingBtuPerHrtoW", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
 //end of class
 }
