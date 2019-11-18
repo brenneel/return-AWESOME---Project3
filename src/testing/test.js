@@ -58,7 +58,6 @@ class Test{
     createTest(func, name){
         let result = 0;
         this.addTest(name);
-        console.log(this.locClassName);
         if(func == this.pass){
             result = this.pass;
         }else if(func == this.fail){
