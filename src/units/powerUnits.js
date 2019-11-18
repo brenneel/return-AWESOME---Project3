@@ -60,7 +60,7 @@ class PowerUnits {
     wToCalPerS(w)
     {
         let watt = Number(w);
-        let calPerS = .238846* watt;
+        let calPerS = .2388458966* watt;
         return calPerS;
     }
 
@@ -84,7 +84,7 @@ class PowerUnits {
     wToBtuPerS(w)
     {
         let watt = Number(w);
-        let btuPerS = .0009478171* watt;
+        let btuPerS = .00009478171* watt;
         return btuPerS;
     }
 
@@ -135,7 +135,7 @@ class PowerUnits {
     wtoFtlbFsec(w)
     {
         let watt = Number(w);
-        let ftlbF = .7374621* watt;
+        let ftlbF = .737462149* watt;
         return ftlbF;
     }
 
@@ -147,7 +147,7 @@ class PowerUnits {
     ftlbFsecToW(ftlbF)
     {
         let footpoundF = Number(ftlbF);
-        let watt = 1.355818* footpoundF;
+        let watt = 1.355817948* footpoundF;
         return watt;
     }
     
@@ -159,7 +159,7 @@ class PowerUnits {
     wtoFtlbFmin(w)
     {
         let watt = Number(w);
-        let ftlbF = 44.253729 * watt;
+        let ftlbF = 44.253728957 * watt;
         return ftlbF;
     }
 
