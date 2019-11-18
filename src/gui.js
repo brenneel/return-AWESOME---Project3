@@ -9,7 +9,9 @@
  * @prop {Element} m_unitAInput - Element object representing the Unit A number input.
  * @prop {Element} m_unitBOutput - Element object representing the Unit B number input.
  * @prop {Element} m_constOutput - Element object representing the Constant Value number input.
- * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which contains the number inputs for all formula variables.
+ * @prop {Element} m_formulaText - Element object representing the "formula-text" div, which will contain instructions for the selected formula.
+ * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which will contain the number inputs for the selected formula's variables.
+ * @prop {Element} m_formulaHelpText - Element object representing the "formula-helptext" fdiv, which will contain helptext specific to the selected formula.
  */
 class Gui {
 	constructor() {
@@ -29,7 +31,9 @@ class Gui {
 		// outputs for unit converter & constants
 		this.m_unitBOutput = document.getElementById("unitB-input");
 		this.m_constOutput = document.getElementById("constant-num");
+		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
+		this.m_formulaHelpText = document.getElementById("formula-helptext");
 	}
 	
 	/* -------------------------------
