@@ -55,7 +55,7 @@
 				<div class="subtitle">Formula Calculator</div>
 				<div class="centered">
 					<label for="formula-select">Choose a formula: </label>
-					<select id="formula-select" name="formula-select" form="formulas" required>
+					<select id="formula-select" name="formula-select" form="formulas" required onchange="GUI.populateFormulaFields()">
 					</select>
 				</div>
 				<div id="formula-box" class="centered">

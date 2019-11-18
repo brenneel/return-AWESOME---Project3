@@ -9,7 +9,9 @@
  * @prop {Element} m_unitAInput - Element object representing the Unit A number input.
  * @prop {Element} m_unitBOutput - Element object representing the Unit B number input.
  * @prop {Element} m_constOutput - Element object representing the Constant Value number input.
- * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which contains the number inputs for all formula variables.
+ * @prop {Element} m_formulaText - Element object representing the "formula-text" div, which will contain instructions for the selected formula.
+ * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which will contain the number inputs for the selected formula's variables.
+ * @prop {Element} m_formulaHelpText - Element object representing the "formula-helptext" fdiv, which will contain helptext specific to the selected formula.
  */
 class Gui {
 	constructor() {
@@ -29,7 +31,11 @@ class Gui {
 		// outputs for unit converter & constants
 		this.m_unitBOutput = document.getElementById("unitB-input");
 		this.m_constOutput = document.getElementById("constant-num");
+		
+		// containers for formula instructions & inputs/outputs
+		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
+		this.m_formulaHelpText = document.getElementById("formula-helptext");
 	}
 	
 	/* -------------------------------
@@ -50,6 +56,7 @@ class Gui {
 		this.constChange();
 		this.constHandler();
 		this.populateFormulas();
+		this.populateFormulaFields();
 	}
 	
 	/** Populates the Unit Categories dropdown menu with categories. Used when initializing the page.
@@ -114,6 +121,16 @@ class Gui {
 		CONFIG.FORMULAS.forEach(function(item) {
 			GUI.m_formulaMenu.innerHTML += "<option value=\"" + item[0] + "\">" + item[1] + "</option>";
 		});
+	}
+	
+	/** Populates the input fields, instruction text, and helptext for the selected formula.
+	 * @post - populates the "formula-text", "formula-fields", and "formula-helptext" elements with the appropriate contents
+	 */
+	populateFormulaFields() {
+		let formula = this.m_formulaMenu.value;
+		this.m_formulaText.innerHTML = CONFIG.FORMULA_TEXT[formula];
+		this.m_formulaFields.innerHTML = CONFIG.FORMULA_FIELDS[formula];
+		this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT[formula];
 	}
 	
 	/** Shows the given helptext on the page.

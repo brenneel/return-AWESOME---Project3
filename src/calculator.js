@@ -25,7 +25,7 @@ class Calculator {
 	 * -------------------------------
 	 */
 	
-	/** Generates a conversion ID, a two-digit number (in string form) representing the units being converted from and to.  First digit is the first unit's index within its Config array (ie. {@link Config}.ENERGY_UNITS); similar for the second digit.  Example: joule to cal conversion will be represented by "02".
+	/** Generates a conversion ID, two numbers delimited by : representing the units being converted from and to.  First digit is the first unit's index within its Config array (ie. {@link Config}.ENERGY_UNITS); similar for the second digit.  Example: joule to cal conversion will be represented by "02".
 	 * @param {string} category - the category of units, ie. "energy".
 	 * @param {string} unitA - the unit to be converted from.
 	 * @param {string} unitB - the unit to be converted to.
@@ -39,7 +39,7 @@ class Calculator {
 		return(ID);
 	}
 	
-	/** Converts energy units by calling the appropriate Units method.
+	/** Converts energy units by calling the appropriate EnergyUnits method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
 	 * @return {number} the converted value.
@@ -106,7 +106,7 @@ class Calculator {
 		return(converted);
 	}
 	
-	/** Converts pressure units by calling the appropriate Units method.
+	/** Converts pressure units by calling the appropriate PressureUnits method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
 	 * @return {number} the converted value.
@@ -201,7 +201,7 @@ class Calculator {
 		return(converted);
 	}
 	
-	/** Converts power units by calling the appropriate Units method.
+	/** Converts power units by calling the appropriate PowerUnits method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
 	 * @return {number} the converted value.
@@ -266,7 +266,7 @@ class Calculator {
 		return(converted);
 	}
 
-	/** Converts viscosity units by calling the appropriate Units method.
+	/** Converts viscosity units by calling the appropriate ViscosityUnits method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
 	 * @return {number} the converted value.
@@ -314,7 +314,7 @@ class Calculator {
 				converted = this.UNITS.VISCOSITY.paSToCP(value);
 				break;
 			case "6:0": // kg/ ms to cP
-				converted = this.UNITS.ViscosityUnits.kgMsToCP(value);
+				converted = this.UNITS.VISCOSITY.kgMsToCP(value);
 				break;
 			case "7:0": // poise to cp
 				converted = this.UNITS.VISCOSITY.lbmFtStoCP(value);

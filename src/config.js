@@ -26,7 +26,8 @@ class Config {
 		["ENERGY_UNITS", "Energy"],
 		["PRESSURE_UNITS", "Pressure"],
 		["POWER_UNITS", "Power"],
-		["VISCOSITY_UNITS","Viscosity"]
+		["VISCOSITY_UNITS","Viscosity"],
+		["KINEMATIC_VISCOSITY_UNITS", "Kinematic Viscosity"]
 	];
 
 	ENERGY_UNITS = [
@@ -223,8 +224,8 @@ class Config {
 	};
 
 	FORMULA_HELPTEXT = {
-		ONE_BLANK: "Leave exactly one (1) variable blank!",
-		ZERO_BLANK: "Don't leave any variables blank!",
+		PVNRT: "Leave exactly one (1) variable blank!",
+		REYNOLDS: "Don't leave any variables blank!",
 		
 	};
 	
