@@ -1,15 +1,24 @@
+/**
+ * A series of tests for evaluating the contents of FormulaSol
+ */
 class TestFormulasSol extends Test{
-    fSol;
+    fSol; /** Variable representing {@link FormulaSol} */
 
     constructor(){
         super("FormulasSol");
         this.fSol = new FormulasSol;
     }
-
+    
+    /**
+     * Runs all of the tests in FormulaSol
+     */
     run(){
         this.createTest(this.testReynoldsNumber(), "Reynolds Number");
     }
 
+    /**
+     * Evaluates the Reynolds Number
+     */
     testReynoldsNumber(){
         let count = 0;
         let maxCount = 2;
