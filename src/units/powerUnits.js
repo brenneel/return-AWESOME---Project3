@@ -39,7 +39,7 @@ class PowerUnits {
      */
     wToJoulePerS(w)
     {
-        return this.wToHp(w);
+        return w;
     }
 
     /**
@@ -49,7 +49,7 @@ class PowerUnits {
      */
     joulePerStoWatt(joulesec)
     {
-        return this.hpToW(joulesec);
+        return joulesec;
     }
 
     /**
