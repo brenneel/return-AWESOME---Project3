@@ -21,7 +21,16 @@ class TestPowerUnits extends Test{
         this.addTest("JoulePerStoW");
         this.addTest("WtoCalPerS");
         this.addTest("CalPerStoW");
-
+        this.addTest("WtoBtuPerS");
+        this.addTest("BtuPerStoW");
+        this.addTest("kWtoW");
+        this.addTest("WtokW");
+        this.addTest("WtoFtlbFsec");
+        this.addTest("FtlbFsectoW");
+        this.addTest("WtoFtlbFmin");
+        this.addTest("FtlbFmintoW");
+        this.addTest("WtoBtuPerHr");
+        this.addTest("BtuPerHrtoW");
 
         //updateTest
         this.updateTest("WtoHp", this.testingWtoHp(0));
@@ -30,6 +39,17 @@ class TestPowerUnits extends Test{
         this.updateTest("JoulePerStoW", this.testingJoulePerStoWatt(3));
         this.updateTest("WtoCalPerS", this.testingWToCalPerS(4));
         this.updateTest("CalPerStoW", this.testingCalPerStoW(5));
+        this.updateTest("WtoBtuPerS", this.testingWtoBtuPerS(6));
+        this.updateTest("BtuPerStoW", this.testingBtuPerStoW(7));
+        this.updateTest("kWtoW", this.testingkWtoW(8));
+        this.updateTest("WtokW", this.testingWtokW(9));
+        this.updateTest("WtoFtlbFsec", this.testingWtoFtlbFsec(10));
+        this.updateTest("FtlbFsectoW", this.testingFtlbFsectoW(11));
+        this.updateTest("WtoFtlbFmin", this.testingWtoFtlbFmin(12));
+        this.updateTest("FtlbFmintoW", this.testingFtlbFmintoW(13));
+        this.updateTest("WtoBtuPerHr", this.testingWtoBtuPerHr(14));
+        this.updateTest("BtuPerHrtoW", this.testingBtuPerHrtoW(15));
+
         console.log("Power tests end");
         //end of run
     }
