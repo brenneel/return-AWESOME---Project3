@@ -15,6 +15,10 @@ class Test{
         this.className = className;
     }
 
+    applyClass(locClassName){
+        this.locClassName = locClassName;
+    }
+
     /**
      * Adds a new test to the table
      * @param {String} name: Name of the test being run 
@@ -45,10 +49,16 @@ class Test{
         console.log("[" + this.className + "]" + funcName + ": " + content);
     }
 
+    /**
+     * Creates a test and evaluates the return condition. Pass a function with 
+     * parenthesis to the func parameter. 
+     * @param {String} func: A function that returns a string.
+     * @param {String} name: Name of the function evaluate.
+     */
     createTest(func, name){
         let result = 0;
-
         this.addTest(name);
+        console.log(this.locClassName);
         if(func == this.pass){
             result = this.pass;
         }else if(func == this.fail){
