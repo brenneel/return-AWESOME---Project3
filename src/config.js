@@ -26,7 +26,8 @@ class Config {
 		["ENERGY_UNITS", "Energy"],
 		["PRESSURE_UNITS", "Pressure"],
 		["POWER_UNITS", "Power"],
-		["VISCOSITY_UNITS","Viscosity"]
+		["VISCOSITY_UNITS","Viscosity"],
+		["KINEMATIC_VISCOSITY_UNITS", "Kinematic Viscosity"]
 	];
 
 	ENERGY_UNITS = [
