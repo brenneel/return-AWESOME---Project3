@@ -12,6 +12,7 @@
  * @prop {Element} m_formulaText - Element object representing the "formula-text" div, which will contain instructions for the selected formula.
  * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which will contain the number inputs for the selected formula's variables.
  * @prop {Element} m_formulaHelpText - Element object representing the "formula-helptext" fdiv, which will contain helptext specific to the selected formula.
+ * @prop {Object} m_faves - an object to store the favorite unit conversion, constant, and formula saved by the user (initially created with all properties set to "").
  */
 class Gui {
 	constructor() {
@@ -36,6 +37,16 @@ class Gui {
 		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
 		this.m_formulaHelpText = document.getElementById("formula-helptext");
+		
+		// favorites
+		this.m_faves = {
+			category: "",
+			unitA: "",
+			unitB: "",
+			constant: "",
+			constUnit: "",
+			formula: ""
+		};
 	}
 	
 	/* -------------------------------
@@ -47,16 +58,26 @@ class Gui {
 	 *
 	 */
 	initialize() {
+		this.updateFaves();
 		this.CALCULATOR.initialize();
+		
+		// initialize unit converter
 		this.populateCategories();
 		this.populateUnitMenus();
+		this.switchToFaveConv();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
+		
+		// initialize constants
 		this.populateConstants();
 		this.constChange();
 		this.constHandler();
+		
+		// initialize formulas
 		this.populateFormulas();
 		this.populateFormulaFields();
+		
+		this.setUnloadListener();
 	}
 	
 	/** Populates the Unit Categories dropdown menu with categories. Used when initializing the page.
@@ -264,5 +285,76 @@ class Gui {
 			obj[formulaFields[i].id] = formulaFields[i].value;
 		}
 		return(obj);
+	}
+	
+	/* -------------------------------
+	 * FAVORITES/COOKIES RELATED METHODS
+	 * -------------------------------
+	 */
+	
+	/** Updates the favorites saved in Gui: parses any browser cookies and saves them as an object in m_faves. Used when initializing the page.
+	 * @post updates m_faves to reflect the favorite cookies that exist on page load.
+	 */
+	updateFaves() {
+		let cookies = document.cookie.split("; ");
+		for(const x of cookies) {
+			let tempArr = x.split('=');
+			if(tempArr[0] in this.m_faves) {
+				this.m_faves[tempArr[0]] = tempArr[1];
+			}
+		}
+	}
+	
+	/** Creates the event listener for the page unload, which calls {@link Gui}.setCookies().
+	 *
+	 */
+	setUnloadListener() {
+		window.addEventListener('unload', function(event) {
+			GUI.setCookies();
+		});
+	}
+	
+	/** Updates the browser cookies used to save user favorites: parses m_faves and creates/saves a cookie for each existing favorite. Used on page unload.
+	 * @post updates all cookies to reflect the existing favorites in m_faves.
+	 */
+	setCookies() {
+		let keys = Object.keys(this.m_faves);
+		for(const x of keys) {
+			let cookie = x + "=";
+			if(this.m_faves[x] === "") {
+				cookie += "; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+			}
+			else {
+				cookie += this.m_faves[x];
+			}
+			document.cookie = cookie;
+		}
+	}
+	
+	/** Sets the favorite unit conversion within Gui.  Called by clicking the "fave-conv-set" button.
+	 * @post saves the current unit category, unit A, and unit B in m_faves.
+	 */
+	setFaveConv() {
+		this.m_faves.category = this.m_catMenu.value;
+		this.m_faves.unitA = this.m_unitAMenu.value;
+		this.m_faves.unitB = this.m_unitBMenu.value;
+	}
+	
+	/** Removes the favorite unit conversion within Gui.  Called by clicking the "fave-conv-rm" button.
+	 * @post sets the category, unitA, and unitB properties of m_faves to "".
+	 */
+	rmFaveConv() {
+		this.m_faves.category = "";
+		this.m_faves.unitA = "";
+		this.m_faves.unitB = "";
+	}
+	
+	/** Switches the interface to the favorite unit conversion.
+	 * @post sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
+	 */
+	switchToFaveConv() {
+		this.m_catMenu.value = this.m_faves.category;
+		this.m_unitAMenu.value = this.m_faves.unitA;
+		this.m_unitBMenu.value = this.m_faves.unitB;
 	}
 }

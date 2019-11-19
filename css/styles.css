@@ -114,3 +114,9 @@ input[type="number"] {
     padding: 10px;
 	font-size: 12pt;
 }
+
+.star {
+	color: goldenrod;
+	font-size: 150%;
+	display: inline;
+}

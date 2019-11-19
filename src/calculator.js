@@ -10,7 +10,7 @@ class Calculator {
 		this.FORMULAS = new FormulasSol();
 	}
 	
-	/**
+	/** Initializes the UNITS object with objects for every available category of unit conversions.
 	 *
 	 */
 	initialize() {
