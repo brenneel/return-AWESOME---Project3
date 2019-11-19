@@ -13,6 +13,7 @@ class Test{
 		this.fail = "FAILURE";
 		this.unkno = "UNKNOWN";
 		this.className = className;
+		this.addTestSet();
 	}
 
 	run(){
@@ -20,7 +21,7 @@ class Test{
 	}
 
 	runHelper(){
-		
+
 	}
 
 	/**

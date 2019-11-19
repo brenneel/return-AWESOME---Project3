@@ -4,7 +4,7 @@ class TestFormulasAbs extends Test{
     constructor(){
         super("FormulasAbs");
         this.fAbs = new FormulasAbs;
-        this.addTestSet();
+        // this.addTestSet();
     }
 
     run(){
