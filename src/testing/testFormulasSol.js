@@ -14,6 +14,7 @@ class TestFormulasSol extends Test{
      */
     run(){
         this.createTest(this.testReynoldsNumber(), "Reynolds Number");
+        return this.fail;
     }
 
     /**
@@ -50,5 +51,5 @@ class TestFormulasSol extends Test{
         return this.pass;
     }
 
-    test
+    // testS
 }

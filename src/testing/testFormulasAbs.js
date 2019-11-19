@@ -4,15 +4,32 @@ class TestFormulasAbs extends Test{
     constructor(){
         super("FormulasAbs");
         this.fAbs = new FormulasAbs;
-        
+        this.addTestSet();
     }
 
     run(){
-        this.createTest(this.testSum(), "Testing Sum");
-        this.createTest(this.testDifference(), "Testing Difference");
-        this.createTest(this.testProduct(), "Testing Product");
-        this.createTest(this.testQuotient(), "Testing Quotient");
-        
+        let count = 0;
+        let maxCount = 4;
+        let result = "";
+        if(this.createTest(this.testSum(), "Testing Sum") == this.pass){
+            count++;
+        }
+        if(this.createTest(this.testDifference(), "Testing Difference") == this.pass){
+            count++;
+        }
+        if(this.createTest(this.testProduct(), "Testing Product") == this.pass){
+            count++;
+        }
+        if(this.createTest(this.testQuotient(), "Testing Quotient") == this.pass){
+            count++;
+        }
+        if(count == maxCount){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result);
+        return result;
     }
 
     testSum(){
