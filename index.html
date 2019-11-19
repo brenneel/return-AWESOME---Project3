@@ -52,7 +52,7 @@
 						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="GUI.constHandler();"></p>
 					</div>
 				</form>
-				<div class="centered"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="button"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="button"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="button"></div>
+				<div class="centered"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="button" onclick="GUI.switchToFaveConst();"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="button" onclick="GUI.setFaveConst();"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="button" onclick="GUI.rmFaveConst();"></div>
 			</div>
 			<div class="expandable">
 				<div class="subtitle">Formula Calculator</div>

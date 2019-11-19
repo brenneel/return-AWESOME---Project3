@@ -359,4 +359,32 @@ class Gui {
 			this.m_unitBMenu.value = this.m_faves.unitB;
 		}
 	}
+	
+	/** Sets the favorite constant within Gui.  Called by clicking the "fave-const-set" button.
+	 * @post saves the current constant and constant unit in m_faves.
+	 */
+	setFaveConst() {
+		this.m_faves.constant = this.m_constMenu.value;
+		this.m_faves.constUnit = this.m_constUnitMenu.value;
+	}
+	
+	/** Removes the favorite constant within Gui.  Called by clicking the "fave-const-rm" button.
+	 * @post sets the constant and constUnit properties of m_faves to "".
+	 */
+	rmFaveConst() {
+		this.m_faves.constant = "";
+		this.m_faves.constUnit = "";
+	}
+	
+	/** Switches the interface to the favorite constant. Called by clicking the "fave-const-go" button.
+	 * @post if a favorite constant is saved, sets the "constant-select" and "constant-unit" dropdowns to the options stored in m_faves.
+	 */
+	switchToFaveConst() {
+		if(this.m_faves.constant !== "") {
+			this.m_constMenu.value = this.m_faves.constant;
+			this.constChange();
+			this.m_constUnitMenu.value = this.m_faves.constUnit;
+			this.constHandler();
+		}
+	}
 }
