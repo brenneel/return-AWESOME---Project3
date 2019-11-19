@@ -295,6 +295,15 @@ class Gui {
 		}
 	}
 	
+	/** Creates the event listener for the page unload, which calls {@link Gui}.setCookies().
+	 *
+	 */
+	setUnloadListener() {
+		window.addEventListener('unload', function(event) {
+			GUI.setCookies();
+		});
+	}
+	
 	/** Updates the browser cookies used to save user favorites: parses m_faves and creates/saves a cookie for each existing favorite. Used on page unload.
 	 * @post updates all cookies to reflect the existing favorites in m_faves.
 	 */
