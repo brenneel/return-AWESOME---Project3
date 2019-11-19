@@ -58,9 +58,11 @@ class Gui {
 	 *
 	 */
 	initialize() {
+		this.updateFaves();
 		this.CALCULATOR.initialize();
 		this.populateCategories();
 		this.populateUnitMenus();
+		// this.initializeFaves();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
 		this.populateConstants();
@@ -68,6 +70,8 @@ class Gui {
 		this.constHandler();
 		this.populateFormulas();
 		this.populateFormulaFields();
+		
+		this.setUnloadListener();
 	}
 	
 	/** Populates the Unit Categories dropdown menu with categories. Used when initializing the page.
