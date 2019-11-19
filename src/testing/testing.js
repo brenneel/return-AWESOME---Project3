@@ -11,11 +11,11 @@ class Testing{
 
     constructor(){
         this.isCompleted = false;
-        this.initTesting();
-        this.fAbsTest = new TestFormulasAbs();
+        // this.fAbsTest = new TestFormulasAbs();
         this.fSolTest = new TestFormulasSol();
-        this.fPressTest = new TestPressureUnits();
-        this.fPowTest = new TestPowerUnits();
+        // this.fPressTest = new TestPressureUnits();
+        // this.fPowTest = new TestPowerUnits();
+        this.initTesting();
 
     }
     
@@ -24,15 +24,25 @@ class Testing{
         let result = "";
         let count = 0;
         let arr = new Array();
+        let tArr = new Array();
         this.updateState();
-        arr.push(this.fAbsTest.run());
-        arr.push(this.fSolTest.run());
-        arr.push(this.fPressTest.run());
-        arr.push(this.fPowTest.run());
+        //Add Tests Here
+        arr.push(this.fSolTest);
+        //End Tests
         for(let i = 0; i < arr.length; i++){
-            if(arr[i] == this.pass){
+            // console.log(arr[i]);
+            // arr[i].createTest()
+            tArr[i] = arr[i].run(arr[i].__proto__);
+        }
+        // arr.push(this.fAbsTest.run());
+        // arr.push(this.fSolTest.run(this.fSolTest.fSol.__proto__));
+        // arr.push(this.fPressTest.run());
+        // arr.push(this.fPowTest.run());
+        for(let i = 0; i < arr.length; i++){
+            if(tArr[i] == this.pass){
                 count++;
             }
+            arr[i].updateTestSet(tArr[i]);
         }
         if(count == arr.length - 1){
             result = "SUCCESS";
@@ -56,6 +66,7 @@ class Testing{
         let temp = document.getElementById("classTable").innerHTML;
 		temp +="<tr><td>All Tests</td>";
 		temp += "<td id='All Tests'></td></tr>";
-		document.getElementById("classTable").innerHTML = temp;
+        document.getElementById("classTable").innerHTML = temp;
+        this.fSolTest.updateShit(this.fSolTest.fSol);
     }
 }

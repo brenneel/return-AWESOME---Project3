@@ -33,10 +33,7 @@ class TestFormulasAbs extends Test{
     }
 
     testSum(){
-        let arr = new Array();
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
+        let arr = [2, 3, 4];
         if(this.fAbs.sum(arr) == 9){
             return this.pass;
         }else{
@@ -45,10 +42,7 @@ class TestFormulasAbs extends Test{
     }
 
     testDifference(){
-        let arr = new Array();
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
+        let arr = [2, 3, 4];
         if(this.fAbs.difference(arr) == -9){
             return this.pass;
         }else{
@@ -57,10 +51,7 @@ class TestFormulasAbs extends Test{
     }
 
     testProduct(){
-        let arr = new Array();
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
+        let arr = [2, 3, 4];
         if(this.fAbs.product(arr) == 24){
             return this.pass;
         }else{
@@ -69,10 +60,7 @@ class TestFormulasAbs extends Test{
     }
 
     testQuotient(){
-        let arr = new Array();
-        arr.push(2);
-        arr.push(3);
-        arr.push(4);
+        let arr = [2, 3, 4];
         if(this.fAbs.quotient(arr) == 1/24){
             return this.pass;
         }else{

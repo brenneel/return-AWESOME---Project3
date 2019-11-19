@@ -7,21 +7,53 @@ class Test{
 	fail;   /** The fail value */
 	unkno;  /** The unknown value */
 	className; /** Current class name */
+	testClass;
+	remArr;
 	
-	constructor(className){
+	constructor(){
 		this.pass = "SUCCESS";
 		this.fail = "FAILURE";
 		this.unkno = "UNKNOWN";
-		this.className = className;
+		this.remArr = ["constructor"];
+	}
+	
+	updateShit(){
+		// this.testClass = new testClass.constructor();
+		console.log(this.testClass)
+		// this.className = this.testClass.constructor.name;
+		// console.log(this.className);
 		this.addTestSet();
 	}
 
-	run(){
-		return this.unkno;
+	run(obj){
+		let count = 0;
+		let result = "";
+		let nameArr = Object.getOwnPropertyNames(obj);
+		this.runHelper(nameArr);
+		for(let i = 0; i < nameArr.length; i++){
+			let locResult = obj[nameArr[i]]();
+			this.addTest(nameArr[i].substr(4));
+			// console.log(obj[nameArr[i]]);
+            if(locResult == this.pass){
+                count++;
+			}
+			this.updateTest(nameArr[i].substr(4), locResult);
+		}
+        if(count == nameArr.length - 1){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+		return result;
 	}
-
-	runHelper(){
-
+	
+	runHelper(arr){
+		if(this.remArr.length < 1){
+			return;
+		}
+		for(let i = 0; i < this.remArr.length; i++){
+			arr.splice(arr.indexOf(this.remArr[i]), 1);
+		}
 	}
 
 	/**
@@ -29,6 +61,8 @@ class Test{
 	 * @param {String} name: Name of the test being run 
 	 */
 	addTest(name){
+		console.log(this.testClass);
+		console.log(this.className);
 		let temp = document.getElementById("testTable").innerHTML;
 		temp +="<tr><td>" + this.className + "</td><td>" + name + "</td>";
 		temp += "<td id='" + this.className + ":" + name + "'></td></tr>";
