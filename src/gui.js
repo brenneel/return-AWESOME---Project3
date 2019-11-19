@@ -350,11 +350,13 @@ class Gui {
 	}
 	
 	/** Switches the interface to the favorite unit conversion.
-	 * @post sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
+	 * @post if a favorite unit conversion is saved, sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
 	 */
 	switchToFaveConv() {
-		this.m_catMenu.value = this.m_faves.category;
-		this.m_unitAMenu.value = this.m_faves.unitA;
-		this.m_unitBMenu.value = this.m_faves.unitB;
+		if(this.m_faves.category !== "") {
+			this.m_catMenu.value = this.m_faves.category;
+			this.m_unitAMenu.value = this.m_faves.unitA;
+			this.m_unitBMenu.value = this.m_faves.unitB;
+		}
 	}
 }
