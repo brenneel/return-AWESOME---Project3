@@ -12,7 +12,7 @@
  * @prop {Element} m_formulaText - Element object representing the "formula-text" div, which will contain instructions for the selected formula.
  * @prop {Element} m_formulaFields - Element object representing the "formula-fields" form, which will contain the number inputs for the selected formula's variables.
  * @prop {Element} m_formulaHelpText - Element object representing the "formula-helptext" fdiv, which will contain helptext specific to the selected formula.
- * @prop {string} m_cookies - cookies for the favorite unit conversion, constant, and formula saved by the user (may be blank).
+ * @prop {Object} m_faves - an object to store the favorite unit conversion, constant, and formula saved by the user (initially created with all properties set to "").
  */
 class Gui {
 	constructor() {
@@ -38,8 +38,15 @@ class Gui {
 		this.m_formulaFields = document.getElementById("formula-fields");
 		this.m_formulaHelpText = document.getElementById("formula-helptext");
 		
-		// cookies
-		this.m_cookies = document.cookies;
+		// favorites
+		this.m_faves = {
+			category: "",
+			unitA: "",
+			unitB: "",
+			constant: "",
+			constUnit: "",
+			formula: ""
+		};
 	}
 	
 	/* -------------------------------
