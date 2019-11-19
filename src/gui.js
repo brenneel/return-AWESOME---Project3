@@ -287,11 +287,11 @@ class Gui {
 	 */
 	updateFaves() {
 		let cookies = document.cookie.split("; ");
-		console.log(cookies);
 		for(const x of cookies) {
 			let tempArr = x.split('=');
-			console.log(tempArr);
-			this.m_faves[tempArr[0]] = tempArr[1];
+			if(tempArr[0] in this.m_faves) {
+				this.m_faves[tempArr[0]] = tempArr[1];
+			}
 		}
 	}
 	
