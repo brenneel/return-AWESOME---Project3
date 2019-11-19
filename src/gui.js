@@ -306,7 +306,7 @@ class Gui {
 	}
 	
 	/** Creates the event listener for the page unload, which calls {@link Gui}.setCookies().
-	 *
+	 * @post sets an event listener to call setCookies on page unload.
 	 */
 	setUnloadListener() {
 		window.addEventListener('unload', function(event) {
