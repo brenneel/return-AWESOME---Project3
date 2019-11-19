@@ -54,7 +54,7 @@ class Gui {
 	 * -------------------------------
 	 */
 	
-	/** Initializes the dynamically-generated dropdown menus and the output Constant Value.
+	/** Initializes the dynamically-generated dropdown menus, the output Constant Value, and the formula dropdown menu and input fields.
 	 *
 	 */
 	initialize() {
@@ -354,7 +354,7 @@ class Gui {
 		this.m_faves.unitB = "";
 	}
 	
-	/** Switches the interface to the favorite unit conversion.
+	/** Switches the interface to the favorite unit conversion. Called by clicking the "fave-conv-go" button.
 	 * @post if a favorite unit conversion is saved, sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
 	 */
 	switchToFaveConv() {
