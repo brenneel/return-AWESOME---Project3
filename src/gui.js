@@ -276,6 +276,25 @@ class Gui {
 		}
 		return(obj);
 	}
+	
+	/* -------------------------------
+	 * FAVORITES/COOKIES RELATED METHODS
+	 * -------------------------------
+	 */
+	
+	/** Updates the favorites saved in Gui: parses any browser cookies and saves them as an object in m_faves. Used when initializing the page.
+	 * @post updates m_faves to reflect the favorite cookies that exist on page load.
+	 */
+	updateFaves() {
+		let cookies = document.cookie.split("; ");
+		console.log(cookies);
+		for(const x of cookies) {
+			let tempArr = x.split('=');
+			console.log(tempArr);
+			this.m_faves[tempArr[0]] = tempArr[1];
+		}
+	}
+	
 	/** Updates the browser cookies used to save user favorites: parses m_faves and creates/saves a cookie for each existing favorite. Used on page unload.
 	 * @post updates all cookies to reflect the existing favorites in m_faves.
 	 */
