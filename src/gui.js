@@ -60,14 +60,20 @@ class Gui {
 	initialize() {
 		this.updateFaves();
 		this.CALCULATOR.initialize();
+		
+		// initialize unit converter
 		this.populateCategories();
 		this.populateUnitMenus();
-		// this.initializeFaves();
+		this.switchToFaveConv();
 //		this.populateNextDropdown("unitA-select", "unitB-select");
 		// remove this for testing/prototype
+		
+		// initialize constants
 		this.populateConstants();
 		this.constChange();
 		this.constHandler();
+		
+		// initialize formulas
 		this.populateFormulas();
 		this.populateFormulaFields();
 		
@@ -341,5 +347,14 @@ class Gui {
 		this.m_faves.category = "";
 		this.m_faves.unitA = "";
 		this.m_faves.unitB = "";
+	}
+	
+	/** Switches the interface to the favorite unit conversion.
+	 * @post sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
+	 */
+	switchToFaveConv() {
+		this.m_catMenu.value = this.m_faves.category;
+		this.m_unitAMenu.value = this.m_faves.unitA;
+		this.m_unitBMenu.value = this.m_faves.unitB;
 	}
 }
