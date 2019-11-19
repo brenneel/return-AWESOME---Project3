@@ -70,8 +70,13 @@ class Gui {
 		
 		// initialize constants
 		this.populateConstants();
-		this.constChange();
-		this.constHandler();
+		if(this.m_faves.constant === "") {
+			this.constChange();
+			this.constHandler();
+		}
+		else {
+			this.switchToFaveConst();
+		}
 		
 		// initialize formulas
 		this.populateFormulas();
