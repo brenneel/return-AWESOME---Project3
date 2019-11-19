@@ -30,10 +30,11 @@
 						</select>
 						<div class="equals">=</div>
 						<input type="number" id="unitB-input" name="unitB-input" class="numfield" readonly><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
-						</select>
+						</select><div class="star">★</div>
 						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="GUI.convertHandler();"></p>
 					</div>
 					<div class="centered">All unit conversions are accurate to 0.0001%.</div>
+					<div class="centered"><input type="button" id="fave-conv-go" name="fave-conv-go" value="Go to favorite!" class="button"><input type="button" id="fave-conv-set" name="fave-conv-set" value="Set favorite!" class="button"><input type="button" id="fave-conv-rm" name="fave-conv-rm" value="Remove favorite" class="button"></div>
 				</form>
 			</div>
 			<div class="expandable">
@@ -47,10 +48,11 @@
 						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield" readonly>
 						<select id="constant-unit">
 						</select>
-						<label for="constant-unit" class="hidden">Constant's Unit</label>
+						<label for="constant-unit" class="hidden">Constant's Unit</label><div class="star">★</div>
 						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="GUI.constHandler();"></p>
 					</div>
 				</form>
+				<div class="centered"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="button"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="button"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="button"></div>
 			</div>
 			<div class="expandable">
 				<div class="subtitle">Formula Calculator</div>
@@ -61,10 +63,11 @@
 				</div>
 				<div id="formula-box" class="centered">
 					<div id="formula-text"></div>
-					<form id="formula-fields"></form>
+					<form id="formula-fields"></form><div class="star">★</div>
 					<div class="centered helptext" id="formula-helptext"></div>
 				</div>
 				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
+				<div class="centered"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="button"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="button"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="button"></div>
 			</div>
 		</div>
 	</body>
