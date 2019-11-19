@@ -281,9 +281,9 @@ class Gui {
 	 */
 	setCookies() {
 		let keys = Object.keys(this.m_faves);
-		for(let x of keys) {
+		for(const x of keys) {
 			let cookie = x + "=";
-			if(this.m_faves[x] == "") {
+			if(this.m_faves[x] === "") {
 				cookie += "; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 			}
 			else {
