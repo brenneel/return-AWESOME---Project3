@@ -276,4 +276,20 @@ class Gui {
 		}
 		return(obj);
 	}
+	/** Updates the browser cookies used to save user favorites: parses m_faves and creates/saves a cookie for each existing favorite. Used on page unload.
+	 * @post updates all cookies to reflect the existing favorites in m_faves.
+	 */
+	setCookies() {
+		let keys = Object.keys(this.m_faves);
+		for(let x of keys) {
+			let cookie = x + "=";
+			if(this.m_faves[x] == "") {
+				cookie += "; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+			}
+			else {
+				cookie += this.m_faves[x];
+			}
+			document.cookie = cookie;
+		}
+	}
 }
