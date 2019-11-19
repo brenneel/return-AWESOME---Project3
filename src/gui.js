@@ -333,4 +333,13 @@ class Gui {
 		this.m_faves.unitA = this.m_unitAMenu.value;
 		this.m_faves.unitB = this.m_unitBMenu.value;
 	}
+	
+	/** Removes the favorite unit conversion within Gui.  Called by clicking the "fave-conv-rm" button.
+	 * @post sets the category, unitA, and unitB properties of m_faves to "".
+	 */
+	rmFaveConv() {
+		this.m_faves.category = "";
+		this.m_faves.unitA = "";
+		this.m_faves.unitB = "";
+	}
 }
