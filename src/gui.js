@@ -311,4 +311,13 @@ class Gui {
 			document.cookie = cookie;
 		}
 	}
+	
+	/** Sets the favorite unit conversion within Gui.  Called by clicking the "fave-conv-set" button.
+	 * @post saves the current unit category, unit A, and unit B in m_faves.
+	 */
+	setFaveConv() {
+		this.m_faves.category = this.m_catMenu.value;
+		this.m_faves.unitA = this.m_unitAMenu.value;
+		this.m_faves.unitB = this.m_unitBMenu.value;
+	}
 }
