@@ -8,6 +8,7 @@ class Testing{
     fSolTest;
     fPressTest;
     fPowTest;
+    fViscoTest;
 
     constructor(){
         this.isCompleted = false;
