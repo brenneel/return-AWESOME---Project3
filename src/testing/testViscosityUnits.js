@@ -52,7 +52,177 @@ class TestViscosityUnits extends Test {
         this.updateTest("lbfSftToCP", testingLbfSftToCP(15));
     }
 
+     /*Begin function testing*/
+    /**
+     * checks unit conversions with expected values for cP to P
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCPtoP(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.cPtoP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCPtoP", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCPtoP", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for P to cP
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingPToCP(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.pToCP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingPToCP", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingPToCP", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+  /**
+     * checks unit conversions with expected values for cP to g/cm s 
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCPtoGramCentiSec(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.cPtoGramCentiSec(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCPtoGramCentiSec", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCPtoGramCentiSec", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for g/cm s to cp
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingGramCentiSecToCP(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.gramCentiSecToCP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingGramCentiSecToCP", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingGramCentiSecToCP", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
     
+    /**
+     * checks unit conversions with expected values for cP to dyne s/cm^2 
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCPtoDyne(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.cPtoDyne(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCPtoDyne", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCPtoDyne", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for dyne s/cm^2  to cp
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingDyneToCP(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.dyneToCP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingDyneToCP", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingDyneToCP", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
 
+     /**
+     * checks unit conversions with expected values for cP to N * s/m^2
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCPtoN(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.cPtoN(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCPtoN", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCPtoN", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     /**
+     * checks unit conversions with expected values for Newton sec per sq meter to cp
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingNtoCP(j){
+        let passed = true;
+        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.power.NtoCP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingNtoCP", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingNtoCP", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    
     //end testing file
 }
