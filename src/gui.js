@@ -80,7 +80,12 @@ class Gui {
 		
 		// initialize formulas
 		this.populateFormulas();
-		this.populateFormulaFields();
+		if(this.m_faves.formula === "") {
+			this.populateFormulaFields();
+		}
+		else {
+			this.switchToFaveFormula();
+		}
 		
 		this.setUnloadListener();
 	}
@@ -391,6 +396,30 @@ class Gui {
 			this.constChange();
 			this.m_constUnitMenu.value = this.m_faves.constUnit;
 			this.constHandler();
+		}
+	}
+	
+	/** Sets the favorite formula within Gui.  Called by clicking the "fave-formula-set" button.
+	 * @post saves the current formula in m_faves.
+	 */
+	setFaveFormula() {
+		this.m_faves.formula = this.m_formulaMenu.value;
+	}
+	
+	/** Removes the favorite formula within Gui.  Called by clicking the "fave-formula-rm" button.
+	 * @post sets the formula property of m_faves to "".
+	 */
+	rmFaveFormula() {
+		this.m_faves.formula = "";
+	}
+	
+	/** Switches the interface to the favorite formula. Called by clicking the "fave-formula-go" button.
+	 * @post if a favorite formula is saved, sets the "formula-select" dropdown, "formula-fields" form, and "formula-text" and "formula-helptext" divs to the options stored in m_faves.
+	 */
+	switchToFaveFormula() {
+		if(this.m_faves.formula !== "") {
+			this.m_formulaMenu.value = this.m_faves.formula;
+			this.populateFormulaFields();
 		}
 	}
 }

@@ -67,7 +67,7 @@
 					<div class="centered helptext" id="formula-helptext"></div>
 				</div>
 				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
-				<div class="centered"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="button"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="button"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="button"></div>
+				<div class="centered"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="button" onclick="GUI.switchToFaveFormula();"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="button" onclick="GUI.setFaveFormula();"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="button" onclick="GUI.rmFaveFormula();"></div>
 			</div>
 		</div>
 	</body>
