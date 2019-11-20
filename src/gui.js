@@ -54,7 +54,7 @@ class Gui {
 	 * -------------------------------
 	 */
 	
-	/** Initializes the dynamically-generated dropdown menus, the output Constant Value, and the formula dropdown menu and input fields.
+	/** Initializes the dynamically-generated dropdown menus, the output Constant Value, and the formula dropdown menu and input fields. Set each section to its favorite if a favorite exists.
 	 *
 	 */
 	initialize() {
