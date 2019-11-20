@@ -16,6 +16,7 @@ class Testing{
         this.fSolTest = new TestFormulasSol();
         this.fPressTest = new TestPressureUnits();
         this.fPowTest = new TestPowerUnits();
+        this.fViscoTest = new TestViscosityUnits();
 
     }
     
@@ -26,6 +27,7 @@ class Testing{
         this.fSolTest.run();
         this.fPressTest.run();
         this.fPowTest.run();
+        this.fViscoTest.run();
         this.isCompleted = true;
         this.updateState();
     }
