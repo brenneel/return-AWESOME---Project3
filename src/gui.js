@@ -54,7 +54,7 @@ class Gui {
 	 * -------------------------------
 	 */
 	
-	/** Initializes the dynamically-generated dropdown menus and the output Constant Value.
+	/** Initializes the dynamically-generated dropdown menus, the output Constant Value, and the formula dropdown menu and input fields. Set each section to its favorite if a favorite exists.
 	 *
 	 */
 	initialize() {
@@ -70,12 +70,22 @@ class Gui {
 		
 		// initialize constants
 		this.populateConstants();
-		this.constChange();
-		this.constHandler();
+		if(this.m_faves.constant === "") {
+			this.constChange();
+			this.constHandler();
+		}
+		else {
+			this.switchToFaveConst();
+		}
 		
 		// initialize formulas
 		this.populateFormulas();
-		this.populateFormulaFields();
+		if(this.m_faves.formula === "") {
+			this.populateFormulaFields();
+		}
+		else {
+			this.switchToFaveFormula();
+		}
 		
 		this.setUnloadListener();
 	}
@@ -306,7 +316,7 @@ class Gui {
 	}
 	
 	/** Creates the event listener for the page unload, which calls {@link Gui}.setCookies().
-	 *
+	 * @post sets an event listener to call setCookies on page unload.
 	 */
 	setUnloadListener() {
 		window.addEventListener('unload', function(event) {
@@ -349,14 +359,67 @@ class Gui {
 		this.m_faves.unitB = "";
 	}
 	
-	/** Switches the interface to the favorite unit conversion.
+	/** Switches the interface to the favorite unit conversion. Called by clicking the "fave-conv-go" button.
 	 * @post if a favorite unit conversion is saved, sets the "category", "unitA-select", and "unitB-select" dropdowns to the options stored in m_faves.
 	 */
 	switchToFaveConv() {
 		if(this.m_faves.category !== "") {
 			this.m_catMenu.value = this.m_faves.category;
+			this.populateUnitMenus();
 			this.m_unitAMenu.value = this.m_faves.unitA;
 			this.m_unitBMenu.value = this.m_faves.unitB;
+		}
+	}
+	
+	/** Sets the favorite constant within Gui.  Called by clicking the "fave-const-set" button.
+	 * @post saves the current constant and constant unit in m_faves.
+	 */
+	setFaveConst() {
+		this.m_faves.constant = this.m_constMenu.value;
+		this.m_faves.constUnit = this.m_constUnitMenu.value;
+	}
+	
+	/** Removes the favorite constant within Gui.  Called by clicking the "fave-const-rm" button.
+	 * @post sets the constant and constUnit properties of m_faves to "".
+	 */
+	rmFaveConst() {
+		this.m_faves.constant = "";
+		this.m_faves.constUnit = "";
+	}
+	
+	/** Switches the interface to the favorite constant. Called by clicking the "fave-const-go" button.
+	 * @post if a favorite constant is saved, sets the "constant-select" and "constant-unit" dropdowns to the options stored in m_faves.
+	 */
+	switchToFaveConst() {
+		if(this.m_faves.constant !== "") {
+			this.m_constMenu.value = this.m_faves.constant;
+			this.constChange();
+			this.m_constUnitMenu.value = this.m_faves.constUnit;
+			this.constHandler();
+		}
+	}
+	
+	/** Sets the favorite formula within Gui.  Called by clicking the "fave-formula-set" button.
+	 * @post saves the current formula in m_faves.
+	 */
+	setFaveFormula() {
+		this.m_faves.formula = this.m_formulaMenu.value;
+	}
+	
+	/** Removes the favorite formula within Gui.  Called by clicking the "fave-formula-rm" button.
+	 * @post sets the formula property of m_faves to "".
+	 */
+	rmFaveFormula() {
+		this.m_faves.formula = "";
+	}
+	
+	/** Switches the interface to the favorite formula. Called by clicking the "fave-formula-go" button.
+	 * @post if a favorite formula is saved, sets the "formula-select" dropdown, "formula-fields" form, and "formula-text" and "formula-helptext" divs to the options stored in m_faves.
+	 */
+	switchToFaveFormula() {
+		if(this.m_faves.formula !== "") {
+			this.m_formulaMenu.value = this.m_faves.formula;
+			this.populateFormulaFields();
 		}
 	}
 }
