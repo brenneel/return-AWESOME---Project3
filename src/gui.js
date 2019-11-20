@@ -360,6 +360,7 @@ class Gui {
 	switchToFaveConv() {
 		if(this.m_faves.category !== "") {
 			this.m_catMenu.value = this.m_faves.category;
+			this.populateUnitMenus();
 			this.m_unitAMenu.value = this.m_faves.unitA;
 			this.m_unitBMenu.value = this.m_faves.unitB;
 		}
