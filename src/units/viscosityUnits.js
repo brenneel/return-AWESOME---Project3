@@ -124,7 +124,7 @@ class ViscosityUnits {
     cPtoKgMs(cp)
     {
         let cP = Number(cp);
-        let kgMs = cP * 0.0010197162;
+        let kgMs = cP * 0.00010197162;
         return kgMs;
     }
 
@@ -184,7 +184,7 @@ class ViscosityUnits {
     lbfSftToCP(lbfsft)
     {
         let pound = Number(lbfsft);
-        let cP = pound * 1488.1639;
+        let cP = pound * 47880.25898;
         return cP;
     }
 
