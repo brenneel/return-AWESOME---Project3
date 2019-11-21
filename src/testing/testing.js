@@ -8,6 +8,7 @@ class Testing{
     fSolTest;
     fPressTest;
     fPowTest;
+    fViscoTest;
 
     constructor(){
         this.isCompleted = false;
@@ -16,6 +17,7 @@ class Testing{
         this.fSolTest = new TestFormulasSol();
         this.fPressTest = new TestPressureUnits();
         this.fPowTest = new TestPowerUnits();
+        this.fViscoTest = new TestViscosityUnits();
 
     }
     
@@ -29,6 +31,7 @@ class Testing{
         arr.push(this.fSolTest.run());
         arr.push(this.fPressTest.run());
         arr.push(this.fPowTest.run());
+        arr.push(this.fViscoTest.run());
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
                 count++;
