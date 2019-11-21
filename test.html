@@ -22,13 +22,23 @@
 </head>
 <body>
     <h1>Testing Program: <span id="testState"></span></h1>
-    <table id="testTable">
-        <tr>
-            <th>Current File</th>
-            <th>Current Test</th>
-            <th>Result</th>
-        </tr>
-    </table>
+    <div class="flex-container">
+        <div style="margin: 5px;">
+            <table id="classTable">
+                <th>Current File</th>
+                <th>Status</th>
+            </table>
+        </div>
+        <div style="margin: 5px;">
+            <table id="testTable">
+                <tr>
+                    <th>Current File</th>
+                    <th>Current Test</th>
+                    <th>Result</th>
+                </tr>
+            </table>
+        </div>
+    </div>
     <script>
         let testing = new Testing();
         testing.run();
