@@ -27,6 +27,7 @@ class Testing{
         let count = 0;
         let arr = new Array();
         this.updateState();
+
         arr.push(this.fAbsTest.run());
         arr.push(this.fSolTest.run());
         arr.push(this.fPressTest.run());
