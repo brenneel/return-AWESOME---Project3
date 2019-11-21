@@ -275,7 +275,7 @@ class TestViscosityUnits extends Test {
      */
     testingCPtoKgMs(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.0000000000001258329806,0.1044315292,100.71267966]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.cPtoKgMs(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -296,7 +296,7 @@ class TestViscosityUnits extends Test {
      */
     testingKgMsToCP(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.0000121014,10043220.29,9685577099.1]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.kgMsToCP(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -318,7 +318,7 @@ class TestViscosityUnits extends Test {
      */
     testingCPtolbmFtS(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.0000000000008292097153,0.6881791891,663.67284617]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.cPtolbmFtS(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -339,7 +339,7 @@ class TestViscosityUnits extends Test {
      */
     testingLbmFtStoCP(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.0000018364,1524063.601,1469791071.5]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.lbmFtStoCP(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -361,7 +361,7 @@ class TestViscosityUnits extends Test {
      */
     testingCPtolbfSft(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.00000000000002577262584,0.0213892631,20.627582662]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.cPtolbfSft(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -382,7 +382,7 @@ class TestViscosityUnits extends Test {
      */
     testingLbfSftToCP(j){
         let passed = true;
-        this.expectedValues.push([0.000000000001654821258,1.373372177,1324.4658309]);
+        this.expectedValues.push([0.0000590842,49035296.301,47289129303]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.viscos.lbfSftToCP(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
