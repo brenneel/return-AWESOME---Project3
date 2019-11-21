@@ -123,7 +123,9 @@ class ViscosityUnits {
      */
     cPtoKgMs(cp)
     {
-        return this.cPtoN(cp);
+        let cP = Number(cp);
+        let kgMs = cP * 0.0010197162;
+        return kgMs;
     }
 
     /**
@@ -133,7 +135,9 @@ class ViscosityUnits {
      */
     kgMsToCP(kgms)
     {
-        return this.NtoCP(kgms);
+        let kgMs = Number(kgms);
+        let cP = kgMs * 9806.65;
+        return cP;
     }
 
     /**
