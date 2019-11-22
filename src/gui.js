@@ -436,7 +436,7 @@ class Gui {
 	 */
 	updateStar(section) {
 		switch(section) {
-			case 1:	// unit conversion
+			case 0:	// unit conversion
 				if((this.m_catMenu.value == this.m_faves.category) && (this.m_unitAMenu.value == this.m_faves.unitA) && (this.m_unitBMenu.value == this.m_faves.unitB)) {
 					this.showInline("conv-star");
 				}
