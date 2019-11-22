@@ -356,6 +356,7 @@ class Gui {
 		this.m_faves.category = this.m_catMenu.value;
 		this.m_faves.unitA = this.m_unitAMenu.value;
 		this.m_faves.unitB = this.m_unitBMenu.value;
+		this.updateStar(0);
 	}
 	
 	/** Removes the favorite unit conversion within Gui.  Called by clicking the "fave-conv-rm" button.
@@ -365,6 +366,7 @@ class Gui {
 		this.m_faves.category = "";
 		this.m_faves.unitA = "";
 		this.m_faves.unitB = "";
+		this.updateStar(0);
 	}
 	
 	/** Switches the interface to the favorite unit conversion. Called by clicking the "fave-conv-go" button.
@@ -376,6 +378,7 @@ class Gui {
 			this.populateUnitMenus();
 			this.m_unitAMenu.value = this.m_faves.unitA;
 			this.m_unitBMenu.value = this.m_faves.unitB;
+			this.updateStar(0);
 		}
 	}
 	
@@ -385,6 +388,7 @@ class Gui {
 	setFaveConst() {
 		this.m_faves.constant = this.m_constMenu.value;
 		this.m_faves.constUnit = this.m_constUnitMenu.value;
+		this.updateStar(1);
 	}
 	
 	/** Removes the favorite constant within Gui.  Called by clicking the "fave-const-rm" button.
@@ -393,6 +397,7 @@ class Gui {
 	rmFaveConst() {
 		this.m_faves.constant = "";
 		this.m_faves.constUnit = "";
+		this.updateStar(1);
 	}
 	
 	/** Switches the interface to the favorite constant. Called by clicking the "fave-const-go" button.
@@ -404,6 +409,7 @@ class Gui {
 			this.constChange();
 			this.m_constUnitMenu.value = this.m_faves.constUnit;
 			this.constHandler();
+			this.updateStar(1);
 		}
 	}
 	
@@ -412,6 +418,7 @@ class Gui {
 	 */
 	setFaveFormula() {
 		this.m_faves.formula = this.m_formulaMenu.value;
+		this.updateStar(2);
 	}
 	
 	/** Removes the favorite formula within Gui.  Called by clicking the "fave-formula-rm" button.
@@ -419,6 +426,7 @@ class Gui {
 	 */
 	rmFaveFormula() {
 		this.m_faves.formula = "";
+		this.updateStar(2);
 	}
 	
 	/** Switches the interface to the favorite formula. Called by clicking the "fave-formula-go" button.
@@ -428,8 +436,10 @@ class Gui {
 		if(this.m_faves.formula !== "") {
 			this.m_formulaMenu.value = this.m_faves.formula;
 			this.populateFormulaFields();
+			this.updateStar(2);
 		}
 	}
+	
 	/** Updates the displayed star that denotes a favorite unit conversion, constant, or formula.  If the current setting is a favorite, shows the star; otherwise, hides the star.
 	 * @param {number} section - represents a section of the app: 0 for unit conversion, 1 for constants, 2 for formulas.
 	 * @post shows or hides the star element for the correct section.
