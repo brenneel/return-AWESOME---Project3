@@ -247,11 +247,11 @@ class Gui {
 					let calculated = this.CALCULATOR.calcPVNRT(inputs);
 					if(calculated !== undefined) {
 						formulaFields[emptyInput].value = calculated;
-						this.hideHelptext("formula-helptext");
+						this.hideElement("formula-helptext");
 					}
 				}
 				else {
-					this.showHelptext("formula-helptext");
+					this.showBlock("formula-helptext");
 				}
 				break;
 			default:
