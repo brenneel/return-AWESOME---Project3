@@ -344,7 +344,6 @@ class Gui {
 			}
 			else {
 				cookie += this.m_faves[x] + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
-				console.log(cookie);
 			}
 			document.cookie = cookie;
 		}
