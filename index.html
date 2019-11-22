@@ -22,15 +22,15 @@
 				<div class="subtitle">Unit Converter</div>
 				<form id="units">
 					<p class="centered">
-						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.populateUnitMenus();">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.populateUnitMenus();	GUI.updateStar(0);">
 						</select>
 					</p>
 					<div class="centered">
-						<input type="number" id="unitA-input" name="unitA-input" value="1" class="numfield"><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units">
+						<input type="number" id="unitA-input" name="unitA-input" value="1" class="numfield"><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units" onclick="GUI.updateStar(0);">
 						</select>
 						<div class="equals">=</div>
-						<input type="number" id="unitB-input" name="unitB-input" class="numfield" readonly><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units">
-						</select><div class="star">★</div>
+						<input type="number" id="unitB-input" name="unitB-input" class="numfield" readonly><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units" onclick="GUI.updateStar(0);">
+						</select><div id="conv-star" class="star">★</div>
 						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="GUI.convertHandler();"></p>
 					</div>
 					<div class="centered">All unit conversions are accurate to 0.0001%.</div>
@@ -42,13 +42,13 @@
 				<form id="constants">
 					<div class="centered">
 						<label for="constant-select">Constant: </label>
-						<select id="constant-select" name="constant-select" form="constants" onchange="GUI.constChange();">
+						<select id="constant-select" name="constant-select" form="constants" onchange="GUI.constChange();	GUI.updateStar(1);">
 						</select>
 						<div class="equals">=</div>
 						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="numfield" readonly>
 						<select id="constant-unit">
 						</select>
-						<label for="constant-unit" class="hidden">Constant's Unit</label><div class="star">★</div>
+						<label for="constant-unit" class="hidden">Constant's Unit</label><div id="const-star" class="star">★</div>
 						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="GUI.constHandler();"></p>
 					</div>
 				</form>
@@ -58,12 +58,12 @@
 				<div class="subtitle">Formula Calculator</div>
 				<div class="centered">
 					<label for="formula-select">Choose a formula: </label>
-					<select id="formula-select" name="formula-select" form="formulas" required onchange="GUI.populateFormulaFields()">
+					<select id="formula-select" name="formula-select" form="formulas" required onchange="GUI.populateFormulaFields();	GUI.updateStar(2);">
 					</select>
 				</div>
 				<div id="formula-box" class="centered">
 					<div id="formula-text"></div>
-					<form id="formula-fields"></form><div class="star">★</div>
+					<form id="formula-fields"></form><div id="formula-star" class="star">★</div>
 					<div class="centered helptext" id="formula-helptext"></div>
 				</div>
 				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>

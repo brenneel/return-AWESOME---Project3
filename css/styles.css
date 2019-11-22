@@ -118,5 +118,5 @@ input[type="number"] {
 .star {
 	color: goldenrod;
 	font-size: 150%;
-	display: inline;
+	display: none;
 }
