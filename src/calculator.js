@@ -396,7 +396,7 @@ class Calculator {
 	 */
 	calcREYNOLDS(inputs) {
 		inputs = this.removeEmpty(inputs);
-		return(this.FORMULAS.pvNRT(inputs));
+		return(this.FORMULAS.reynoldsNumber(inputs));
 	}
 	
 	/** Removes empty keys from the given Object.

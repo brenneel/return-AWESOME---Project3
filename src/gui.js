@@ -257,6 +257,11 @@ class Gui {
 					if(calc !== undefined) {
 						//formulaFields[""].value = calculated;
 						this.hideHelptext("formula-helptext");
+						console.log(calc);
+					}
+					else
+					{
+						console.log("Error, calc came back undefined. Check inputs");
 					}
 				}
 				break;
