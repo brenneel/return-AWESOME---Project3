@@ -164,19 +164,27 @@ class Gui {
 		this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT[formula];
 	}
 	
-	/** Shows the given helptext on the page.
-	 * @param {string} ID - the element ID of the helptext to show.
-	 * @post - changes the display of the given element to "block".
+	/** Shows the given element as a block.
+	 * @param {string} ID - the element ID of the element to show.
+	 * @post - changes the display property of the given element to "block".
 	 */
-	showHelptext(ID) {
+	showBlock(ID) {
 		document.getElementById(ID).style.display = "block";
 	}
 	
-	/** Hides the given helptext on the page.
-	 * @param {string} ID - the element ID of the helptext to hide.
-	 * @post - changes the display of the given element to "none".
+	/** Shows the given element as an inline element.
+	 * @param {string} ID - the element ID of the element to show.
+	 * @post - changes the display property of the given element to "inline".
 	 */
-	hideHelptext(ID) {
+	showInline(ID) {
+		document.getElementById(ID).style.display = "inline";
+	}
+	
+	/** Hides the given element.
+	 * @param {string} ID - the element ID of the element to hide.
+	 * @post - changes the display property of the given element to "none".
+	 */
+	hideElement(ID) {
 		document.getElementById(ID).style.display = "none";
 	}
 	
