@@ -304,6 +304,17 @@ class Gui {
 		}
 		return(obj);
 	}
+
+	/**
+	 * Method that copies value calculation to user clipboard
+	 * @param {string} fieldId id of the input field to copy data from
+	 * @post the converted value is stored in the clipboard
+	 */
+	copyValue(fieldId){
+		let conversionValue = document.getElementById(fieldId);
+		conversionValue.select();
+		document.execCommand("copy");
+	}
 	
 	/* -------------------------------
 	 * FAVORITES/COOKIES RELATED METHODS
