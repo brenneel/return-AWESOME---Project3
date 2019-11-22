@@ -254,6 +254,25 @@ class Gui {
 					this.showBlock("formula-helptext");
 				}
 				break;
+			case "REYNOLDS":
+				if (this.valOneEmpty()) {
+					console.log("User left a field blank, cannot calc Reynold's number");
+				}
+				else
+				{
+					let inputs = this.packageInputs();
+					let calc = this.CALCULATOR.calcREYNOLDS(inputs);
+					if(calc !== undefined) {
+						//formulaFields[""].value = calculated;
+						this.hideHelptext("formula-helptext");
+						console.log(calc);
+					}
+					else
+					{
+						console.log("Error, calc came back undefined. Check inputs");
+					}
+				}
+				break;
 			default:
 				console.log("calculateHandler: " + formula + " did not match any case.");
 				break;

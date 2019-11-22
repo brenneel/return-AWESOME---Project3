@@ -389,6 +389,15 @@ class Calculator {
 		inputs = this.removeEmpty(inputs);
 		return(this.FORMULAS.pvNRT(inputs));
 	}
+
+	/** Handles the calculation of Reynold's Number and passes that object to {@link FormulasSol}.reynoldsNumber to solve for the unknown variable.  Assumes that there is exactly 1 unknown variable.
+	 * @param {Object} inputs - an Object containing all input values from the formula input form... no empty var
+	 * @return {number} - the value calculated by {@link FormulasSol}.reynoldsNumber().
+	 */
+	calcREYNOLDS(inputs) {
+		inputs = this.removeEmpty(inputs);
+		return(this.FORMULAS.reynoldsNumber(inputs));
+	}
 	
 	/** Removes empty keys from the given Object.
 	 * @param {Object} obj - an object containing "empty" keys with the value "".
