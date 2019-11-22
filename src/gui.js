@@ -430,4 +430,39 @@ class Gui {
 			this.populateFormulaFields();
 		}
 	}
+	/** Updates the displayed star that denotes a favorite unit conversion, constant, or formula.  If the current setting is a favorite, shows the star; otherwise, hides the star.
+	 * @param {number} section - represents a section of the app: 0 for unit conversion, 1 for constants, 2 for formulas.
+	 * @post shows or hides the star element for the correct section.
+	 */
+	updateStar(section) {
+		switch(section) {
+			case 1:	// unit conversion
+				if((this.m_catMenu.value == this.m_faves.category) && (this.m_unitAMenu.value == this.m_faves.unitA) && (this.m_unitBMenu.value == this.m_faves.unitB)) {
+					this.showInline("conv-star");
+				}
+				else {
+					this.hideElement("conv-star");
+				}
+				break;
+			case 1:	// constant
+				if((this.m_constMenu.value == this.m_faves.constant) && (this.m_constUnitMenu.value == this.m_faves.constUnit)) {
+					this.showInline("const-star");
+				}
+				else {
+					this.hideElement("const-star");
+				}
+				break;
+			case 2:	// formula
+				if(this.m_formulaMenu.value == this.m_faves.formula) {
+					this.showInline("formula-star");
+				}
+				else {
+					this.hideElement("formula-star");
+				}
+				break;
+			default:
+				console.log(section + "is not a known case of updateStar.");
+				break;
+		}
+	}
 }
