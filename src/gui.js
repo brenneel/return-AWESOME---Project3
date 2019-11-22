@@ -343,7 +343,8 @@ class Gui {
 				cookie += "; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 			}
 			else {
-				cookie += this.m_faves[x];
+				cookie += this.m_faves[x] + "; expires=Fri, 01 Jan 2100 00:00:00 UTC";
+				console.log(cookie);
 			}
 			document.cookie = cookie;
 		}
