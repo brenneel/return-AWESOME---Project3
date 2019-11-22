@@ -76,6 +76,18 @@
 			let CONFIG = new Config();
 			let GUI = new Gui();
 			GUI.initialize();
+			/**
+			 * event listener for calculating a value on enter press
+			 */
+			window.onload = function(){
+				let calcOnEnter = document.getElementById("unitA-input");
+				calcOnEnter.addEventListener("keyup", function(event) {
+					if(event.keyCode === 13){
+						event.preventDefault();
+						GUI.convertHandler();
+					}
+				});
+			}
 		</script>
 	</footer>
 </html>
