@@ -34,7 +34,7 @@
 						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="GUI.convertHandler();GUI.copyValue('unitB-input');"></p>
 					</div>
 					<div class="centered">All unit conversions are accurate to 0.0001%.</div>
-					<div class="centered"><input type="button" id="fave-conv-go" name="fave-conv-go" value="Go to favorite!" class="button" onclick="GUI.switchToFaveConv();"><input type="button" id="fave-conv-set" name="fave-conv-set" value="Set favorite!" class="button" onclick="GUI.setFaveConv();"><input type="button" id="fave-conv-rm" name="fave-conv-rm" value="Remove favorite" class="button" onclick="GUI.rmFaveConv();"></div>
+					<div class="centered favebar"><input type="button" id="fave-conv-go" name="fave-conv-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveConv();"><input type="button" id="fave-conv-set" name="fave-conv-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveConv();"><input type="button" id="fave-conv-rm" name="fave-conv-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveConv();"></div>
 				</form>
 			</div>
 			<div class="expandable">
@@ -49,10 +49,10 @@
 						<select id="constant-unit" onclick = "GUI.constHandler();">
 						</select>
 						<label for="constant-unit" class="hidden">Constant's Unit</label><div id="const-star" class="star">★</div>
-						<p><input type="button" id="const-submit" name="const-submit" value="Constant!" class="button" onclick="GUI.constHandler();GUI.copyValue('constant-num');"></p>
+						<p><input type="button" id="const-submit" name="const-submit" value="Copy to Clipboard" class="button" onclick="GUI.copyValue('constant-num');"></p>
 					</div>
 				</form>
-				<div class="centered"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="button" onclick="GUI.switchToFaveConst();"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="button" onclick="GUI.setFaveConst();"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="button" onclick="GUI.rmFaveConst();"></div>
+				<div class="centered favebar"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveConst();"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveConst();"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveConst();"></div>
 			</div>
 			<div class="expandable">
 				<div class="subtitle">Formula Calculator</div>
@@ -67,7 +67,7 @@
 					<div class="centered helptext" id="formula-helptext"></div>
 				</div>
 				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
-				<div class="centered"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="button" onclick="GUI.switchToFaveFormula();"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="button" onclick="GUI.setFaveFormula();"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="button" onclick="GUI.rmFaveFormula();"></div>
+				<div class="centered favebar"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveFormula();"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveFormula();"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveFormula();"></div>
 			</div>
 		</div>
 	</body>

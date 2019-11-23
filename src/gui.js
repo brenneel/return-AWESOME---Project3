@@ -254,18 +254,19 @@ class Gui {
 					this.showBlock("formula-helptext");
 				}
 				break;
-			case "REYNOLDS":
-				if (this.valOneEmpty()) {
-					console.log("User left a field blank, cannot calc Reynold's number");
+			case "REYNOLDS1":
+			case "REYNOLDS2":
+				if (!(this.valNoneEmpty())) {
+					this.showBlock("formula-helptext");
+					document.getElementById("answer").innerHTML = "";
 				}
 				else
 				{
 					let inputs = this.packageInputs();
 					let calc = this.CALCULATOR.calcREYNOLDS(inputs);
 					if(calc !== undefined) {
-						//formulaFields[""].value = calculated;
-						this.hideHelptext("formula-helptext");
-						console.log(calc);
+						this.hideElement("formula-helptext");
+						document.getElementById("answer").innerHTML = calc;
 					}
 					else
 					{
@@ -291,6 +292,20 @@ class Gui {
 			}
 		}
 		return(numEmpty == 1);
+	}
+	
+	/** Method that checks whether the formula fields have all inputs nonempty.
+	 * @return {Boolean} - true if formula inputs are validated, else false.
+	 */
+	valNoneEmpty() {
+		let numEmpty = 0;
+		let formulaFields = this.m_formulaFields.elements;
+		for(let i = 0; i < formulaFields.length; i++) {
+			if(formulaFields[i].value == "") {
+				numEmpty++;
+			}
+		}
+		return(numEmpty == 0);
 	}
 	
 	/** Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.
