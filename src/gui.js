@@ -293,6 +293,20 @@ class Gui {
 		return(numEmpty == 1);
 	}
 	
+	/** Method that checks whether the formula fields have all inputs nonempty.
+	 * @return {Boolean} - true if formula inputs are validated, else false.
+	 */
+	valNoneEmpty() {
+		let numEmpty = 0;
+		let formulaFields = this.m_formulaFields.elements;
+		for(let i = 0; i < formulaFields.length; i++) {
+			if(formulaFields[i].value == "") {
+				numEmpty++;
+			}
+		}
+		return(numEmpty == 0);
+	}
+	
 	/** Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.
 	 * @return {string} - the element ID of the empty input.
 	 */
