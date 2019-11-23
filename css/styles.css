@@ -132,3 +132,15 @@ input[type="number"] {
 	min-width: 30px;
 	min-height: 20px;
 }
+
+.favebar {
+	margin-top: 25px;
+
+}
+
+.fave-button {
+    padding: 5px 9px;
+    display: inline-block;
+	font-size: 80%;
+	border: none;
+}
