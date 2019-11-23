@@ -255,17 +255,16 @@ class Gui {
 				}
 				break;
 			case "REYNOLDS":
-				if (this.valOneEmpty()) {
-					console.log("User left a field blank, cannot calc Reynold's number");
+				if (!(this.valNoneEmpty())) {
+					this.showBlock("formula-helptext");
 				}
 				else
 				{
 					let inputs = this.packageInputs();
 					let calc = this.CALCULATOR.calcREYNOLDS(inputs);
 					if(calc !== undefined) {
-						//formulaFields[""].value = calculated;
-						this.hideHelptext("formula-helptext");
-						console.log(calc);
+						this.hideElement("formula-helptext");
+						document.getElementById("answer").innerHTML = calc;
 					}
 					else
 					{
