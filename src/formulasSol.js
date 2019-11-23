@@ -77,4 +77,16 @@ class FormulasSol{
 
         return this.fAbs.multiplySolve(numer, denom);
     }
+
+    /**
+     * Determines the friction factor based on the D, epsilon and Re values
+     * @param {Object} obj: An object containting  D, epsilon, and Re values
+     */
+    frictionFactor(obj){
+        let const1 = 5.19921875e-5;
+        let const2 = 2.599609375e-3;
+        let arr1 = [const1, obj.epsilon];
+        let arr2 = [obj.D];
+        return Math.pow(this.fAbs.multiplySolve(arr1, arr2) + (const2 / obj.Re), 1/3);
+    }
 }
