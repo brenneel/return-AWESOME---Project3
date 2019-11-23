@@ -14,11 +14,12 @@ class TestFormulasSol extends Test{
      */
     run(){
         this.createTest(this.testReynoldsNumber(), "Reynolds Number");
+        this.createTest(this.testFrictionFactor(), "Friction Factor");
         return this.fail;
     }
 
     /**
-     * Evaluates the Reynolds Number
+     * Evaluates the Reynolds Number Function
      */
     testReynoldsNumber(){
         let count = 0;
@@ -51,5 +52,16 @@ class TestFormulasSol extends Test{
         return this.pass;
     }
 
-    // testS
+    /**
+     * Evaluates the Friction Factor Function
+     */
+    testFrictionFactor(){
+        let obj = {epsilon: 2, D: 3, Re: 6}
+        let sol = 77.6355e-3;
+
+        if(this.fSol.frictionFactor(obj).toFixed(7) == sol){
+            return this.pass;
+        }
+        return this.fail;
+    }
 }
