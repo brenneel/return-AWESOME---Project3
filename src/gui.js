@@ -254,9 +254,11 @@ class Gui {
 					this.showBlock("formula-helptext");
 				}
 				break;
-			case "REYNOLDS":
+			case "REYNOLDS1":
+			case "REYNOLDS2":
 				if (!(this.valNoneEmpty())) {
 					this.showBlock("formula-helptext");
+					document.getElementById("answer").innerHTML = "";
 				}
 				else
 				{
