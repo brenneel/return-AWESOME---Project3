@@ -120,3 +120,15 @@ input[type="number"] {
 	font-size: 150%;
 	display: none;
 }
+
+.answer {
+	display: inline-block;
+	background-color: #4d4d4d;
+	margin: 7px 4px;
+    padding: 10px;
+	font-size: 12pt;
+	border: thick solid #008537;
+	border-radius: 2px;
+	min-width: 30px;
+	min-height: 20px;
+}
