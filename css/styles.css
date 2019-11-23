@@ -81,15 +81,23 @@ input[type="number"] {
 
 .helptext {
     color: #ff4242;
-    font-family: "Segoe UI", sans-serif;
     display: none;
 	font-style: italic;
+	font-weight: bold;
+	font-size: 95%;
+	padding: 5px;
 }
 
 .numfield {
 	width: 10%;
 	background-color: #4d4d4d;
 	color: white;
+}
+
+.conv-input {
+	background-color: #4d4d4d;
+	color: white;
+	width: 
 }
 
 #category {
@@ -127,8 +135,7 @@ input[type="number"] {
 	margin: 7px 4px;
     padding: 10px;
 	font-size: 12pt;
-	border: thick solid #008537;
-	border-radius: 2px;
+	border: 5px double #02b55e;
 	min-width: 30px;
 	min-height: 20px;
 }
