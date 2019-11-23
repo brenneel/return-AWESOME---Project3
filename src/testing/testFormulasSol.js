@@ -56,12 +56,26 @@ class TestFormulasSol extends Test{
      * Evaluates the Friction Factor Function
      */
     testFrictionFactor(){
-        let obj = {epsilon: 2, D: 3, Re: 6}
+        let obj = {epsilon: 2, D: 3, Re: 6};
         let sol = 77.6355e-3;
 
         if(this.fSol.frictionFactor(obj).toFixed(7) == sol){
             return this.pass;
         }
         return this.fail;
+    }
+
+    testBernoullisEquation(){
+        let initObj = {L: 5, v: 2, D: 4, f: 10, rho: 6, gamma: 7, K: 9, epsilon: 10};
+        let obj = initObj;
+        let initTest = "Bernoulis Equation - ";
+        let curTest = "";
+        //p2 Testing with isK = True
+        curTest = initTest + "Del P without K"
+        obj.p1 = 4;
+        obj.isK = True;
+        if(){
+
+        }
     }
 }

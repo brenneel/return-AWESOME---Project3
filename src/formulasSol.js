@@ -89,4 +89,42 @@ class FormulasSol{
         let arr2 = [obj.D];
         return Math.pow(this.fAbs.multiplySolve(arr1, arr2) + (const2 / obj.Re), 1/3);
     }
+
+    bernoullisEquation(obj){
+        let tempArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];
+        let variable = this.fAbs.findVar(obj, tempArr, 2);
+        let returnable = new Object();
+        let arr = new Array();
+        let result = 0;
+        
+        if(variable == "p1" || variable == "p2" || variable == "z1" || variable == "z2"){
+            //2v^2fl/D
+            let numer1 = [2, Math.pow(obj.v, 2), obj.f, obj.L];
+            let denom1 = [obj.D];
+            //v^2Sum(K)/2
+            let numer2 = [Math.pow(obj.v, 2), this.fAbs.sum(obj.K)];
+            let denom2 = [2];
+
+            if(variable == "p1" || variable == "p2"){
+                arr.push(-obj.w);
+                arr.push(this.uConst.GRAVITY.M_S2 * (obj.z2 - obj.z1));
+                arr.push(this.fAbs.multiplySolve(numer1, denom1));
+                arr.push(this.fAbs.multiplySolve(numer2, denom2));
+
+                if(isK){
+                    arr.push(Math.pow(obj.v, 2) / 2);
+                }
+                result = this.fAbs.difference(arr);
+                result *= obj.rho;
+                
+            }else{
+                //z1 or z2
+                
+            }
+        }else if(variable == "v" || variable == "f"){
+
+        }
+
+        return returnable;
+    }
 }
