@@ -67,27 +67,78 @@ class TestFormulasSol extends Test{
     }
 
     testBernoullisEquation(){
-        let initObj = {L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10};
-        let obj = initObj;
+        // let initObj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        let obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
         let initTest = "Bernoulis Equation - ";
         let curTest = "";
         let sol = 0;
         let count = 0;
-        let maxCount = 1;
+        let maxCount = 5;
 
-        //p2 Testing with isK = True
-        curTest = initTest + "Del P without K"
-        obj.p1 = 4;
-        obj.w = 6;
-        obj.z1 = 10;
-        obj.z2 = 3;
-        obj.isK = false;
-        obj.v = 2;
-        obj.f = 10;
-        sol = -223.98;
+        //p2 Testing with isK = False
+        curTest = initTest + "Del P2 without K"
+        delete obj.p2;
+        sol = -219.98;
         this.addTest(curTest);
-        this.conLog("Bernoullis", this.fSol.bernoullisEquation(obj));
-        if(this.fSol.bernoullisEquation(obj) == sol){
+        if(this.fSol.bernoullisEquation(obj).toFixed(2) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //p1 Testing with isK = True
+        curTest = initTest + "Del P1 with K";
+        obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        delete obj.p1;
+        obj.isK = true;
+        sol = 238.98;
+        this.addTest(curTest);
+        if(this.fSol.bernoullisEquation(obj).toFixed(2) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //Del P
+        curTest = initTest + "Del P with K";
+        obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        delete obj.p1;
+        delete obj.p2;
+        obj.isK = true;
+        sol = -235.98;
+        this.addTest(curTest);
+        if(this.fSol.bernoullisEquation(obj).toFixed(2) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //Del Z
+        curTest = initTest + "Del Z with K";
+        obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        delete obj.z1;
+        delete obj.z2;
+        obj.isK = true;
+        sol = -10.9922;
+        this.addTest(curTest);
+        if(this.fSol.bernoullisEquation(obj).toFixed(4) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //dw_s/dm
+        curTest = initTest + "dW_s/dm";
+        obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        delete obj.w;
+        obj.isK = true;
+        sol = 45.1633;
+        this.addTest(curTest);
+        if(this.fSol.bernoullisEquation(obj).toFixed(4) == sol){
             count++;
             this.updateTest(curTest, this.pass);
         }else{
