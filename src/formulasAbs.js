@@ -91,7 +91,7 @@ class FormulasAbs{
 
     /**
      * Protects an array by creating a new array.
-     * @param {Array} arr 
+     * @param {Array} arr: Original Array
      * @return {Array}
      */
     protectArr(arr){
@@ -99,6 +99,11 @@ class FormulasAbs{
         return temp;
     }
 
+    /**
+     * Protects an object by creating a new object
+     * @param {Object} obj: Original object
+     * @return {Object} 
+     */
     protectObj(obj){
         let copy = new Object();
         let key;
