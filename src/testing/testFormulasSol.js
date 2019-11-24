@@ -15,6 +15,7 @@ class TestFormulasSol extends Test{
     run(){
         this.createTest(this.testReynoldsNumber(), "Reynolds Number");
         this.createTest(this.testFrictionFactor(), "Friction Factor");
+        this.createTest(this.testBernoullisEquation(), "Bernoullis Equation");
         return this.fail;
     }
 
@@ -66,16 +67,40 @@ class TestFormulasSol extends Test{
     }
 
     testBernoullisEquation(){
-        let initObj = {L: 5, v: 2, D: 4, f: 10, rho: 6, gamma: 7, K: 9, epsilon: 10};
+        let initObj = {L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10};
         let obj = initObj;
         let initTest = "Bernoulis Equation - ";
         let curTest = "";
+        let sol = 0;
+        let count = 0;
+        let maxCount = 1;
+
         //p2 Testing with isK = True
         curTest = initTest + "Del P without K"
         obj.p1 = 4;
-        obj.isK = True;
-        if(){
-
+        obj.w = 6;
+        obj.z1 = 10;
+        obj.z2 = 3;
+        obj.isK = false;
+        obj.v = 2;
+        obj.f = 10;
+        sol = -223.98;
+        this.addTest(curTest);
+        this.conLog("Bernoullis", this.fSol.bernoullisEquation(obj));
+        if(this.fSol.bernoullisEquation(obj) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
         }
+
+        if(count == maxCount){
+            return this.pass;
+        }else if(count <= 0){
+            return this.fail;
+        }else{
+            return this.unkno;
+        }
+        return this.pass;
     }
 }
