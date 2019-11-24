@@ -21,16 +21,17 @@ class FormulasAbs{
      * @param {Array} arr: All formula variables. This should include the ones given as the obj keys.
      * @return {String}: Variable that must be solved for.
      */
-    findVar(obj, arr){
+    findVar(obj, arr, autoLength=1){
         let objArr = Object.keys(obj);
-        if(arr.length - 1 != objArr.length){
+        let tArr = this.protectArr(arr);
+        if(tArr.length - autoLength != objArr.length){
             return "#";
         }
 
         for(let i = 0; i < objArr.length; i++){
-            arr.splice(arr.indexOf(objArr[i]), 1);
+            tArr.splice(tArr.indexOf(objArr[i]), 1);
         }
-        return arr[0];
+        return tArr[0];
     }
 
     /**
@@ -90,12 +91,34 @@ class FormulasAbs{
 
     /**
      * Protects an array by creating a new array.
-     * @param {Array} arr 
+     * @param {Array} arr: Original Array
      * @return {Array}
      */
     protectArr(arr){
         let temp = arr.slice();
         return temp;
+    }
+
+    /**
+     * Protects an object by creating a new object
+     * @param {Object} obj: Original object
+     * @return {Object} 
+     */
+    protectObj(obj){
+        let copy = new Object();
+        let key;
+        let type = "";
+        for(key in obj){
+            type = typeof obj[key];
+            if(type === "string" || type === "boolean" || type === "number" || type === "bigint" || type === "symbol" || type === "function"){
+                copy[key] = obj[key];
+            }else if(type === "object"){
+                copy[key] = this.protectObj(obj[key]);
+            }else{
+                copy[key] = undefined;
+            }
+        }
+        return copy;
     }
 
     /**

@@ -89,4 +89,94 @@ class FormulasSol{
         let arr2 = [obj.D];
         return Math.pow(this.fAbs.multiplySolve(arr1, arr2) + (const2 / obj.Re), 1/3);
     }
+
+    bernoullisEquation(obj){
+        let initArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];
+        let variable = "";
+        if(this.fAbs.objectSize(obj) == 13){
+            variable = this.fAbs.findVar(obj, initArr);
+        }else{
+            variable = this.fAbs.findVar(obj, initArr, 2);
+        }
+        
+        if(variable == "p1" || variable == "p2" || variable == "z1" || variable == "z2" || variable == "w"){
+            return this.bernoullisSoft(variable, initArr, obj);
+        }else if(variable == "v" || variable == "f"){
+            return this.bernoullisIterative(obj);
+        }
+        console.log(variable);  
+        return undefined;
+    }
+    
+    bernoullisSoft(variable, initArr, obj){
+        let arr = new Array();
+        let result = 0;
+        let numer1 = [2, Math.pow(obj.v, 2), obj.f, obj.L];
+        //2v^2fl/D
+        let denom1 = [obj.D];
+        //v^2Sum(K)/2
+        let numer2 = [Math.pow(obj.v, 2), this.fAbs.sum(obj.K)];
+        let denom2 = [2];
+
+        //Solving for Del p
+        if(variable == "p1" || variable == "p2"){
+            arr.push(-obj.w);
+            arr.push(this.uConst.GRAVITY.M_S2 * (obj.z2 - obj.z1));
+            arr.push(this.fAbs.multiplySolve(numer1, denom1));
+            arr.push(this.fAbs.multiplySolve(numer2, denom2));
+
+            if(obj.isK){
+                arr.push(Math.pow(obj.v, 2) / 2);
+            } 
+            result = this.fAbs.difference(arr);
+            result *= obj.rho;
+               
+            if(initArr.length - this.fAbs.objectSize(obj) == 1){
+                if(variable == "p1"){
+                    result = obj.p2 - result;
+                }else{
+                    result = obj.p1 + result;
+                }
+            }
+        //Solving for Del Z
+        }else if(variable == "z1" || variable == "z2"){
+            arr.push(-obj.w);
+            arr.push((obj.p2 - obj.p1) / obj.rho);
+            arr.push(this.fAbs.multiplySolve(numer1, denom1));
+            arr.push(this.fAbs.multiplySolve(numer2, denom2));
+
+            if(obj.isK){
+                arr.push(Math.pow(obj.v, 2) / 2);
+            } 
+            result = this.fAbs.difference(arr);
+            result /= this.uConst.GRAVITY.M_S2;
+               
+            if(initArr.length - this.fAbs.objectSize(obj) == 1){
+                if(variable == "z1"){
+                    result = obj.z2 - result;
+                }else{
+                    result = obj.z1 + result;
+                }
+            }           
+        //Solving for dw_s/dm
+        }else if(variable == "w"){
+            arr.push((obj.p2 - obj.p1) / obj.rho);
+            arr.push(this.uConst.GRAVITY.M_S2 * (obj.z2 - obj.z1));
+            arr.push(this.fAbs.multiplySolve(numer1, denom1));
+            arr.push(this.fAbs.multiplySolve(numer2, denom2));
+
+            if(obj.isK){
+                arr.push(Math.pow(obj.v, 2) / 2);
+            } 
+            result = this.fAbs.sum(arr);
+        }else{
+            result = undefined;
+        }
+        console.log(result);
+        return result;
+    }
+
+    bernoullisIterative(obj){
+        return 5;
+    }
 }
