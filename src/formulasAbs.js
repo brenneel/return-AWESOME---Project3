@@ -21,9 +21,9 @@ class FormulasAbs{
      * @param {Array} arr: All formula variables. This should include the ones given as the obj keys.
      * @return {String}: Variable that must be solved for.
      */
-    findVar(obj, arr){
+    findVar(obj, arr, autoLength=1){
         let objArr = Object.keys(obj);
-        if(arr.length - 1 != objArr.length){
+        if(arr.length - autoLength != objArr.length){
             return "#";
         }
 
