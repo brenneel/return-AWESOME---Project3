@@ -23,12 +23,13 @@ class FormulasAbs{
      */
     findVar(obj, arr, autoLength=1){
         let objArr = Object.keys(obj);
-        if(arr.length - autoLength != objArr.length){
+        let tArr = this.protectArr(arr);
+        if(tArr.length - autoLength != objArr.length){
             return "#";
         }
 
         for(let i = 0; i < objArr.length; i++){
-            arr.splice(arr.indexOf(objArr[i]), 1);
+            tArr.splice(tArr.indexOf(objArr[i]), 1);
         }
         return arr[0];
     }
@@ -96,6 +97,21 @@ class FormulasAbs{
     protectArr(arr){
         let temp = arr.slice();
         return temp;
+    }
+
+    protectObj(obj){
+        let copy = new Object();
+        let key;
+        let type = "";
+        for(key in obj){
+            type = typeof obj[key];
+            if(type === "string" || type === "boolean" || type === "number" || type === "bigint" || type === "symbol" || type === "function"){
+                copy[key] = obj[key];
+            }else if(type === "object"){
+                copy[key] = this.protectObj(obj[key]);
+            }
+        }
+        return copy;
     }
 
     /**
