@@ -31,7 +31,7 @@ class FormulasAbs{
         for(let i = 0; i < objArr.length; i++){
             tArr.splice(tArr.indexOf(objArr[i]), 1);
         }
-        return arr[0];
+        return tArr[0];
     }
 
     /**
@@ -114,6 +114,8 @@ class FormulasAbs{
                 copy[key] = obj[key];
             }else if(type === "object"){
                 copy[key] = this.protectObj(obj[key]);
+            }else{
+                copy[key] = undefined;
             }
         }
         return copy;
