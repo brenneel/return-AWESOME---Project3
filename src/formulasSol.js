@@ -102,7 +102,9 @@ class FormulasSol{
         if(variable == "p1" || variable == "p2" || variable == "z1" || variable == "z2" || variable == "w"){
             return this.bernoullisSoft(variable, initArr, obj);
         }else if(variable == "v" || variable == "f"){
-            return this.bernoullisIterative(obj);
+            obj.f = 0.025;
+            obj.v = 0;
+            return this.bernoullisHard(obj, initArr);
         }
         console.log(variable);  
         return undefined;
@@ -169,14 +171,37 @@ class FormulasSol{
                 arr.push(Math.pow(obj.v, 2) / 2);
             } 
             result = this.fAbs.sum(arr);
+        }else if(variable == "v"){
+            let temp = new Array();
+            
+            arr.push(-obj.w);
+            arr.push((obj.p2 - obj.p1) / obj.rho);
+            arr.push(this.uConst.GRAVITY.M_S2 * (obj.z2 - obj.z1));
+            
+            temp.push(this.fAbs.multiplySolve(numer1, denom1));
+            temp.push(this.fAbs.sum(obj.K));
+            if(obj.isK){
+                temp.push(-1);
+            }
+
+            result = Math.pow((2/this.fAbs.sum(temp))*(this.fAbs.difference(arr)), 1/2);
         }else{
             result = undefined;
         }
-        console.log(result);
         return result;
     }
 
-    bernoullisIterative(obj){
-        return 5;
+    bernoullisHard(obj, initArr){
+        console.log("Iteration");
+        if(obj.f <= 0.00001){
+            return obj.v;
+        }
+        let tempRe = 0;
+        obj.v = this.bernoullisSoft("v", initArr, obj);
+        let tempObj = {D: obj.D, gamma: obj.gamma, v: obj.v};
+        tempRe = this.reynoldsNumber(tempObj);
+        let tempObj2 = {D: obj.D, epsilon: obj.epsilon, Re: tempRe};
+        obj.f = this.frictionFactor(tempObj2);
+        return this.bernoullisHard(obj, initArr);
     }
 }

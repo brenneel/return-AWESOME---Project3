@@ -73,7 +73,7 @@ class TestFormulasSol extends Test{
         let curTest = "";
         let sol = 0;
         let count = 0;
-        let maxCount = 5;
+        let maxCount = 6;
 
         //p2 Testing with isK = False
         curTest = initTest + "Del P2 without K"
@@ -138,6 +138,22 @@ class TestFormulasSol extends Test{
         obj.isK = true;
         sol = 45.1633;
         this.addTest(curTest);
+        if(this.fSol.bernoullisEquation(obj).toFixed(4) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //Iterative V
+        curTest = initTest + "V";
+        obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
+        delete obj.v;
+        delete obj.f;
+        // obj.isK = true;
+        sol = 45.1633;
+        this.addTest(curTest);
+        this.conLog("Iterative Bernoulli's", this.fSol.bernoullisEquation(obj));
         if(this.fSol.bernoullisEquation(obj).toFixed(4) == sol){
             count++;
             this.updateTest(curTest, this.pass);
