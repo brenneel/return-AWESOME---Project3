@@ -102,7 +102,7 @@ class FormulasSol{
         if(variable == "p1" || variable == "p2" || variable == "z1" || variable == "z2" || variable == "w"){
             return this.bernoullisSoft(variable, initArr, obj);
         }else if(variable == "v" || variable == "f"){
-            
+            return this.bernoullisIterative(obj);
         }
         console.log(variable);  
         return undefined;
@@ -177,6 +177,6 @@ class FormulasSol{
     }
 
     bernoullisIterative(obj){
-
+        return 5;
     }
 }
