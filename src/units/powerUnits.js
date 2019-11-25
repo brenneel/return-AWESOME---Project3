@@ -135,7 +135,7 @@ class PowerUnits {
     wtoFtlbFsec(w)
     {
         let watt = Number(w);
-        let ftlbF = .7374621493 * watt;
+        let ftlbF = .7375621493 * watt;
         return ftlbF;
     }
 
