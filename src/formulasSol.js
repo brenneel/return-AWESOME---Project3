@@ -233,7 +233,7 @@ class FormulasSol{
         tempObj = {D: obj.D, gamma: obj.gamma, v: obj.v};
         temp = this.reynoldsNumber(tempObj);
         tempObj = {D: obj.D, epsilon: obj.epsilon, Re: temp};
-        temp = this.frictionFactor(tempObj2);
+        temp = this.frictionFactor(tempObj);
 
         if(temp >= obj.f){
             return undefined;
