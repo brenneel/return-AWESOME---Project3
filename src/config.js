@@ -212,24 +212,28 @@ class Config {
 		["PVNRT", "Ideal Gas Law, PV = nRT"],
 		["REYNOLDS1", "Reynolds' Number (Re = Dvρ/μ)"],
 		["REYNOLDS2", "Reynolds' Number (Re = Dv/γ)"],
+		["BERNOULLI", "Bernoulli's Equation"]
 	];
 
 	FORMULA_TEXT = {
 		PVNRT: "IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.",
 		REYNOLDS1: "Reynolds' Number.<br>Enter D, v, ρ, and μ.  Click <b><em>Calculate!</em></b> to calculate Reynolds' Number.",
 		REYNOLDS2: "Reynolds' Number.<br>Enter D, v, and γ.  Click <b><em>Calculate!</em></b> to calculate Reynolds' Number.",
+		BERNOULLI: "Bernoulli's Equation.<br>Enter K values separated by commas."
 	};
 
 	FORMULA_FIELDS = {
 		PVNRT: "<label for=\"p\">P: </label><input type=\"number\" id=\"p\" name=\"p\" class=\"numfield\"><label for=\"v\">V:</label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">=</div><label for=\"n\">n: </label><input type=\"number\" id=\"n\" name=\"n\" class=\"numfield\"><label for=\"const-R\">R (J/mol⋅K): </label><div id=\"const-R\" name=\"const-R\" class=\"formula-const\">8.314</div><label for=\"t\">T:</label><input type=\"number\" id=\"t\" name=\"t\" class=\"numfield\">",
 		REYNOLDS1: "<label for=\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\" placeholder=\"D\"><label for=\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\" placeholder=\"v\"><label for=\"rho\">ρ: </label><input type=\"number\" id=\"rho\" name=\"rho\" class=\"numfield\" placeholder=\"ρ\"><div class=\"equals\">/</div><label for=\"mu\">μ: </label><input type=\"number\" id=\"mu\" name=\"mu\" class=\"numfield\" placeholder=\"μ\"><div class =\"equals\">=</div><div class=\"label\">R<sub>e</sub></div><div id=\"answer\" name=\"answer\" class=\"answer\"></div>",
-		REYNOLDS2: "<label for=\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\" placeholder=\"D\"><label for=\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\" placeholder=\"v\"><div class=\"equals\">/</div><label for=\"gamma\">γ: </label><input type=\"number\" id=\"gamma\" name=\"gamma\" class=\"numfield\" placeholder=\"γ\"><div class =\"equals\">=</div><div class=\"label\">R<sub>e</sub></div><div id=\"answer\" name=\"answer\" class=\"answer\"></div>"
+		REYNOLDS2: "<label for=\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\" placeholder=\"D\"><label for=\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\" placeholder=\"v\"><div class=\"equals\">/</div><label for=\"gamma\">γ: </label><input type=\"number\" id=\"gamma\" name=\"gamma\" class=\"numfield\" placeholder=\"γ\"><div class =\"equals\">=</div><div class=\"label\">R<sub>e</sub></div><div id=\"answer\" name=\"answer\" class=\"answer\"></div>",
+		BERNOULLI: "<div id=\"K-radio\" class=\"input-group\"><div>Cases:</div><input type=\"radio\" name=\"isK\" value=\"true\" id=\"true\"><label for=\"true\">1 or more K values</label><input type=\"radio\" name=\"isK\" value=\"false\" id=\"false\"><label for=\"false\">2 or more K values</label></div><br><div class=\"input-group\"><label for=\"p1\">p1:</label><input type=\"number\" class=\"numfield\" id=\"p1\" name=\"p1\" placeholder=\"p1\"><label for=\"p2\">p2:</label><input type=\"number\" class=\"numfield\" id=\"p2\" name=\"p2\" placeholder=\"p2\"><label for=\"z1\">z1:</label><input type=\"number\" class=\"numfield\" id=\"z1\" name=\"z1\" placeholder=\"z1\"><label for=\"z2\">z2:</label><input type=\"number\" class=\"numfield\" id=\"z2\" name=\"z2\" placeholder=\"z2\"><label for=\"w\">w:</label><input type=\"number\" class=\"numfield\" id=\"w\" name=\"w\" placeholder=\"w\"></div><div class=\"input-group\"><label for=\"L\">L:</label><input type=\"number\" class=\"numfield\" id=\"L\" name=\"L\" placeholder=\"L\"><label for=\"v\">v:</label><input type=\"number\" class=\"numfield\" id=\"v\" name=\"v\" placeholder=\"v\"><label for=\"D\">D:</label><input type=\"number\" class=\"numfield\" id=\"D\" name=\"D\" placeholder=\"D\"><label for=\"f\">f:</label><input type=\"number\" class=\"numfield\" id=\"f\" name=\"f\" placeholder=\"f\"><label for=\"rho\">ρ:</label><input type=\"number\" class=\"numfield\" id=\"rho\" name=\"rho\" placeholder=\"ρ\"><label for=\"gamma\">γ:</label><input type=\"number\" class=\"numfield\" id=\"gamma\" name=\"gamma\" placeholder=\"γ\"><label for=\"K\">K:</label><input type=\"text\" class=\"numfield\" id=\"K\" name=\"K\" placeholder=\"K\"><label for=\"epsilon\">ε:</label><input type=\"number\" class=\"numfield\" id=\"epsilon\" name=\"epsilon\" placeholder=\"ε\"></div>"
 	};
 
 	FORMULA_HELPTEXT = {
 		PVNRT: "Leave exactly one (1) variable blank!",
 		REYNOLDS1: "Don't leave any variables blank!",
-		REYNOLDS2: "Don't leave any variables blank!"
+		REYNOLDS2: "Don't leave any variables blank!",
+		//BERNOULLI_1: ""
 	};
 	
 	/* -------------------------------
