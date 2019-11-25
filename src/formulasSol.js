@@ -90,6 +90,24 @@ class FormulasSol{
         return Math.pow(this.fAbs.multiplySolve(arr1, arr2) + (const2 / obj.Re), 1/3);
     }
 
+    /**
+     * Calculates p1, p2, Del p, z1, z2, Del z, or dw/dw( input as w) utilizing Bernoulli's Equation
+     * @param {*} obj: contains upto "p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK".
+     *      {Number} p1, {Number} p2    [Can be solved for]: P values used to calculate delta p.
+     *      {Number} z1, {Number} z2    [Can be solved for]: Z values used to calculate delta z.
+     *      {Number}    w [Can be solved for]: Represents the dw_s/dm value.
+     *      {Number}    L:          Some value usually denoted as l.
+     *      {Number}    v [Can be solved for]: Some velocity, ewither v_2 or v_3 based on the problem.
+     *      {Number}    D:          Some D value from the friction factor equation extentsion of Bernoulli's equation.
+     *      {Number}    f [Will be solved for if solving for v]: The fricition factor.
+     *      {Number}    rho:        Some rho value used with p.
+     *      {Number}    gamma:      Some gamma used to get Reynold's number.
+     *      {Array}     K:          An array of the K values.
+     *      {Number}    epsilon:    Some Epsilon value used for the friction factor.
+     *      {Boolean}    isK:       True, if K must have 2 or more values (from one tank to another). 
+     *                              False, if K must have 1 or more values (from one tank to an open pipe).
+     * @returns {Number}
+     */
     bernoullisEquation(obj){
         let initArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];
         let variable = "";
@@ -102,12 +120,20 @@ class FormulasSol{
         if(variable == "p1" || variable == "p2" || variable == "z1" || variable == "z2" || variable == "w"){
             return this.bernoullisSoft(variable, initArr, obj);
         }else if(variable == "v" || variable == "f"){
-            return this.bernoullisIterative(obj);
+            obj.f = 0.025;
+            obj.v = 0;
+            return this.bernoullisHard(obj, initArr);
         }
-        console.log(variable);  
         return undefined;
     }
     
+    /**
+     * Solves for p1, p2, del p, z1, z2, del z, w, or a portion of a  single iteration of v. 
+     * @param {String} variable: the variable to solve for.
+     * @param {Array} initArr: Ab array of all the inital/possible values.
+     * @param {Object} obj: An object of all of the input values used in Bernoulli's Equation
+     * @returns {Number}     
+     */
     bernoullisSoft(variable, initArr, obj){
         let arr = new Array();
         let result = 0;
@@ -169,14 +195,51 @@ class FormulasSol{
                 arr.push(Math.pow(obj.v, 2) / 2);
             } 
             result = this.fAbs.sum(arr);
+        }else if(variable == "v"){
+            let temp = new Array();
+            
+            arr.push(-obj.w);
+            arr.push((obj.p2 - obj.p1) / obj.rho);
+            arr.push(this.uConst.GRAVITY.M_S2 * (obj.z2 - obj.z1));
+            
+            temp.push(this.fAbs.multiplySolve(numer1, denom1));
+            temp.push(this.fAbs.sum(obj.K));
+            if(obj.isK){
+                temp.push(-1);
+            }
+
+            result = Math.pow((2/this.fAbs.sum(temp))*(this.fAbs.difference(arr)), 1/2);
         }else{
             result = undefined;
         }
-        console.log(result);
         return result;
     }
 
-    bernoullisIterative(obj){
-        return 5;
+    /**
+     * The iteration used to solve for v.
+     * @param {*} obj: An object of all of the Bernoulli's Values
+     * @param {*} initArr: The array of all possible values.
+     * @returns {Number} 
+     */
+    bernoullisHard(obj, initArr){
+        console.log("Iteration");
+        if(obj.f <= 0.00001){
+            return obj.v;
+        }
+        let temp = 0;
+        let tempObj = new Object();
+
+        obj.v = this.bernoullisSoft("v", initArr, obj);
+        tempObj = {D: obj.D, gamma: obj.gamma, v: obj.v};
+        temp = this.reynoldsNumber(tempObj);
+        tempObj = {D: obj.D, epsilon: obj.epsilon, Re: temp};
+        temp = this.frictionFactor(tempObj);
+
+        if(temp >= obj.f){
+            return undefined;
+        }else{
+            obj.f = temp;
+        }
+        return this.bernoullisHard(obj, initArr);
     }
 }

@@ -15,7 +15,7 @@ class TestFormulasSol extends Test{
     run(){
         this.createTest(this.testReynoldsNumber(), "Reynolds Number");
         this.createTest(this.testFrictionFactor(), "Friction Factor");
-        this.createTest(this.testBernoullisEquation(), "Bernoullis Equation");
+        // this.createTest(this.testBernoullisEquation(), "Bernoullis Equation");
         return this.fail;
     }
 
@@ -73,7 +73,7 @@ class TestFormulasSol extends Test{
         let curTest = "";
         let sol = 0;
         let count = 0;
-        let maxCount = 5;
+        let maxCount = 6;
 
         //p2 Testing with isK = False
         curTest = initTest + "Del P2 without K"
@@ -139,6 +139,22 @@ class TestFormulasSol extends Test{
         sol = 45.1633;
         this.addTest(curTest);
         if(this.fSol.bernoullisEquation(obj).toFixed(4) == sol){
+            count++;
+            this.updateTest(curTest, this.pass);
+        }else{
+            this.updateTest(curTest, this.fail);
+        }
+
+        //Iterative V
+        curTest = initTest + "V";
+        obj = {p1:1.90529, p2:0, z1:0, z2:2.4384, w:undefined, v:2, f: 10, L:18.288, D: 0.0127, rho: undefined, gamma: undefined, K: [0.74, 0.74, 6.3], epsilon: 1.524e-6, isK: true};
+        delete obj.v;
+        delete obj.f;
+        // obj.isK = true;
+        sol = 2.87;
+        this.addTest(curTest);
+        this.conLog("Iterative Bernoulli's", this.fSol.bernoullisEquation(obj));
+        if(this.fSol.bernoullisEquation(obj).toFixed(2) == sol){
             count++;
             this.updateTest(curTest, this.pass);
         }else{
