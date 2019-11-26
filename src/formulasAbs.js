@@ -48,7 +48,7 @@ class FormulasAbs{
         if(denom.length > 0){
             denomTotal = this.quotient(denom);
         }
-        return numerTotal*denomTotal;
+        return numerTotal * denomTotal;
     }
 
     /**
