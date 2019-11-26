@@ -324,7 +324,24 @@ class Gui {
 		return(numEmpty == 0);
 	}
 	
-	/** Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.
+	/** Method that checks whether an input of type text contains only numbers separated by commas, aka Comma Separated Numbers (CSNs).
+	 * @param {string} element - The element ID of the input to validate.
+	 * @return {Boolean} - true if the input is validated, else false.
+	 */
+	valCSNs(element) {
+		let str = document.getElementById(element).value;
+		let arr = str.split(",");
+		let i = 0;
+		let validated = true;
+		while(i < arr.length && validated == true) {
+			if(isNaN(arr[i])) {
+				validated = false;
+			}
+			i++;
+		}
+		return(validated);
+	}
+	
 	 * @return {string} - the element ID of the empty input.
 	 */
 	findEmptyInput() {
