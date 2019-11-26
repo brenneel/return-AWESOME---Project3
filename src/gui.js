@@ -188,6 +188,22 @@ class Gui {
 		document.getElementById(ID).style.display = "none";
 	}
 	
+	/** Highlights the given element with a red outline.
+	 * @param {string} ID - the element ID of the element to highlight.
+	 * @post - changes the border property of the given element to "medium solid red"
+	 */
+	highlight(ID) {
+		document.getElementById(ID).style.border = "medium solid red";
+	}
+	
+	/** Unhighlights the given element.
+	 * @param {string} ID - the element ID of the element to unhighlight.
+	 * @post - removes the inline border styles of the given element.
+	 */
+	unHighlight(ID) {
+		document.getElementById(ID).style.removeProperty("border");
+	}
+	
 	/* -------------------------------
 	 * EVENT HANDLING METHODS
 	 * -------------------------------
