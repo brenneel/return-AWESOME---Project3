@@ -342,6 +342,7 @@ class Gui {
 		return(validated);
 	}
 	
+	/** Method that finds the first formula input that is empty.
 	 * @return {string} - the element ID of the empty input.
 	 */
 	findEmptyInput() {
