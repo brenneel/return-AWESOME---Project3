@@ -325,11 +325,11 @@ class Gui {
 	}
 	
 	/** Method that checks whether an input of type text contains only numbers separated by commas, aka Comma Separated Numbers (CSNs).
-	 * @param {string} element - The element ID of the input to validate.
+	 * @param {string} ID - The element ID of the input to validate.
 	 * @return {Boolean} - true if the input is validated, else false.
 	 */
-	valCSNs(element) {
-		let str = document.getElementById(element).value;
+	valCSNs(ID) {
+		let str = document.getElementById(ID).value;
 		let arr = str.split(",");
 		let i = 0;
 		let validated = true;
