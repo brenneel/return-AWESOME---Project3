@@ -532,6 +532,10 @@ class Gui {
 				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET2;
 				this.showBlock("formula-helptext");
 				break;
+			case "set3":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET3;
+				this.showBlock("formula-helptext");
+				break;
 			default:
 				console.log("showBernHelptext: " + type + " is not a valid case.");
 				break;
