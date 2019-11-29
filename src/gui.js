@@ -351,6 +351,19 @@ class Gui {
 		return(validated);
 	}
 	
+	/** Formula validation method that checks whether any of the inputs for variables in the given array are empty.
+	 * @param {String[]} inputs - an array of element IDs for the input fields to check.
+	 * @return {Boolean} true if any of the given variables are empty, else false.
+	 */
+	inputsEmpty(inputs) {
+		for(let i = 0; i < inputs.length; i++) {
+			if(document.getElementById(inputs[i]).value == "") {
+				return(true);
+			}
+		}
+		return(false);
+	}
+	
 	/** Method that finds the first formula input that is empty.
 	 * @return {string} - the element ID of the empty input.
 	 */
