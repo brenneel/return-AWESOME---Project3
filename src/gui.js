@@ -494,6 +494,34 @@ class Gui {
 		}
 	}
 	
+	/** Shows the Bernoulli's Equation helptext of the given type.
+	 * @param {string} type - a string representing which Bernoulli's helptext to show.
+	 * @post adds the appropriate helptext to the "formula-helptext" element and calls showBlock() on it.
+	 */
+	showBernHelptext(type) {
+		switch(type) {
+			case "K":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_K;
+				this.showBlock("formula-helptext");
+				break;
+			case "single":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
+				this.showBlock("formula-helptext");
+				break;
+			case "set1":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET1;
+				this.showBlock("formula-helptext");
+				break;
+			case "set2":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET2;
+				this.showBlock("formula-helptext");
+				break;
+			default:
+				console.log("showBernHelptext: " + type + " is not a valid case.");
+				break;
+		}
+	}
+	
 	/* -------------------------------
 	 * FAVORITES/COOKIES RELATED METHODS
 	 * -------------------------------
