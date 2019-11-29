@@ -418,13 +418,9 @@ class Gui {
 				return("del-z");
 			}
 			else {
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
-				this.showBlock("formula-helptext");
 			}
 		}
 		else {
-			this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
-				this.showBlock("formula-helptext");
 		}
 		return("n/a");
 	}
