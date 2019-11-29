@@ -386,7 +386,48 @@ class Gui {
 		}
 		return(obj);
 	}
-
+	
+	/* -------------------------------
+	 * BERNOULLI'S EQUATION VALIDATION METHODS
+	 * -------------------------------
+	 */
+	
+	/** Check if input conditions are correct to calculate a single solution.  The unknown to be solved for can be p1, p2, z1, z2, or w, or Δp or Δz.
+	 * @return {string} - if conditions are correct, return the element ID of the unknown variable to solve for. If too many inputs are empty, show the appropriate helptext and return "n/a".  If no inputs are empty, return "false" to signify that calculating a single solution is not the correct use case.
+	 */
+	checkSingleSoln() {
+		let inputs = ["p1", "p2", "z1", "z2", "w"];
+		let empties = [];
+		for(let i = 0; i < inputs.length; i++) {
+			if(document.getElementById(inputs[i]).value == "") {
+				empties.push(inputs[i]);
+			}
+		}
+		
+		if(empties.length == 0) {
+			return("false");
+		}
+		else if(empties.length == 1) {
+			return(empties[0]);
+		}
+		else if(empties.length == 2) {
+			if(empties[0] == "p1" && empties[1] == "p2") {
+				return("del-p");
+			}
+			else if(empties[0] == "z1" && empties[1] == "z2") {
+				return("del-z");
+			}
+			else {
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
+				this.showBlock("formula-helptext");
+			}
+		}
+		else {
+			this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
+				this.showBlock("formula-helptext");
+		}
+		return("n/a");
+	}
 	/**
 	 * Method that copies value calculation to user clipboard
 	 * @param {string} fieldId id of the input field to copy data from
