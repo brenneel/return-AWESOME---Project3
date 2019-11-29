@@ -424,6 +424,38 @@ class Gui {
 		}
 		return("n/a");
 	}
+	
+	/** Check if the K values were entered properly.  Checks that the correct number of K values was entered, and calls {@link Gui}.valCSNs() to validate format and prevent junk values.
+	 * @param {Boolean} Kcase - true if 1 or more K values are required, false if 2 or more K values are required.
+	 * @pre - assume that the K input field is not empty.
+	 * @return {Boolean} - true if K values are validated, else false.
+	 */
+	checkKVals(Kcase) {
+		if(this.valCSNs("K")) {
+			let Ks = document.getElementById("K").value.split(",");
+			let useCase = this.getCheckedRadio("isK");
+			if(Kcase) {
+				if(Ks.length >= 1) {
+					return(true);
+				}
+				else {
+					return(false);
+				}
+			}
+			else {
+				if(Ks.length >= 2) {
+					return(true);
+				}
+				else {
+					return(false);
+				}
+			}
+		}
+		else {
+			return(false);
+		}
+	}
+	
 	/**
 	 * Method that copies value calculation to user clipboard
 	 * @param {string} fieldId id of the input field to copy data from
