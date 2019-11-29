@@ -290,6 +290,15 @@ class Gui {
 					}
 				}
 				break;
+			case "BERNOULLI":
+				this.hideElement("formula-helptext");
+				// validation that doesn't depend on calculation type
+				let bernoullisCase = this.getCheckedRadio("isK");
+				if(document.getElementById("K").value == "" || !(this.checkKVals(bernoullisCase))) {
+					this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_K;
+					this.showBlock("formula-helptext");
+					break;
+				}
 			default:
 				console.log("calculateHandler: " + formula + " did not match any case.");
 				break;
