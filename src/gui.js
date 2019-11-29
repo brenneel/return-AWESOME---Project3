@@ -303,11 +303,27 @@ class Gui {
 				break;
 			case "BERNOULLI":
 				this.hideElement("formula-helptext");
+				
 				// validation that doesn't depend on calculation type
 				let bernoullisCase = this.getCheckedRadio("isK");
 				if(document.getElementById("K").value == "" || !(this.checkKVals(bernoullisCase))) {
-					this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_K;
-					this.showBlock("formula-helptext");
+					this.showBernHelptext("K");
+					break;
+				}
+				
+				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
+					if(this.inputsEmpty(["L", "D", "rho"])) {
+						this.showBernHelptext("set1");
+						break;
+					}
+				}
+				else {
+					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+						this.showBernHelptext("set2");
+						break;
+					}
+				}
+				
 					break;
 				}
 			default:
