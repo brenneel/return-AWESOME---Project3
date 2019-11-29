@@ -361,6 +361,20 @@ class Gui {
 		return(empty);
 	}
 	
+	/** Gets the value of the checked radio from a group of radio buttons.  [Adapted from geeksforgeeks.org]
+	 * @param {string} name - name of the radio button group.
+	 * @return {string} - the value of the raio button which has the "checked" attribute.
+	 */
+	getCheckedRadio(name) {
+		let elem = document.getElementsByName(name); 
+		for(let i = 0; i < elem.length; i++) { 
+			if(elem[i].checked) {
+				return(elem[i].value);
+			}
+		}
+		console.log(name + " radio group had no radio selected.");
+	}
+	
 	/** Method that packages all formula input values into an object. 
 	 * @return {Object} - an object containing all input values for the current formula.
 	 */
