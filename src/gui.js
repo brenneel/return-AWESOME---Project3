@@ -249,6 +249,17 @@ class Gui {
 		}
 	}
 	
+	/**
+	 * Method that copies value calculation to user clipboard
+	 * @param {string} fieldId id of the input field to copy data from
+	 * @post the converted value is stored in the clipboard
+	 */
+	copyValue(fieldId){
+		let conversionValue = document.getElementById(fieldId);
+		conversionValue.select();
+		document.execCommand("copy");
+	}
+	
 	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct number of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. *[Currently only handles PV = nRT]*
 	 * @post changes the value of the appropriate input element
 	 */
@@ -304,6 +315,11 @@ class Gui {
 				break;
 		}
 	}
+	
+	/* -------------------------------
+	 * FORMULA VALIDATION/HELPER METHODS
+	 * -------------------------------
+	 */
 	
 	/** Method that checks whether the formula fields have only one input empty.
 	 * @return {Boolean} - true if formula inputs are validated, else false.
@@ -410,7 +426,7 @@ class Gui {
 	}
 	
 	/* -------------------------------
-	 * BERNOULLI'S EQUATION VALIDATION METHODS
+	 * BERNOULLI'S EQUATION RELATED METHODS
 	 * -------------------------------
 	 */
 	
@@ -476,17 +492,6 @@ class Gui {
 		else {
 			return(false);
 		}
-	}
-	
-	/**
-	 * Method that copies value calculation to user clipboard
-	 * @param {string} fieldId id of the input field to copy data from
-	 * @post the converted value is stored in the clipboard
-	 */
-	copyValue(fieldId){
-		let conversionValue = document.getElementById(fieldId);
-		conversionValue.select();
-		document.execCommand("copy");
 	}
 	
 	/* -------------------------------
