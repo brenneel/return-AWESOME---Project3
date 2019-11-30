@@ -567,7 +567,6 @@ class Gui {
 		
 		for (const variable in obj) {
 			if(variable != "gamma" && variable != "epsilon" && variable != "K" && variable != "isK") {
-				console.log(variable);
 				let str = String(variable);
 				let value = document.getElementById(str).value;
 				if(value != "") {
@@ -583,7 +582,6 @@ class Gui {
 		
 		let tempK = document.getElementById("K").value;
 		obj.K = tempK.split(",");
-		console.log(obj.K);
 		for(let i = 0; i < obj.K.length; i++) {
 			obj.K[i] = Number(obj.K[i]);
 		}
