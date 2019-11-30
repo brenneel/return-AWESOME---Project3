@@ -36,6 +36,7 @@ class Gui {
 		// containers for formula instructions & inputs/outputs
 		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
+		this.m_formulaOutput = document.getElementById("formula-output");
 		this.m_formulaHelpText = document.getElementById("formula-helptext");
 		
 		// favorites
@@ -188,6 +189,22 @@ class Gui {
 		document.getElementById(ID).style.display = "none";
 	}
 	
+	/** Highlights the given element with a red outline.
+	 * @param {string} ID - the element ID of the element to highlight.
+	 * @post - changes the border property of the given element to "medium solid red"
+	 */
+	highlight(ID) {
+		document.getElementById(ID).style.border = "medium solid red";
+	}
+	
+	/** Unhighlights the given element.
+	 * @param {string} ID - the element ID of the element to unhighlight.
+	 * @post - removes the inline border styles of the given element.
+	 */
+	unHighlight(ID) {
+		document.getElementById(ID).style.removeProperty("border");
+	}
+	
 	/* -------------------------------
 	 * EVENT HANDLING METHODS
 	 * -------------------------------
@@ -233,6 +250,17 @@ class Gui {
 		}
 	}
 	
+	/**
+	 * Method that copies value calculation to user clipboard
+	 * @param {string} fieldId id of the input field to copy data from
+	 * @post the converted value is stored in the clipboard
+	 */
+	copyValue(fieldId){
+		let conversionValue = document.getElementById(fieldId);
+		conversionValue.select();
+		document.execCommand("copy");
+	}
+	
 	/** Handles formula calculation when the user clicks the Calculate button: checks if the correct number of variables are given; if so, calls the appropriate formula calculation method; outputs the calculated value to the appropriate GUI field. *[Currently only handles PV = nRT]*
 	 * @post changes the value of the appropriate input element
 	 */
@@ -274,11 +302,73 @@ class Gui {
 					}
 				}
 				break;
+			case "BERNOULLI":
+				this.hideElement("formula-helptext");
+				this.m_formulaOutput.innerHTML = "";
+				this.unHighlight("formula-output");
+				// validation that doesn't depend on calculation type
+				let Kcase = this.getCheckedRadio("isK");
+				if(document.getElementById("K").value == "" || !(this.checkKVals(Kcase))) {
+					this.showBernHelptext("K");
+					break;
+				}
+				
+				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
+					if(this.inputsEmpty(["L", "D", "rho"])) {
+						this.showBernHelptext("set1");
+						break;
+					}
+				}
+				else {
+					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+						this.showBernHelptext("set2");
+						break;
+					}
+				}
+				
+				// check if conditions are correct to calculate a single solution, an iterative solution, or neither
+				let solveFor = this.checkSingleSoln();
+				if(solveFor == "n/a") {	// user needs to fix inputs
+					this.showBernHelptext("single");
+					break;
+				}
+				else if(solveFor == "false") {	// calculate iteratively
+					if(this.inputsEmpty(["gamma", "epsilon"])) {
+						this.showBernHelptext("set3");
+						break;
+					}
+					let inputs = this.packBernoullis(Kcase, false);
+					let solution = this.CALCULATOR.calcBernoullis(inputs);
+					if(solution !== undefined) {
+						this.m_formulaOutput.innerHTML = "Calculated solution: v = " + solution;
+						this.highlight("formula-output");
+					}
+					else {
+						console.log("calcBernoullis returned undefined.");
+					}
+				}
+				else {	// calculate a single solution
+					let inputs = this.packBernoullis(Kcase, false);
+					let solution = this.CALCULATOR.calcBernoullis(inputs);
+					if(solution !== undefined) {
+						this.m_formulaOutput.innerHTML = "Calculated solution: " + solveFor + " = " + solution;
+						this.highlight("formula-output");
+					}
+					else {
+						console.log("calcBernoullis returned undefined.");
+					}
+				}
+				break;
 			default:
 				console.log("calculateHandler: " + formula + " did not match any case.");
 				break;
 		}
 	}
+	
+	/* -------------------------------
+	 * FORMULA VALIDATION/HELPER METHODS
+	 * -------------------------------
+	 */
 	
 	/** Method that checks whether the formula fields have only one input empty.
 	 * @return {Boolean} - true if formula inputs are validated, else false.
@@ -308,7 +398,38 @@ class Gui {
 		return(numEmpty == 0);
 	}
 	
-	/** Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.
+	/** Method that checks whether an input of type text contains only numbers separated by commas, aka Comma Separated Numbers (CSNs).
+	 * @param {string} ID - The element ID of the input to validate.
+	 * @return {Boolean} - true if the input is validated, else false.
+	 */
+	valCSNs(ID) {
+		let str = document.getElementById(ID).value;
+		let arr = str.split(",");
+		let i = 0;
+		let validated = true;
+		while(i < arr.length && validated == true) {
+			if(isNaN(arr[i])) {
+				validated = false;
+			}
+			i++;
+		}
+		return(validated);
+	}
+	
+	/** Formula validation method that checks whether any of the inputs for variables in the given array are empty.
+	 * @param {String[]} inputs - an array of element IDs for the input fields to check.
+	 * @return {Boolean} true if any of the given variables are empty, else false.
+	 */
+	inputsEmpty(inputs) {
+		for(let i = 0; i < inputs.length; i++) {
+			if(document.getElementById(inputs[i]).value == "") {
+				return(true);
+			}
+		}
+		return(false);
+	}
+	
+	/** Method that finds the first formula input that is empty.
 	 * @return {string} - the element ID of the empty input.
 	 */
 	findEmptyInput() {
@@ -327,6 +448,20 @@ class Gui {
 		return(empty);
 	}
 	
+	/** Gets the value of the checked radio from a group of radio buttons.  [Adapted from geeksforgeeks.org]
+	 * @param {string} name - name of the radio button group.
+	 * @return {string} - the value of the raio button which has the "checked" attribute.
+	 */
+	getCheckedRadio(name) {
+		let elem = document.getElementsByName(name); 
+		for(let i = 0; i < elem.length; i++) { 
+			if(elem[i].checked) {
+				return(elem[i].value);
+			}
+		}
+		console.log(name + " radio group had no radio selected.");
+	}
+	
 	/** Method that packages all formula input values into an object. 
 	 * @return {Object} - an object containing all input values for the current formula.
 	 */
@@ -338,16 +473,153 @@ class Gui {
 		}
 		return(obj);
 	}
-
-	/**
-	 * Method that copies value calculation to user clipboard
-	 * @param {string} fieldId id of the input field to copy data from
-	 * @post the converted value is stored in the clipboard
+	
+	/* -------------------------------
+	 * BERNOULLI'S EQUATION RELATED METHODS
+	 * -------------------------------
 	 */
-	copyValue(fieldId){
-		let conversionValue = document.getElementById(fieldId);
-		conversionValue.select();
-		document.execCommand("copy");
+	
+	/** Check if input conditions are correct to calculate a single solution.  The unknown to be solved for can be p1, p2, z1, z2, or w, or Δp or Δz.
+	 * @return {string} - if conditions are correct, return the element ID of the unknown variable to solve for. If too many inputs are empty, show the appropriate helptext and return "n/a".  If no inputs are empty, return "false" to signify that calculating a single solution is not the correct use case.
+	 */
+	checkSingleSoln() {
+		let inputs = ["p1", "p2", "z1", "z2", "w"];
+		let empties = [];
+		for(let i = 0; i < inputs.length; i++) {
+			if(document.getElementById(inputs[i]).value == "") {
+				empties.push(inputs[i]);
+			}
+		}
+		
+		if(empties.length == 0) {
+			return("false");
+		}
+		else if(empties.length == 1) {
+			return(empties[0]);
+		}
+		else if(empties.length == 2) {
+			if(empties[0] == "p1" && empties[1] == "p2") {
+				return("del-p");
+			}
+			else if(empties[0] == "z1" && empties[1] == "z2") {
+				return("del-z");
+			}
+			else {
+			}
+		}
+		else {
+		}
+		return("n/a");
+	}
+	
+	/** Check if the K values were entered properly.  Checks that the correct number of K values was entered, and calls {@link Gui}.valCSNs() to validate format and prevent junk values.
+	 * @param {Boolean} Kcase - true if 1 or more K values are required, false if 2 or more K values are required.
+	 * @pre - assume that the K input field is not empty.
+	 * @return {Boolean} - true if K values are validated, else false.
+	 */
+	checkKVals(Kcase) {
+		if(this.valCSNs("K")) {
+			let Ks = document.getElementById("K").value.split(",");
+			let useCase = this.getCheckedRadio("isK");
+			if(Kcase) {
+				if(Ks.length >= 1) {
+					return(true);
+				}
+				else {
+					return(false);
+				}
+			}
+			else {
+				if(Ks.length >= 2) {
+					return(true);
+				}
+				else {
+					return(false);
+				}
+			}
+		}
+		else {
+			return(false);
+		}
+	}
+	
+	/** Shows the Bernoulli's Equation helptext of the given type.
+	 * @param {string} type - a string representing which Bernoulli's helptext to show.
+	 * @post adds the appropriate helptext to the "formula-helptext" element and calls showBlock() on it.
+	 */
+	showBernHelptext(type) {
+		switch(type) {
+			case "K":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_K;
+				this.showBlock("formula-helptext");
+				break;
+			case "single":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
+				this.showBlock("formula-helptext");
+				break;
+			case "set1":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET1;
+				this.showBlock("formula-helptext");
+				break;
+			case "set2":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET2;
+				this.showBlock("formula-helptext");
+				break;
+			case "set3":
+				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET3;
+				this.showBlock("formula-helptext");
+				break;
+			default:
+				console.log("showBernHelptext: " + type + " is not a valid case.");
+				break;
+		}
+	}
+	
+	/** Packages Bernoulli's Equation inputs into an object to pass to (@link Calculator}. Assumes all inputs have already been validated.
+	 * @param {Boolean} Kcase - true when 1 or more K values are required, false when 2 or more K values are required.
+	 * @param {Boolean} single - true when packaging inputs to calculate a single solution (omitting gamma & epsilon), false when packaging inputs to calculate iteratively.
+	 * @return {Object} - an object containing all necessary inputs to calculate Bernoulli's Equation.
+	 */
+	packBernoullis(Kcase, single) {
+		let obj = {
+			p1: undefined,
+			p2: undefined,
+			z1: undefined,
+			z2: undefined,
+			w: undefined,
+			L: undefined,
+			v: undefined,
+			D: undefined,
+			f: undefined,
+			rho: undefined,
+			gamma: undefined,
+			K: [],
+			epsilon: undefined,
+			isK: Kcase
+		};
+		
+		for (const variable in obj) {
+			if(variable != "gamma" && variable != "epsilon" && variable != "K" && variable != "isK") {
+				let str = String(variable);
+				let value = document.getElementById(str).value;
+				if(value != "") {
+					obj[variable] = value;
+				}
+			}
+		}
+		
+		if(!single) {
+			obj.gamma = document.getElementById("gamma").value;
+			obj.epsilon = document.getElementById("epsilon").value;
+		}
+		
+		let tempK = document.getElementById("K").value;
+		obj.K = tempK.split(",");
+		for(let i = 0; i < obj.K.length; i++) {
+			obj.K[i] = Number(obj.K[i]);
+		}
+		
+		return(obj);
 	}
 	
 	/* -------------------------------
