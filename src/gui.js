@@ -307,10 +307,22 @@ class Gui {
 				this.m_formulaOutput.innerHTML = "";
 				this.unHighlight("formula-output");
 				// validation that doesn't depend on calculation type
-				let Kcase = this.getCheckedRadio("isK");
-				if(document.getElementById("K").value == "" || !(this.checkKVals(Kcase))) {
+				let KcaseStr = this.getCheckedRadio("isK");
+				let Kcase;
+				if(document.getElementById("K").value == "" || !(this.checkKVals(KcaseStr))) {
 					this.showBernHelptext("K");
 					break;
+				}
+				else {
+					if(KcaseStr == "true") {
+						Kcase = true;
+					}
+					else if(KcaseStr == "false") {
+						Kcase = false;
+					}
+					else {
+						console.log("Error: KcaseStr = " + KcaseStr);
+					}
 				}
 				
 				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
@@ -344,7 +356,7 @@ class Gui {
 						this.highlight("formula-output");
 					}
 					else {
-						console.log("calcBernoullis returned undefined.");
+						console.log("Iterative soln returned undefined.");
 					}
 				}
 				else {	// calculate a single solution
@@ -355,7 +367,7 @@ class Gui {
 						this.highlight("formula-output");
 					}
 					else {
-						console.log("calcBernoullis returned undefined.");
+						console.log("single Soln returned undefined.");
 					}
 				}
 				break;
