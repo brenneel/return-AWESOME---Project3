@@ -304,10 +304,11 @@ class Gui {
 				break;
 			case "BERNOULLI":
 				this.hideElement("formula-helptext");
-				
+				this.m_formulaOutput.innerHTML = "";
+				this.unHighlight("formula-output");
 				// validation that doesn't depend on calculation type
-				let bernoullisCase = this.getCheckedRadio("isK");
-				if(document.getElementById("K").value == "" || !(this.checkKVals(bernoullisCase))) {
+				let Kcase = this.getCheckedRadio("isK");
+				if(document.getElementById("K").value == "" || !(this.checkKVals(Kcase))) {
 					this.showBernHelptext("K");
 					break;
 				}
@@ -325,8 +326,39 @@ class Gui {
 					}
 				}
 				
+				// check if conditions are correct to calculate a single solution, an iterative solution, or neither
+				let solveFor = this.checkSingleSoln();
+				if(solveFor == "n/a") {	// user needs to fix inputs
+					this.showBernHelptext("single");
 					break;
 				}
+				else if(solveFor == "false") {	// calculate iteratively
+					if(this.inputsEmpty(["gamma", "epsilon"])) {
+						this.showBernHelptext("set3");
+						break;
+					}
+					let inputs = this.packBernoullis(Kcase, false);
+					let solution = this.CALCULATOR.calcBernoullis(inputs);
+					if(solution !== undefined) {
+						this.m_formulaOutput.innerHTML = "Calculated solution: v = " + solution;
+						this.highlight("formula-output");
+					}
+					else {
+						console.log("calcBernoullis returned undefined.");
+					}
+				}
+				else {	// calculate a single solution
+					let inputs = this.packBernoullis(Kcase, false);
+					let solution = this.CALCULATOR.calcBernoullis(inputs);
+					if(solution !== undefined) {
+						this.m_formulaOutput.innerHTML = "Calculated solution: " + solveFor + " = " + solution;
+						this.highlight("formula-output");
+					}
+					else {
+						console.log("calcBernoullis returned undefined.");
+					}
+				}
+				break;
 			default:
 				console.log("calculateHandler: " + formula + " did not match any case.");
 				break;
