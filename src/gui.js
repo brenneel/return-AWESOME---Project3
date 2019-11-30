@@ -542,6 +542,55 @@ class Gui {
 		}
 	}
 	
+	/** Packages Bernoulli's Equation inputs into an object to pass to (@link Calculator}. Assumes all inputs have already been validated.
+	 * @param {Boolean} Kcase - true when 1 or more K values are required, false when 2 or more K values are required.
+	 * @param {Boolean} single - true when packaging inputs to calculate a single solution (omitting gamma & epsilon), false when packaging inputs to calculate iteratively.
+	 * @return {Object} - an object containing all necessary inputs to calculate Bernoulli's Equation.
+	 */
+	packBernoullis(Kcase, single) {
+		let obj = {
+			p1: undefined,
+			p2: undefined,
+			z1: undefined,
+			z2: undefined,
+			w: undefined,
+			L: undefined,
+			v: undefined,
+			D: undefined,
+			f: undefined,
+			rho: undefined,
+			gamma: undefined,
+			K: [],
+			epsilon: undefined,
+			isK: Kcase
+		};
+		
+		for (const variable in obj) {
+			if(variable != "gamma" && variable != "epsilon" && variable != "K" && variable != "isK") {
+				console.log(variable);
+				let str = String(variable);
+				let value = document.getElementById(str).value;
+				if(value != "") {
+					obj[variable] = value;
+				}
+			}
+		}
+		
+		if(!single) {
+			obj.gamma = document.getElementById("gamma").value;
+			obj.epsilon = document.getElementById("epsilon").value;
+		}
+		
+		let tempK = document.getElementById("K").value;
+		obj.K = tempK.split(",");
+		console.log(obj.K);
+		for(let i = 0; i < obj.K.length; i++) {
+			obj.K[i] = Number(obj.K[i]);
+		}
+		
+		return(obj);
+	}
+	
 	/* -------------------------------
 	 * FAVORITES/COOKIES RELATED METHODS
 	 * -------------------------------
