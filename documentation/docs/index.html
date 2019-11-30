@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>Project 4: Unit Converter Version 2.0 | Documentation</title>
+  <title>Project 4: Unit Converter Version 1.1 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
   <link href='assets/style.css' rel='stylesheet'>
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>Project 4: Unit Converter</h3>
-          <div class='mb1'><code>Version 2.0</code></div>
+          <div class='mb1'><code>Version 1.1</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -89,6 +89,18 @@
                         href='#calculatorcalcpvnrt'
                         class='regular pre-open'>
                         #calcPVNRT
+                      </a></li>
+                      
+                      <li><a
+                        href='#calculatorcalcreynolds'
+                        class='regular pre-open'>
+                        #calcREYNOLDS
+                      </a></li>
+                      
+                      <li><a
+                        href='#calculatorcalcbernoullis'
+                        class='regular pre-open'>
+                        #calcBernoullis
                       </a></li>
                       
                       <li><a
@@ -190,6 +202,12 @@
                       </a></li>
                       
                       <li><a
+                        href='#formulasabsprotectobj'
+                        class='regular pre-open'>
+                        #protectObj
+                      </a></li>
+                      
+                      <li><a
                         href='#formulasabssum'
                         class='regular pre-open'>
                         #sum
@@ -251,6 +269,30 @@
                         href='#formulassolreynoldsnumber'
                         class='regular pre-open'>
                         #reynoldsNumber
+                      </a></li>
+                      
+                      <li><a
+                        href='#formulassolfrictionfactor'
+                        class='regular pre-open'>
+                        #frictionFactor
+                      </a></li>
+                      
+                      <li><a
+                        href='#formulassolbernoullisequation'
+                        class='regular pre-open'>
+                        #bernoullisEquation
+                      </a></li>
+                      
+                      <li><a
+                        href='#formulassolbernoullissoft'
+                        class='regular pre-open'>
+                        #bernoullisSoft
+                      </a></li>
+                      
+                      <li><a
+                        href='#formulassolbernoullishard'
+                        class='regular pre-open'>
+                        #bernoullisHard
                       </a></li>
                       
                     </ul>
@@ -336,6 +378,18 @@
                       </a></li>
                       
                       <li><a
+                        href='#guihighlight'
+                        class='regular pre-open'>
+                        #highlight
+                      </a></li>
+                      
+                      <li><a
+                        href='#guiunhighlight'
+                        class='regular pre-open'>
+                        #unHighlight
+                      </a></li>
+                      
+                      <li><a
                         href='#guiconverthandler'
                         class='regular pre-open'>
                         #convertHandler
@@ -354,6 +408,12 @@
                       </a></li>
                       
                       <li><a
+                        href='#guicopyvalue'
+                        class='regular pre-open'>
+                        #copyValue
+                      </a></li>
+                      
+                      <li><a
                         href='#guicalculatehandler'
                         class='regular pre-open'>
                         #calculateHandler
@@ -366,15 +426,63 @@
                       </a></li>
                       
                       <li><a
+                        href='#guivalnoneempty'
+                        class='regular pre-open'>
+                        #valNoneEmpty
+                      </a></li>
+                      
+                      <li><a
+                        href='#guivalcsns'
+                        class='regular pre-open'>
+                        #valCSNs
+                      </a></li>
+                      
+                      <li><a
+                        href='#guiinputsempty'
+                        class='regular pre-open'>
+                        #inputsEmpty
+                      </a></li>
+                      
+                      <li><a
                         href='#guifindemptyinput'
                         class='regular pre-open'>
                         #findEmptyInput
                       </a></li>
                       
                       <li><a
+                        href='#guigetcheckedradio'
+                        class='regular pre-open'>
+                        #getCheckedRadio
+                      </a></li>
+                      
+                      <li><a
                         href='#guipackageinputs'
                         class='regular pre-open'>
                         #packageInputs
+                      </a></li>
+                      
+                      <li><a
+                        href='#guichecksinglesoln'
+                        class='regular pre-open'>
+                        #checkSingleSoln
+                      </a></li>
+                      
+                      <li><a
+                        href='#guicheckkvals'
+                        class='regular pre-open'>
+                        #checkKVals
+                      </a></li>
+                      
+                      <li><a
+                        href='#guishowbernhelptext'
+                        class='regular pre-open'>
+                        #showBernHelptext
+                      </a></li>
+                      
+                      <li><a
+                        href='#guipackbernoullis'
+                        class='regular pre-open'>
+                        #packBernoullis
                       </a></li>
                       
                       <li><a
@@ -621,6 +729,12 @@
                         href='#testformulassoltestreynoldsnumber'
                         class='regular pre-open'>
                         #testReynoldsNumber
+                      </a></li>
+                      
+                      <li><a
+                        href='#testformulassoltestfrictionfactor'
+                        class='regular pre-open'>
+                        #testFrictionFactor
                       </a></li>
                       
                     </ul>
@@ -2536,6 +2650,146 @@
       </div>
     </div>
   
+    <div class='border-bottom' id='calculatorcalcreynolds'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>calcREYNOLDS(inputs)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Handles the calculation of Reynold's Number and passes that object to <a href="#formulassol">FormulasSol</a>.reynoldsNumber to solve for the unknown variable.  Assumes that there is exactly 1 unknown variable.</p>
+
+    <div class='pre p1 fill-light mt0'>calcREYNOLDS(inputs: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>inputs</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    an Object containing all input values from the formula input form... no empty var
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        the value calculated by 
+<a href="#formulassol">FormulasSol</a>
+.reynoldsNumber().
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='calculatorcalcbernoullis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>calcBernoullis(inputs)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Handles the calculation of Bernoulli's Equation by calling <a href="#formulassol">FormulasSol</a>.bernoullisEquation(). Assumes that the given input object has already been validated.</p>
+
+    <div class='pre p1 fill-light mt0'>calcBernoullis(inputs: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>inputs</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    an object containing all variables necessary to calculate Bernoulli's Equation.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        the calculated solution.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='calculatorremoveempty'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -2967,7 +3221,7 @@
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>findVar(obj, arr)</span>
+            <span class='code strong strong truncate'>findVar(obj, arr, autoLength)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -2977,7 +3231,7 @@
 
   <p>Determines what variable to solve for.</p>
 
-    <div class='pre p1 fill-light mt0'>findVar(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, arr: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+    <div class='pre p1 fill-light mt0'>findVar(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, arr: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, autoLength: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
   
   
 
@@ -3006,6 +3260,15 @@
             <span class='code bold'>arr</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    : All formula variables. This should include the ones given as the obj keys.
 
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>autoLength</span> <code class='quiet'>(any
+            = <code>1</code>)</code>
+	    
           </div>
           
         </div>
@@ -3373,7 +3636,8 @@ use protectArray on the array being passed in.</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>arr</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
-	    
+	    : Original Array
+
           </div>
           
         </div>
@@ -3387,6 +3651,75 @@ use protectArray on the array being passed in.</p>
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formulasabsprotectobj'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>protectObj(obj)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Protects an object by creating a new object</p>
+
+    <div class='pre p1 fill-light mt0'>protectObj(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    : Original object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         
 
       
@@ -3899,6 +4232,324 @@ undefined:   Too many or too few object keys.
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formulassolfrictionfactor'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>frictionFactor(obj)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Determines the friction factor based on the D, epsilon and Re values</p>
+
+    <div class='pre p1 fill-light mt0'>frictionFactor(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    : An object containting  D, epsilon, and Re values
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formulassolbernoullisequation'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>bernoullisEquation(obj)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Calculates p1, p2, Del p, z1, z2, Del z, or dw/dw( input as w) utilizing Bernoulli's Equation</p>
+
+    <div class='pre p1 fill-light mt0'>bernoullisEquation(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    : contains upto "p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK".
+{Number} p1, {Number} p2    
+[Can be solved for]
+: P values used to calculate delta p.
+{Number} z1, {Number} z2    
+[Can be solved for]
+: Z values used to calculate delta z.
+{Number}    w 
+[Can be solved for]
+: Represents the dw_s/dm value.
+{Number}    L:          Some value usually denoted as l.
+{Number}    v 
+[Can be solved for]
+: Some velocity, ewither v_2 or v_3 based on the problem.
+{Number}    D:          Some D value from the friction factor equation extentsion of Bernoulli's equation.
+{Number}    f 
+[Will be solved for if solving for v]
+: The fricition factor.
+{Number}    rho:        Some rho value used with p.
+{Number}    gamma:      Some gamma used to get Reynold's number.
+{Array}     K:          An array of the K values.
+{Number}    epsilon:    Some Epsilon value used for the friction factor.
+{Boolean}   isK:       True, if K must have 2 or more values (from one tank to another).
+False, if K must have 1 or more values (from one tank to an open pipe).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formulassolbernoullissoft'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>bernoullisSoft(variable, initArr, obj)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Solves for p1, p2, del p, z1, z2, del z, w, or a portion of a  single iteration of v.</p>
+
+    <div class='pre p1 fill-light mt0'>bernoullisSoft(variable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, initArr: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>variable</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    : the variable to solve for.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>initArr</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    : Ab array of all the inital/possible values.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    : An object of all of the input values used in Bernoulli's Equation
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formulassolbernoullishard'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>bernoullisHard(obj, initArr)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>The iteration used to solve for v.</p>
+
+    <div class='pre p1 fill-light mt0'>bernoullisHard(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, initArr: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    : An object of all of the Bernoulli's Values
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>initArr</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    : The array of all possible values.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        
+
+      
+    
   
 
   
@@ -4611,6 +5262,128 @@ undefined:   Too many or too few object keys.
       </div>
     </div>
   
+    <div class='border-bottom' id='guihighlight'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>highlight(ID)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Highlights the given element with a red outline.</p>
+
+    <div class='pre p1 fill-light mt0'>highlight(ID: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ID</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the element ID of the element to highlight.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guiunhighlight'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>unHighlight(ID)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Unhighlights the given element.</p>
+
+    <div class='pre p1 fill-light mt0'>unHighlight(ID: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ID</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the element ID of the element to unhighlight.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='guiconverthandler'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -4752,6 +5525,67 @@ undefined:   Too many or too few object keys.
       </div>
     </div>
   
+    <div class='border-bottom' id='guicopyvalue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>copyValue(fieldId)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Method that copies value calculation to user clipboard</p>
+
+    <div class='pre p1 fill-light mt0'>copyValue(fieldId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fieldId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    id of the input field to copy data from
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='guicalculatehandler'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -4854,6 +5688,199 @@ undefined:   Too many or too few object keys.
       </div>
     </div>
   
+    <div class='border-bottom' id='guivalnoneempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>valNoneEmpty()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Method that checks whether the formula fields have all inputs nonempty.</p>
+
+    <div class='pre p1 fill-light mt0'>valNoneEmpty(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        true if formula inputs are validated, else false.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guivalcsns'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>valCSNs(ID)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Method that checks whether an input of type text contains only numbers separated by commas, aka Comma Separated Numbers (CSNs).</p>
+
+    <div class='pre p1 fill-light mt0'>valCSNs(ID: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ID</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The element ID of the input to validate.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        true if the input is validated, else false.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guiinputsempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>inputsEmpty(inputs)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Formula validation method that checks whether any of the inputs for variables in the given array are empty.</p>
+
+    <div class='pre p1 fill-light mt0'>inputsEmpty(inputs: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>inputs</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>>)</code>
+	    an array of element IDs for the input fields to check.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        true if any of the given variables are empty, else false.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='guifindemptyinput'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -4866,7 +5893,7 @@ undefined:   Too many or too few object keys.
 
   
 
-  <p>Method that finds which formula input field is empty.  Assumes that there is exactly one empty input field.</p>
+  <p>Method that finds the first formula input that is empty.</p>
 
     <div class='pre p1 fill-light mt0'>findEmptyInput(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
@@ -4888,6 +5915,75 @@ undefined:   Too many or too few object keys.
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
         the element ID of the empty input.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guigetcheckedradio'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getCheckedRadio(name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Gets the value of the checked radio from a group of radio buttons.  [Adapted from geeksforgeeks.org]</p>
+
+    <div class='pre p1 fill-light mt0'>getCheckedRadio(name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of the radio button group.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        the value of the raio button which has the "checked" attribute.
 
       
     
@@ -4943,6 +6039,269 @@ undefined:   Too many or too few object keys.
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
         an object containing all input values for the current formula.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guichecksinglesoln'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkSingleSoln()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Check if input conditions are correct to calculate a single solution.  The unknown to be solved for can be p1, p2, z1, z2, or w, or Δp or Δz.</p>
+
+    <div class='pre p1 fill-light mt0'>checkSingleSoln(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        if conditions are correct, return the element ID of the unknown variable to solve for. If too many inputs are empty, show the appropriate helptext and return "n/a".  If no inputs are empty, return "false" to signify that calculating a single solution is not the correct use case.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guicheckkvals'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkKVals(Kcase)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Check if the K values were entered properly.  Checks that the correct number of K values was entered, and calls <a href="#gui">Gui</a>.valCSNs() to validate format and prevent junk values.</p>
+
+    <div class='pre p1 fill-light mt0'>checkKVals(Kcase: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>Kcase</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
+	    true if 1 or more K values are required, false if 2 or more K values are required.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        true if K values are validated, else false.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guishowbernhelptext'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showBernHelptext(type)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Shows the Bernoulli's Equation helptext of the given type.</p>
+
+    <div class='pre p1 fill-light mt0'>showBernHelptext(type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>type</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    a string representing which Bernoulli's helptext to show.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='guipackbernoullis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>packBernoullis(Kcase, single)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Packages Bernoulli's Equation inputs into an object to pass to (@link Calculator}. Assumes all inputs have already been validated.</p>
+
+    <div class='pre p1 fill-light mt0'>packBernoullis(Kcase: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>, single: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>Kcase</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
+	    true when 1 or more K values are required, false when 2 or more K values are required.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>single</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</code>
+	    true when packaging inputs to calculate a single solution (omitting gamma &#x26; epsilon), false when packaging inputs to calculate iteratively.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        an object containing all necessary inputs to calculate Bernoulli's Equation.
 
       
     
@@ -6806,9 +8165,56 @@ parenthesis to the func parameter.</p>
 
   
 
-  <p>Evaluates the Reynolds Number</p>
+  <p>Evaluates the Reynolds Number Function</p>
 
     <div class='pre p1 fill-light mt0'>testReynoldsNumber()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testformulassoltestfrictionfactor'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testFrictionFactor()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Evaluates the Friction Factor Function</p>
+
+    <div class='pre p1 fill-light mt0'>testFrictionFactor()</div>
   
   
 
