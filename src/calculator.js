@@ -399,6 +399,14 @@ class Calculator {
 		return(this.FORMULAS.reynoldsNumber(inputs));
 	}
 	
+	/** Handles the calculation of Bernoulli's Equation by calling {@link FormulasSol}.bernoullisEquation(). Assumes that the given input object has already been validated.
+	 * @param {Object} inputs - an object containing all variables necessary to calculate Bernoulli's Equation.
+	 * @return {Number} - the calculated solution.
+	 */
+	calcBernoullis(inputs) {
+		return(this.FORMULAS.bernoullisEquation(inputs));
+	}
+	
 	/** Removes empty keys from the given Object.
 	 * @param {Object} obj - an object containing "empty" keys with the value "".
 	 * @return {Object} the object with all empty keys removed.
