@@ -36,6 +36,7 @@ class Gui {
 		// containers for formula instructions & inputs/outputs
 		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
+		this.m_formulaOutput = document.getElementById("formula-output");
 		this.m_formulaHelpText = document.getElementById("formula-helptext");
 		
 		// favorites
