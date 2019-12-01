@@ -1,8 +1,12 @@
+/**
+ * A series of tests for evaluating the contents of PowerUnits
+ */
 class TestPowerUnits extends Test{
-    testValues;
-    expectedValues;
-    tolerance;
-    power;
+    testValues; /** An array of values to test in all functions*/
+    expectedValues; /** An array of the values expected from each function */
+    tolerance;  /** Error tolerance to account for source rounding */
+    power;  /** Variable representing {@link PowerUnits} */
+
     constructor(){
         super("PowerUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
@@ -12,6 +16,9 @@ class TestPowerUnits extends Test{
         
     }
 
+    /**
+     * Runs all of the tests in PowerUnits
+     */
     run(){
         let arr = new Array();
         let count = 0;
