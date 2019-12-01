@@ -100,8 +100,13 @@ class Calculator {
 				break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertEnergy(value, convIDs[0] + ":0");
-				converted = this.convertEnergy(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertEnergy(value, convIDs[0] + ":0");
+					converted = this.convertEnergy(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -195,8 +200,13 @@ class Calculator {
                 break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertPressure(value, convIDs[0] + ":0");
-				converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertPressure(value, convIDs[0] + ":0");
+					converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -260,8 +270,13 @@ class Calculator {
 				break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertPower(value, convIDs[0] + ":0");
-				converted = this.convertPower(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertPower(value, convIDs[0] + ":0");
+					converted = this.convertPower(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -324,9 +339,19 @@ class Calculator {
 				converted = this.UNITS.VISCOSITY.lbfSftToCP(value);
 				break;
 			default:
-			let convIDs = conversionID.split(':');
-			converted = this.convertViscosity(value, convIDs[0] + ":0");
-			converted = this.convertViscosity(converted, "0:" + convIDs[1]);
+				let convIDs = conversionID.split(':');
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertViscosity(value, convIDs[0] + ":0");
+					converted = this.convertViscosity(converted, "0:" + convIDs[1]);
+				}
+				break;
+		}
+		return(converted);
+	}
+	
 	/** Converts kinematic viscosity units by calling the appropriate KinematicViscosityUnits method.
 	 * @param {number} value - the value to convert.
 	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
@@ -369,7 +394,6 @@ class Calculator {
 					converted = this.convertKinematicVis(converted, "0:" + convIDs[1]);
 				}
 				break;
-			break;
 		}
 		return(converted);
 	}

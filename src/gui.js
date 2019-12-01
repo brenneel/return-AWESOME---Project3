@@ -66,8 +66,7 @@ class Gui {
 		this.populateCategories();
 		this.populateUnitMenus();
 		this.switchToFaveConv();
-//		this.populateNextDropdown("unitA-select", "unitB-select");
-		// remove this for testing/prototype
+		this.convertHandler();
 		
 		// initialize constants
 		this.populateConstants();
@@ -218,7 +217,7 @@ class Gui {
 		let unitA = this.m_unitAMenu.value;
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
-		if((unitA != unitB) && (value != "")) {
+		if(value != "") {
 			let newVal = this.CALCULATOR.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
