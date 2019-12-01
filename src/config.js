@@ -234,10 +234,10 @@ class Config {
 		REYNOLDS1: "Don't leave any variables blank!",
 		REYNOLDS2: "Don't leave any variables blank!",
 		BERNOULLI_K: "Make sure you have entered enough K values, and that they are separated by commas.",
-		BERNOULLI_SINGLE: "To solve for p1, p2, z1, z2, or w, leave the unknown blank. To solve for Δp, leave both p1 and p2 blank; to solve for Δz, leave both z1 and z2 blank.",
-		BERNOULLI_SET1: "Don't leave any of the following blank: L, D, or ρ.",
-		BERNOULLI_SET2: "Don't leave any of the following blank: L, v, D, f, ρ, or K.",
-		BERNOULLI_SET3: "Don't leave any of the following blank: γ or ε."
+		BERNOULLI_SINGLE1: "To solve for p1, p2, z1, z2, or w, leave the unknown blank. To solve for Δp, leave both p1 and p2 blank; to solve for Δz, leave both z1 and z2 blank.",
+		BERNOULLI_SINGLE2: "Don't leave any of the following blank: L, v, D, f, or ρ.",
+		BERNOULLI_ITER: "Don't leave any of the following blank: L, D, ρ, γ, or ε.",
+		BERNOULLI_V: "Leave v blank to solve for v."
 	};
 	
 	/* -------------------------------

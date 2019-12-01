@@ -322,33 +322,40 @@ class Gui {
 					}
 					else {
 						console.log("Error: KcaseStr = " + KcaseStr);
+						break;
 					}
 				}
 				
-				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
-					if(this.inputsEmpty(["L", "D", "rho"])) {
-						this.showBernHelptext("set1");
-						break;
-					}
-				}
-				else {
-					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
-						this.showBernHelptext("set2");
-						break;
-					}
-				}
+//				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
+//					if(this.inputsEmpty(["L", "D", "rho"])) {
+//						this.showBernHelptext("SET1");
+//						break;
+//					}
+//				}
+//				else {
+//					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+//						this.showBernHelptext("SET2");
+//						break;
+//					}
+//				}
 				
 				// check if conditions are correct to calculate a single solution, an iterative solution, or neither
 				let solveFor = this.checkSingleSoln();
 				if(solveFor == "n/a") {	// user needs to fix inputs
-					this.showBernHelptext("single");
+					this.showBernHelptext("SINGLE1");
 					break;
 				}
 				else if(solveFor == "false") {	// calculate iteratively
-					if(this.inputsEmpty(["gamma", "epsilon"])) {
-						this.showBernHelptext("set3");
+					if(this.inputsEmpty(["L", "D", "rho", "gamma", "epsilon"])) {
+						this.showBernHelptext("ITER");
 						break;
 					}
+					
+					if(document.getElementById("v").value != "") {
+						this.showBernHelptext("V");
+						break;
+					}
+					
 					let inputs = this.packBernoullis(Kcase, false);
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
@@ -360,6 +367,11 @@ class Gui {
 					}
 				}
 				else {	// calculate a single solution
+					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+						this.showBernHelptext("SINGLE2");
+						break;
+					}
+					
 					let inputs = this.packBernoullis(Kcase, false);
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
