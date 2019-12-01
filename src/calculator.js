@@ -383,23 +383,19 @@ class Calculator {
 	 * @return {number} the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
-		let conversionID;
+		let conversionID = this.genConversionID(category, unitA, unitB);
 		let newVal;
 		switch(category) {
 			case "ENERGY_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertEnergy(value, conversionID);
 				break;
 			case "PRESSURE_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
 				break;
 			case "POWER_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPower(value, conversionID);
 				break;
 			case "VISCOSITY_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertViscosity(value, conversionID);
 				break;
 			case "KINEMATIC_VISCOSITY_UNITS":
