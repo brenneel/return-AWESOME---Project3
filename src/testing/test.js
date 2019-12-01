@@ -77,11 +77,16 @@ class Test{
 	addTestSet(){
 		let temp = document.getElementById("classTable").innerHTML;
 		temp +="<tr><td>" + this.className + "</td>";
-		temp += "<td id='" + this.className + "'></td></tr>";
+		temp += "<td id='" + this.className + ":result'></td>";
+		temp += "<td style='text-align:center' id='" + this.className + ":succeeded'></td>";
+		temp += "<td style='text-align:center' id='" + this.className + ":total'></td>"
+		temp += "</tr>";
 		document.getElementById("classTable").innerHTML = temp;
 	}
 
-	updateTestSet(result){
-		document.getElementById(this.className).innerHTML = result;
+	updateTestSet(result, succeeded, total){
+		document.getElementById(this.className + ":result").innerHTML = result;
+		document.getElementById(this.className + ":succeeded").innerHTML = succeeded;
+		document.getElementById(this.className + ":total").innerHTML = total;
 	}
 }

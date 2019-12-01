@@ -34,32 +34,37 @@ class Testing{
         arr.push(this.fPowTest.run());
         arr.push(this.fViscoTest.run());
         for(let i = 0; i < arr.length; i++){
-            if(arr[i] == this.pass){
+            if(arr[i] == "SUCCESS"){
                 count++;
             }
         }
-        if(count == arr.length - 1){
+        if(count == arr.length){
             result = "SUCCESS";
         }else{
             result = "FAILURE";
         }
         this.isCompleted = true;
-        this.updateState(result);
+        this.updateState(result, count, arr.length);
     }
     
-    updateState(result = "FAILURE"){
+    updateState(result = "FAILURE", succeeded = 0, total = 0){
         if(this.isCompleted == false){
             document.getElementById("testState").innerHTML = "Running";
         }else{
             document.getElementById("testState").innerHTML = "Complete";
-            document.getElementById("All Tests").innerHTML = result;
+            document.getElementById("All Tests:results").innerHTML = result;
+            document.getElementById("All Tests:succeeded").innerHTML = succeeded;
+            document.getElementById("All Tests:total").innerHTML = total;
         }
     }
 
     initTesting(){
         let temp = document.getElementById("classTable").innerHTML;
 		temp +="<tr><td>All Tests</td>";
-		temp += "<td id='All Tests'></td></tr>";
+        temp += "<td id='All Tests:results'></td>";
+        temp += "<td style='text-align:center' id='All Tests:succeeded'></td>";
+        temp += "<td style='text-align:center' id='All Tests:total'></td>";
+        temp += "</tr>";
 		document.getElementById("classTable").innerHTML = temp;
     }
 }
