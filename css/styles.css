@@ -19,6 +19,13 @@ a:hover {
     margin-right: auto;
 }
 
+.title {
+	font-family: "Segoe UI Semibold";
+	font-size: 350%;
+	font-variant: small-caps;
+	margin: 0px 0px 20px 0px;
+}
+
 .subtitle {
     font-size: 150%;
     padding: 0px 5px;
