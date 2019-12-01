@@ -1,11 +1,17 @@
+/**
+ * A series of tests for evaluating the contents of FormulasAbs
+ */
 class TestFormulasAbs extends Test{
-    fAbs;
+    fAbs; /** Variable representing {@link FormulaAbs} */
 
     constructor(){
         super("FormulasAbs");
         this.fAbs = new FormulasAbs;
     }
 
+    /**
+     * Runs all of the tests in FormulasAbs
+     */
     run(){
         let arr = new Array();
         let count = 0;
@@ -31,6 +37,9 @@ class TestFormulasAbs extends Test{
         return result;
     }
 
+    /**
+     * Evaluates the sum Function
+     */
     testSum(){
         let arr = new Array();
         arr.push(2);
@@ -43,6 +52,9 @@ class TestFormulasAbs extends Test{
         }
     }
 
+    /**
+     * Evaluates the differnce Function
+     */
     testDifference(){
         let arr = new Array();
         arr.push(2);
@@ -55,6 +67,9 @@ class TestFormulasAbs extends Test{
         }
     }
 
+    /**
+     * Evaluates the product Function
+     */
     testProduct(){
         let arr = new Array();
         arr.push(2);
@@ -67,6 +82,9 @@ class TestFormulasAbs extends Test{
         }
     }
 
+    /**
+     * Evaluates the quotient Function
+     */
     testQuotient(){
         let arr = new Array();
         arr.push(2);
