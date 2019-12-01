@@ -355,7 +355,7 @@ class Gui {
 						break;
 					}
 					
-					let inputs = this.packBernoullis(Kcase, false);
+					let inputs = this.packBernoullis(Kcase, false, "v");
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
 						this.m_formulaOutput.innerHTML = "Calculated solution: v = " + solution;
@@ -371,7 +371,7 @@ class Gui {
 						break;
 					}
 					
-					let inputs = this.packBernoullis(Kcase, false);
+					let inputs = this.packBernoullis(Kcase, false, solveFor);
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
 						this.m_formulaOutput.innerHTML = "Calculated solution: " + solveFor + " = " + solution;
@@ -579,9 +579,10 @@ class Gui {
 	/** Packages Bernoulli's Equation inputs into an object to pass to (@link Calculator}. Assumes all inputs have already been validated.
 	 * @param {Boolean} Kcase - true when 1 or more K values are required, false when 2 or more K values are required.
 	 * @param {Boolean} single - true when packaging inputs to calculate a single solution (omitting gamma & epsilon), false when packaging inputs to calculate iteratively.
+	 * @param {string} unknown - the variable being solved for. 
 	 * @return {Object} - an object containing all necessary inputs to calculate Bernoulli's Equation.
 	 */
-	packBernoullis(Kcase, single) {
+	packBernoullis(Kcase, single, unknown) {
 		let obj = {
 			p1: undefined,
 			p2: undefined,
@@ -599,19 +600,32 @@ class Gui {
 			isK: Kcase
 		};
 		
+		// remove key(s) for the variable being solved for
+		if(unknown == "del-p") {
+			delete obj.p1;
+			delete obj.p2;
+		}
+		else if(unknown == "del-z") {
+			delete obj.z1;
+			delete obj.z2;
+		}
+		else {
+			delete obj[unknown];
+		}
+		
 		for (const variable in obj) {
 			if(variable != "gamma" && variable != "epsilon" && variable != "K" && variable != "isK") {
 				let str = String(variable);
-				let value = document.getElementById(str).value;
+				let value = document.getElementById(variable).value;
 				if(value != "") {
-					obj[variable] = value;
+					obj[variable] = Number(value);
 				}
 			}
 		}
 		
 		if(!single) {
-			obj.gamma = document.getElementById("gamma").value;
-			obj.epsilon = document.getElementById("epsilon").value;
+			obj.gamma = Number(document.getElementById("gamma").value);
+			obj.epsilon = Number(document.getElementById("epsilon").value);
 		}
 		
 		let tempK = document.getElementById("K").value;
