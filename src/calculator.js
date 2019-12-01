@@ -18,6 +18,7 @@ class Calculator {
 		this.UNITS["PRESSURE"] = new PressureUnits();
 		this.UNITS["POWER"] = new PowerUnits();
 		this.UNITS["VISCOSITY"] = new ViscosityUnits();
+		this.UNITS["KINEMATIC"] = new KinematicViscosityUnits();
 	}
 	
 	/* -------------------------------
@@ -400,6 +401,9 @@ class Calculator {
 			case "VISCOSITY_UNITS":
 				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertViscosity(value, conversionID);
+				break;
+			case "KINEMATIC_VISCOSITY_UNITS":
+				newVal = this.convertKinematicVis(value, conversionID);
 				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");
