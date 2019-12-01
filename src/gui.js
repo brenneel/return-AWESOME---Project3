@@ -66,8 +66,7 @@ class Gui {
 		this.populateCategories();
 		this.populateUnitMenus();
 		this.switchToFaveConv();
-//		this.populateNextDropdown("unitA-select", "unitB-select");
-		// remove this for testing/prototype
+		this.convertHandler();
 		
 		// initialize constants
 		this.populateConstants();
@@ -218,7 +217,7 @@ class Gui {
 		let unitA = this.m_unitAMenu.value;
 		let unitB = this.m_unitBMenu.value;
 		let value = this.m_unitAInput.value;
-		if((unitA != unitB) && (value != "")) {
+		if(value != "") {
 			let newVal = this.CALCULATOR.convert(category, unitA, unitB, value);
 			this.m_unitBOutput.value = newVal;
 		}
@@ -322,34 +321,41 @@ class Gui {
 					}
 					else {
 						console.log("Error: KcaseStr = " + KcaseStr);
+						break;
 					}
 				}
 				
-				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
-					if(this.inputsEmpty(["L", "D", "rho"])) {
-						this.showBernHelptext("set1");
-						break;
-					}
-				}
-				else {
-					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
-						this.showBernHelptext("set2");
-						break;
-					}
-				}
+//				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
+//					if(this.inputsEmpty(["L", "D", "rho"])) {
+//						this.showBernHelptext("SET1");
+//						break;
+//					}
+//				}
+//				else {
+//					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+//						this.showBernHelptext("SET2");
+//						break;
+//					}
+//				}
 				
 				// check if conditions are correct to calculate a single solution, an iterative solution, or neither
 				let solveFor = this.checkSingleSoln();
 				if(solveFor == "n/a") {	// user needs to fix inputs
-					this.showBernHelptext("single");
+					this.showBernHelptext("SINGLE1");
 					break;
 				}
 				else if(solveFor == "false") {	// calculate iteratively
-					if(this.inputsEmpty(["gamma", "epsilon"])) {
-						this.showBernHelptext("set3");
+					if(this.inputsEmpty(["L", "D", "rho", "gamma", "epsilon"])) {
+						this.showBernHelptext("ITER");
 						break;
 					}
-					let inputs = this.packBernoullis(Kcase, false);
+					
+					if(document.getElementById("v").value != "") {
+						this.showBernHelptext("V");
+						break;
+					}
+					
+					let inputs = this.packBernoullis(Kcase, false, "v");
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
 						this.m_formulaOutput.innerHTML = "Calculated solution: v = " + solution;
@@ -360,7 +366,12 @@ class Gui {
 					}
 				}
 				else {	// calculate a single solution
-					let inputs = this.packBernoullis(Kcase, false);
+					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
+						this.showBernHelptext("SINGLE2");
+						break;
+					}
+					
+					let inputs = this.packBernoullis(Kcase, false, solveFor);
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
 						this.m_formulaOutput.innerHTML = "Calculated solution: " + solveFor + " = " + solution;
@@ -560,39 +571,18 @@ class Gui {
 	 * @post adds the appropriate helptext to the "formula-helptext" element and calls showBlock() on it.
 	 */
 	showBernHelptext(type) {
-		switch(type) {
-			case "K":
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_K;
-				this.showBlock("formula-helptext");
-				break;
-			case "single":
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SINGLE;
-				this.showBlock("formula-helptext");
-				break;
-			case "set1":
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET1;
-				this.showBlock("formula-helptext");
-				break;
-			case "set2":
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET2;
-				this.showBlock("formula-helptext");
-				break;
-			case "set3":
-				this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT.BERNOULLI_SET3;
-				this.showBlock("formula-helptext");
-				break;
-			default:
-				console.log("showBernHelptext: " + type + " is not a valid case.");
-				break;
-		}
+		let name = "BERNOULLI_" + type;
+		this.m_formulaHelpText.innerHTML = CONFIG.FORMULA_HELPTEXT[name];
+		this.showBlock("formula-helptext");
 	}
 	
 	/** Packages Bernoulli's Equation inputs into an object to pass to (@link Calculator}. Assumes all inputs have already been validated.
 	 * @param {Boolean} Kcase - true when 1 or more K values are required, false when 2 or more K values are required.
 	 * @param {Boolean} single - true when packaging inputs to calculate a single solution (omitting gamma & epsilon), false when packaging inputs to calculate iteratively.
+	 * @param {string} unknown - the variable being solved for. 
 	 * @return {Object} - an object containing all necessary inputs to calculate Bernoulli's Equation.
 	 */
-	packBernoullis(Kcase, single) {
+	packBernoullis(Kcase, single, unknown) {
 		let obj = {
 			p1: undefined,
 			p2: undefined,
@@ -610,19 +600,32 @@ class Gui {
 			isK: Kcase
 		};
 		
+		// remove key(s) for the variable being solved for
+		if(unknown == "del-p") {
+			delete obj.p1;
+			delete obj.p2;
+		}
+		else if(unknown == "del-z") {
+			delete obj.z1;
+			delete obj.z2;
+		}
+		else {
+			delete obj[unknown];
+		}
+		
 		for (const variable in obj) {
 			if(variable != "gamma" && variable != "epsilon" && variable != "K" && variable != "isK") {
 				let str = String(variable);
-				let value = document.getElementById(str).value;
+				let value = document.getElementById(variable).value;
 				if(value != "") {
-					obj[variable] = value;
+					obj[variable] = Number(value);
 				}
 			}
 		}
 		
 		if(!single) {
-			obj.gamma = document.getElementById("gamma").value;
-			obj.epsilon = document.getElementById("epsilon").value;
+			obj.gamma = Number(document.getElementById("gamma").value);
+			obj.epsilon = Number(document.getElementById("epsilon").value);
 		}
 		
 		let tempK = document.getElementById("K").value;

@@ -1,18 +1,4 @@
-/** Class containing data that GUI uses to dynamically generate the dropdown menus.
- * @prop {Array} CATEGORIES - an array containing elementIDs and labels for each unit category option.
- * @prop {Array} ENERGY_UNITS - an array containing elementIDs and labels for each energy unit option.
- * @prop {Array} PRESSURE_UNITS - an array containing elementIDs and labels for each pressure unit option.
- * @prop {Array} VISCOSITY_UNITS - an array containing elementIDs and labels for each viscosity unit option.
- * @prop {Array} POWER_UNITS - an array containing elementIDs and labels for each power unit option.
- * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each constant option.
- * @prop {Array} UNIV_GAS_CONST - an array containing elementIDs and labels for each unit option for the Universal Gas Constant, R.
- * @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of Water (ρ).
- * @prop {Array} MU_OF_WATER - an array containing elementIDs and labels for each unit option for the μ of Water.
- * @prop {Array} NU_OF_WATER - an array containing elementIDs and labels for each unit option for the ν (nu) of Water.
- * @prop {Array} M_OF_WATER - an array containing elementIDs and labels for each unit option for the Μolar Mass (M) of Water.
- * @prop {Array} SIGMA_OF_WATER - an array containing elementIDs and labels for each unit option for the σ of Water.
- * @prop {Array} FORMULAS - an array containing elementIDs and labels for each unit option for the 
- * @prop {Array} CONSTANTS - an array containing elementIDs and labels for each formula option
+/** Class containing data that {@link Gui} uses to dynamically generate the dropdown menus and all formula calculation inputs & instructions.
  */
 class Config {
 	constructor() {}
@@ -22,6 +8,8 @@ class Config {
 	 * -------------------------------
 	 */
 	
+	/** @prop {Array} CATEGORIES - an array containing elementIDs and labels for each unit category option.
+	*/
 	CATEGORIES = [
 		["ENERGY_UNITS", "Energy"],
 		["PRESSURE_UNITS", "Pressure"],
@@ -30,6 +18,8 @@ class Config {
 		["KINEMATIC_VISCOSITY_UNITS", "Kinematic Viscosity"]
 	];
 
+	/** @prop {Array} ENERGY_UNITS - an array containing elementIDs and labels for each energy unit option.
+	*/
 	ENERGY_UNITS = [
 		["joule", "Joules (J)"],
 		["cal", "calories (cal)"],
@@ -42,6 +32,8 @@ class Config {
 		["kWs", "Kilowatt second (kWs)"]
 	];
 
+	/** @prop {Array} PRESSURE_UNITS - an array containing elementIDs and labels for each pressure unit option.
+	*/
 	PRESSURE_UNITS = [
 		["atm", "atmospheres (atm)"],
 		["kPa", "kilopascals (kPa)"],
@@ -59,6 +51,8 @@ class Config {
 		["dyne", "dyne/square centimeter (dyne/cm^2)"]
 	];
 
+	/** @prop {Array} POWER_UNITS - an array containing elementIDs and labels for each power unit option.
+	*/
 	POWER_UNITS = [
 		["w" , "watt (w)"],
 		["hp" , "horsepower"],
@@ -71,6 +65,8 @@ class Config {
 		["js", "joules per second (J/s)"]
 	];
 
+	/** @prop {Array} VISCOSITY_UNITS - an array containing elementIDs and labels for each viscosity unit option.
+	*/
 	VISCOSITY_UNITS = [
 		["cP" , "centipoise (cP)"],
 		["p" , "poise"],
@@ -82,18 +78,23 @@ class Config {
 		["lbfsft", "pound-force second per square foot (lbf*s / ft^2)"]
 	];
 
+	/** @prop {Array} - KINEMATIC_VISCOSITY_UNITS an array containing elementIDs and labels for each kinematic viscosity unit option.
+	*/
 	KINEMATIC_VISCOSITY_UNITS = [
 		["cST" , "centistoke (cST)"],
-		["S" , "Stoke"],
+		["S" , "Stoke (S)"],
 		["cms" , "square centimeters per sec (cm^2 / s)"],
-		["ms" , "squre meters per sec (m^2 / s)"],
-		["fts", "squre feet per sec (ft^2 / s)"],
+		["ms" , "square meters per sec (m^2 / s)"],
+		["fts", "square feet per sec (ft^2 / s)"],
 	];
 
 	/* -------------------------------
 	 * CONSTANTS
 	 * -------------------------------
 	 */
+
+	/** @prop {Array} - CONSTANTS an array containing elementIDs and labels for each constant option.
+	*/
 	CONSTANTS = [
 		["UNIV_GAS_CONST", "Universal Gas Constant, R"],
 		["RHO_OF_WATER", "Density of Water (ρ)"],
@@ -104,14 +105,15 @@ class Config {
 		["RHO_OF_AIR", "Density of Air (ρ)"],
 		["MU_OF_AIR", "Viscosity of Air (μ)"],
 		["NU_OF_AIR", "Dynamic Viscosity of Air (ν)"],
-		["HEAT_CAPACITY_OF_AIR", "Heat Capacity of Air ()"],
+		["HEAT_CAPACITY_OF_AIR", "Heat Capacity of Air"],
 		["M_OF_AIR", "Molar Mass of Air"],
 		["K_OF_AIR", "K of Air"],
 		["SPECIF_GRAV", "Specific Gravity"],
 		["VISCOSITY", "Viscocity of Liquids"]
 	];
-//°
-//⋅
+
+	/** @prop {Array} UNIV_GAS_CONST - an array containing elementIDs and labels for each unit option for the Universal Gas Constant, R.
+	*/
 	UNIV_GAS_CONST = [
 		["BTU_LBMOL_R", "Btu/lbmol⋅°R"],
 		["CAL_MOL_K", "cal/mol⋅K"],
@@ -124,6 +126,8 @@ class Config {
 		["ATM_FT3_LBMOL_R", "atm⋅ft^3/lbmol⋅°R"]
 	];
 
+	/** @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the Density of water (ρ).
+	*/
 	RHO_OF_WATER = [
 		["LBM_FT3", "lbm/ft^3"],
 		["KG_M3", "kg/m^3"],
@@ -133,6 +137,8 @@ class Config {
 		["G_CM3", "g/cm^3"]
 	];
 
+	/** @prop {Array} MU_OF_WATER - an array containing elementIDs and labels for each unit option for the μ of water.
+	*/
 	MU_OF_WATER = [
 		["CP", "cp"],
 		["PAS", "Pa⋅s"],
@@ -140,23 +146,31 @@ class Config {
 		["LBFS_FT2", "lbf⋅s/ft^2"]
 	];
 
+	/** @prop {Array} NU_OF_WATER - an array containing elementIDs and labels for each unit option for the ν (nu) of water.
+	*/
 	NU_OF_WATER = [
 		["M2_S", "m^2/s"],
 		["CST", "cSt"],
 		["FT2_S", "ft^2/s"]
 	];
 
+	/** @prop {Array} M_OF_WATER - an array containing elementIDs and labels for each unit option for the molar mass (M) of water.
+	*/
 	M_OF_WATER = [
 		["G_MOL", "g/mol"],
 		["LBM_LBMOL", "lbm/lbmol"]
 	];
 
+	/** @prop {Array} SIGMA_OF_WATER - an array containing elementIDs and labels for each unit option for the σ of water.
+	*/
 	SIGMA_OF_WATER = [
 		["LBF_IN", "lbf/in"],
 		["DYNE_CM", "dyne/cm"],
 		["N_M", "N/m"]
 	];
 
+	/** @prop {Array} RHO_OF_WATER - an array containing elementIDs and labels for each unit option for the density of air (ρ).
+	*/
 	RHO_OF_AIR = [
 		["LBM_FT3", "lbm/(ft^3)"],
 		["KG_M3", "kg/m^3"],
@@ -164,17 +178,23 @@ class Config {
 		["MOL_M3", "mol/m^3"]
 	];
 
+	/** @prop {Array} MU_OF_AIR - an array containing elementIDs and labels for each unit option for the μ of air.
+	*/
 	MU_OF_AIR = [
 		["CP", "cP"],
 		["PAS", "Pa*s"]
 	];
 
+	/** @prop {Array} NU_OF_AIR - an array containing elementIDs and labels for each unit option for the ν (nu) of air.
+	*/
 	NU_OF_AIR = [
 		["M2_S", "m^2/s"],
 		["CST", "cSt"],
 		["FT2_S", "ft^2/s"]
 	];
 
+	/** @prop {Array} HEAT_CAPACITY_OF_AIR - an array containing elementIDs and labels for each unit option for the heat capacity of air.
+	*/
 	HEAT_CAPACITY_OF_AIR = [
 		["R", "R"],
 		["BTU_LBMOLR", "Btu/lbmol*R"],
@@ -182,15 +202,21 @@ class Config {
 		["J_MOLK", "J/mol*K"]
 	];
 
+	/** @prop {Array} M_OF_AIR - an array containing elementIDs and labels for each unit option for the molar mass (M) of air.
+	*/
 	M_OF_AIR = [
 		["G_MOL", "g/mol"],
 		["LBM_LBMOL", "lbm/lbmol"]
 	];
 
+	/** @prop {Array} K_OF_AIR - an array containing elementIDs and labels for each unit option for the K of air.
+	*/
 	K_OF_AIR = [
 		["K", "N/A"]
 	];
 
+	/** @prop {Array} SPECIF_GRAV - an array containing elementIDs and labels for each listed substance whose specific gravity is available.
+	*/
 	SPECIF_GRAV = [
 		["MERCURY", "Mercury"],
 		["GASOLINE", "Gasoline"],
@@ -198,6 +224,8 @@ class Config {
 		["WATER", "Water"],
 	];
 
+	/** @prop {Array} VISCOSITY - an array containing elementIDs and labels for each listed substance whose viscosity is available.
+	*/
 	VISCOSITY = [
 		["MERCURY", "Mercury"],
 		["GASOLINE", "Gasoline"],
@@ -208,6 +236,9 @@ class Config {
 	 * FORMULAS
 	 * -------------------------------
 	 */
+
+	/** @prop {Array} FORMULAS - an array containing elementIDs and labels for each formula option.
+	*/
 	FORMULAS = [
 		["PVNRT", "Ideal Gas Law, PV = nRT"],
 		["REYNOLDS1", "Reynolds' Number (Re = Dvρ/μ)"],
@@ -215,6 +246,8 @@ class Config {
 		["BERNOULLI", "Bernoulli's Equation"]
 	];
 
+	/** @prop {Object} FORMULA_TEXT - contains instructional text to display for each available formula.
+	*/
 	FORMULA_TEXT = {
 		PVNRT: "IDEAL GAS LAW: PV = nRT (use SI units only.)<br>Enter three known values and click <b><em>Calculate!</em></b> to calculate the unknown variable.",
 		REYNOLDS1: "Reynolds' Number.<br>Enter D, v, ρ, and μ.  Click <b><em>Calculate!</em></b> to calculate Reynolds' Number.",
@@ -222,6 +255,8 @@ class Config {
 		BERNOULLI: "Bernoulli's Equation.<br>Enter K values separated by commas."
 	};
 
+	/** @prop {Object} FORMULA_FIELDS - contains the HTML for the input fields for each available formula.
+	*/
 	FORMULA_FIELDS = {
 		PVNRT: "<label for=\"p\">P: </label><input type=\"number\" id=\"p\" name=\"p\" class=\"numfield\"><label for=\"v\">V:</label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\"><div class=\"equals\">=</div><label for=\"n\">n: </label><input type=\"number\" id=\"n\" name=\"n\" class=\"numfield\"><label for=\"const-R\">R (J/mol⋅K): </label><div id=\"const-R\" name=\"const-R\" class=\"formula-const\">8.314</div><label for=\"t\">T:</label><input type=\"number\" id=\"t\" name=\"t\" class=\"numfield\">",
 		REYNOLDS1: "<label for=\"D\">D: </label><input type=\"number\" id=\"D\" name=\"D\" class=\"numfield\" placeholder=\"D\"><label for=\"v\">v: </label><input type=\"number\" id=\"v\" name=\"v\" class=\"numfield\" placeholder=\"v\"><label for=\"rho\">ρ: </label><input type=\"number\" id=\"rho\" name=\"rho\" class=\"numfield\" placeholder=\"ρ\"><div class=\"equals\">/</div><label for=\"mu\">μ: </label><input type=\"number\" id=\"mu\" name=\"mu\" class=\"numfield\" placeholder=\"μ\"><div class =\"equals\">=</div><div class=\"label\">R<sub>e</sub></div><div id=\"answer\" name=\"answer\" class=\"answer\"></div>",
@@ -229,15 +264,17 @@ class Config {
 		BERNOULLI: "<fieldset id=\"K-radio\" class=\"input-group\"><div>Cases:</div><input type=\"radio\" name=\"isK\" value=\"true\" id=\"true\" checked><label for=\"true\">1 or more K values</label><input type=\"radio\" name=\"isK\" value=\"false\" id=\"false\"><label for=\"false\">2 or more K values</label></fieldset><fieldset id=\"single-soln\" class=\"input-group\"><label for=\"p1\">p1:</label><input type=\"number\" class=\"numfield\" id=\"p1\" name=\"p1\" placeholder=\"p1\"><label for=\"p2\">p2:</label><input type=\"number\" class=\"numfield\" id=\"p2\" name=\"p2\" placeholder=\"p2\"><label for=\"z1\">z1:</label><input type=\"number\" class=\"numfield\" id=\"z1\" name=\"z1\" placeholder=\"z1\"><label for=\"z2\">z2:</label><input type=\"number\" class=\"numfield\" id=\"z2\" name=\"z2\" placeholder=\"z2\"><label for=\"w\">w:</label><input type=\"number\" class=\"numfield\" id=\"w\" name=\"w\" placeholder=\"w\"></fieldset><fieldset id=\"iterative\" class=\"input-group\"><label for=\"L\">L:</label><input type=\"number\" class=\"numfield\" id=\"L\" name=\"L\" placeholder=\"L\"><label for=\"v\">v:</label><input type=\"number\" class=\"numfield\" id=\"v\" name=\"v\" placeholder=\"v\"><label for=\"D\">D:</label><input type=\"number\" class=\"numfield\" id=\"D\" name=\"D\" placeholder=\"D\"><label for=\"f\">f:</label><input type=\"number\" class=\"numfield\" id=\"f\" name=\"f\" placeholder=\"f\"><label for=\"rho\">ρ:</label><input type=\"number\" class=\"numfield\" id=\"rho\" name=\"rho\" placeholder=\"ρ\"><label for=\"gamma\">γ:</label><input type=\"number\" class=\"numfield\" id=\"gamma\" name=\"gamma\" placeholder=\"γ\"><label for=\"K\">K:</label><input type=\"text\" class=\"numfield\" id=\"K\" name=\"K\" placeholder=\"K\"><label for=\"epsilon\">ε:</label><input type=\"number\" class=\"numfield\" id=\"epsilon\" name=\"epsilon\" placeholder=\"ε\"></fieldset>"
 	};
 
+	/** @prop {Object} FORMULA_HELPTEXT - contains helptext to display for each available formula. Bernoulli's Equation has multiple helptexts.
+	*/
 	FORMULA_HELPTEXT = {
 		PVNRT: "Leave exactly one (1) variable blank!",
 		REYNOLDS1: "Don't leave any variables blank!",
 		REYNOLDS2: "Don't leave any variables blank!",
 		BERNOULLI_K: "Make sure you have entered enough K values, and that they are separated by commas.",
-		BERNOULLI_SINGLE: "To solve for p1, p2, z1, z2, or w, leave the unknown blank. To solve for Δp, leave both p1 and p2 blank; to solve for Δz, leave both z1 and z2 blank.",
-		BERNOULLI_SET1: "Don't leave any of the following blank: L, D, or ρ.",
-		BERNOULLI_SET2: "Don't leave any of the following blank: L, v, D, f, ρ, or K.",
-		BERNOULLI_SET3: "Don't leave any of the following blank: γ or ε."
+		BERNOULLI_SINGLE1: "To solve for p1, p2, z1, z2, or w, leave the unknown blank. To solve for Δp, leave both p1 and p2 blank; to solve for Δz, leave both z1 and z2 blank.",
+		BERNOULLI_SINGLE2: "Don't leave any of the following blank: L, v, D, f, or ρ.",
+		BERNOULLI_ITER: "Don't leave any of the following blank: L, D, ρ, γ, or ε.",
+		BERNOULLI_V: "Leave v blank to solve for v."
 	};
 	
 	/* -------------------------------

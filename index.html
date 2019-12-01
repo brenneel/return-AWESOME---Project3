@@ -9,6 +9,7 @@
 		<script src="src/units/pressureUnits.js"></script>
 		<script src="src/units/powerUnits.js"></script>
 		<script src="src/units/viscosityUnits.js"></script>
+		<script src="src/units/kinematicViscosityUnits.js"></script>
 		<script src="src/unitConstant.js"></script>
 		<script src="src/formulasAbs.js"></script>
 		<script src="src/formulasSol.js"></script>
@@ -22,7 +23,7 @@
 				<div class="subtitle">Unit Converter</div>
 				<form id="units">
 					<p class="centered">
-						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.populateUnitMenus();	GUI.updateStar(0);">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.populateUnitMenus();GUI.convertHandler();GUI.updateStar(0);">
 						</select>
 					</p>
 					<div class="centered">

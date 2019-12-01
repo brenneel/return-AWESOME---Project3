@@ -18,6 +18,7 @@ class Calculator {
 		this.UNITS["PRESSURE"] = new PressureUnits();
 		this.UNITS["POWER"] = new PowerUnits();
 		this.UNITS["VISCOSITY"] = new ViscosityUnits();
+		this.UNITS["KINEMATIC"] = new KinematicViscosityUnits();
 	}
 	
 	/* -------------------------------
@@ -99,8 +100,13 @@ class Calculator {
 				break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertEnergy(value, convIDs[0] + ":0");
-				converted = this.convertEnergy(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertEnergy(value, convIDs[0] + ":0");
+					converted = this.convertEnergy(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -194,8 +200,13 @@ class Calculator {
                 break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertPressure(value, convIDs[0] + ":0");
-				converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertPressure(value, convIDs[0] + ":0");
+					converted = this.convertPressure(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -259,8 +270,13 @@ class Calculator {
 				break;
 			default:
 				let convIDs = conversionID.split(':');
-				converted = this.convertPower(value, convIDs[0] + ":0");
-				converted = this.convertPower(converted, "0:" + convIDs[1]);
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertPower(value, convIDs[0] + ":0");
+					converted = this.convertPower(converted, "0:" + convIDs[1]);
+				}
 				break;
 		}
 		return(converted);
@@ -323,10 +339,61 @@ class Calculator {
 				converted = this.UNITS.VISCOSITY.lbfSftToCP(value);
 				break;
 			default:
-			let convIDs = conversionID.split(':');
-			converted = this.convertViscosity(value, convIDs[0] + ":0");
-			converted = this.convertViscosity(converted, "0:" + convIDs[1]);
-			break;
+				let convIDs = conversionID.split(':');
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertViscosity(value, convIDs[0] + ":0");
+					converted = this.convertViscosity(converted, "0:" + convIDs[1]);
+				}
+				break;
+		}
+		return(converted);
+	}
+	
+	/** Converts kinematic viscosity units by calling the appropriate KinematicViscosityUnits method.
+	 * @param {number} value - the value to convert.
+	 * @param {string} conversionID - a number (in string form) representing the units to convert from and to.
+	 * @return {number} the converted value.
+	 */
+	convertKinematicVis(value, conversionID) {
+		let converted;
+		switch(conversionID) {
+			case "0:1":	// cST to S
+				converted = this.UNITS.KINEMATIC.cSTtoS(value);
+				break;
+			case "0:2":	// cST to cm^2 / s
+				converted = this.UNITS.KINEMATIC.cSTtoCms(value);
+				break;
+			case "0:3":	// cST to m^2 / s
+				converted = this.UNITS.KINEMATIC.cSTtoMs(value);
+				break;
+			case "0:4":	// cST to ft^2 / s
+				converted = this.UNITS.KINEMATIC.cSTtoFts(value);
+				break;
+			case "1:0":	// S to cST
+				converted = this.UNITS.KINEMATIC.sTocST(value);
+				break;
+			case "2:0":	// cm^2 / s to cST
+				converted = this.UNITS.KINEMATIC.cmsTocST(value);
+				break;
+			case "3:0":	// m^2 / s to cST
+				converted = this.UNITS.KINEMATIC.msTocST(value);
+				break;
+			case "4:0":	// ft^2 / s to cST
+				converted = this.UNITS.KINEMATIC.ftsTocST(value);
+				break;
+			default:
+				let convIDs = conversionID.split(':');
+				if(convIDs[0] == convIDs[1]) {
+					converted = value;
+				}
+				else {
+					converted = this.convertKinematicVis(value, convIDs[0] + ":0");
+					converted = this.convertKinematicVis(converted, "0:" + convIDs[1]);
+				}
+				break;
 		}
 		return(converted);
 	}
@@ -340,24 +407,23 @@ class Calculator {
 	 * @return {number} the converted value.
 	 */
 	convert(category, unitA, unitB, value) {
-		let conversionID;
+		let conversionID = this.genConversionID(category, unitA, unitB);
 		let newVal;
 		switch(category) {
 			case "ENERGY_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertEnergy(value, conversionID);
 				break;
 			case "PRESSURE_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPressure(value, conversionID);
 				break;
 			case "POWER_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertPower(value, conversionID);
 				break;
 			case "VISCOSITY_UNITS":
-				conversionID = this.genConversionID(category, unitA, unitB);
 				newVal = this.convertViscosity(value, conversionID);
+				break;
+			case "KINEMATIC_VISCOSITY_UNITS":
+				newVal = this.convertKinematicVis(value, conversionID);
 				break;
 			default:
 				console.log("GUI.convert: " + category + " does not match any case.");

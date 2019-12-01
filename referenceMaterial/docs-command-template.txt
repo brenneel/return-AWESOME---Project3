@@ -5,4 +5,4 @@
 */
 
 
-documentation build src/** -f html -o documentation/docs --project-name "Project 4: Unit Converter" --project-version "Version 2.0"
+documentation build src/** -f html -o documentation/docs --project-name "Project 4: Unit Converter" --project-version "Version 1.1"
