@@ -225,7 +225,6 @@ class FormulasSol{
      * @returns {Number} 
      */
     bernoullisHard(obj, initArr){
-        console.log("Iteration");
         if(obj.f == undefined){
             return undefined;
         }else if(isNaN(obj.f)){
@@ -252,7 +251,6 @@ class FormulasSol{
         }else{
             obj.f = temp;
         }
-        console.log("This Iteration:" + obj.v);
         return this.bernoullisHard(obj, initArr);
     }
 }
