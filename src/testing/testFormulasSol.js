@@ -81,6 +81,9 @@ class TestFormulasSol extends Test{
         return this.fail;
     }
 
+    /**
+     * Tests bernoullis equation for accuracy. evaluates p1 at isK = false, p2 at isK = true, del p, del z, w, non-iterative v, and the iterative v
+     */
     testBernoullisEquation(){
         let obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
         let initTest = "Bernoulis Equation - ";
