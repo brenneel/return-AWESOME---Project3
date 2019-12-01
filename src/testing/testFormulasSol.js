@@ -13,11 +13,26 @@ class TestFormulasSol extends Test{
      * Runs all of the tests in FormulaSol
      */
     run(){
-        this.createTest(this.testReynoldsNumber(), "Reynolds Number");
-        this.createTest(this.testFrictionFactor(), "Friction Factor");
-        // this.createTest(this.testTempV(), "Testing V");
-        this.createTest(this.testBernoullisEquation(), "Bernoullis Equation");
-        return this.fail;
+        let arr = new Array();
+        let count = 0;
+        let result = "";
+
+        arr.push(this.createTest(this.testReynoldsNumber(), "Reynolds Number"));
+        arr.push(this.createTest(this.testFrictionFactor(), "Friction Factor"));
+        arr.push(this.createTest(this.testBernoullisEquation(), "Bernoullis Equation"));
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
+
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result);
+        return result;
     }
 
     /**
