@@ -1,8 +1,11 @@
+/**
+ * A series of tests for evaluating the contents of Viscosity Units
+ */
 class TestViscosityUnits extends Test {
-    testValues;
-    expectedValues;
-    tolerance;
-    viscos;
+    testValues; /** An array of values to test in all functions*/
+    expectedValues; /** An array of the values expected from each function */
+    tolerance;  /** Error tolerance to account for source rounding */
+    viscos; /** Variable representing {@link ViscosityUnits} */
     constructor(){
         super("ViscosityUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
