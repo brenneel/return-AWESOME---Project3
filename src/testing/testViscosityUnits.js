@@ -44,7 +44,7 @@ class TestViscosityUnits extends Test {
         }else{
             result = this.fail;
         }
-        this.updateTestSet(result);
+        this.updateTestSet(result, count, arr.length);
         return result;
     }
 
