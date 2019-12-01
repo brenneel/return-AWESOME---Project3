@@ -7,7 +7,7 @@ class TestPressureUnits extends Test{
         super("PressureUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
-        this.tolerance = 0.001; //this is in percent
+        this.tolerance = 0.001; //this is a percentage
         this.unit = new PressureUnits();
         //expected values are taken from unitconverters.net/pressure-converter.html
     }
@@ -82,6 +82,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for kPa to atmo
      * @param {num} j
@@ -106,7 +107,7 @@ class TestPressureUnits extends Test{
     }
 
 
-/**
+    /**
      * atmo to Pa checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -127,6 +128,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to Pa checking with expected values
      * @param {num} j
@@ -148,6 +150,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to bar checking with expected values
      * @param {num} j
@@ -169,6 +172,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * bar to atmo checking with expected values
      * @param {num} j
@@ -190,6 +194,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to poundPerSquareInch checking with expected values
      * @param {num} j
@@ -211,6 +216,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * poundpersquaredinch to atmo checking with expected values
      * @param {num} j
@@ -232,6 +238,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to foot water checking with expected values
      * @param {num} j
@@ -275,7 +282,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-/**
+
+    /**
      * atmo to merc inch checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -296,6 +304,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * merc inch to atmo checking with expected values
      * @param {num} j
@@ -317,6 +326,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to merc mm checking with expected values
      * @param {num} j
@@ -338,7 +348,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * merc mm to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -359,7 +370,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * atmo to kgf checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -380,6 +392,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to kgf checking with expected values
      * @param {num} j
@@ -424,7 +437,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * atmo to meter water checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -444,8 +458,9 @@ class TestPressureUnits extends Test{
         if(passed)
             return(this.pass);
         return(this.fail);
-     }
-     /**
+    }
+     
+    /**
      * atmo to torr checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -466,7 +481,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * torr to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -487,6 +503,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to psi checking with expected values
      * @param {num} j
@@ -508,6 +525,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * psi to atmo checking with expected values
      * @param {num} j
@@ -529,6 +547,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to inch water checking with expected values
      * @param {num} j
@@ -550,6 +569,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * inch water to atmo checking with expected values
      * @param {num} j
@@ -593,7 +613,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * dyne to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -614,6 +635,4 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-
-//this is the end of the file brace
 }
