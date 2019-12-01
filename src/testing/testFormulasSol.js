@@ -201,7 +201,6 @@ class TestFormulasSol extends Test{
         sol = 2.717;
         this.addTest(curTest);
         let temp = this.fSol.bernoullisEquation(obj);
-        this.conLog("Iterative Bernoulli's", temp);
         if(temp.toFixed(3) == sol){
             count++;
             this.updateTest(curTest, this.pass);
@@ -216,6 +215,5 @@ class TestFormulasSol extends Test{
         }else{
             return this.unkno;
         }
-        return this.pass;
     }
 }
