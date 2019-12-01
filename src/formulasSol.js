@@ -247,7 +247,7 @@ class FormulasSol{
         tempObj = {D: obj.D, epsilon: obj.epsilon, Re: temp};
         temp = this.frictionFactor(tempObj);
         
-        if(Math.abs(obj.f - temp) <= 0.001){
+        if(Math.abs(obj.f - temp) <= 0.00001){
             return obj.v;
         }else{
             obj.f = temp;

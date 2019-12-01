@@ -182,11 +182,11 @@ class TestFormulasSol extends Test{
         obj = {p1:2.1e5, p2:0, z1:0, z2:0, w:0, v:2, f: 10, L:150, D:0.062, rho:998.2, gamma:1.077e-5, K: [0, 0], epsilon:0.00004572, isK: false};
         delete obj.v;
         delete obj.f;
-        sol = 2.87;
+        sol = 2.717;
         this.addTest(curTest);
         let temp = this.fSol.bernoullisEquation(obj);
         this.conLog("Iterative Bernoulli's", temp);
-        if(temp.toFixed(2) == sol){
+        if(temp.toFixed(3) == sol){
             count++;
             this.updateTest(curTest, this.pass);
         }else{
