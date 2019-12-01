@@ -13,45 +13,40 @@ class TestPowerUnits extends Test{
     }
 
     run(){
-        console.log("Power tests start");
-        //addtest
-        this.addTest("WtoHp");
-        this.addTest("HpToW");
-        this.addTest("WtoJoulePerS");
-        this.addTest("JoulePerStoW");
-        this.addTest("WtoCalPerS");
-        this.addTest("CalPerStoW");
-        this.addTest("WtoBtuPerS");
-        this.addTest("BtuPerStoW");
-        this.addTest("kWtoW");
-        this.addTest("WtokW");
-        this.addTest("WtoFtlbFsec");
-        this.addTest("FtlbFsectoW");
-        this.addTest("WtoFtlbFmin");
-        this.addTest("FtlbFmintoW");
-        this.addTest("WtoBtuPerHr");
-        this.addTest("BtuPerHrtoW");
+        let arr = new Array();
+        let count = 0;
+        let result = "";
+        
+        arr.push(this.createTest(this.testingWtoHp(0), "WtoHp"));
+        arr.push(this.createTest(this.testingHptoW(1), "HpToW"));
+        arr.push(this.createTest(this.testingWToJoulePerS(2), "WtoJoulePerS"));
+        arr.push(this.createTest(this.testingJoulePerStoWatt(3), "JoulePerStoW"));
+        arr.push(this.createTest(this.testingWToCalPerS(4), "WtoCalPerS"));
+        arr.push(this.createTest(this.testingCalPerStoW(5), "CalPerStoW"));
+        arr.push(this.createTest(this.testingWtoBtuPerS(6), "WtoBtuPerS"));
+        arr.push(this.createTest(this.testingBtuPerStoW(7), "BtuPerStoW"));
+        arr.push(this.createTest(this.testingkWtoW(8), "kWtoW"));
+        arr.push(this.createTest(this.testingWtokW(9), "WtokW"));
+        arr.push(this.createTest(this.testingWtoFtlbFsec(10), "WtoFtlbFsec"));
+        arr.push(this.createTest(this.testingFtlbFsectoW(11), "FtlbFsectoW"));
+        arr.push(this.createTest(this.testingWtoFtlbFmin(12), "WtoFtlbFmin"));
+        arr.push(this.createTest(this.testingFtlbFmintoW(13), "FtlbFmintoW"));
+        arr.push(this.createTest(this.testingWtoBtuPerHr(14), "WtoBtuPerHr"));
+        arr.push(this.createTest(this.testingBtuPerHrtoW(15), "BtuPerHrtoW"));
+        
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
 
-        //updateTest
-        this.updateTest("WtoHp", this.testingWtoHp(0));
-        this.updateTest("HpToW", this.testingHptoW(1));
-        this.updateTest("WtoJoulePerS", this.testingWToJoulePerS(2));
-        this.updateTest("JoulePerStoW", this.testingJoulePerStoWatt(3));
-        this.updateTest("WtoCalPerS", this.testingWToCalPerS(4));
-        this.updateTest("CalPerStoW", this.testingCalPerStoW(5));
-        this.updateTest("WtoBtuPerS", this.testingWtoBtuPerS(6));
-        this.updateTest("BtuPerStoW", this.testingBtuPerStoW(7));
-        this.updateTest("kWtoW", this.testingkWtoW(8));
-        this.updateTest("WtokW", this.testingWtokW(9));
-        this.updateTest("WtoFtlbFsec", this.testingWtoFtlbFsec(10));
-        this.updateTest("FtlbFsectoW", this.testingFtlbFsectoW(11));
-        this.updateTest("WtoFtlbFmin", this.testingWtoFtlbFmin(12));
-        this.updateTest("FtlbFmintoW", this.testingFtlbFmintoW(13));
-        this.updateTest("WtoBtuPerHr", this.testingWtoBtuPerHr(14));
-        this.updateTest("BtuPerHrtoW", this.testingBtuPerHrtoW(15));
-
-        console.log("Power tests end");
-        //end of run
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result);
+        return result;
     }
 
     /*Begin function testing*/

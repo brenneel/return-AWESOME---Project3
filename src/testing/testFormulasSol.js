@@ -20,6 +20,7 @@ class TestFormulasSol extends Test{
         arr.push(this.createTest(this.testReynoldsNumber(), "Reynolds Number"));
         arr.push(this.createTest(this.testFrictionFactor(), "Friction Factor"));
         arr.push(this.createTest(this.testBernoullisEquation(), "Bernoullis Equation"));
+        
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
                 count++;
