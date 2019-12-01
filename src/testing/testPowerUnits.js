@@ -50,6 +50,7 @@ class TestPowerUnits extends Test{
     }
 
     /*Begin function testing*/
+
     /**
      * checks unit conversions with expected values for w to Hp
      * @param {num} j
@@ -71,6 +72,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for hp to w
      * @param {num} j
@@ -92,6 +94,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for W to j/s
      * @param {num} j
@@ -113,6 +116,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for j/s to watt
      * @param {num} j
@@ -134,6 +138,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for w to Hp
      * @param {num} j
@@ -155,6 +160,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for hp to w
      * @param {num} j
@@ -176,6 +182,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for W to btu/s
      * @param {num} j
@@ -197,6 +204,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for btu/sec to Watt
      * @param {num} j
@@ -218,6 +226,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for kilowatt to watt
      * @param {num} j
@@ -239,6 +248,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
      /**
      * checks unit conversions with expected values for W to kW
      * @param {num} j
@@ -260,7 +270,8 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-        /**
+        
+    /**
      * checks unit conversions with expected values for W to ft * lbF/sec (foot pound force per sec)
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -281,7 +292,8 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-        /**
+        
+    /**
      * checks unit conversions with expected values for foot pound force per sec (ft lbF / sec) to watt
      * @return {Boolean} pass or fail
      */
@@ -301,6 +313,7 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for W to ft * lbF/min (foot pound force per min)
      * @return {Boolean} pass or fail
@@ -321,7 +334,8 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for foot pound force per min (ft lbF / min) to watt
      * @return {Boolean} pass or fail
      */
@@ -341,7 +355,8 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * checks unit conversions with expected values for W to btu/hr
      * @return {Boolean} pass or fail
      */
@@ -361,7 +376,8 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * checks unit conversions with expected values for btu/hr to Watt
      * @return {Boolean} pass or fail
      */
@@ -381,5 +397,4 @@ class TestPowerUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-//end of class
 }
