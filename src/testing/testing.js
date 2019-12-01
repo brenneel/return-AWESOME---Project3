@@ -32,7 +32,7 @@ class Testing{
         arr.push(this.fSolTest.run());
         arr.push(this.fPressTest.run());
         arr.push(this.fPowTest.run());
-        // arr.push(this.fViscoTest.run());
+        arr.push(this.fViscoTest.run());
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
                 count++;
