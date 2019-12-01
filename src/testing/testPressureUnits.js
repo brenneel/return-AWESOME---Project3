@@ -1,17 +1,24 @@
+/**
+ * A series of tests for evaluating the contents of PressureUnits
+ */
 class TestPressureUnits extends Test{
-    testValues;
-    expectedValues;
-    tolerance;
-    unit;
+    testValues; /** An array of values to test in all functions*/
+    expectedValues; /** An array of the values expected from each function */
+    tolerance; /** Error tolerance to account for source rounding */
+    unit; /** Variable representing {@link PressureUnits} */
     constructor(){
         super("PressureUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
         this.tolerance = 0.001; //this is a percentage
         this.unit = new PressureUnits();
+        
         //expected values are taken from unitconverters.net/pressure-converter.html
     }
 
+    /**
+     * Runs all of the tests in PressureUnits
+     */
     run(){
         let arr = new Array();
         let count = 0;
