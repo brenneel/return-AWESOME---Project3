@@ -84,10 +84,10 @@ class Config {
 
 	KINEMATIC_VISCOSITY_UNITS = [
 		["cST" , "centistoke (cST)"],
-		["S" , "Stoke"],
+		["S" , "Stoke (S)"],
 		["cms" , "square centimeters per sec (cm^2 / s)"],
-		["ms" , "squre meters per sec (m^2 / s)"],
-		["fts", "squre feet per sec (ft^2 / s)"],
+		["ms" , "square meters per sec (m^2 / s)"],
+		["fts", "square feet per sec (ft^2 / s)"],
 	];
 
 	/* -------------------------------
