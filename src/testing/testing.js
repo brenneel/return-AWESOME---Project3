@@ -19,8 +19,9 @@ class Testing{
     fViscoTest;
     fEnerTest;
     fKinViscoTest;
-	
-	configTest;
+	configTest;	/** @prop configTest - Variable representing {@link TestConfig} */
+    calculatorTest; /**Variable representing {@link TestCalculator} */
+    guiTest; /**Variable representing {@link TestGui} */
 
     constructor(){
         this.isCompleted = false;
@@ -35,7 +36,7 @@ class Testing{
       
         this.configTest = new TestConfig();
         this.calculatorTest = new TestCalculator();
-
+        this.guiTest = new TestGui();
     }
     
     /**
@@ -56,6 +57,7 @@ class Testing{
         arr.push(this.fEnerTest.run());
         arr.push(this.configTest.run());
         arr.push(this.calculatorTest.run());
+        arr.push(this.guiTest.run());
 
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == "SUCCESS"){

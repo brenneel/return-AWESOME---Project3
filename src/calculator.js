@@ -457,12 +457,11 @@ class Calculator {
 		return(this.FORMULAS.pvNRT(inputs));
 	}
 
-	/** Handles the calculation of Reynold's Number and passes that object to {@link FormulasSol}.reynoldsNumber to solve for the unknown variable.  Assumes that there is exactly 1 unknown variable.
-	 * @param {Object} inputs - an Object containing all input values from the formula input form... no empty var
+	/** Handles the calculation of Reynolds' Number by passing the given input object to {@link FormulasSol}.reynoldsNumber(). Used for both forms of the Reynolds' Number formula.
+	 * @param {Object} inputs - an Object containing all input values from the formula input form.
 	 * @return {number} - the value calculated by {@link FormulasSol}.reynoldsNumber().
 	 */
 	calcREYNOLDS(inputs) {
-		inputs = this.removeEmpty(inputs);
 		return(this.FORMULAS.reynoldsNumber(inputs));
 	}
 	
