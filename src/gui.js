@@ -267,12 +267,16 @@ class Gui {
 		let formulaFields = this.m_formulaFields.elements;
 		switch(formula) {
 			case "PVNRT":
+				for(let i = 0; i < formulaFields.length; i++) {
+					this.unHighlight(formulaFields[i].id);
+				}
 				if(this.valOneEmpty()) {
 					let emptyInput = this.findEmptyInput();
 					let inputs = this.packageInputs();
 					let calculated = this.CALCULATOR.calcPVNRT(inputs);
 					if(calculated !== undefined) {
 						formulaFields[emptyInput].value = calculated;
+						this.highlight(emptyInput);
 						this.hideElement("formula-helptext");
 					}
 				}
