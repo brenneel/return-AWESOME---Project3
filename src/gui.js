@@ -187,12 +187,12 @@ class Gui {
 		document.getElementById(ID).style.display = "none";
 	}
 	
-	/** Highlights the given element with a red outline.
+	/** Highlights the given element with a green outline.
 	 * @param {string} ID - the element ID of the element to highlight.
-	 * @post - changes the border property of the given element to "medium solid red"
+	 * @post - changes the border property of the given element to "5px double #02b55e"
 	 */
 	highlight(ID) {
-		document.getElementById(ID).style.border = "medium solid red";
+		document.getElementById(ID).style.border = "5px double #02b55e";
 	}
 	
 	/** Unhighlights the given element.
