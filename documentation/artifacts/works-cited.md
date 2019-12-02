@@ -3,15 +3,12 @@
 * www.unitconverters.net: For checking Energy and Pressure conversions
 * www.lucidchart.com: For Case, State, and Class diagram creation
 * www.agantty.com: For creating/generating the Gantt chart
-
-Wilson, Anna. “Bernoulli's Equation Breakdown.” Spahr Library, Lawrence, 4 Nov. 2019.
-* notes provided by consultant
-
-Nevers, Noel De. Fluid Mechanics for Chemical Engineers. McGraw-Hill Higher Education, 2005.
-* Textbook for constant/conversion values and formula equations
-
-Purswani, Bhavyadeep. How to Get Value of Selected Radio Button Using JavaScript? 15 May 2019, https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/. Accessed 1 Dec. 2019.
-* Gui.getCheckedRadio() was adapted from this source.
+* Wilson, Anna. “Bernoulli's Equation Breakdown.” Spahr Library, Lawrence, 4 Nov. 2019.
+ * notes provided by consultant
+* Nevers, Noel De. Fluid Mechanics for Chemical Engineers. McGraw-Hill Higher Education, 2005.
+ * Textbook for constant/conversion values and formula equations
+* Purswani, Bhavyadeep. How to Get Value of Selected Radio Button Using JavaScript? 15 May 2019, https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/. Accessed 1 Dec. 2019.
+ * Gui.getCheckedRadio() was adapted from this source.
 
 ### Sources for Deployment Plan
 
@@ -24,7 +21,7 @@ https://www.a2hosting.com/web-hosting/compare
 https://www.bluehost.com/hosting/shared
 -Bluehost info
 
-https://www.inmotionhosting.com/business-hosting?clickid=xuS2dfTygQlO0gJzkRTWrUiZUkn3thTBrTp2Qo0&irgwc=1&affiliates=125605
+https://www.inmotionhosting.com/business-hosting
 -InMotion info
 
 https://www.quora.com/How-much-can-I-earn-with-AdMob-with-100-daily-app-users
