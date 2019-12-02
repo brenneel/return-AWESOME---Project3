@@ -20,6 +20,7 @@ class TestGui extends Test {
 		arr.push(this.createTest(this.testSetFavConv(), "Testing setFavConv()"));
 		arr.push(this.createTest(this.testInputsEmpty(), "Testing inputsEmpty()"));
 		arr.push(this.createTest(this.testFindEmptyInput(), "Testing findEmptyInput()"));
+		arr.push(this.createTest(this.testGetCheckedRadio(), "Testing getCheckedRadio()"));
 		arr.push(this.createTest(this.testOutputBernoullis(), "Testing outputBernoullis()"));
 		for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
@@ -212,15 +213,15 @@ class TestGui extends Test {
 	/** Tests {@link Gui}'s getCheckedRadio() method.
 	 */
 	testGetCheckedRadio() {
-		
+		GUI.m_formulaMenu.value = "BERNOULLI";
+		GUI.populateFormulaFields();
+		if(GUI.getCheckedRadio("isK") == "true") {
+			return(this.pass);
+		}
+		else {
+			return(this.fail);
+		}
 	}
-	
-	/** Tests {@link Gui}'s packageInputs() method.
-	 */
-	testPackageInputs() {
-		
-	}
-	
 	
 	/** Tests {@link Gui}'s outputBernoullis() method.
 	 */
