@@ -41,7 +41,7 @@ class TestKinematicViscosityUnits extends Test {
     }
 
     /**
-     * checks unit conversions with expected values for cP to P
+     * checks unit conversions with expected values for cST to S
      * @param {num} j
      * @return {Boolean} pass or fail
      */
@@ -55,6 +55,28 @@ class TestKinematicViscosityUnits extends Test {
                 passed = false;
                 this.conLog("testingCSTtoS", "Expected value = " + this.expectedValues[j][i]);
                 this.conLog("testingCSTtoS", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+    /**
+     * checks unit conversions with expected values for S to cST
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingStoCST(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingStoCST", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingStoCST", "% error:" + val);
             }
         }
         if(passed)
