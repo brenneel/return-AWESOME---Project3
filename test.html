@@ -46,6 +46,61 @@
                 </tr>
             </table>
         </div>
+		<div style="display: none;">
+			<div class="expandable">
+				<div class="subtitle">Unit Converter</div>
+				<form id="units">
+					<p class="centered">
+						<label for="category">Unit Category</label><select id="category" name="category" form="units" onchange="GUI.populateUnitMenus();GUI.convertHandler();GUI.updateStar(0);">
+						</select>
+					</p>
+					<div class="centered">
+						<table class="centered">
+							<tr><td><input type="number" id="unitA-input" name="unitA-input" value="1" class="conv-input"></td><td rowspan="2"><div class="equals">=</div></td><td><input type="number" id="unitB-input" name="unitB-input" class="conv-input" readonly></td></tr>
+							<tr><td><label for="unitA-select" class="hidden">Unit A</label><select id="unitA-select" name="unitA-select" form="units" onclick="GUI.updateStar(0);GUI.convertHandler();">
+							</select></td>
+							<td><label for="unitB-select" class="hidden">Unit B</label><select id="unitB-select" name="unitB-select" form="units" onclick="GUI.updateStar(0);GUI.convertHandler();">
+							</select></td>
+						</tr></table><div id="conv-star" class="star">★</div>
+						<p><input type="button" id="unit-submit" name="unit-submit" value="Convert!" class="button" onclick="GUI.convertHandler();GUI.copyValue('unitB-input');"></p>
+					</div>
+					<div class="centered">All unit conversions are accurate to 0.0001%.</div>
+					<div class="centered favebar"><input type="button" id="fave-conv-go" name="fave-conv-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveConv();"><input type="button" id="fave-conv-set" name="fave-conv-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveConv();"><input type="button" id="fave-conv-rm" name="fave-conv-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveConv();"></div>
+				</form>
+			</div>
+			<div class="expandable">
+				<div class="subtitle">Constants</div>
+				<form id="constants">
+					<div class="centered">
+						<label for="constant-select">Constant: </label>
+						<select id="constant-select" name="constant-select" form="constants" onchange="GUI.constChange();GUI.updateStar(1); GUI.constHandler();">
+						</select>
+						<div class="equals">=</div>
+						<label for="constant-num" class="hidden">Value</label><input type="number" id="constant-num" name="constant-num" class="formula-const" readonly>
+						<select id="constant-unit" onclick = "GUI.constHandler();">
+						</select>
+						<label for="constant-unit" class="hidden">Constant's Unit</label><div id="const-star" class="star">★</div>
+						<p><input type="button" id="const-submit" name="const-submit" value="Copy to Clipboard" class="button" onclick="GUI.copyValue('constant-num');"></p>
+					</div>
+				</form>
+				<div class="centered favebar"><input type="button" id="fave-const-go" name="fave-const-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveConst();"><input type="button" id="fave-const-set" name="fave-const-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveConst();"><input type="button" id="fave-const-rm" name="fave-const-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveConst();"></div>
+			</div>
+			<div class="expandable">
+				<div class="subtitle">Formula Calculator</div>
+				<div class="centered">
+					<label for="formula-select">Choose a formula: </label>
+					<select id="formula-select" name="formula-select" form="formulas" required onchange="GUI.populateFormulaFields();	GUI.updateStar(2);">
+					</select>
+				</div>
+				<div id="formula-box" class="centered">
+					<div id="formula-text"></div>
+					<form id="formula-fields"></form><div id="formula-star" class="star">★</div>
+					<div class="centered helptext" id="formula-helptext"></div>
+				</div>
+				<p class="centered"><input type="button" id="formula-submit" name="formula-submit" value="Calculate!" class="button" onclick="GUI.calculateHandler();"></p>
+				<div class="centered favebar"><input type="button" id="fave-formula-go" name="fave-formula-go" value="Go to favorite!" class="fave-button" onclick="GUI.switchToFaveFormula();"><input type="button" id="fave-formula-set" name="fave-formula-set" value="Set favorite!" class="fave-button" onclick="GUI.setFaveFormula();"><input type="button" id="fave-formula-rm" name="fave-formula-rm" value="Remove favorite" class="fave-button" onclick="GUI.rmFaveFormula();"></div>
+			</div>
+		</div>
     </div>
     <script>
 		let CONFIG = new Config();
