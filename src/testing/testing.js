@@ -9,6 +9,8 @@ class Testing{
     fPowTest;   /** Variable representing {@link TestPowerUnits} */
     fViscoTest; /** Variable representing {@link TestViscosityUnits} */
     fEnerTest;  /** Variable representing {@link TestEnergyUnits}*/
+	
+	configTest;	/** @prop configTest - Variable representing {@link TestConfig} */
 
     constructor(){
         this.isCompleted = false;
@@ -19,6 +21,8 @@ class Testing{
         this.fPowTest = new TestPowerUnits();
         this.fViscoTest = new TestViscosityUnits();
         // this.fEnerTest = new TestEnergyUnits();
+		
+		this.configTest = new TestConfig();
     }
     
     /**
@@ -36,6 +40,8 @@ class Testing{
         arr.push(this.fPowTest.run());
         arr.push(this.fViscoTest.run());
         // arr.push(this.fEnerTest.run());
+		
+		arr.push(this.configTest.run());
 
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == "SUCCESS"){

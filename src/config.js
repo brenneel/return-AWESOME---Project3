@@ -285,8 +285,8 @@ class Config {
 
 	/** Gets the array index of the given unit.
 	 * @param {string} category - the category of units, ie. "ENERGY_UNITS".
-	 * @param {string} unit - the chosen unit.
-	 * @return {number} the index of the unit.
+	 * @param {string} unit - the chosen unit, ie. "joule".
+	 * @return {number} the index of the unit if found; if the category is not found, return -1, if the unit isn't found, return -2.
 	 */
 	getIndexOf(category, unit) {
 		if(this[category] == undefined) {
