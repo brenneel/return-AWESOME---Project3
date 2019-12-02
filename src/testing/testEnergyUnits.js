@@ -7,7 +7,7 @@ class TestEnergyUnits extends Test{
         super("EnergyUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
-        this.tolerance = 0.001; // this is a percentage
+        this.tolerance = 0.0001; // this is a percentage
         this.energy = new EnergyUnits();
     }
 
@@ -78,7 +78,7 @@ class TestEnergyUnits extends Test{
      */
     testingErgToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.00000000000001234,0.0001024123,0.0987654]);
+        this.expectedValues.push([(1.234*(10**-16)),0.0001024123,0.0987654]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.ergToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -122,7 +122,7 @@ class TestEnergyUnits extends Test{
      */
     testingBtuToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000013019,1080507.4461,1042030133.1]);
+        this.expectedValues.push([0.00000130193892211,1080507.4461,1042030133.1]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.btuToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -144,7 +144,7 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToCal(j){
         let passed = true;
-        this.expectedValues.push([0.0000000000002947358364,0.2446076851,235.89710519]);
+        this.expectedValues.push([2.94933404*10**-13,0.244771650724736,236.055231924]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.jouleToCal(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -166,7 +166,7 @@ class TestEnergyUnits extends Test{
      */
     testingCalToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000051665,4287800.0856,4135109767.2]);
+        this.expectedValues.push([0.000000005163056,4284.932539904,4132344.336]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.calToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -209,7 +209,7 @@ class TestEnergyUnits extends Test{
      */
     testingEVToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,(1.582396848*(10**-13))]);
+        this.expectedValues.push([1.977086825*10**-28,1.640827384*10**-16,(1.582396848*(10**-13))]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.eVToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -231,7 +231,7 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToFootPoundForce(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([9.101516922*10**-10,755.35469736,728456.207]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.jouleToFootPoundForce(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -253,7 +253,7 @@ class TestEnergyUnits extends Test{
      */
     testingFtlbfToJ(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([1.673079348*10**-9,1388.5249629,1339079.0199]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.ftlbfToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -267,7 +267,6 @@ class TestEnergyUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-
     /**
      * checks unit conversions with expected values for joule to hp*h
      * @param {num} j
@@ -275,7 +274,7 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToHorsepowerHour(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([4.660480765*10**-16,0.0003867834,0.3730099247]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.jouleToHorsepowerHour(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -297,7 +296,7 @@ class TestEnergyUnits extends Test{
      */
     testingHphToJ(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.0032673796,2711669478.2,2615105816757]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.hphToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -319,7 +318,7 @@ class TestEnergyUnits extends Test{
      */
     testingJouleTokWh(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([3.42778052*10**-16,2.84478965360768*10**-4, 0.274348552812]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.jouleTokWh(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -341,7 +340,7 @@ class TestEnergyUnits extends Test{
      */
     testingKwhToJ(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.0044424,3686844441.6,3555554400000]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.kwhToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -363,7 +362,7 @@ class TestEnergyUnits extends Test{
      */
     testingJouleTokWs(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([1.234*10**-12,1.024123456,987.654]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.jouleTokWs(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
@@ -385,7 +384,7 @@ class TestEnergyUnits extends Test{
      */
     testingKwsToJ(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.000001234,1024123.456,987654000]);
         for(let i = 0; i<this.testValues.length; i++){
             let calc = this.energy.kwsToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
