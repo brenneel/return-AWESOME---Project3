@@ -11,7 +11,8 @@ class Testing{
     fEnerTest;  /** Variable representing {@link TestEnergyUnits}*/
 	
 	configTest;	/** @prop configTest - Variable representing {@link TestConfig} */
-
+    calculatorTest; /**Variable representing {@link TestCalculator} */
+    guiTest; /**Variable representing {@link TestGui} */
     constructor(){
         this.isCompleted = false;
         this.initTesting();
@@ -24,7 +25,7 @@ class Testing{
       
         this.configTest = new TestConfig();
         this.calculatorTest = new TestCalculator();
-
+        this.guiTest = new TestGui();
     }
     
     /**
