@@ -1,8 +1,15 @@
+/**
+ * A series of tests for evaluating the contents of Kinematic Viscosity Units
+ * @prop {Array} testValues: An array of values to test in all functions.
+ * @prop {Array} exectedValues: An array of the values expected from each function.
+ * @prop {Number} tolerance: Error tolerance to account for source rounding.
+ * @prop {ViscosityUnits} viscos: An instance of {@link KinematicViscosityUnits}.
+ */
 class TestKinematicViscosityUnits extends Test {
-    testValues; /** An array of values to test in all functions*/
-    expectedValues; /** An array of the values expected from each function */
-    tolerance;  /** Error tolerance to account for source rounding */
-    viscos; /** Variable representing {@link ViscosityUnits} */
+    testValues;
+    expectedValues;
+    tolerance;
+    viscos;
     constructor(){
         super("KinematicViscosityUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];

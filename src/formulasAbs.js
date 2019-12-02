@@ -52,7 +52,7 @@ class FormulasAbs{
     }
 
     /**
-     * Recursively iterates through an array, while calling a function. This means tat each iteration will 
+     * Recursively iterates through an array, while calling a function. This means that each iteration will 
      * use two spaces on the call stack. Additionally, due to js variables the array will be destroyed so 
      * use protectArray on the array being passed in.
      * @param {Array} arr: The array that is being iterated now.
@@ -100,7 +100,7 @@ class FormulasAbs{
     }
 
     /**
-     * Protects an object by creating a new object
+     * *[Currently unused]* Protects an object by creating a new object
      * @param {Object} obj: Original object
      * @return {Object} 
      */
