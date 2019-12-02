@@ -253,7 +253,7 @@ class TestGui extends Test {
 		GUI.m_faves.category = "ENERGY_UNITS";
 
 		GUI.switchToFaveConv();
-		if (GUI.m_unitAMenu.value == "erg" && GUI.m_unitBMenu == "kWh" && GUI.m_catMenu.value == "ENERGY_UNITS")
+		if (GUI.m_unitAMenu.value == "erg" && GUI.m_unitBMenu.value == "kWh" && GUI.m_catMenu.value == "ENERGY_UNITS")
 		{
 			return this.pass;
 		}
