@@ -284,7 +284,7 @@ class Config {
 	 */
 
 	/** Gets the array index of the given unit.
-	 * @param {string} category - the category of units, ie. "energy".
+	 * @param {string} category - the category of units, ie. "ENERGY_UNITS".
 	 * @param {string} unit - the chosen unit.
 	 * @return {number} the index of the unit.
 	 */
