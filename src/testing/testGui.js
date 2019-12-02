@@ -38,9 +38,16 @@ class TestGui extends Test {
 	/**
 	 * checks whether the value was correctly copied to clipboard
 	 * @post the value is stored in the user's clipboard
+	 * @return {Boolean} pass or fail
 	 */
 	testingCopyValue(){
-
+		let tempValue = document.getElementById("copyValue").value;
+		this.copyValue("copyValue");
+		let copiedValue = window.clipboardData.getData('Text');
+		if(tempValue == copiedValue){
+			return(this.pass);
+		}
+		return(this.fail);
 	}
 	
 	/** Tests {@link Gui}'s valOneEmpty() method.
