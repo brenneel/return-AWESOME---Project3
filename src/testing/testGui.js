@@ -229,7 +229,7 @@ class TestGui extends Test {
 	 */
 
 	/**
-	 * Tests switch to fav conv
+	 * Tests {@link Gui}'s switch to fav conv method
 	*/
 	testSwitchToFaveConv() {
 
