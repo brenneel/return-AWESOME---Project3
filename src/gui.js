@@ -36,7 +36,6 @@ class Gui {
 		// containers for formula instructions & inputs/outputs
 		this.m_formulaText = document.getElementById("formula-text");
 		this.m_formulaFields = document.getElementById("formula-fields");
-		this.m_formulaOutput = document.getElementById("formula-output");
 		this.m_formulaHelpText = document.getElementById("formula-helptext");
 		
 		// favorites
@@ -188,12 +187,12 @@ class Gui {
 		document.getElementById(ID).style.display = "none";
 	}
 	
-	/** Highlights the given element with a red outline.
+	/** Highlights the given element with a green outline.
 	 * @param {string} ID - the element ID of the element to highlight.
-	 * @post - changes the border property of the given element to "medium solid red"
+	 * @post - changes the border property of the given element to "5px double #02b55e"
 	 */
 	highlight(ID) {
-		document.getElementById(ID).style.border = "medium solid red";
+		document.getElementById(ID).style.border = "5px double #02b55e";
 	}
 	
 	/** Unhighlights the given element.
@@ -268,12 +267,16 @@ class Gui {
 		let formulaFields = this.m_formulaFields.elements;
 		switch(formula) {
 			case "PVNRT":
+				for(let i = 0; i < formulaFields.length; i++) {
+					this.unHighlight(formulaFields[i].id);
+				}
 				if(this.valOneEmpty()) {
 					let emptyInput = this.findEmptyInput();
 					let inputs = this.packageInputs();
 					let calculated = this.CALCULATOR.calcPVNRT(inputs);
 					if(calculated !== undefined) {
 						formulaFields[emptyInput].value = calculated;
+						this.highlight(emptyInput);
 						this.hideElement("formula-helptext");
 					}
 				}
@@ -303,8 +306,7 @@ class Gui {
 				break;
 			case "BERNOULLI":
 				this.hideElement("formula-helptext");
-				this.m_formulaOutput.innerHTML = "";
-				this.unHighlight("formula-output");
+				document.getElementById("answer").innerHTML = "";
 				// validation that doesn't depend on calculation type
 				let KcaseStr = this.getCheckedRadio("isK");
 				let Kcase;
@@ -324,19 +326,6 @@ class Gui {
 						break;
 					}
 				}
-				
-//				if(document.getElementById("v").value == "") {	// if v is omitted, f is also omitted
-//					if(this.inputsEmpty(["L", "D", "rho"])) {
-//						this.showBernHelptext("SET1");
-//						break;
-//					}
-//				}
-//				else {
-//					if(this.inputsEmpty(["L", "v", "D", "f", "rho"])) {
-//						this.showBernHelptext("SET2");
-//						break;
-//					}
-//				}
 				
 				// check if conditions are correct to calculate a single solution, an iterative solution, or neither
 				let solveFor = this.checkSingleSoln();
@@ -358,8 +347,7 @@ class Gui {
 					let inputs = this.packBernoullis(Kcase, false, "v");
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
-						this.m_formulaOutput.innerHTML = "Calculated solution: v = " + solution;
-						this.highlight("formula-output");
+						this.outputBernoullis("v", solution);
 					}
 					else {
 						console.log("Iterative soln returned undefined.");
@@ -374,8 +362,7 @@ class Gui {
 					let inputs = this.packBernoullis(Kcase, false, solveFor);
 					let solution = this.CALCULATOR.calcBernoullis(inputs);
 					if(solution !== undefined) {
-						this.m_formulaOutput.innerHTML = "Calculated solution: " + solveFor + " = " + solution;
-						this.highlight("formula-output");
+						this.outputBernoullis(solveFor, solution);
 					}
 					else {
 						console.log("single Soln returned undefined.");
@@ -635,6 +622,34 @@ class Gui {
 		}
 		
 		return(obj);
+	}
+	
+	/** Outputs the variable being solved for and the calculated value in a readable manner.
+	 * @param {string} variable - the variable being solved for.
+	 * @param {Number} value - the calculated value to output.
+	 * @post creates an output string and inserts it into the "answer" div.
+	 */
+	outputBernoullis(variable, value) {
+		let answerDiv = document.getElementById("answer");
+		let outputStr;
+		switch(variable) {
+			case "p1":
+			case "p2":
+			case "z1":
+			case "z2":
+				outputStr = "Calculated solution: " + variable[0] + "<sub>" + variable[1] + "</sub> = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+			case "del-p":
+			case "del-z":
+				outputStr = "Calculated solution: Δ" + variable[variable.length - 1] + " = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+			default:
+				outputStr = "Calculated solution: " + variable + " = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+		}
 	}
 	
 	/* -------------------------------
