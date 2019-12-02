@@ -43,3 +43,7 @@
 11/20/2019. Post-lecture, impromptu
 --Attendees: Kyle Kappes-Sum, Connie Li, Ethan Brenner
 --discussed progress & priority of remaining tasks.
+
+11/25/2019
+--Attendees: Kyle Kappes-Sum, Connie Li, Ethan Brenner, Malena Schoeni
+--assigned and planned out tasks over the break, worked on Documentation/Gantt
