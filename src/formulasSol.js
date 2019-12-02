@@ -1,9 +1,11 @@
 /**
  * Computes all of the formulas that the user can choose from.
+ * @prop {UnitConstant} uConst: An instance of {@link UnitConstant}
+ * @prop {FormulasAbs} fAbs: An instance of {@link FormulasAbs} 
  */
 class FormulasSol{
-    uConst; /** Variable representing {@link UnitConstant} */
-    fAbs;   /** Variable representing {@link FormulasAbs} */
+    uConst;
+    fAbs;
 
     constructor(){
         this.fAbs = new FormulasAbs();
@@ -60,8 +62,9 @@ class FormulasSol{
     }
 
     /**
-     * A function that determines Reynold's Number. The other form might come later.
-     * @param {Object} obj: An object containing rho, mu, D, and V.
+     * A function that determines Reynold's Number.
+     * @param {Object} obj: An object containing D and V. It also contrins either gamma or rho & mu depending
+     * on the form.
      */
     reynoldsNumber(obj){
         let numer = new Array();
@@ -92,21 +95,24 @@ class FormulasSol{
 
     /**
      * Calculates p1, p2, Del p, z1, z2, Del z, or dw/dw( input as w) utilizing Bernoulli's Equation
-     * @param {Object} obj: contains upto "p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK".
-     *      {Number} p1, {Number} p2    [Can be solved for]: P values used to calculate delta p.
-     *      {Number} z1, {Number} z2    [Can be solved for]: Z values used to calculate delta z.
-     *      {Number}    w [Can be solved for]: Represents the dw_s/dm value.
-     *      {Number}    L:          Some value usually denoted as l.
-     *      {Number}    v [Can be solved for]: Some velocity, ewither v_2 or v_3 based on the problem.
-     *      {Number}    D:          Some D value from the friction factor equation extentsion of Bernoulli's equation.
-     *      {Number}    f [Will be solved for if solving for v]: The fricition factor.
-     *      {Number}    rho:        Some rho value used with p.
-     *      {Number}    gamma:      Some gamma used to get Reynold's number.
-     *      {Array}     K:          An array of the K values.
-     *      {Number}    epsilon:    Some Epsilon value used for the friction factor.
-     *      {Boolean}   isK:       True, if K must have 2 or more values (from one tank to another). 
-     *                              False, if K must have 1 or more values (from one tank to an open pipe).
-     * @returns {Number}
+     * @param {Object} obj: contains upto "p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK". 
+     * All of the following parameters are components of the object with their descriptions.
+     * @param {Number} p1:      [Can be solved for]: P values used to calculate delta p.
+     * @param {Number} p2:      [Can be solved for]: P values used to calculate delta p.
+     * @param {Number} z1:      [Can be solved for]: Z values used to calculate delta z.
+     * @param {Number} z2:      [Can be solved for]: Z values used to calculate delta z.
+     * @param {Number} w        [Can be solved for]: Represents the dw_s/dm value.
+     * @param {Number} L:       Some value usually denoted as l.
+     * @param {Number} v        [Can be solved for]: Some velocity, ewither v_2 or v_3 based on the problem.
+     * @param {Number} D:       Some D value from the friction factor equation extentsion of Bernoulli's equation.
+     * @param {Number} f:       [Will be solved for if solving for v]: The fricition factor.
+     * @param {Number} rho:     Some rho value used with p.
+     * @param {Number} gamma:   Some gamma used to get Reynold's number.
+     * @param {Array}  K:       An array of the K values.
+     * @param {Number} epsilon:    Some Epsilon value used for the friction factor.
+     * @param {Boolean}   isK:  True, if K must have 2 or more values (from one tank to another). 
+     *                          False, if K must have 1 or more values (from one tank to an open pipe).
+     * @returns {Number} deteremined by the missing key in the obj. Either "p1", "p2", "z1", "z2", "w", "del-p", "del-z", or "v".
      */
     bernoullisEquation(obj){
         let initArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];

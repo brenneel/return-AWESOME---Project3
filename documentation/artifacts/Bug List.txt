@@ -1,0 +1,11 @@
+Potential Bugs in Lunar Alpha:
+
+-(All) input elements don't adjust when the number inside gets too long
+
+-(Formula Calculator) Bernoulli's Equation: 'K:' label doesn't follow it's textbox to the next line
+
+-(Unit Converter) Convert button in Unit Converter should be labeled 'Copy to Clipboard'
+
+-(Unit Converter) Changing to a favorite (with values already in the input) will not auto-calculate the Unit
+
+-(Formula Calculator) ProtectObj method turns arrays into objects. 

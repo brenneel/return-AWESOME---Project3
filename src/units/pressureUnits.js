@@ -1,5 +1,7 @@
-/** Class that contains all conversion methods for Pressure units.  The standard unit is atmospheres (atm).  All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units list can be found in {@link Config}'s PRESSURE_UNITS array.
- *
+/** 
+ * Class that contains all conversion methods for Pressure units.  The standard unit is atmospheres (atm).  
+ * All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units 
+ * list can be found in {@link Config}'s PRESSURE_UNITS array.
  */
 class PressureUnits {
 	constructor() {}
