@@ -41,5 +41,57 @@ class TestGui extends Test {
 	testingCopyValue(){
 
 	}
+	
+	/** Tests {@link Gui}'s valOneEmpty() method.
+	 */
+	testValOneEmpty() {
+		
+	}
+	
+	/** Tests {@link Gui}'s valNoneEmpty() method.
+	 */
+	testValNoneEmpty() {
+		
+	}
+	
+	/** Tests {@link Gui}'s valCSNs() method.
+	 */
+	testValCSNs() {
+		
+	}
+	
+	/** Tests {@link Gui}'s inputsEmpty() method.
+	 */
+	testInputsEmpty() {
+		
+	}
+	
+	/** Tests {@link Gui}'s findEmptyInput() method.
+	 */
+	testFindEmptyInput() {
+		
+	}
+	
+	/** Tests {@link Gui}'s getCheckedRadio() method.
+	 */
+	testGetCheckedRadio() {
+		
+	}
+	
+	/** Tests {@link Gui}'s packageInputs() method.
+	 */
+	testPackageInputs() {
+		
+	}
+	
+	
+	/** Tests {@link Gui}'s () method.
+	 */
+	
+	
+	/** Tests {@link Gui}'s () method.
+	 */
+	
+	
 }
 
