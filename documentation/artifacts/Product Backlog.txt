@@ -1,22 +1,68 @@
-Product Backlog Effort Legend: How do you like your steak?
-Rare(Easy) to Well-Done(Difficult)
+||------------------------ COMPLETE ------------------------||
 
-\\-- GUI IMPROVEMENT TASKS --// 
+\\-- GUI IMPROVEMENT TASKS --//
 Dropdown menu change event
 -Desc: calculate conversion automatically when new unit is selected, or the unit value is changed; update constant when the constant/unit are changed.  Remove the submit buttons for both.
 --Effort: Medium
 
 Theme Elements
 -Desc: Continue to improve the dark Theme
---Effort: Rare
-
-Input Niceties
--Desc: understands 6'7" and other forms of input
---Effort: Medium
+--Effort: Easy
 
 Copy Button
 -Desc: for unit and/or constants converter, add "copy to clipboard" button
---Effort: Medium-Rare
+--Effort: Intermediate
+
+Calculate Units on Enter
+-Desc: use "enter" key to submit values for formula calculation when any unit inputs have focus.
+--Effort: Medium 
+
+Drop down placement
+-Desc: put unit inputs above dropdowns
+--Effort: Easy
+
+Favorites
+-Desc: Allow saving favorite conversions, constants, or formulas using cookies; and allow those favorites to be easily accessed on page load
+--Effort: Challenging
+
+Constants subject categories
+-Desc: add category dropdown for constants
+--Effort: Intermediate
+
+Overhaul Conversion ID
+-Desc: read in conversion ID in a better way (ie overhaul switch case ID checking)
+--Effort: Medium
+
+\\-- CONVERSION, CONSTANTS, & FORMULA TASKS --//
+Unit Conversion Organization
+-Desc: put each category of unit conversion funcs in a separate class/file
+--Effort: Easy
+
+
+Scientific Notation (CONVERSION, FORMULAS, GUI)
+-Desc: handle scientific notation: entering as input & displaying as output
+--Effort: Easy
+
+Additional Chemistry/Physics Conversions
+-Desc: additional conversions specific to ChemE, physics, etc.
+-Effort: Medium
+
+Additional Constants
+-Desc: additional constants used by ChemE, physics, etc.
+--Effort: Intermediate
+
+Determine Necessary formulas
+-Desc: find additional formulas to include in the Formulas section of the converter
+--Effort: Intermediate
+
+Simplify Formulas by hand
+-Desc: work through the additional formulas by hand to create abstractions
+--Effort: Difficult
+||------------------------ INCOMPLETE ------------------------||
+\\-- GUI IMPROVEMENT TASKS --// 
+Input Niceties
+-Desc: understands 6'7" and other forms of input
+--Effort: Medium
 
 2-Way Conversions
 -Desc: 2-way unit conversion, or button that swaps left and right side units
@@ -26,48 +72,11 @@ Calculate Formula on Enter
 -Desc: use "enter" key to submit values for formula calculation when any formula inputs have focus.
 --Effort: Medium 
 
-Drop down placement
--Desc: put unit inputs above dropdowns
---Effort: Rare
-
-Favorites
--Desc: Allow saving favorite conversions, constants, or formulas using cookies; and allow those favorites to be easily accessed on page load
---Effort: Well-Done
-
-Constants subject categories
--Desc: add category dropdown for constants
---Effort: Medium-Rare
-
-Overhaul Conversion ID
--Desc: read in conversion ID in a better way (ie overhaul switch case ID checking)
---Effort: Medium
-
-
 \\-- CONVERSION, CONSTANTS, & FORMULA TASKS --//
-Unit Conversion Organization
--Desc: put each category of unit conversion funcs in a separate class/file
---Effort: Rare
-
-Engineering/Scientific Notation (CONVERSION, FORMULAS, GUI)
--Desc: handle scientific/engineering notation: entering as input & displaying as output
---Effort: Well-Done
-
-Additional Chemistry/Physics Conversions
--Desc: additional conversions specific to ChemE, physics, etc.
--Effort: Medium
+Engineering Notation (CONVERSION, FORMULAS, GUI)
+-Desc: handle engineering notation: entering as input & displaying as output
+--Effort: Challenging
 
 Additional Basic Conversions
 -Desc: basic length/volume/weight and other conversions
--Effort: Medium-Rare
-
-Additional Constants
--Desc: additional constants used by ChemE, physics, etc.
---Effort: Medium-Rare
-
-Determine Necessary formulas
--Desc: find additional formulas to include in the Formulas section of the converter
---Effort: Medium-Rare
-
-Simplify Formulas by hand
--Desc: work through the additional formulas by hand to create abstractions
---Effort: Medium-Well
+-Effort: Intermediate

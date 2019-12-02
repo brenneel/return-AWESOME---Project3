@@ -7,6 +7,16 @@
  * @prop {Object} NU_OF_WATER - possible units of the dynamic viscosity (ν) of water at 1 atm and 20 degrees C, and values for those units.
  * @prop {Object} M_OF_WATER - possible units of the molar mass (M) of water at 1 atm and 20 degrees C, and values for those units.
  * @prop {Object} SIGMA_OF_WATER - possible units of the σ of water at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} RHO_OF_AIR: possible units of the rho of air at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} MU_OF_AIR: possible units of the mu of air at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} NU_OF_AIR: possible units of the nu of air at 1 atm and 20 degrees C, and values for those units.
+ * @prop {Object} HEAT_CAPACITY_OF_AIR: possible units of the heat energy that can be store in air
+ * @prop {Object} M_OF_AIR: possible units of the molar mass of air
+ * @prop {Object} K_OF_AIR: unitless K value of air
+ * @prop {Object} MOLEC_GAS_WEIGHTS: molecular weights of several different gases
+ * @prop {Object} GRAVITY: possible units of gravity
+ * @prop {Object} SPECIF_GRAV: gravitational values related to specific molecular structures
+ * @prop {Object} VISCOSITY: viscosities of several elements in cP
  */
 class UnitConstant{
     constructor(){
@@ -163,7 +173,4 @@ class UnitConstant{
         GASOLINE:                  0.6,            //cP
         SEA_WATER:                 1.0             //cP
     }
-
-
-
 }

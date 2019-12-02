@@ -1,8 +1,15 @@
+/**
+ * A series of tests for evaluating the contents of Energy Units
+ * @prop {Array} testValues: An array of values to test in all functions.
+ * @prop {Array} exectedValues: An array of the values expected from each function.
+ * @prop {Number} tolerance: Error tolerance to account for source rounding.
+ * @prop {EnergyUnits} energy: An instance of {@link EnergyUnits}.
+ */
 class TestEnergyUnits extends Test{
-    testValues; /** An array of values to test in all functions*/
-    expectedValues; /** An array of the values expected from each function */
-    tolerance;  /** Error tolerance to account for source rounding */
-    energy; /** Variable representing {@link EnergyUnits} */
+    testValues;
+    expectedValues;
+    tolerance;
+    energy;
     constructor(){
         super("EnergyUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
