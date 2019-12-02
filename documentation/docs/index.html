@@ -1119,6 +1119,94 @@
               
                 
                 <li><a
+                  href='#testgui'
+                  class=" toggle-sibling">
+                  TestGui
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#testguirun'
+                        class='regular pre-open'>
+                        #run
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestingcopyvalue'
+                        class='regular pre-open'>
+                        #testingCopyValue
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestvaloneempty'
+                        class='regular pre-open'>
+                        #testValOneEmpty
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestvalnoneempty'
+                        class='regular pre-open'>
+                        #testValNoneEmpty
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestvalcsns'
+                        class='regular pre-open'>
+                        #testValCSNs
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestinputsempty'
+                        class='regular pre-open'>
+                        #testInputsEmpty
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestfindemptyinput'
+                        class='regular pre-open'>
+                        #testFindEmptyInput
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestgetcheckedradio'
+                        class='regular pre-open'>
+                        #testGetCheckedRadio
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestoutputbernoullis'
+                        class='regular pre-open'>
+                        #testOutputBernoullis
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestsetfavconv'
+                        class='regular pre-open'>
+                        #testSetFavConv
+                      </a></li>
+                      
+                      <li><a
+                        href='#testguitestswitchtofaveconv'
+                        class='regular pre-open'>
+                        #testSwitchToFaveConv
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
                   href='#testing'
                   class=" toggle-sibling">
                   Testing
@@ -1130,6 +1218,18 @@
                   
                     <ul class='list-reset py1-ul pl1'>
                       <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#testingcalculatortest'
+                        class='regular pre-open'>
+                        #calculatorTest
+                      </a></li>
+                      
+                      <li><a
+                        href='#testingguitest'
+                        class='regular pre-open'>
+                        #guiTest
+                      </a></li>
                       
                       <li><a
                         href='#testingrun'
@@ -3134,7 +3234,7 @@
 
   
 
-  <p>Handles the calculation of Reynold's Number and passes that object to <a href="#formulassol">FormulasSol</a>.reynoldsNumber to solve for the unknown variable.  Assumes that there is exactly 1 unknown variable.</p>
+  <p>Handles the calculation of Reynolds' Number by passing the given input object to <a href="#formulassol">FormulasSol</a>.reynoldsNumber(). Used for both forms of the Reynolds' Number formula.</p>
 
     <div class='pre p1 fill-light mt0'>calcREYNOLDS(inputs: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
@@ -3154,7 +3254,7 @@
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>inputs</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    an Object containing all input values from the formula input form... no empty var
+	    an Object containing all input values from the formula input form.
 
           </div>
           
@@ -6292,7 +6392,7 @@ False, if K must have 1 or more values (from one tank to an open pipe).
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
-        
+        deteremined by the missing key in the obj. Either "p1", "p2", "z1", "z2", "w", "del-p", "del-z", or "v".
 
       
     
@@ -11874,6 +11974,594 @@ parenthesis to the func parameter.</p>
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='testgui'>
+      TestGui
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Tests for <a href="#gui">Gui</a> class methods.</p>
+
+    <div class='pre p1 fill-light mt0'>new TestGui()</div>
+  
+  
+    <p>
+      Extends
+      
+        <a href="#test">Test</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='testguirun'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>run()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Runs all tests for <a href="#gui">Gui</a>.</p>
+
+    <div class='pre p1 fill-light mt0'>run()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestingcopyvalue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testingCopyValue()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>checks whether the value was correctly copied to clipboard
+this test was written, but for security reasons the browser will not allow it to complete
+To check, try pasting into a new tab after running the test suite, the text should read "This text will be inserted into the clipboard."</p>
+
+    <div class='pre p1 fill-light mt0'>testingCopyValue(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        pass or fail
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestvaloneempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testValOneEmpty()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s valOneEmpty() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testValOneEmpty()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestvalnoneempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testValNoneEmpty()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s valNoneEmpty() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testValNoneEmpty()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestvalcsns'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testValCSNs()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s valCSNs() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testValCSNs()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestinputsempty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testInputsEmpty()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s inputsEmpty() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testInputsEmpty()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestfindemptyinput'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testFindEmptyInput()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s findEmptyInput() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testFindEmptyInput()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestgetcheckedradio'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testGetCheckedRadio()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s getCheckedRadio() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testGetCheckedRadio()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestoutputbernoullis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testOutputBernoullis()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s outputBernoullis() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testOutputBernoullis()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestsetfavconv'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testSetFavConv()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s setFavConv() method.</p>
+
+    <div class='pre p1 fill-light mt0'>testSetFavConv()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testguitestswitchtofaveconv'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>testSwitchToFaveConv()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Tests <a href="#gui">Gui</a>'s switch to fav conv method</p>
+
+    <div class='pre p1 fill-light mt0'>testSwitchToFaveConv()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='testing'>
       Testing
     </h3>
@@ -11994,6 +12682,99 @@ parenthesis to the func parameter.</p>
   
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
+  
+    <div class='border-bottom' id='testingcalculatortest'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>calculatorTest</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  
+    <div class='pre p1 fill-light mt0'>calculatorTest</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='testingguitest'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>guiTest</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Variable representing <a href="#testcalculator">TestCalculator</a></p>
+
+    <div class='pre p1 fill-light mt0'>guiTest</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
   
     <div class='border-bottom' id='testingrun'>
       <div class="clearfix small pointer toggle-sibling">
@@ -12244,7 +13025,7 @@ parenthesis to the func parameter.</p>
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>viscos</span> <code class='quiet'>(<a href="#viscosityunits">ViscosityUnits</a>)</code>
+          <span class='code bold'>viscos</span> <code class='quiet'>(<a href="#kinematicviscosityunits">KinematicViscosityUnits</a>)</code>
           : : An instance of 
 <a href="#kinematicviscosityunits">KinematicViscosityUnits</a>
 .
