@@ -23,7 +23,7 @@ a:hover {
 	font-family: "Segoe UI Semibold";
 	font-size: 350%;
 	font-variant: small-caps;
-	margin: 0px 0px 20px 0px;
+	margin: 0px;
 }
 
 .subtitle {
@@ -71,12 +71,6 @@ textarea, input, select {
 	color: white;
 	border: thin solid white;
 }
-
-/*
-input[type="number"] {
-	
-}
-*/
 
 .button {
     padding: 12px 10px;
