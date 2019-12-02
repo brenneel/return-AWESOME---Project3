@@ -84,4 +84,49 @@ class TestKinematicViscosityUnits extends Test {
         return(this.fail);
     }
 
+    /**
+     * checks unit conversions with expected values for cST to cms
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCSTtoCMS(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCSTtoCMS", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCSTtoCMS", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+
+    /**
+     * checks unit conversions with expected values for cms to cST
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingCmsTocST(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingCMStoCST", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCMStoCST", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
 }
