@@ -67,7 +67,7 @@ class TestGui extends Test {
 		
 		// exactly 1 empty
 		GUI.populateFormulaFields();
-		for(let i = 0; i < elems.length; i++) {
+		for(let i = 1; i < elems.length; i++) {
 			elems[i].value = i;
 		}
 		let passed3 = GUI.valOneEmpty();
