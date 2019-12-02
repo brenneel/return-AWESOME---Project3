@@ -3,18 +3,16 @@
 class TestGui extends Test {
 	constructor() {
 		super("Gui");	
-		this.GUI = new Gui();
 	}
 	
 	/** Runs all tests for {@link Gui}.
 	 */
 	run() {
-		this.GUI.initialize();
 		let arr = new Array();
         let count = 0;
 		let result = "";
 		
-		arr.push(this.createTest(this.testingCopyValue), "copyValue");
+		arr.push(this.createTest(this.testingCopyValue(), "copyValue"));
 		arr.push(this.createTest(this.testValOneEmpty(), "Testing valOneEmpty()"));
 
 		for(let i = 0; i < arr.length; i++){
@@ -42,7 +40,7 @@ class TestGui extends Test {
 	 */
 	testingCopyValue(){
 		let tempValue = document.getElementById("copyValue").value;
-		this.copyValue("copyValue");
+		GUI.copyValue("copyValue");
 		let copiedValue = window.clipboardData.getData('Text');
 		if(tempValue == copiedValue){
 			return(this.pass);
@@ -54,27 +52,27 @@ class TestGui extends Test {
 	 */
 	testValOneEmpty() {
 		// none empty
-		this.GUI.m_formulaMenu.value = "PVNRT";
-		this.GUI.populateFormulaFields();
-		let elems = this.GUI.m_formulaFields.elements;
+		GUI.m_formulaMenu.value = "PVNRT";
+		GUI.populateFormulaFields();
+		let elems = GUI.m_formulaFields.elements;
 		for(let i = 0; i < elems.length; i++) {
 			elems[i].value = i;
 		}
-		let passed1 = !(this.GUI.valOneEmpty());
+		let passed1 = !(GUI.valOneEmpty());
 		
 		// more than 1 empty
-		this.GUI.populateFormulaFields();
+		GUI.populateFormulaFields();
 		for(let i = 2; i < elems.length; i++) {
 			elems[i].value = i;
 		}
-		let passed2 = !(this.GUI.valOneEmpty());
+		let passed2 = !(GUI.valOneEmpty());
 		
 		// exactly 1 empty
-		this.GUI.populateFormulaFields();
+		GUI.populateFormulaFields();
 		for(let i = 0; i < elems.length; i++) {
 			elems[i].value = i;
 		}
-		let passed3 = this.GUI.valOneEmpty();
+		let passed3 = GUI.valOneEmpty();
 		
 		if(passed1 && passed2 && passed3) {
 			return(this.pass);
