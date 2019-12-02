@@ -1,11 +1,15 @@
 /**
- * A series of tests for evaluating the contents of PowerUnits
+ * A series of tests for evaluating the contents of PowerUnits.
+ * @prop {Array} testValues: An array of values to test in all functions.
+ * @prop {Array} exectedValues: An array of the values expected from each function.
+ * @prop {Number} tolerance: Error tolerance to account for source rounding.
+ * @prop {PowerUnits} power: Variable representing {@link PowerUnits}.
  */
 class TestPowerUnits extends Test{
-    testValues; /** An array of values to test in all functions*/
-    expectedValues; /** An array of the values expected from each function */
-    tolerance;  /** Error tolerance to account for source rounding */
-    power;  /** Variable representing {@link PowerUnits} */
+    testValues;
+    expectedValues;
+    tolerance;
+    power;
 
     constructor(){
         super("PowerUnits");
