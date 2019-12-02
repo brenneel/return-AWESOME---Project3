@@ -6,7 +6,7 @@ class TestConfig extends Test {
 		this.CONFIG = new Config();
 	}
 	
-	/** Runs all tests for Config.
+	/** Runs all tests for {@link Config}.
 	 */
 	run() {
 		let result = this.createTest(this.testGetIndexOf(), "Testing getIndexOf()");
