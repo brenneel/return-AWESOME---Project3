@@ -58,7 +58,9 @@ Determine Necessary formulas
 Simplify Formulas by hand
 -Desc: work through the additional formulas by hand to create abstractions
 --Effort: Difficult
+
 ||------------------------ INCOMPLETE ------------------------||
+
 \\-- GUI IMPROVEMENT TASKS --// 
 Input Niceties
 -Desc: understands 6'7" and other forms of input
