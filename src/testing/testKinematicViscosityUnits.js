@@ -19,8 +19,25 @@ class TestKinematicViscosityUnits extends Test {
         arr.push(this.createTest(this.testingCSTtoS(0), "cSTtoS"));
         arr.push(this.createTest(this.testingStoCST(1), "StoCST"));
         arr.push(this.createTest(this.testingCSTtoCMS(2), "cSTtoCms"));
-        
+        arr.push(this.createTest(this.testingCmsTocST(3), "cmsTocST"));
+        arr.push(this.createTest(this.testingcSTtoMs(4), "cSTtoMs"));
+        arr.push(this.createTest(this.testingMsToCST(5), "msTocST"));
+        arr.push(this.createTest(this.testingcSTtoFts(6), "cSTtoFts"));
+        arr.push(this.createTest(this.testingftsTocST(7), "ftsTocST"));
 
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
+
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result, count, arr.length);
+        return result;
     }
 
 }
