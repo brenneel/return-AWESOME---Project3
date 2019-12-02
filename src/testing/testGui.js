@@ -19,7 +19,7 @@ class TestGui extends Test {
 		arr.push(this.createTest(this.testValCSNs(), "Testing ValCSNs()"));
 		arr.push(this.createTest(this.testInputsEmpty(), "Testing inputsEmpty()"));
 		arr.push(this.createTest(this.testFindEmptyInput(), "Testing findEmptyInput()"));
-
+		arr.push(this.createTest(this.testOutputBernoullis(), "Testing outputBernoullis()"));
 		for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
                 count++;
@@ -221,9 +221,37 @@ class TestGui extends Test {
 	}
 	
 	
-	/** Tests {@link Gui}'s () method.
+	/** Tests {@link Gui}'s outputBernoullis() method.
 	 */
-	
+	testOutputBernoullis(){
+		let variable = "p1";
+		let value = "success";
+		let passed1 = false;
+		let passed2 = false;
+		GUI.m_formulaMenu.value = "BERNOULLI";
+		GUI.populateFormulaFields();
+		GUI.outputBernoullis(variable,value);
+		let temp1 = document.getElementById("answer").innerHTML;
+		let temp1Answer = "Calculated solution: p<sub>1</sub> = success";
+		if(temp1 == temp1Answer){
+			passed1 = true;
+		}
+		
+		variable = "del-p";
+		GUI.m_formulaMenu.value = "BERNOULLI";
+		GUI.populateFormulaFields();
+		GUI.outputBernoullis(variable,value);
+		let temp2 = document.getElementById("answer").innerHTML;
+		let temp2Answer = "Calculated solution: Δp = success";
+		if(temp2 == temp2Answer){
+			passed2 = true;
+		}
+
+		if(passed1 == passed2 && passed2 == true){
+			return(this.pass);
+		}
+		return(this.fail);
+	}
 	
 	/** Tests {@link Gui}'s () method.
 	 */
