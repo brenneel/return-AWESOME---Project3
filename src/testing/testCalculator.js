@@ -274,12 +274,6 @@ class TestCalculator extends Test {
 		}
 	}
 	
-	/** Tests {@link Calculator}'s method.
-	 */
-	
-	/** Tests {@link Calculator}'s method.
-	 */
-	
-	/** Tests {@link Calculator}'s method.
+	/* NOTE: because all functionality for calcPVNRT(), calcREYNOLDS(), calcBernoullis() is being tested elsewhere, tests specific to these 3 methods have been omitted here.
 	 */
 }
