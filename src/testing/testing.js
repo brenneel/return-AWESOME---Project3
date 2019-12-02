@@ -23,6 +23,7 @@ class Testing{
         // this.fEnerTest = new TestEnergyUnits();
 		
 		this.configTest = new TestConfig();
+		this.calculatorTest = new TestCalculator();
     }
     
     /**
@@ -42,6 +43,7 @@ class Testing{
         // arr.push(this.fEnerTest.run());
 		
 		arr.push(this.configTest.run());
+		arr.push(this.calculatorTest.run());
 
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == "SUCCESS"){
