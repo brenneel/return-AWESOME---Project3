@@ -637,6 +637,34 @@ class Gui {
 		return(obj);
 	}
 	
+	/** Outputs the variable being solved for and the calculated value in a readable manner.
+	 * @param {string} variable - the variable being solved for.
+	 * @param {Number} value - the calculated value to output.
+	 * @post creates an output string and inserts it into the "answer" div.
+	 */
+	outputBernoullis(variable, value) {
+		let answerDiv = document.getElementById("answer");
+		let outputStr;
+		switch(variable) {
+			case "p1":
+			case "p2":
+			case "z1":
+			case "z2":
+				outputStr = "Calculated solution: " + variable[0] + "<sub>" + variable[1] + "</sub> = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+			case "del-p":
+			case "del-z":
+				outputStr = "Calculated solution: Δ" + variable[variable.length - 1] + " = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+			default:
+				outputStr = "Calculated solution: " + variable + " = " + value;
+				answerDiv.innerHTML = outputStr;
+				break;
+		}
+	}
+	
 	/* -------------------------------
 	 * FAVORITES/COOKIES RELATED METHODS
 	 * -------------------------------
