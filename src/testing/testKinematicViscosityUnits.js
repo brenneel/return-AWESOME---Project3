@@ -49,7 +49,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.cSTtoS(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -71,7 +71,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.sTocST(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -93,7 +93,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.cSTtoCms(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -116,7 +116,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.cmsTocST(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -138,7 +138,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.000000000000001234,0.001024123456,.987654]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.cSTtoMs(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -161,7 +161,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.001234,1024123456 ,987654000000]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.msTocST(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -184,7 +184,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([1.32826656*(10**-14), 0.0110235732 ,10.63101926]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.cSTtoFts(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -207,7 +207,7 @@ class TestKinematicViscosityUnits extends Test {
         let passed = true;
         this.expectedValues.push([0.000114642351, 95144182.37, 91756059040]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let calc = this.viscos.ftsTocST(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;

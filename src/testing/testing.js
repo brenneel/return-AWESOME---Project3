@@ -9,6 +9,7 @@ class Testing{
     fPowTest;   /** Variable representing {@link TestPowerUnits} */
     fViscoTest; /** Variable representing {@link TestViscosityUnits} */
     fEnerTest;  /** Variable representing {@link TestEnergyUnits}*/
+    fKinViscoTest; /** Variable representing {@link TestKinematicViscosityUnits} */
 	
 	configTest;	/** @prop configTest - Variable representing {@link TestConfig} */
 
@@ -20,6 +21,7 @@ class Testing{
         this.fPressTest = new TestPressureUnits();
         this.fPowTest = new TestPowerUnits();
         this.fViscoTest = new TestViscosityUnits();
+        this.fKinViscoTest = new TestKinematicViscosityUnits();
         this.fEnerTest = new TestEnergyUnits();
       
         this.configTest = new TestConfig();
@@ -41,6 +43,7 @@ class Testing{
         arr.push(this.fPressTest.run());
         arr.push(this.fPowTest.run());
         arr.push(this.fViscoTest.run());
+        arr.push(this.fKinViscoTest.run());
         arr.push(this.fEnerTest.run());
         arr.push(this.configTest.run());
         arr.push(this.calculatorTest.run());
