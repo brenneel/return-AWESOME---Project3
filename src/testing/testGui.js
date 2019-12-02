@@ -15,6 +15,7 @@ class TestGui extends Test {
 		arr.push(this.createTest(this.testingCopyValue(), "Testing copyValue()"));
 		arr.push(this.createTest(this.testValOneEmpty(), "Testing valOneEmpty()"));
 		arr.push(this.createTest(this.testValNoneEmpty(), "Testing valNoneEmpty()"));
+		arr.push(this.createTest(this.testSwitchToFaveConv(), "Testing switchToFaveConv()"));
 		arr.push(this.createTest(this.testValCSNs(), "Testing ValCSNs()"));
 		arr.push(this.createTest(this.testInputsEmpty(), "Testing inputsEmpty()"));
 		arr.push(this.createTest(this.testFindEmptyInput(), "Testing findEmptyInput()"));
@@ -226,6 +227,27 @@ class TestGui extends Test {
 	
 	/** Tests {@link Gui}'s () method.
 	 */
+
+	/**
+	 * Tests switch to fav conv
+	*/
+	testSwitchToFaveConv() {
+
+		GUI.m_faves.unitA = "erg";
+		GUI.m_faves.unitB = "kWh";
+		GUI.m_faves.category = "ENERGY_UNITS";
+
+		GUI.switchToFaveConv();
+		if (GUI.m_unitAMenu.value == "erg" && GUI.m_faves.unitB == "kWh" && GUI.m_faves.category == "ENERGY_UNITS")
+		{
+			return this.pass;
+		}
+		else
+		{
+			return this.fail;
+		}
+
+	}
 	
 	
 }
