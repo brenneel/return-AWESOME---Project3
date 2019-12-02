@@ -112,7 +112,7 @@ class FormulasSol{
      * @param {Number} epsilon:    Some Epsilon value used for the friction factor.
      * @param {Boolean}   isK:  True, if K must have 2 or more values (from one tank to another). 
      *                          False, if K must have 1 or more values (from one tank to an open pipe).
-     * @returns {Number}
+     * @returns {Number} deteremined by the missing key in the obj. Either "p1", "p2", "z1", "z2", "w", "del-p", "del-z", or "v".
      */
     bernoullisEquation(obj){
         let initArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];
