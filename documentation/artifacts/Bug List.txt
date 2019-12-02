@@ -1,0 +1,7 @@
+Potential Bugs in Lunar Alpha:
+
+- input elements don't adjust when the number inside gets too long
+
+- Bernoulli's Equation: 'K:' label doesn't follow it's textbox to the next line
+
+- Convert button in Unit Converter should be labeled 'Copy to Clipboard'
