@@ -26,11 +26,12 @@ class Calculator {
 	 * -------------------------------
 	 */
 	
-	/** Generates a conversion ID, two numbers delimited by : representing the units being converted from and to.  First digit is the first unit's index within its Config array (ie. {@link Config}.ENERGY_UNITS); similar for the second digit.  Example: joule to cal conversion will be represented by "02".
-	 * @param {string} category - the category of units, ie. "energy".
+	/** Generates a conversion ID, two numbers delimited by : representing the units being converted from and to.  First digit is the first unit's index within its Config array (ie. {@link Config}.ENERGY_UNITS); similar for the second digit.
+	 * @example genConversionID("ENERGY_UNITS", "joule", "cal") will return "0:1".
+	 * @param {string} category - the category of units, ie. "ENERGY_UNITS".
 	 * @param {string} unitA - the unit to be converted from.
 	 * @param {string} unitB - the unit to be converted to.
-	 * @return {string} - a two-digit number (in string form) representing the  units being converted from and to.
+	 * @return {string} - two numbers delimited by : representing the units being converted from and to.
 	 */
 	genConversionID(category, unitA, unitB) {
 		let ID = "";
@@ -156,7 +157,7 @@ class Calculator {
             case "0:12": //atm to inch water
                 converted = this.UNITS.PRESSURE.atmoToInchWater(value);
                 break;
-            case "0:13": //atm to dyne
+            case "0:13": //atm to dyne/cm^2
                 converted = this.UNITS.PRESSURE.atmoToDynePerCM(value);
                 break;
 			case "1:0":	// kPa to atm
@@ -195,7 +196,7 @@ class Calculator {
             case "12:0": // inch water to atm
                 converted = this.UNITS.PRESSURE.inchWaterToAtmo(value);
                 break;
-            case "13:0": // dyne to atm
+            case "13:0": // dyne/cm^2 to atm
                 converted = this.UNITS.PRESSURE.dynePerCMToAtmo(value);
                 break;
 			default:
