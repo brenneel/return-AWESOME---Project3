@@ -7,7 +7,7 @@
  * @prop {TestPowerUnits} fPowTest: Variable representing {@link TestPowerUnits}.
  * @prop {TestViscosityUnits} fViscoTest: Variable representing {@link TestViscosityUnits}.
  * @prop {TestEnergyUnits} fEnerTest: Variable representing {@link TestEnergyUnits}.
- * @prop configTest - Variable representing {@link TestConfig} */
+ * @prop {TestConfig} configTest - Variable representing {@link TestConfig}.
  */
 class Testing{
     isCompleted;

@@ -1,8 +1,9 @@
 /**
  * A series of tests for evaluating the contents of FormulaSol
+ * @prop {FormulasSol} fSol: An instance of {@link FormulaSol}.
  */
 class TestFormulasSol extends Test{
-    fSol; /** Variable representing {@link FormulaSol} */
+    fSol;
 
     constructor(){
         super("FormulasSol");
