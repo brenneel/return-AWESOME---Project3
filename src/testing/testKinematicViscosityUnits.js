@@ -188,8 +188,31 @@ class TestKinematicViscosityUnits extends Test {
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
-                this.conLog("testingCSTtoMs", "Expected value = " + this.expectedValues[j][i]);
-                this.conLog("testingCSTtoMs", "% error:" + val);
+                this.conLog("testingCSTtoFts", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingCSTtoFts", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+
+    }
+
+    /**
+     * checks unit conversions with expected values for ms to cST
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingftsTocST(j) {
+        let passed = true;
+        this.expectedValues.push([0.000114642351, 95144182.37, 91756059040]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.cPtoP(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingFtstocST", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingFtstocST", "% error:" + val);
             }
         }
         if(passed)
