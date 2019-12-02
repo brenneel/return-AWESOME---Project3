@@ -22,16 +22,16 @@ class TestEnergyUnits extends Test{
         arr.push(this.createTest(this.testingBtuToJoule(3), "btuToJ"));
         arr.push(this.createTest(this.testingJouleToCal(4), "jouleToCal"));
         arr.push(this.createTest(this.testingCalToJoule(5), "calToJ"));
-        arr.push(this.createTest(this.testingCPtoN(6), "jouleToEV"));
-        arr.push(this.createTest(this.testingNtoCP(7), "eVToJ"));
-        arr.push(this.createTest(this.testingCPtoPaS(8), "jouleToFootPoundForce"));
-        arr.push(this.createTest(this.testingPaSToCP(9), "ftlbfToJ"));
-        arr.push(this.createTest(this.testingCPtoKgMs(10), "jouleToHorsepowerHour"));
-        arr.push(this.createTest(this.testingKgMsToCP(11), "hphToJ"));
-        arr.push(this.createTest(this.testingCPtolbmFtS(12), "jouleTokWh"));
-        arr.push(this.createTest(this.testingLbmFtStoCP(13), "kwhToJ"));
-        arr.push(this.createTest(this.testingCPtolbfSft(14), "jouleTokWs"));
-        arr.push(this.createTest(this.testingLbfSftToCP(15), "kwsToJ"));
+        arr.push(this.createTest(this.testingJouleToEV(6), "jouleToEV"));
+        arr.push(this.createTest(this.testingEVToJoule(7), "eVToJ"));
+        arr.push(this.createTest(this.testingJouleToFootPoundForce(8), "jouleToFootPoundForce"));
+        arr.push(this.createTest(this.testingFtlbfToJ(9), "ftlbfToJ"));
+        arr.push(this.createTest(this.testingJouleToHorsepowerHour(10), "jouleToHorsepowerHour"));
+        arr.push(this.createTest(this.testingHphToJ(11), "hphToJ"));
+        arr.push(this.createTest(this.testingJouleTokWh(12), "jouleTokWh"));
+        arr.push(this.createTest(this.testingKwhToJ(13), "kwhToJ"));
+        arr.push(this.createTest(this.testingJouleTokWs(14), "jouleTokWs"));
+        arr.push(this.createTest(this.testingKwsToJ(15), "kwsToJ"));
 
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
@@ -174,6 +174,225 @@ class TestEnergyUnits extends Test{
                 passed = false;
                 this.conLog("testingCalToJoule", "Expected value = " + this.expectedValues[j][i]);
                 this.conLog("testingCalToJoule", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+    /**
+     * checks unit conversions with expected values for joule to EV
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingJouleToEV(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.jouleToEV(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingJouleToEV", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingJouleToEV", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     
+    /**
+     * checks unit conversions with expected values for EV to Joule
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingEVToJoule(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.eVToJ(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingEVToJoule", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingEVToJoule", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+    /**
+     * checks unit conversions with expected values for joule to ft*lbf
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingJouleToFootPoundForce(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.jouleToFootPoundForce(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingJouleToFootPoundForce", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingJouleToFootPoundForce", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     
+    /**
+     * checks unit conversions with expected values for ft*lbf to joule
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingFtlbfToJ(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.ftlbfToJ(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingFtlbfToJ", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingFtlbfToJ", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+    /**
+     * checks unit conversions with expected values for joule to hp*h
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingJouleToHorsepowerHour(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.jouleToHorsepowerHour(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingJouleToHorsepowerHour", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingJouleToHorsepowerHour", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     
+    /**
+     * checks unit conversions with expected values for hp*h to joule
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingHphToJ(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.hphToJ(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingHphToJ", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingHphToJ", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+    /**
+     * checks unit conversions with expected values for joule to kWh
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingJouleTokWh(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.jouleTokWh(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingJouleTokWh", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingJouleTokWh", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     
+    /**
+     * checks unit conversions with expected values for kWh to joule
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingKwhToJ(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.kwhToJ(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingKwhToJ", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingKwhToJ", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+
+    /**
+     * checks unit conversions with expected values for joule to kWs
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingJouleTokWs(j){
+        let passed = true;
+        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.jouleTokWs(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingJouleTokWs", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingJouleTokWs", "% error:" + val);
+            }
+        }
+        if(passed)
+            return(this.pass);
+        return(this.fail);
+    }
+     
+    /**
+     * checks unit conversions with expected values for P to cP
+     * @param {num} j
+     * @return {Boolean} pass or fail
+     */
+    testingKwsToJ(j){
+        let passed = true;
+        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        for(let i = 0; i<this.testValues.length; i++){
+            let calc = this.viscos.kwsToJ(this.testValues[i]);
+            let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
+            if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
+                passed = false;
+                this.conLog("testingKwsToJ", "Expected value = " + this.expectedValues[j][i]);
+                this.conLog("testingKwsToJ", "% error:" + val);
             }
         }
         if(passed)
