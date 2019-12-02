@@ -45,6 +45,7 @@ class Testing{
         arr.push(this.fEnerTest.run());
         arr.push(this.configTest.run());
         arr.push(this.calculatorTest.run());
+        arr.push(this.guiTest.run());
 
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == "SUCCESS"){
