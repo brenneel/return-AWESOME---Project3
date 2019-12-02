@@ -69,7 +69,7 @@ class EnergyUnits {
      {
          let cal = 0.000;
          let joule = Number(joules);
-         cal = 0.0002388459 * joule;
+         cal = 0.000239006 * joule;
          return cal;
      }
 
@@ -81,7 +81,7 @@ class EnergyUnits {
     calToJ(cal)
     {
         let cals = Number(cal);
-        let joules = cals * 4186.8;
+        let joules = cals * 4.184;
         return joules;
     }
 
@@ -156,7 +156,7 @@ class EnergyUnits {
     hphToJ(hph)
     {
         let horsepower  = Number(hph);
-        let joules = horsepower  * 2684519.5378;
+        let joules = horsepower  * 2647795.5;
         return joules;
     }
      
@@ -169,8 +169,7 @@ class EnergyUnits {
      {
          let kWh = 0.000;
          let joule = Number(joules);
-         let btu = this.jouleToBtu(joule);
-         kWh = .00029300 * btu;
+         kWh = this.jouleTokWs(joule)*0.000277778;
          return kWh;
      }
 
@@ -182,7 +181,7 @@ class EnergyUnits {
     kwhToJ(kwh)
     {
         let kWh  = Number(kwh);
-        let joules = kWh  * 3600000;
+        let joules = this.kwsToJ(3600*kWh);
         return joules;
     }
 
@@ -195,8 +194,7 @@ class EnergyUnits {
      {
          let kWs = 0.000;
          let joule = Number(joules);
-         let btu = this.jouleToBtu(joule);
-         kWs = 1.055 * btu;
+         kWs = 0.001 * joule;
          return kWs;
      }
 
