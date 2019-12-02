@@ -1,6 +1,7 @@
-/** Class that contains all conversion methods for Power units.  The standard unit is W (watt) which equals one joule per sec.  
- * All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units list can be found in {@link Config}'s POWER_UNITS array.
- * 
+/** 
+ * Class that contains all conversion methods for Power units.  The standard unit is W (watt) which equals one 
+ * joule per sec. All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete 
+ * units list can be found in {@link Config}'s POWER_UNITS array.
  */
 class PowerUnits {
 	constructor() {}
