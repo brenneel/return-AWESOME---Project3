@@ -17,6 +17,7 @@ class TestGui extends Test {
 		arr.push(this.createTest(this.testValNoneEmpty(), "Testing valNoneEmpty()"));
 		arr.push(this.createTest(this.testValCSNs(), "Testing ValCSNs()"));
 		arr.push(this.createTest(this.testInputsEmpty(), "Testing inputsEmpty()"));
+		arr.push(this.createTest(this.testFindEmptyInput(), "Testing findEmptyInput()"));
 
 		for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
@@ -175,7 +176,35 @@ class TestGui extends Test {
 	/** Tests {@link Gui}'s findEmptyInput() method.
 	 */
 	testFindEmptyInput() {
+		// "p" is empty
+		GUI.m_formulaMenu.value = "PVNRT";
+		GUI.populateFormulaFields();
+		let elems = GUI.m_formulaFields.elements;
+		for(let i = 1; i < elems.length; i++) {
+			elems[i].value = i;
+		}
+		let passed1 = (GUI.findEmptyInput() == "p");
 		
+		// "t" is empty
+		GUI.populateFormulaFields();
+		for(let i = 0; i < elems.length - 1; i++) {
+			elems[i].value = i;
+		}
+		let passed2 = (GUI.findEmptyInput() == "t");
+		
+		// none are empty
+		GUI.populateFormulaFields();
+		for(let i = 0; i < elems.length; i++) {
+			elems[i].value = i;
+		}
+		let passed3 = (GUI.findEmptyInput() == "");
+		
+		if(passed1 && passed2 && passed3) {
+			return(this.pass);
+		}
+		else {
+			return(this.fail);
+		}
 	}
 	
 	/** Tests {@link Gui}'s getCheckedRadio() method.
