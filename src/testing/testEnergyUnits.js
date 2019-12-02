@@ -56,9 +56,9 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToErg(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([0.01234,10241234560,9876540000000]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToErg(this.testValues[i]);
+            let calc = this.energy.jouleToErg(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -78,9 +78,9 @@ class TestEnergyUnits extends Test{
      */
     testingErgToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.00000000000001234,0.0001024123,0.0987654]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.ergToJ(this.testValues[i]);
+            let calc = this.energy.ergToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -100,9 +100,9 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToBtu(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([0.000000000001169606326,0.9706817449,936.11537015]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToBtu(this.testValues[i]);
+            let calc = this.energy.jouleToBtu(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -122,9 +122,9 @@ class TestEnergyUnits extends Test{
      */
     testingBtuToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.0000013019,1080507.4461,1042030133.1]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.btuToJ(this.testValues[i]);
+            let calc = this.energy.btuToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -144,9 +144,9 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToCal(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([0.0000000000002947358364,0.2446076851,235.89710519]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToCal(this.testValues[i]);
+            let calc = this.energy.jouleToCal(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -166,9 +166,9 @@ class TestEnergyUnits extends Test{
      */
     testingCalToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.0000051665,4287800.0856,4135109767.2]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.calToJ(this.testValues[i]);
+            let calc = this.energy.calToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -187,9 +187,9 @@ class TestEnergyUnits extends Test{
      */
     testingJouleToEV(j){
         let passed = true;
-        this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
+        this.expectedValues.push([7702018852.1,(6.392073067*(10**21)),(6.164448725*(10**24))]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToEV(this.testValues[i]);
+            let calc = this.energy.jouleToEV(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -209,9 +209,9 @@ class TestEnergyUnits extends Test{
      */
     testingEVToJoule(j){
         let passed = true;
-        this.expectedValues.push([0.0000001234,102412.3456,98765400]);
+        this.expectedValues.push([0.0000001234,102412.3456,(1.582396848*(10**-13))]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.eVToJ(this.testValues[i]);
+            let calc = this.energy.eVToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -233,7 +233,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToFootPoundForce(this.testValues[i]);
+            let calc = this.energy.jouleToFootPoundForce(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -255,7 +255,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.ftlbfToJ(this.testValues[i]);
+            let calc = this.energy.ftlbfToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -277,7 +277,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleToHorsepowerHour(this.testValues[i]);
+            let calc = this.energy.jouleToHorsepowerHour(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -299,7 +299,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.hphToJ(this.testValues[i]);
+            let calc = this.energy.hphToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -321,7 +321,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleTokWh(this.testValues[i]);
+            let calc = this.energy.jouleTokWh(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -343,7 +343,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.kwhToJ(this.testValues[i]);
+            let calc = this.energy.kwhToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -365,7 +365,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.00000000001234,10.24123456,9876.54]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.jouleTokWs(this.testValues[i]);
+            let calc = this.energy.jouleTokWs(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
@@ -379,7 +379,7 @@ class TestEnergyUnits extends Test{
     }
      
     /**
-     * checks unit conversions with expected values for P to cP
+     * checks unit conversions with expected values for kWs to joule
      * @param {num} j
      * @return {Boolean} pass or fail
      */
@@ -387,7 +387,7 @@ class TestEnergyUnits extends Test{
         let passed = true;
         this.expectedValues.push([0.0000001234,102412.3456,98765400]);
         for(let i = 0; i<this.testValues.length; i++){
-            let calc = this.viscos.kwsToJ(this.testValues[i]);
+            let calc = this.energy.kwsToJ(this.testValues[i]);
             let val = (calc-this.expectedValues[j][i])/(this.expectedValues[j][i])*100;
             if(Math.abs(val > this.tolerance || val < -this.tolerance)) {
                 passed = false;
