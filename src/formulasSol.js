@@ -1,9 +1,11 @@
 /**
  * Computes all of the formulas that the user can choose from.
+ * @prop {UnitConstant} uConst: An instance of {@link UnitConstant}
+ * @prop {FormulasAbs} fAbs: An instance of {@link FormulasAbs} 
  */
 class FormulasSol{
-    uConst; /** Variable representing {@link UnitConstant} */
-    fAbs;   /** Variable representing {@link FormulasAbs} */
+    uConst;
+    fAbs;
 
     constructor(){
         this.fAbs = new FormulasAbs();

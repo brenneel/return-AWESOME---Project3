@@ -1,6 +1,7 @@
-/** Class that contains all conversion methods for kinematic viscosity units.  The standard unit is cSt (centistoke).  
- * All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units list can be found in {@link Config}'s KINEMATIC_VISCOSITY_UNITS array.
- * 
+/** 
+ * Class that contains all conversion methods for kinematic viscosity units.  The standard unit is cSt (centistoke).  
+ * All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units list can be 
+ * found in {@link Config}'s KINEMATIC_VISCOSITY_UNITS array.
  */
 class KinematicViscosityUnits {
 	constructor() {}

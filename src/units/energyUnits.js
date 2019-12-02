@@ -1,5 +1,6 @@
-/** Class that contains all conversion methods for Energy units.  The standard unit is joules (J).  All methods convert from the standard unit to a nonstandard unit, or vice versa.  The complete units list can be found in {@link Config}'s ENERGY_UNITS array.
- * 
+/** 
+ * Class that contains all conversion methods for Energy units.  The standard unit is joules (J).  All methods convert from the standard unit to a nonstandard unit, or vice versa.  
+ * The complete units list can be found in {@link Config}'s ENERGY_UNITS array.
  */
 class EnergyUnits {
 	constructor() {}

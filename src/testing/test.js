@@ -1,12 +1,17 @@
 /**
  * An extendible class to use for all test classes. You have to call super() in the constructor when use it.
  * @param {String} className: Name of the class being tested.
+ * 
+ * @prop {String} pass: The pass value.
+ * @prop {String} fail: The fail value.
+ * @prop {String} unkno: The unknown value.
+ * @prop {String} className: Current class name. 
  */
 class Test{
-	pass;   /** The pass value */
-	fail;   /** The fail value */
-	unkno;  /** The unknown value */
-	className; /** Current class name */
+	pass;
+	fail;
+	unkno;
+	className;
 	
 	constructor(className){
 		this.pass = "SUCCESS";

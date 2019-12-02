@@ -1,16 +1,24 @@
 /**
  * Primary testing class for running all tests
+ * @prop {Boolean} isCompleted: Determines if all testing is complete.
+ * @prop {TestFormulasAbs} fAbsTest: Variable representing {@link TestFormulasAbs}.
+ * @prop {TestFormulasSol} fSolTest: Variable representing {@link TestFormulasSol}.
+ * @prop {TestPressureUnits} fPressTest: Variable representing {@link TestPressureUnits}.
+ * @prop {TestPowerUnits} fPowTest: Variable representing {@link TestPowerUnits}.
+ * @prop {TestViscosityUnits} fViscoTest: Variable representing {@link TestViscosityUnits}.
+ * @prop {TestEnergyUnits} fEnerTest: Variable representing {@link TestEnergyUnits}.
+ * @prop {TestConfig} configTest - Variable representing {@link TestConfig}.
  */
 class Testing{
-    isCompleted; /** Determines if all testing is complete */
-    fAbsTest;   /** Variable representing {@link TestFormulasAbs} */
-    fSolTest;   /** Variable representing {@link TestFormulasSol} */
-    fPressTest; /** Variable representing {@link TestPressureUnits} */
-    fPowTest;   /** Variable representing {@link TestPowerUnits} */
-    fViscoTest; /** Variable representing {@link TestViscosityUnits} */
-    fEnerTest;  /** Variable representing {@link TestEnergyUnits}*/
+    isCompleted;
+    fAbsTest;
+    fSolTest;
+    fPressTest;
+    fPowTest;
+    fViscoTest;
+    fEnerTest;
 	
-	configTest;	/** @prop configTest - Variable representing {@link TestConfig} */
+	configTest;
 
     constructor(){
         this.isCompleted = false;
