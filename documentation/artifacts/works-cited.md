@@ -1,24 +1,20 @@
 # Works Cited
 
-www.unitconverters.net
-* For checking Energy and Pressure conversions
-
-www.lucidchart.come
--For Case, State, and Class diagram creation
-
-www.agantty.com
--For creating/generating the Gantt chart
+* www.unitconverters.net: For checking Energy and Pressure conversions
+* www.lucidchart.com: For Case, State, and Class diagram creation
+* www.agantty.com: For creating/generating the Gantt chart
 
 Wilson, Anna. “Bernoulli's Equation Breakdown.” Spahr Library, Lawrence, 4 Nov. 2019.
--notes provided by consultant
+* notes provided by consultant
 
 Nevers, Noel De. Fluid Mechanics for Chemical Engineers. McGraw-Hill Higher Education, 2005.
--Textbook for constant/conversion values and formula equations
+* Textbook for constant/conversion values and formula equations
 
 Purswani, Bhavyadeep. How to Get Value of Selected Radio Button Using JavaScript? 15 May 2019, https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/. Accessed 1 Dec. 2019.
-- Gui.getCheckedRadio() was adapted from this source.
+* Gui.getCheckedRadio() was adapted from this source.
 
-###Sources for Deployment Plan
+### Sources for Deployment Plan
+
 https://www.dreamhost.com/hosting/shared/
 -Dreamhost info
 
@@ -38,7 +34,8 @@ https://www.rankxl.com/100-day-traffic/
 -Ad revenue calculations
 
 
-###Sources for Maintenance Plan
+### Sources for Maintenance Plan
+
 https://money.usnews.com/careers/best-jobs/software-developer/salary 
 -software dev salaries
 
