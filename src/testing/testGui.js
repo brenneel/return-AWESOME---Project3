@@ -14,6 +14,7 @@ class TestGui extends Test {
 		
 		arr.push(this.createTest(this.testingCopyValue(), "copyValue"));
 		arr.push(this.createTest(this.testValOneEmpty(), "Testing valOneEmpty()"));
+		arr.push(this.createTest(this.testValNoneEmpty(), "Testing valNoneEmpty()"));
 
 		for(let i = 0; i < arr.length; i++){
             if(arr[i] == this.pass){
@@ -83,7 +84,32 @@ class TestGui extends Test {
 	/** Tests {@link Gui}'s valNoneEmpty() method.
 	 */
 	testValNoneEmpty() {
+		// none empty
+		GUI.m_formulaMenu.value = "PVNRT";
+		GUI.populateFormulaFields();
+		let elems = GUI.m_formulaFields.elements;
+		for(let i = 0; i < elems.length; i++) {
+			elems[i].value = i;
+		}
+		let passed1 = GUI.valNoneEmpty();
 		
+		// more than 1 nonempty
+		GUI.populateFormulaFields();
+		for(let i = 2; i < elems.length; i++) {
+			elems[i].value = i;
+		}
+		let passed2 = !(GUI.valNoneEmpty());
+		
+		// all empty
+		GUI.populateFormulaFields();
+		let passed3 = !(GUI.valNoneEmpty());
+		
+		if(passed1 && passed2 && passed3) {
+			return(this.pass);
+		}
+		else {
+			return(this.fail);
+		}
 	}
 	
 	/** Tests {@link Gui}'s valCSNs() method.
