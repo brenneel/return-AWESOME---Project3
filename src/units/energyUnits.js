@@ -44,7 +44,7 @@ class EnergyUnits {
     {
         let btu = 0.000;
         let joule = Number(joules);
-        btu = 0.000947867 * joule; //according to anna's textbook it only has 3sf, but more accurately is 947867
+        btu = 0.0009478171 * joule; //according to anna's textbook it only has 3sf, but more accurately is 947867
         return btu;
     }
 
@@ -56,7 +56,7 @@ class EnergyUnits {
     btuToJ(btu)
     {
         let btus = Number(btu);
-        let joule = 1055.05585262 * btus;
+        let joule = 1055.0558526 * btus;
         return joule;
     }
 
@@ -69,7 +69,7 @@ class EnergyUnits {
      {
          let cal = 0.000;
          let joule = Number(joules);
-         cal = 0.239 * joule;
+         cal = 0.0002388459 * joule;
          return cal;
      }
 
@@ -81,7 +81,7 @@ class EnergyUnits {
     calToJ(cal)
     {
         let cals = Number(cal);
-        let joules = cals * 4.1841;
+        let joules = cals * 4186.8;
         return joules;
     }
 
@@ -106,7 +106,7 @@ class EnergyUnits {
     eVToJ(eV)
     {
         let ev = Number(eV);
-        let joules = ev * 1.60256 * 10**-19;
+        let joules = ev * 1.60217733 * 10**-19;
         return joules;
     }
 
@@ -119,8 +119,7 @@ class EnergyUnits {
      {
          let ftlbf = 0.000;
          let joule = Number(joules);
-         let btu = this.jouleToBtu(joule);
-         ftlbf = 777.97 * btu;
+         ftlbf = 0.7375621493 * joule;
          return ftlbf;
      }
 
@@ -145,8 +144,7 @@ class EnergyUnits {
      {
          let hph = 0.000;
          let joule = Number(joules);
-         let btu = this.jouleToBtu(joule);
-         hph = 0.00039300 * btu;
+         hph = 3.776726714*10**-7 * joule;
          return hph;
      }
 
