@@ -2,13 +2,13 @@
  * Primary testing class for running all tests
  */
 class Testing{
-    isCompleted;
-
-    fAbsTest;
-    fSolTest;
-    fPressTest;
-    fPowTest;
-    fViscoTest;
+    isCompleted; /** Determines if all testing is complete */
+    fAbsTest;   /** Variable representing {@link TestFormulasAbs} */
+    fSolTest;   /** Variable representing {@link TestFormulasSol} */
+    fPressTest; /** Variable representing {@link TestPressureUnits} */
+    fPowTest;   /** Variable representing {@link TestPowerUnits} */
+    fViscoTest; /** Variable representing {@link TestViscosityUnits} */
+    fEnerTest;  /** Variable representing {@link TestEnergyUnits}*/
 
     constructor(){
         this.isCompleted = false;
@@ -18,10 +18,12 @@ class Testing{
         this.fPressTest = new TestPressureUnits();
         this.fPowTest = new TestPowerUnits();
         this.fViscoTest = new TestViscosityUnits();
-
+        // this.fEnerTest = new TestEnergyUnits();
     }
     
-    
+    /**
+     * Runs all of the tests in the test suite
+     */
     run(){
         let result = "";
         let count = 0;
@@ -33,6 +35,8 @@ class Testing{
         arr.push(this.fPressTest.run());
         arr.push(this.fPowTest.run());
         arr.push(this.fViscoTest.run());
+        // arr.push(this.fEnerTest.run());
+
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == "SUCCESS"){
                 count++;
@@ -47,6 +51,12 @@ class Testing{
         this.updateState(result, count, arr.length);
     }
     
+    /**
+     * Updates the state of the class table based on is completed
+     * @param {String} result: Final status of the test state
+     * @param {Number} succeeded: Number of tests that succeeded in the test suite.
+     * @param {Number} total: Number of tests run by the test suite.
+     */
     updateState(result = "FAILURE", succeeded = 0, total = 0){
         if(this.isCompleted == false){
             document.getElementById("testState").innerHTML = "Running";
@@ -58,6 +68,9 @@ class Testing{
         }
     }
 
+    /**
+     * Initializes the class table
+     */
     initTesting(){
         let temp = document.getElementById("classTable").innerHTML;
 		temp +="<tr><td>All Tests</td>";
