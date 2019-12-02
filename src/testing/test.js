@@ -16,12 +16,11 @@ class Test{
 		this.addTestSet();
 	}
 
+	/**
+	 * Default run function called in {@link Testing}
+	 */
 	run(){
 		return this.unkno;
-	}
-
-	runHelper(){
-
 	}
 
 	/**
@@ -74,14 +73,28 @@ class Test{
 		return result;
 	}
 	
+	/**
+	 * Function called in constructor to create a new test set.
+	 */
 	addTestSet(){
 		let temp = document.getElementById("classTable").innerHTML;
 		temp +="<tr><td>" + this.className + "</td>";
-		temp += "<td id='" + this.className + "'></td></tr>";
+		temp += "<td id='" + this.className + ":result'></td>";
+		temp += "<td style='text-align:center' id='" + this.className + ":succeeded'></td>";
+		temp += "<td style='text-align:center' id='" + this.className + ":total'></td>"
+		temp += "</tr>";
 		document.getElementById("classTable").innerHTML = temp;
 	}
 
-	updateTestSet(result){
-		document.getElementById(this.className).innerHTML = result;
+	/**
+	 * Updates a test set
+	 * @param {String} result: result of the entire test set. Should be pass, fail, or unkno. 
+	 * @param {Number} succeeded: Number of tests that succeeded in test set.
+	 * @param {Number} total: Total number of tests run by test set. 
+	 */
+	updateTestSet(result, succeeded, total){
+		document.getElementById(this.className + ":result").innerHTML = result;
+		document.getElementById(this.className + ":succeeded").innerHTML = succeeded;
+		document.getElementById(this.className + ":total").innerHTML = total;
 	}
 }

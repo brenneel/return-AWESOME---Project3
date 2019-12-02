@@ -1,58 +1,60 @@
+/**
+ * A series of tests for evaluating the contents of Viscosity Units
+ */
 class TestViscosityUnits extends Test {
-    testValues;
-    expectedValues;
-    tolerance;
-    viscos;
+    testValues; /** An array of values to test in all functions*/
+    expectedValues; /** An array of the values expected from each function */
+    tolerance;  /** Error tolerance to account for source rounding */
+    viscos; /** Variable representing {@link ViscosityUnits} */
     constructor(){
         super("ViscosityUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
-        this.tolerance = 0.001; // this is in percent
+        this.tolerance = 0.001; // this is a percentage
         this.viscos = new ViscosityUnits();
     }
 
     run(){
-        //addtest
-        //let temp = Object.getOwnPropertyNames(this.viscos);
-        //console.log(temp);
-        //updateTest
+        let arr = new Array();
+        let count = 0;
+        let result = "";
 
-        this.addTest("CPtoP");
-        this.addTest("pToCP");
-        this.addTest("cPtoGramCentiSec");
-        this.addTest("gramCentiSecToCP");
-        this.addTest("cPtoDyne");
-        this.addTest("dyneToCP");
-        this.addTest("cPtoN");
-        this.addTest("NtoCP");
-        this.addTest("cPtoPaS");
-        this.addTest("paSToCP");
-        this.addTest("cPtoKgMs");
-        this.addTest("kgMsToCP");
-        this.addTest("cPtolbmFtS");
-        this.addTest("lbmFtStoCP");
-        this.addTest("cPtolbfSft");
-        this.addTest("lbfSftToCP");
+        arr.push(this.createTest(this.testingCPtoP(0), "CPtoP"));
+        arr.push(this.createTest(this.testingPToCP(1), "pToCP"));
+        arr.push(this.createTest(this.testingCPtoGramCentiSec(2), "cPtoGramCentiSec"));
+        arr.push(this.createTest(this.testingGramCentiSecToCP(3), "gramCentiSecToCP"));
+        arr.push(this.createTest(this.testingCPtoDyne(4), "cPtoDyne"));
+        arr.push(this.createTest(this.testingDyneToCP(5), "dyneToCP"));
+        arr.push(this.createTest(this.testingCPtoN(6), "cPtoN"));
+        arr.push(this.createTest(this.testingNtoCP(7), "NtoCP"));
+        arr.push(this.createTest(this.testingCPtoPaS(8), "cPtoPaS"));
+        arr.push(this.createTest(this.testingPaSToCP(9), "paSToCP"));
+        arr.push(this.createTest(this.testingCPtoKgMs(10), "cPtoKgMs"));
+        arr.push(this.createTest(this.testingKgMsToCP(11), "kgMsToCP"));
+        arr.push(this.createTest(this.testingCPtolbmFtS(12), "cPtolbmFtS"));
+        arr.push(this.createTest(this.testingLbmFtStoCP(13), "lbmFtStoCP"));
+        arr.push(this.createTest(this.testingCPtolbfSft(14), "cPtolbfSft"));
+        arr.push(this.createTest(this.testingLbfSftToCP(15), "lbfSftToCP"));
 
-        this.updateTest("CPtoP", this.testingCPtoP(0));
-        this.updateTest("pToCP", this.testingPToCP(1));
-        this.updateTest("cPtoGramCentiSec", this.testingCPtoGramCentiSec(2));
-        this.updateTest("gramCentiSecToCP", this.testingGramCentiSecToCP(3));
-        this.updateTest("cPtoDyne", this.testingCPtoDyne(4));
-        this.updateTest("dyneToCP", this.testingDyneToCP(5));
-        this.updateTest("cPtoN", this.testingCPtoN(6));
-        this.updateTest("NtoCP", this.testingNtoCP(7));
-        this.updateTest("cPtoPaS", this.testingCPtoPaS(8));
-        this.updateTest("paSToCP", this.testingPaSToCP(9));
-        this.updateTest("cPtoKgMs", this.testingCPtoKgMs(10));
-        this.updateTest("kgMsToCP", this.testingKgMsToCP(11));
-        this.updateTest("cPtolbmFtS", this.testingCPtolbmFtS(12));
-        this.updateTest("lbmFtStoCP", this.testingLbmFtStoCP(13));
-        this.updateTest("cPtolbfSft", this.testingCPtolbfSft(14));
-        this.updateTest("lbfSftToCP", this.testingLbfSftToCP(15));
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
+
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result, count, arr.length);
+        return result;
     }
 
-     /*Begin function testing*/
+     
+    /*Begin function testing*/
+
+
     /**
      * checks unit conversions with expected values for cP to P
      * @param {num} j
@@ -74,7 +76,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for P to cP
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -95,7 +98,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-  /**
+  
+    /**
      * checks unit conversions with expected values for cP to g/cm s 
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -116,7 +120,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for g/cm s to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -159,7 +164,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+
+    /**
      * checks unit conversions with expected values for dyne s/cm^2  to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -181,7 +187,7 @@ class TestViscosityUnits extends Test {
         return(this.fail);
     }
 
-     /**
+    /**
      * checks unit conversions with expected values for cP to N * s/m^2
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -202,7 +208,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+
+    /**
      * checks unit conversions with expected values for Newton sec per sq meter to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -224,8 +231,7 @@ class TestViscosityUnits extends Test {
         return(this.fail);
     }
 
-    
-     /**
+    /**
      * checks unit conversions with expected values for cP to pascal sec
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -246,7 +252,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for  pascal sec  to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -268,7 +275,7 @@ class TestViscosityUnits extends Test {
         return(this.fail);
     }
     
-         /**
+    /**
      * checks unit conversions with expected values for cP to kilogram/meter-sec
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -289,7 +296,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for kg / m s  to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -311,7 +319,7 @@ class TestViscosityUnits extends Test {
         return(this.fail);
     }
 
-        /**
+    /**
      * checks unit conversions with expected values forcP to lbm/ ft*s
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -332,7 +340,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for Newton Poise to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -354,7 +363,7 @@ class TestViscosityUnits extends Test {
         return(this.fail);
     }
 
-     /**
+    /**
      * checks unit conversions with expected values for cP to lbf* s/ft^2
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -375,7 +384,8 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * checks unit conversions with expected values for lbf* s/ft^2 to cp
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -396,5 +406,4 @@ class TestViscosityUnits extends Test {
             return(this.pass);
         return(this.fail);
     }
-    //end testing file
 }

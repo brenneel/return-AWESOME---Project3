@@ -1,75 +1,69 @@
+/**
+ * A series of tests for evaluating the contents of PressureUnits
+ */
 class TestPressureUnits extends Test{
-    testValues;
-    expectedValues;
-    tolerance;
-    unit;
+    testValues; /** An array of values to test in all functions*/
+    expectedValues; /** An array of the values expected from each function */
+    tolerance; /** Error tolerance to account for source rounding */
+    unit; /** Variable representing {@link PressureUnits} */
     constructor(){
         super("PressureUnits");
         this.testValues = [0.000000001234, 1024.123456, 987654];
         this.expectedValues = [];
-        this.tolerance = 0.001; //this is in percent
+        this.tolerance = 0.001; //this is a percentage
         this.unit = new PressureUnits();
+        
         //expected values are taken from unitconverters.net/pressure-converter.html
     }
 
+    /**
+     * Runs all of the tests in PressureUnits
+     */
     run(){
-        console.log("Pressure tests start");
-        this.addTest("AtmoTokPa");
-        this.addTest("kPaToAtmo");
-        this.addTest("AtmoToPa");
-        this.addTest("PaToAtmo");
-        this.addTest("AtmoToBar");
-        this.addTest("BarToAtmo");
-        this.addTest("AtmoToPoundPerSquaredInch");
-        this.addTest("PoundPerSquaredInchToAtmo");
-        this.addTest("AtmoToFootWater");
-        this.addTest("FootWaterToAtmo");
-        this.addTest("AtmoToMercInch");
-        this.addTest("MercInchToAtmo");
-        this.addTest("AtmoToMercMM");
-        this.addTest("MercMMToAtmo");
-        this.addTest("AtmoToKgf");
-        this.addTest("KgfToAtmo");
-        this.addTest("AtmoToMeterWater");
-        this.addTest("MeterWaterToAtmo");
-        this.addTest("AtmoToTorr");
-        this.addTest("TorrToAtmo");
-        this.addTest("AtmoToPsi");
-        this.addTest("PsiToAtmo");
-        this.addTest("AtmoToInchWater");
-        this.addTest("InchWaterToAtmo");
-        this.addTest("AtmoToDynePerCM");
-        this.addTest("DynePerCMToAtmo");
+        let arr = new Array();
+        let count = 0;
+        let result = "";
 
+        arr.push(this.createTest(this.testingAtmoTokPa(0), "AtmoTokPa"));
+        arr.push(this.createTest(this.testingkPaToAtmo(1), "kPaToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToPa(2), "AtmoToPa"));
+        arr.push(this.createTest(this.testingPaToAtmo(3), "PaToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToBar(4), "AtmoToBar"));
+        arr.push(this.createTest(this.testingBarToAtmo(5), "BarToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToPoundPerSquaredInch(6), "AtmoToPoundPerSquaredInch"));
+        arr.push(this.createTest(this.testingPoundPerSquaredInchToAtmo(7), "PoundPerSquaredInchToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToFootWater(8), "AtmoToFootWater"));
+        arr.push(this.createTest(this.testingFootWaterToAtmo(9), "FootWaterToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToMercInch(10), "AtmoToMercInch"));
+        arr.push(this.createTest(this.testingMercInchToAtmo(11), "MercInchToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToMercMM(12), "AtmoToMercMM"));
+        arr.push(this.createTest(this.testingMercMMToAtmo(13), "MercMMToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToKgf(14), "AtmoToKgf"));
+        arr.push(this.createTest(this.testingKgfToAtmo(15), "KgfToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToMeterWater(16), "AtmoToMeterWater"));
+        arr.push(this.createTest(this.testingMeterWaterToAtmo(17), "MeterWaterToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToTorr(18), "AtmoToTorr"));
+        arr.push(this.createTest(this.testingTorrToAtmo(19), "TorrToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToPsi(20), "AtmoToPsi"));
+        arr.push(this.createTest(this.testingPsiToAtmo(21), "PsiToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToInchWater(22), "AtmoToInchWater"));
+        arr.push(this.createTest(this.testingInchWaterToAtmo(23), "InchWaterToAtmo"));
+        arr.push(this.createTest(this.testingAtmoToDynePerCM(24), "AtmoToDynePerCM"));
+        arr.push(this.createTest(this.testingDynePerCMToAtmo(25), "DynePerCMToAtmo"));
+        
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
 
-        this.updateTest("AtmoTokPa",this.testingAtmoTokPa(0));
-        this.updateTest("kPaToAtmo", this.testingkPaToAtmo(1));
-        this.updateTest("AtmoToPa", this.testingAtmoToPa(2));
-        this.updateTest("PaToAtmo",this.testingPaToAtmo(3));
-        this.updateTest("AtmoToBar", this.testingAtmoToBar(4));
-        this.updateTest("BarToAtmo", this.testingBarToAtmo(5));
-        this.updateTest("AtmoToPoundPerSquaredInch",this.testingAtmoToPoundPerSquaredInch(6));
-        this.updateTest("PoundPerSquaredInchToAtmo", this.testingPoundPerSquaredInchToAtmo(7));
-        this.updateTest("AtmoToFootWater", this.testingAtmoToFootWater(8));
-        this.updateTest("FootWaterToAtmo", this.testingFootWaterToAtmo(9));
-        this.updateTest("AtmoToMercInch", this.testingAtmoToMercInch(10));
-        this.updateTest("MercInchToAtmo", this.testingMercInchToAtmo(11));
-        this.updateTest("AtmoToMercMM", this.testingAtmoToMercMM(12));
-        this.updateTest("MercMMToAtmo", this.testingMercMMToAtmo(13));
-        this.updateTest("AtmoToKgf", this.testingAtmoToKgf(14));
-        this.updateTest("KgfToAtmo", this.testingKgfToAtmo(15));
-        this.updateTest("AtmoToMeterWater", this.testingAtmoToMeterWater(16));
-        this.updateTest("MeterWaterToAtmo", this.testingMeterWaterToAtmo(17));
-        this.updateTest("AtmoToTorr", this.testingAtmoToTorr(18));
-        this.updateTest("TorrToAtmo", this.testingTorrToAtmo(19));
-        this.updateTest("AtmoToPsi", this.testingAtmoToPsi(20));
-        this.updateTest("PsiToAtmo", this.testingPsiToAtmo(21));
-        this.updateTest("AtmoToInchWater", this.testingAtmoToInchWater(22));
-        this.updateTest("InchWaterToAtmo", this.testingInchWaterToAtmo(23));
-        this.updateTest("AtmoToDynePerCM", this.testingAtmoToDynePerCM(24));
-        this.updateTest("DynePerCMToAtmo", this.testingDynePerCMToAtmo(25));
-     
-        console.log("Pressure tests end");
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result, count, arr.length);
+        return result;
     }
 
     /*Begin function testing*/
@@ -95,6 +89,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * checks unit conversions with expected values for kPa to atmo
      * @param {num} j
@@ -119,7 +114,7 @@ class TestPressureUnits extends Test{
     }
 
 
-/**
+    /**
      * atmo to Pa checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -140,6 +135,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to Pa checking with expected values
      * @param {num} j
@@ -161,6 +157,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to bar checking with expected values
      * @param {num} j
@@ -182,6 +179,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * bar to atmo checking with expected values
      * @param {num} j
@@ -203,6 +201,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to poundPerSquareInch checking with expected values
      * @param {num} j
@@ -224,6 +223,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * poundpersquaredinch to atmo checking with expected values
      * @param {num} j
@@ -245,6 +245,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to foot water checking with expected values
      * @param {num} j
@@ -288,7 +289,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-/**
+
+    /**
      * atmo to merc inch checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -309,6 +311,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * merc inch to atmo checking with expected values
      * @param {num} j
@@ -330,6 +333,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to merc mm checking with expected values
      * @param {num} j
@@ -351,7 +355,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * merc mm to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -372,7 +377,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-      /**
+      
+    /**
      * atmo to kgf checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -393,6 +399,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+    
     /**
      * atmo to kgf checking with expected values
      * @param {num} j
@@ -437,7 +444,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * atmo to meter water checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -457,8 +465,9 @@ class TestPressureUnits extends Test{
         if(passed)
             return(this.pass);
         return(this.fail);
-     }
-     /**
+    }
+     
+    /**
      * atmo to torr checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -479,7 +488,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * torr to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -500,6 +510,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to psi checking with expected values
      * @param {num} j
@@ -521,6 +532,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * psi to atmo checking with expected values
      * @param {num} j
@@ -542,6 +554,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * atmo to inch water checking with expected values
      * @param {num} j
@@ -563,6 +576,7 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
+
     /**
      * inch water to atmo checking with expected values
      * @param {num} j
@@ -606,7 +620,8 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-     /**
+     
+    /**
      * dyne to atmo checking with expected values
      * @param {num} j
      * @return {Boolean} pass or fail
@@ -627,6 +642,4 @@ class TestPressureUnits extends Test{
             return(this.pass);
         return(this.fail);
     }
-
-//this is the end of the file brace
 }

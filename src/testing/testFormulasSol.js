@@ -13,11 +13,27 @@ class TestFormulasSol extends Test{
      * Runs all of the tests in FormulaSol
      */
     run(){
-        this.createTest(this.testReynoldsNumber(), "Reynolds Number");
-        this.createTest(this.testFrictionFactor(), "Friction Factor");
-        // this.createTest(this.testTempV(), "Testing V");
-        this.createTest(this.testBernoullisEquation(), "Bernoullis Equation");
-        return this.fail;
+        let arr = new Array();
+        let count = 0;
+        let result = "";
+
+        arr.push(this.createTest(this.testReynoldsNumber(), "Reynolds Number"));
+        arr.push(this.createTest(this.testFrictionFactor(), "Friction Factor"));
+        arr.push(this.createTest(this.testBernoullisEquation(), "Bernoullis Equation"));
+
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] == this.pass){
+                count++;
+            }
+        }
+
+        if(count == arr.length){
+            result = this.pass;
+        }else{
+            result = this.fail;
+        }
+        this.updateTestSet(result, count, arr.length);
+        return result;
     }
 
     /**
@@ -65,24 +81,10 @@ class TestFormulasSol extends Test{
         return this.fail;
     }
 
-    testTempV(){
-        //Non-iterative V
-        // curTest = initTest + "Non-Iterative V";
-        let initArr = ["p1", "p2", "z1", "z2", "w", "L", "v", "D", "f", "rho", "gamma", "K", "epsilon", "isK"];
-        let obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
-        delete obj.v;
-        let sol = 1.63485;
-        // this.addTest(curTest);
-        this.conLog("V", this.fSol.bernoullisSoft("v", initArr, obj));
-        if(this.fSol.bernoullisSoft("v", initArr, obj).toFixed(5) == sol){
-            return this.pass;
-        }else{
-            return this.fail;
-        }
-    }
-
+    /**
+     * Tests bernoullis equation for accuracy. evaluates p1 at isK = false, p2 at isK = true, del p, del z, w, non-iterative v, and the iterative v
+     */
     testBernoullisEquation(){
-        // let initObj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
         let obj = {p1: 4, p2: 3, z1:10, z2:3, w:6, v:2, f: 10, L: 5, D: 4, rho: 6, gamma: 7, K: [1, 2, 3], epsilon: 10, isK: false};
         let initTest = "Bernoulis Equation - ";
         let curTest = "";
@@ -168,7 +170,6 @@ class TestFormulasSol extends Test{
         delete obj.v;
         sol = 1.63485;
         this.addTest(curTest);
-        // this.conLog("V", this.fSol.bernoullisSoft("v", initArr, obj));
         if(this.fSol.bernoullisSoft("v", initArr, obj).toFixed(5) == sol){
             count++;
             this.updateTest(curTest, this.pass);
@@ -182,11 +183,10 @@ class TestFormulasSol extends Test{
         obj = {p1:2.1e5, p2:0, z1:0, z2:0, w:0, v:2, f: 10, L:150, D:0.062, rho:998.2, gamma:1.077e-5, K: [0, 0], epsilon:0.00004572, isK: false};
         delete obj.v;
         delete obj.f;
-        sol = 2.87;
+        sol = 2.717;
         this.addTest(curTest);
         let temp = this.fSol.bernoullisEquation(obj);
-        this.conLog("Iterative Bernoulli's", temp);
-        if(temp.toFixed(2) == sol){
+        if(temp.toFixed(3) == sol){
             count++;
             this.updateTest(curTest, this.pass);
         }else{
@@ -200,6 +200,5 @@ class TestFormulasSol extends Test{
         }else{
             return this.unkno;
         }
-        return this.pass;
     }
 }
