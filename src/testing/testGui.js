@@ -17,6 +17,7 @@ class TestGui extends Test {
 		arr.push(this.createTest(this.testValNoneEmpty(), "Testing valNoneEmpty()"));
 		arr.push(this.createTest(this.testSwitchToFaveConv(), "Testing switchToFaveConv()"));
 		arr.push(this.createTest(this.testValCSNs(), "Testing ValCSNs()"));
+		arr.push(this.createTest(this.testSetFavConv(), "Testing setFavConv()"));
 		arr.push(this.createTest(this.testInputsEmpty(), "Testing inputsEmpty()"));
 		arr.push(this.createTest(this.testFindEmptyInput(), "Testing findEmptyInput()"));
 
@@ -225,8 +226,22 @@ class TestGui extends Test {
 	 */
 	
 	
-	/** Tests {@link Gui}'s () method.
+	/** Tests {@link Gui}'s setFavConv() method.
 	 */
+	testSetFavConv() {
+		GUI.m_unitAMenu.value = "erg";
+		GUI.m_unitBMenu.value= "kWh";
+		GUI.m_catMenu.value = "ENERGY_UNITS";
+		GUI.setFaveConv();
+		if (GUI.m_faves.unitA == "erg" && GUI.m_faves.unitB == "kWh" && GUI.m_faves.category == "ENERGY_UNITS")
+		{
+			return this.pass;
+		}
+		else
+		{
+			return this.fail;
+		}
+	}
 
 	/**
 	 * Tests {@link Gui}'s switch to fav conv method
@@ -238,7 +253,7 @@ class TestGui extends Test {
 		GUI.m_faves.category = "ENERGY_UNITS";
 
 		GUI.switchToFaveConv();
-		if (GUI.m_unitAMenu.value == "erg" && GUI.m_faves.unitB == "kWh" && GUI.m_faves.category == "ENERGY_UNITS")
+		if (GUI.m_unitAMenu.value == "erg" && GUI.m_unitBMenu == "kWh" && GUI.m_catMenu.value == "ENERGY_UNITS")
 		{
 			return this.pass;
 		}
